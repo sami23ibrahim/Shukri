@@ -1,0 +1,40 @@
+{
+  "navbar": {
+    "beschwerden": "Beschwerden & Diagnosen",
+    "leistungen": "Leistungen",
+    "spezielleTherapien": "Spezielle Therapien",
+    "medizinBereiche": "Medizin-Bereiche",
+    "ueberMich": "Über mich",
+    "blog": "Blog",
+    "meinBuch": "Mein Buch",
+    "appointment": "Termin buchen"
+  },
+  "Infusions": {
+    "title": "Infusions"
+  },
+  "services": {
+    "vitaminC": "Vitamin C",
+    "vitaminC_desc": "Vitamin C Infusionen für Energie, Immunsystem und Wohlbefinden."
+  },
+  "services_mobile": {
+    "items": {
+      "VitaminC": "Vitamin C",
+      "service1": "Service 1",
+      "service2": "Service 2",
+      "service3": "Service 3",
+      "service4": "Service 4",
+      "service5": "Service 5",
+      "service6": "Service 6"
+    }
+  },
+  "grid_hover": {
+    "items": {
+      "grid1": "Grid 1",
+      "grid2": "Grid 2",
+      "grid3": "Grid 3",
+      "grid4": "Grid 4",
+      "grid5": "Grid 5",
+      "grid6": "Grid 6"
+    }
+  }
+}
