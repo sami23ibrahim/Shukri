@@ -10,9 +10,12 @@ import OurPhilosophy from '../Components/OurPhilosophy.js';
 import NewGridHoverEffect from '../Components/NewGridHoverEffect.js';
 import ScrolledLines from "../Components/ScrolledLines";
 import ScrollCards from "../Components/ScrollCards";
+import ScrollCardsMobile from "../Components/ScrollCardsMobile";
 import Carousel3D from "../Components/Carousel3D";
 import FanCards from "../Components/FanCards";
+import FanCardsMobile from "../Components/FanCardsMobile";
 import FlipGrid from "../Components/FlipGrid";
+import MobileImageSlider from "../Components/MobileImageSlider";
 function Home() {
   const isMobile = useIsMobile();
   console.log("isMobile:", isMobile, "innerWidth:", window.innerWidth, "innerHeight:", window.innerHeight);
@@ -36,6 +39,7 @@ function Home() {
 
     <div className="bg-black min-h-screen">
      
+     {isMobile && <MobileImageSlider />}
      <HeroLine />
     
      
@@ -62,13 +66,13 @@ function Home() {
 
 
      {/* Scroll Cards */}
-     <ScrollCards />
+     {isMobile ? <ScrollCardsMobile /> : <ScrollCards />}
 
      {/* 3D Carousel */}
      <Carousel3D />
 
      {/* Fan Cards */}
-     <FanCards />
+     {isMobile ? <FanCardsMobile /> : <FanCards />}
 
      {/* Flip Grid */}
      <FlipGrid />

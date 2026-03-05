@@ -66,12 +66,11 @@ const NewServicesCardsMobile2 = () => {
   };
 
   const cards = [
-    { title: "service1", bg: "bg-[#11c583]", img: Shukr },
-    { title: "service2", bg: "bg-[#11c583]", img: Shukr },
-    { title: "service3", bg: "bg-[#11c583]", img: Shukr },
-    { title: "service4", bg: "bg-[#11c583]", img: Shukr },
-    { title: "service5", bg: "bg-[#11c583]", img: Shukr },
-    { title: "service6", bg: "bg-[#11c583]", img: Shukr },
+    { title: "service1", bg: "bg-[#636060]", img: Shukr },
+    { title: "service3", bg: "bg-[#636060]", img: Shukr },
+    { title: "service4", bg: "bg-[#636060]", img: Shukr },
+    { title: "service5", bg: "bg-[#636060]", img: Shukr },
+    { title: "service6", bg: "bg-[#636060]", img: Shukr },
   ];
 
   const cardHeight = isLandscape ? 220 : 340;
@@ -80,8 +79,6 @@ const NewServicesCardsMobile2 = () => {
 
   return (
     <div
-    className="relative flex flex-col justify-items-start items-center bg-[#11c583] overflow-visible max-w-screen"
-
       className="relative flex flex-col justify-items-start items-center bg-[#000000] overflow-visible max-w-screen"
       style={{ minHeight }}
     >
