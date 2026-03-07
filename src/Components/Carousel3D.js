@@ -24,7 +24,7 @@ function Carousel3D() {
 
   useEffect(() => {
     if (paused) return;
-    const id = setInterval(() => setAngle((a) => a - 0.15), 16);
+    const id = setInterval(() => setAngle((a) => a - 0.25), 16);
     return () => clearInterval(id);
   }, [paused]);
 
