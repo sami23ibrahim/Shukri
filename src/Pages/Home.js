@@ -6,9 +6,12 @@ import NewServicesCardsMobile from "../Components/NewServicesCardsMobile";
 import NewServicesCardsMobile2 from "../Components/NewServicesCardsMobile2";
 
 import HeroLine from "../Components/text";
-import OurPhilosophy from '../Components/OurPhilosophy.js';
 import NewGridHoverEffect from '../Components/NewGridHoverEffect.js';
+import NewGridHoverEffectMobile from '../Components/NewGridHoverEffectMobile.js';
 import ScrolledLines from "../Components/ScrolledLines";
+import ScrolledLinesV2 from "../Components/ScrolledLinesV2";
+import ScrolledLinesV3 from "../Components/ScrolledLinesV3";
+
 import ScrollCards from "../Components/ScrollCards";
 import ScrollCardsMobile from "../Components/ScrollCardsMobile";
 import Carousel3D from "../Components/Carousel3D";
@@ -39,44 +42,42 @@ function Home() {
 
     <div className="bg-black min-h-screen">
      
-     {isMobile && <MobileImageSlider />}
+     {/* {isMobile && <MobileImageSlider />}
      <HeroLine />
     
-     
+      */}
    
-
-    <div id="services">
-        {isMobile ? <NewServicesCardsMobile2 /> : <ServicesCardssmaller2 />}
-      </div>
+   <ScrolledLinesV3 />
+   
       
 
-      <ScrolledLines />
-
-
-      <div id="services">
-        <NewGridHoverEffect />
-      </div> 
+    <div id="services">
+        {isMobile ? <NewGridHoverEffectMobile /> : <NewGridHoverEffect />}
+      </div>
+  
+    {/* Fan Cards */}
+    {isMobile ? <FanCardsMobile /> : <FanCards />}
 
     
 
-      
-        <div id="services">
-        <OurPhilosophy/>
-      </div>
+    {/* 3D Carousel */}
+    <Carousel3D />
 
+
+
+{/* Flip Grid */}
+     <FlipGrid />
 
      {/* Scroll Cards */}
      {isMobile ? <ScrollCardsMobile /> : <ScrollCards />}
 
-     {/* 3D Carousel */}
-     <Carousel3D />
+    
 
-     {/* Fan Cards */}
-     {isMobile ? <FanCardsMobile /> : <FanCards />}
+ 
 
-     {/* Flip Grid */}
-     <FlipGrid />
-
+     
+     <ScrolledLinesV2 />
+     <ScrolledLines />
 
 
 

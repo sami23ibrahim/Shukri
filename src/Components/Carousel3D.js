@@ -1,45 +1,68 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Shukr from "../Assets/Shukr.jpg";
+import insta from "../Assets/insta.webp";
+import fb from "../Assets/fb.png";
+import tiktok from "../Assets/tiktok.png";
+import ln from "../Assets/ln.png";
 
-const cards = [
-  { image: Shukr, label: "Review 1" },
-  { image: Shukr, label: "Review 2" },
-  { image: Shukr, label: "Review 3" },
-  { image: Shukr, label: "Review 4" },
-  { image: Shukr, label: "Review 5" },
-  { image: Shukr, label: "Review 6" },
-  { image: Shukr, label: "Review 7" },
+const uniqueCards = [
+  { image: ln, label: "Review 1" },
+  { image: insta, label: "Review 2" },
+  { image: fb, label: "Review 3" },
+  { image: tiktok, label: "Review 4" },
 ];
+
+const cards = [...uniqueCards, ...uniqueCards];
 
 function Carousel3D() {
   const [angle, setAngle] = useState(0);
   const [paused, setPaused] = useState(false);
+  const touchStartX = useRef(0);
+  const touchLastAngle = useRef(0);
   const count = cards.length;
   const sliceAngle = 360 / count;
 
   useEffect(() => {
     if (paused) return;
-    const id = setInterval(() => setAngle((a) => a - 0.1), 16);
+    const id = setInterval(() => setAngle((a) => a - 0.15), 16);
     return () => clearInterval(id);
   }, [paused]);
 
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-  const radius = isMobile ? 180 : 320;
-  const cardWidth = isMobile ? "160px" : "240px";
-  const cardHeight = isMobile ? "220px" : "320px";
+  const radius = isMobile ? 340 : 380;
+  const cardWidth = isMobile ? "180px" : "240px";
+  const cardHeight = isMobile ? "260px" : "320px";
+
+  const handleTouchStart = (e) => {
+    setPaused(true);
+    touchStartX.current = e.touches[0].clientX;
+    touchLastAngle.current = angle;
+  };
+
+  const handleTouchMove = (e) => {
+    const diff = e.touches[0].clientX - touchStartX.current;
+    setAngle(touchLastAngle.current + diff * 0.5);
+  };
+
+  const handleTouchEnd = () => {
+    setPaused(false);
+  };
 
   return (
     <section className="relative bg-black min-h-screen flex flex-col items-center justify-center overflow-hidden">
       <h2 className="text-white text-3xl md:text-4xl font-bold text-center mb-16">
-        Was unsere Patienten sagen
+        Social media
       </h2>
 
       <div
         className="mx-auto"
         style={{
           perspective: "1200px",
-          height: isMobile ? "280px" : "400px",
+          height: isMobile ? "420px" : "400px",
         }}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
         <div
           className="relative w-full h-full"

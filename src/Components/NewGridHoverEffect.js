@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import Shukr from "../Assets/Shukr.jpg";
+import vid from "../Assets/vid.mp4";
 
 const NewGridHoverEffect = () => {
   const { t, i18n } = useTranslation(); // Get translation function
@@ -11,12 +12,39 @@ const NewGridHoverEffect = () => {
 
   // Define the data inside the component
   const data2 = [
-    { title: "grid1", image: Shukr, video: "/Assets/vid.mp4" },
-    { title: "grid2", image: Shukr, video: "/Assets/vid.mp4" },
-    { title: "grid3", image: Shukr, video: "/Assets/vid.mp4" },
-    { title: "grid4", image: Shukr, video: "/Assets/vid.mp4" },
-    { title: "grid5", image: Shukr, video: "/Assets/vid.mp4" },
-    { title: "grid6", image: Shukr, video: "/Assets/vid.mp4" },
+    {
+      title: "grid1",
+      label: "Beratung",
+      subtitle: "Ganzheitliche Anamnese & Behandlungsplan",
+      location: "Online & in Berlin",
+      image: Shukr,
+      video: vid,
+    },
+    {
+      title: "grid2",
+      label: "Diagnostik",
+      subtitle: 'Die Mehrwert bringt "Weit über Standardlabore"',
+      location: "Berlin",
+      image: Shukr,
+      video: vid,
+    },
+    {
+      title: "grid3",
+      label: "Infusion",
+      subtitle: "individuelle Mischungen & extra speziell bei uns:",
+      bullets: ["Ketamin Therapie", "Schimmel Therapie"],
+      location: "Berlin",
+      image: Shukr,
+      video: vid,
+    },
+    {
+      title: "grid4",
+      label: "Mentoring",
+      subtitle: "Behandlungsplan mit Leichtigkeit umsetzen (Ernährung, Bewegung, Stressmanagement, Detox)",
+      location: "Online & in Berlin",
+      image: Shukr,
+      video: vid,
+    },
   ];
 
   useEffect(() => {
@@ -40,11 +68,7 @@ const NewGridHoverEffect = () => {
     };
   }, []);
 
-  // Split the data into chunks of 3 for each row
-  const rows = [];
-  for (let i = 0; i < data2.length; i += 3) {
-    rows.push(data2.slice(i, i + 3));
-  }
+  const rows = [data2];
 
   return (
     <div
@@ -54,18 +78,21 @@ const NewGridHoverEffect = () => {
         backgroundColor: bgColor,
         transition: "background-color 1.2s ease",
         paddingBottom: "180px", // Keeps existing spacing
-        paddingTop: "10px", // Keeps existing spacing
+        paddingTop: "10px",
       }}
     >
+      <h2 className="text-white text-3xl md:text-4xl font-bold text-center mb-8 mt-8">
+        Unsere Leistungen
+      </h2>
       {rows.map((row, rowIndex) => (
-        <div key={rowIndex} className="flex flex-wrap gap-1">
+        <div key={rowIndex} className="flex gap-1">
           {row.map((item, index) => {
-            const globalIndex = index + rowIndex * 3; // Unique index across all rows
+            const globalIndex = index;
             return (
               <div
                 key={globalIndex}
                 className={`relative overflow-hidden rounded-lg transition-all duration-700 ${
-                  Math.floor(globalIndex / 3) === Math.floor(hoveredIndex / 3)
+                  true
                     ? hoveredIndex === globalIndex
                       ? "flex-[1.2] z-10"
                       : hoveredIndex !== null
@@ -74,8 +101,8 @@ const NewGridHoverEffect = () => {
                     : "flex-1"
                 }`}
                 style={{
-                  height: "270px",
-                  marginLeft: "10px",
+                  height: "400px",
+                  marginLeft: "2px",
                 }}
                 onMouseEnter={() => setHoveredIndex(globalIndex)} // Set the unique index
                 onMouseLeave={() => setHoveredIndex(null)} // Reset hover state
@@ -96,17 +123,26 @@ const NewGridHoverEffect = () => {
                     className="w-full h-full object-cover"
                   />
                 )}
-                {/* Overlay */}
-                <div className="absolute inset-0 flex items-start justify-start mt-4 ml-8">
-                  <h3
-                    className="text-[white] text-2xl font-bold"
-                    style={{
-                      fontSize: i18n.language === "de" ? "1.7rem" : "2rem", // Adjust German text size
-                    }}
-                  >
-                    {t(`grid_hover.items.${item.title}`)}
+                <div className="absolute top-6 left-8 right-4">
+                  <h3 className="text-white font-bold uppercase text-3xl">
+                    {item.label}
                   </h3>
                 </div>
+                <div className="absolute left-8 right-4" style={{ top: "200px" }}>
+                  <p className="text-white text-base">{item.subtitle}</p>
+                  {item.bullets && (
+                    <ul className="text-white text-base list-disc list-inside mt-1">
+                      {item.bullets.map((b, j) => (
+                        <li key={j}>{b}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+                {item.location && (
+                  <div className="absolute right-4 bottom-6">
+                    <p className="text-white text-base font-semibold text-right">{item.location}</p>
+                  </div>
+                )}
               </div>
             );
           })}

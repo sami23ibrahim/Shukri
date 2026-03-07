@@ -2,9 +2,32 @@ import { useState, useEffect, useRef } from "react";
 import Shukr from "../Assets/Shukr.jpg";
 
 const cardData = [
-  { image: Shukr, label: "Card 1" },
-  { image: Shukr, label: "Card 2" },
-  { image: Shukr, label: "Card 3" },
+  {
+    image: Shukr,
+    label: "Körperliche Symptome",
+    title: "Körperliche Symptome",
+    items: ["Ursachen & Zusammenhänge", "Diagnostik", "Plan + Umsetzung"],
+  },
+  {
+    image: Shukr,
+    label: "Prävention & Longevity",
+    title: "Prävention & Longevity",
+    items: [
+      "Genetik: dein persönlicher Blueprint",
+      "Biofeedback: HRV & CGM",
+      "Longevity-Plan: Ernährung · Biohacking · Infusionen",
+    ],
+  },
+  {
+    image: Shukr,
+    label: "Psychische Beschwerden",
+    title: "Psychische Beschwerden",
+    items: [
+      "Ketamin-assistierte Therapie",
+      "Biodynamische Psychotherapie",
+      "Verhaltenstherapie",
+    ],
+  },
 ];
 
 function FanCards() {
@@ -22,8 +45,8 @@ function FanCards() {
   }, []);
 
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-  const cardW = isMobile ? 180 : 280;
-  const cardH = isMobile ? 250 : 380;
+  const cardW = isMobile ? 240 : 360;
+  const cardH = isMobile ? 340 : 460;
 
   const positions = [
     { x: -(cardW * 1), rotate: 0, z: 0, scale: 0.88 },
@@ -37,7 +60,7 @@ function FanCards() {
       className="relative bg-black min-h-screen flex flex-col items-center justify-center overflow-hidden px-4"
     >
       <h2 className="text-white text-3xl md:text-4xl font-bold text-center mb-20">
-        Unsere Leistungen
+        Get started in three ways
       </h2>
 
       <div
@@ -72,9 +95,18 @@ function FanCards() {
               <img
                 src={card.image}
                 alt={card.label}
-                className="w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover"
                 draggable={false}
               />
+              <div className="absolute inset-0 bg-black/50" />
+              <div className="absolute inset-0 flex flex-col justify-end p-4 text-white">
+                <h3 className="text-lg font-bold mb-2">{card.title}</h3>
+                <ul className="text-sm space-y-1 opacity-90 list-disc list-inside">
+                  {card.items.map((item, j) => (
+                    <li key={j}>{item}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           );
         })}

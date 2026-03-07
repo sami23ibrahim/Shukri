@@ -2,9 +2,32 @@ import { useState, useEffect, useRef } from "react";
 import Shukr from "../Assets/Shukr.jpg";
 
 const cardData = [
-  { image: Shukr, label: "Card 1" },
-  { image: Shukr, label: "Card 2" },
-  { image: Shukr, label: "Card 3" },
+  {
+    image: Shukr,
+    label: "Körperliche Symptome",
+    title: "Körperliche Symptome",
+    items: ["Ursachen & Zusammenhänge", "Diagnostik", "Plan + Umsetzung"],
+  },
+  {
+    image: Shukr,
+    label: "Prävention & Longevity",
+    title: "Prävention & Longevity",
+    items: [
+      "Genetik: dein persönlicher Blueprint",
+      "Biofeedback: HRV & CGM",
+      "Longevity-Plan: Ernährung · Biohacking · Infusionen",
+    ],
+  },
+  {
+    image: Shukr,
+    label: "Psychische Beschwerden",
+    title: "Psychische Beschwerden",
+    items: [
+      "Ketamin-assistierte Therapie",
+      "Biodynamische Psychotherapie",
+      "Verhaltenstherapie",
+    ],
+  },
 ];
 
 const SWIPE_THRESHOLD = 50;
@@ -38,8 +61,8 @@ function FanCardsMobile() {
     }
   };
 
-  const cardW = 220;
-  const cardH = 300;
+  const cardW = 280;
+  const cardH = 380;
   const sideScale = 0.75;
   const peekWidth = 50;
 
@@ -80,7 +103,7 @@ function FanCardsMobile() {
       onTouchEnd={handleTouchEnd}
     >
       <h2 className="text-white text-2xl font-bold text-center mb-12">
-        Unsere Leistungen
+        Get started in three ways
       </h2>
 
       <div
@@ -115,9 +138,18 @@ function FanCardsMobile() {
               <img
                 src={card.image}
                 alt={card.label}
-                className="w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover"
                 draggable={false}
               />
+              <div className="absolute inset-0 bg-black/50" />
+              <div className="absolute inset-0 flex flex-col justify-end p-3 text-white">
+                <h3 className="text-base font-bold mb-1">{card.title}</h3>
+                <ul className="text-xs space-y-0.5 opacity-90 list-disc list-inside">
+                  {card.items.map((item, j) => (
+                    <li key={j}>{item}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           );
         })}
