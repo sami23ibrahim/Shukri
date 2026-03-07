@@ -98,7 +98,7 @@ function FanCards() {
                 className="absolute inset-0 w-full h-full object-cover"
                 draggable={false}
               />
-              <div className="absolute inset-0 bg-black/50" />
+              <div className="absolute inset-0 bg-black/20" />
               <div className="absolute inset-0 flex flex-col justify-end p-4 text-white">
                 <h3 className="text-lg font-bold mb-2">{card.title}</h3>
                 <ul className="text-sm space-y-1 opacity-90 list-disc list-inside">

@@ -9,7 +9,7 @@ const NewGridHoverEffectMobile = () => {
 
   const data = [
     {
-      label: "Beratung",
+      label: "Ganzheitliche Beratung",
       subtitle: "Ganzheitliche Anamnese & Behandlungsplan",
       location: "Online & in Berlin",
       image: Shukr,
@@ -31,7 +31,7 @@ const NewGridHoverEffectMobile = () => {
       video: vid,
     },
     {
-      label: "Mentoring",
+      label: "Ärztliches Mentoring",
       subtitle: "Behandlungsplan mit Leichtigkeit umsetzen (Ernährung, Bewegung, Stressmanagement, Detox)",
       location: "Online & in Berlin",
       image: Shukr,
@@ -76,35 +76,36 @@ const NewGridHoverEffectMobile = () => {
                 className="absolute inset-0 w-full h-full object-cover"
               />
             )}
-            <div
-              className={`absolute inset-0 flex flex-col px-6 ${
-                isExpanded ? "justify-start pt-5" : "justify-center"
-              }`}
-            >
-              <h3
-                className="text-white font-bold uppercase"
-                style={{
-                  fontSize: isExpanded ? "1.6rem" : "1.4rem",
-                }}
-              >
-                {item.label}
-              </h3>
-              {isExpanded && (
-                <div className="mt-3 text-white">
-                  <p className="text-sm opacity-90">{item.subtitle}</p>
+            {isExpanded ? (
+              <>
+                <div className="absolute top-5 left-6 right-4">
+                  <h3 className="text-white font-bold uppercase text-2xl">
+                    {item.label}
+                  </h3>
+                </div>
+                <div className="absolute left-6 right-4" style={{ top: "160px" }}>
+                  <p className="text-white text-sm">{item.subtitle}</p>
                   {item.bullets && (
-                    <ul className="text-sm opacity-90 list-disc list-inside mt-1">
+                    <ul className="text-white text-sm list-disc list-inside mt-1">
                       {item.bullets.map((b, j) => (
                         <li key={j}>{b}</li>
                       ))}
                     </ul>
                   )}
-                  {item.location && (
-                    <p className="text-sm font-semibold mt-4">{item.location}</p>
-                  )}
                 </div>
-              )}
-            </div>
+                {item.location && (
+                  <div className="absolute right-4 bottom-4">
+                    <p className="text-white text-sm font-semibold text-right">{item.location}</p>
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="absolute inset-0 flex items-center px-6">
+                <h3 className="text-white font-bold uppercase text-xl">
+                  {item.label}
+                </h3>
+              </div>
+            )}
           </div>
         );
       })}

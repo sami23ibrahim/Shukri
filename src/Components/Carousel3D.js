@@ -30,8 +30,8 @@ function Carousel3D() {
 
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
   const radius = isMobile ? 340 : 380;
-  const cardWidth = isMobile ? "180px" : "240px";
-  const cardHeight = isMobile ? "260px" : "320px";
+  const cardWidth = isMobile ? "140px" : "190px";
+  const cardHeight = isMobile ? "160px" : "210px";
 
   const handleTouchStart = (e) => {
     setPaused(true);

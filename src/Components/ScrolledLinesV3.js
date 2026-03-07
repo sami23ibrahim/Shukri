@@ -75,7 +75,7 @@ function ScrolledLinesV2({ lines = defaultLines }) {
     };
   }, [lines]);
 
-  const sectionHeight = `${100 + (lines.length - 1) * 60}vh`;
+  const sectionHeight = `${100 + (lines.length - 1) * 30}vh`;
 
   return (
     <section ref={sectionRef} className="relative" style={{ height: sectionHeight }}>
@@ -88,7 +88,7 @@ function ScrolledLinesV2({ lines = defaultLines }) {
           loop
           playsInline
         />
-        <div className="absolute inset-0 bg-black/60 z-[1]" />
+        <div className="absolute inset-0 bg-black/40 z-[1]" />
       <div className="relative z-[2] flex h-full items-center justify-center px-4">
         <div className="w-full max-w-5xl text-center">
           {lines.map((line, index) => {

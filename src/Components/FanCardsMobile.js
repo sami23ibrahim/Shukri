@@ -141,7 +141,7 @@ function FanCardsMobile() {
                 className="absolute inset-0 w-full h-full object-cover"
                 draggable={false}
               />
-              <div className="absolute inset-0 bg-black/50" />
+              <div className="absolute inset-0 bg-black/20" />
               <div className="absolute inset-0 flex flex-col justify-end p-3 text-white">
                 <h3 className="text-base font-bold mb-1">{card.title}</h3>
                 <ul className="text-xs space-y-0.5 opacity-90 list-disc list-inside">
