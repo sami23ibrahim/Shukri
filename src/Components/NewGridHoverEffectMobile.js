@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import Shukr from "../Assets/Shukr.jpg";
 import vid from "../Assets/vid.mp4";
@@ -6,6 +6,8 @@ import vid from "../Assets/vid.mp4";
 const NewGridHoverEffectMobile = () => {
   const { i18n } = useTranslation();
   const [expandedIndex, setExpandedIndex] = useState(null);
+  const [visible, setVisible] = useState([false, false, false, false]);
+  const containerRef = useRef(null);
 
   const data = [
     {
@@ -39,9 +41,32 @@ const NewGridHoverEffectMobile = () => {
     },
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          data.forEach((_, i) => {
+            setTimeout(() => {
+              setVisible((prev) => {
+                const next = [...prev];
+                next[i] = true;
+                return next;
+              });
+            }, i * 150);
+          });
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    if (containerRef.current) observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div
-      className="flex flex-col gap-2 w-full px-4 py-6"
+      ref={containerRef}
+      className="flex flex-col gap-2 w-full px-4 py-6 overflow-hidden"
       style={{ backgroundColor: "#000" }}
     >
       <h2 className="text-white text-2xl font-bold text-center mb-6">
@@ -52,9 +77,13 @@ const NewGridHoverEffectMobile = () => {
         return (
           <div
             key={index}
-            className="relative overflow-hidden rounded-xl transition-all duration-500 ease-in-out cursor-pointer"
+            className="relative overflow-hidden rounded-xl cursor-pointer"
             style={{
               height: isExpanded ? "280px" : "120px",
+              transform: visible[index] ? "translateY(0)" : "translateY(100px)",
+              opacity: visible[index] ? 1 : 0,
+              transition: "transform 0.6s ease-out, opacity 0.5s ease-out, height 0.5s ease-in-out",
+              willChange: "transform, opacity",
             }}
             onClick={() =>
               setExpandedIndex(isExpanded ? null : index)
