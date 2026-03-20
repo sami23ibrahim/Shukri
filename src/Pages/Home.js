@@ -42,11 +42,14 @@ function Home() {
 
     <div className="bg-black min-h-screen">
      
-     {/* {isMobile && <MobileImageSlider />}
+     {isMobile && <MobileImageSlider />}
      <HeroLine />
     
-      */}
-   
+      
+     <ServicesCardssmaller2 />
+
+
+
    <ScrolledLinesV3 />
    
       
