@@ -36,5 +36,122 @@
       "grid5": "Grid 5",
       "grid6": "Grid 6"
     }
+  },
+  "spezielleTherapien": {
+    "breadcrumb": "Special Therapies",
+    "hero": {
+      "title": "Special Therapies",
+      "subtitle": "Individual Consultation · 45 Minutes",
+      "description": "In a detailed consultation, we take the time to look at your dental health holistically. Together, we develop an individual treatment plan tailored to your needs and wishes.",
+      "cta": "Book Appointment",
+      "locationLabel": "Choose location",
+      "locationCta": "Select location"
+    },
+    "accordion": {
+      "a1": {
+        "title": "What can I expect?",
+        "content": "During your first consultation, we conduct a comprehensive examination and discuss your dental health in detail. We take the time to understand your wishes and concerns, and create a customized treatment plan. State-of-the-art diagnostics and compassionate care are at the heart of everything we do."
+      },
+      "a2": {
+        "title": "How do I prepare?",
+        "content": "Please bring your insurance card and, if available, any recent X-rays or findings. Feel free to note down any questions or concerns you'd like to discuss beforehand. No special preparation is necessary — we take care of everything else."
+      },
+      "a3": {
+        "title": "Prices & Insurance",
+        "content": "The costs for special therapies vary depending on the treatment. Many services are covered by private health insurance. For publicly insured patients, we are happy to provide a transparent cost estimate. Talk to us — we advise honestly and without hidden costs."
+      }
+    },
+    "grid": {
+      "title": "Our Specializations",
+      "subtitle": "Specialized treatments for your dental health — from prevention to aesthetics."
+    },
+    "therapies": {
+      "prophylaxe": {
+        "title": "Prevention & Care",
+        "desc": "Professional dental cleaning and individual prevention programs for long-term healthy teeth."
+      },
+      "implantologie": {
+        "title": "Implantology",
+        "desc": "High-quality dental implants as a permanent replacement for missing teeth — natural and durable."
+      },
+      "aesthetik": {
+        "title": "Aesthetic Dentistry",
+        "desc": "Veneers, whitening, and invisible corrections for your most beautiful smile."
+      },
+      "parodontologie": {
+        "title": "Periodontology",
+        "desc": "Treatment of gum diseases and preservation of the tooth support structure."
+      },
+      "endodontie": {
+        "title": "Endodontics",
+        "desc": "Modern root canal treatments to preserve your natural teeth."
+      },
+      "kieferorthopaedie": {
+        "title": "Orthodontics",
+        "desc": "Correcting misaligned teeth — with invisible aligners or classic methods."
+      }
+    },
+    "philosophy": {
+      "title": "Our Holistic Approach",
+      "p1": "At Die Drei Zahnärzte, we don't view dental health in isolation, but as part of your overall well-being. Our special therapies combine cutting-edge dentistry with a holistic understanding of health.",
+      "p2": "Every treatment plan is individually tailored to you. We take the time for thorough diagnostics, explain every step clearly, and personally accompany you through the entire treatment process."
+    },
+    "testimonials": {
+      "title": "What Our Patients Say",
+      "t1": {
+        "quote": "The consultation was incredibly thorough. I felt comfortable right away and knew exactly what to expect.",
+        "name": "Sarah M."
+      },
+      "t2": {
+        "quote": "Finally a practice that really takes its time. The implants look perfect and feel natural.",
+        "name": "Thomas K."
+      },
+      "t3": {
+        "quote": "After years of dental anxiety, this was my first positive experience at a dentist.",
+        "name": "Lisa W."
+      },
+      "t4": {
+        "quote": "Professional, empathetic, and up to date with the latest technology. Highly recommended!",
+        "name": "Michael R."
+      },
+      "t5": {
+        "quote": "The whitening result exceeded my expectations. The team is simply amazing.",
+        "name": "Anna S."
+      }
+    },
+    "focus": {
+      "s1": {
+        "title": "Micronutrients",
+        "desc": "We find out where you're lacking micronutrients and support you with the right supplements, infusions and nutritional advice so your cells can produce steady, sustainable energy."
+      },
+      "s2": {
+        "title": "Holistic Diagnostics",
+        "desc": "Using state-of-the-art diagnostics, we analyze your dental health in the overall context of your body and identify connections that others miss."
+      },
+      "s3": {
+        "title": "Regenerative Therapy",
+        "desc": "With regenerative procedures, we promote your body's natural healing and support the development of healthy dental and tissue structures."
+      },
+      "s4": {
+        "title": "Stress Reduction",
+        "desc": "Chronic stress directly impacts your dental health. We help you identify stress factors and offer treatments that relax body and mind."
+      },
+      "s5": {
+        "title": "Prevention & Longevity",
+        "desc": "Our preventive approach aims to stop problems before they arise — for lifelong healthy teeth and a strong immune system."
+      },
+      "s6": {
+        "title": "Holistic Wellness",
+        "desc": "We combine dentistry with holistic health promotion, creating a treatment experience that brings body and soul into harmony."
+      },
+      "s7": {
+        "title": "Immune Support",
+        "desc": "A strong immune system starts in the mouth. We strengthen your body's natural defenses through targeted therapies and support your natural resilience."
+      }
+    },
+    "bottomCta": {
+      "title": "Ready for Your Personal Consultation?",
+      "description": "Book an appointment now and get individual advice on our special therapies."
+    }
   }
 }

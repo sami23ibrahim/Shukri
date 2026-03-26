@@ -119,16 +119,16 @@ const Navbar = () => {
 								>
 									{t("navbar.leistungen")}
 								</button>
-								<button
-									onClick={() => handleNavigation("spezielle-therapien")}
+								<Link
+									to="/spezielle-therapien"
 									className={`${
 										isScrolled
 											? "text-gray-600 hover:text-gray-800"
 											: "text-white hover:text-gray-200"
-									} text-base transition-colors duration-200 focus:outline-none`}
+									} text-base transition-colors duration-200 focus:outline-none no-underline`}
 								>
 									{t("navbar.spezielleTherapien")}
-								</button>
+								</Link>
 								<button
 									onClick={() => handleNavigation("medizin-bereiche")}
 									className={`${
@@ -206,12 +206,13 @@ const Navbar = () => {
 						>
 							{t("navbar.leistungen")}
 						</button>
-						<button
-							onClick={() => handleNavigation("spezielle-therapien")}
-							className="text-4xl font-bold text-[#422f40] hover:text-[#5a3d54] transition-colors duration-200"
+						<Link
+							to="/spezielle-therapien"
+							className="text-4xl font-bold text-[#422f40] hover:text-[#5a3d54] transition-colors duration-200 no-underline"
+							onClick={() => setMenuOpen(false)}
 						>
 							{t("navbar.spezielleTherapien")}
-						</button>
+						</Link>
 						<button
 							onClick={() => handleNavigation("medizin-bereiche")}
 							className="text-4xl font-bold text-[#422f40] hover:text-[#5a3d54] transition-colors duration-200"

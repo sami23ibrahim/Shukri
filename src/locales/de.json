@@ -36,5 +36,122 @@
       "grid5": "Grid 5",
       "grid6": "Grid 6"
     }
+  },
+  "spezielleTherapien": {
+    "breadcrumb": "Spezielle Therapien",
+    "hero": {
+      "title": "Spezielle Therapien",
+      "subtitle": "Individuelle Beratung · 45 Minuten",
+      "description": "In einer ausführlichen Beratung nehmen wir uns Zeit, Ihre Zahngesundheit ganzheitlich zu betrachten. Gemeinsam entwickeln wir einen individuellen Behandlungsplan, der auf Ihre Bedürfnisse und Wünsche abgestimmt ist.",
+      "cta": "Termin vereinbaren",
+      "locationLabel": "Standort wählen",
+      "locationCta": "Standort auswählen"
+    },
+    "accordion": {
+      "a1": {
+        "title": "Was erwartet mich?",
+        "content": "In Ihrer ersten Beratung führen wir eine umfassende Untersuchung durch und besprechen Ihre Zahngesundheit im Detail. Wir nehmen uns Zeit, um Ihre Wünsche und Bedenken zu verstehen, und erstellen einen maßgeschneiderten Behandlungsplan. Modernste Diagnostik und eine einfühlsame Betreuung stehen dabei im Mittelpunkt."
+      },
+      "a2": {
+        "title": "Wie bereite ich mich vor?",
+        "content": "Bringen Sie bitte Ihre Versicherungskarte und, falls vorhanden, aktuelle Röntgenbilder oder Befunde mit. Notieren Sie sich gerne vorab Fragen oder Anliegen, die Sie besprechen möchten. Eine besondere Vorbereitung ist nicht notwendig — wir kümmern uns um alles Weitere."
+      },
+      "a3": {
+        "title": "Preise & Kostenübernahme",
+        "content": "Die Kosten für spezielle Therapien variieren je nach Behandlung. Viele Leistungen werden von privaten Krankenversicherungen übernommen. Für gesetzlich Versicherte erstellen wir gerne einen transparenten Kostenvoranschlag. Sprechen Sie uns an — wir beraten Sie ehrlich und ohne versteckte Kosten."
+      }
+    },
+    "grid": {
+      "title": "Unsere Schwerpunkte",
+      "subtitle": "Spezialisierte Behandlungen für Ihre Zahngesundheit — von Vorsorge bis Ästhetik."
+    },
+    "therapies": {
+      "prophylaxe": {
+        "title": "Prophylaxe & Vorsorge",
+        "desc": "Professionelle Zahnreinigung und individuelle Vorsorgeprogramme für langfristig gesunde Zähne."
+      },
+      "implantologie": {
+        "title": "Implantologie",
+        "desc": "Hochwertige Zahnimplantate als dauerhafter Ersatz für fehlende Zähne — natürlich und belastbar."
+      },
+      "aesthetik": {
+        "title": "Ästhetische Zahnheilkunde",
+        "desc": "Veneers, Bleaching und unsichtbare Korrekturen für Ihr schönstes Lächeln."
+      },
+      "parodontologie": {
+        "title": "Parodontologie",
+        "desc": "Behandlung von Zahnfleischerkrankungen und Erhalt des Zahnhalteapparats."
+      },
+      "endodontie": {
+        "title": "Endodontie",
+        "desc": "Moderne Wurzelkanalbehandlungen zum Erhalt Ihrer natürlichen Zähne."
+      },
+      "kieferorthopaedie": {
+        "title": "Kieferorthopädie",
+        "desc": "Zahnfehlstellungen korrigieren — mit unsichtbaren Alignern oder klassischen Methoden."
+      }
+    },
+    "philosophy": {
+      "title": "Unser ganzheitlicher Ansatz",
+      "p1": "Bei Die Drei Zahnärzte betrachten wir Zahngesundheit nicht isoliert, sondern als Teil Ihres gesamten Wohlbefindens. Unsere speziellen Therapien verbinden modernste Zahnmedizin mit einem ganzheitlichen Verständnis von Gesundheit.",
+      "p2": "Jeder Behandlungsplan wird individuell auf Sie zugeschnitten. Wir nehmen uns Zeit für eine gründliche Diagnostik, erklären jeden Schritt verständlich und begleiten Sie persönlich durch den gesamten Behandlungsprozess."
+    },
+    "testimonials": {
+      "title": "Was unsere Patienten sagen",
+      "t1": {
+        "quote": "Die Beratung war unglaublich gründlich. Ich habe mich sofort wohl gefühlt und wusste genau, was auf mich zukommt.",
+        "name": "Sarah M."
+      },
+      "t2": {
+        "quote": "Endlich eine Praxis, die sich wirklich Zeit nimmt. Die Implantate sehen perfekt aus und fühlen sich natürlich an.",
+        "name": "Thomas K."
+      },
+      "t3": {
+        "quote": "Nach Jahren der Angst vor dem Zahnarzt habe ich hier zum ersten Mal eine positive Erfahrung gemacht.",
+        "name": "Lisa W."
+      },
+      "t4": {
+        "quote": "Professionell, einfühlsam und auf dem neuesten Stand der Technik. Kann ich nur weiterempfehlen!",
+        "name": "Michael R."
+      },
+      "t5": {
+        "quote": "Das Bleaching-Ergebnis hat meine Erwartungen übertroffen. Das Team ist einfach großartig.",
+        "name": "Anna S."
+      }
+    },
+    "focus": {
+      "s1": {
+        "title": "Mikronährstoffe",
+        "desc": "Wir finden heraus, wo dir Mikronährstoffe fehlen und unterstützen dich mit den richtigen Nahrungsergänzungsmitteln, Infusionen und Ernährungsberatung, damit deine Zellen stetige, nachhaltige Energie produzieren können."
+      },
+      "s2": {
+        "title": "Ganzheitliche Diagnostik",
+        "desc": "Durch modernste Diagnostik analysieren wir deine Zahngesundheit im Gesamtkontext deines Körpers und erkennen Zusammenhänge, die anderen verborgen bleiben."
+      },
+      "s3": {
+        "title": "Regenerative Therapie",
+        "desc": "Mit regenerativen Verfahren fördern wir die natürliche Heilung deines Körpers und unterstützen den Aufbau gesunder Zahn- und Gewebestrukturen."
+      },
+      "s4": {
+        "title": "Stressreduktion",
+        "desc": "Chronischer Stress wirkt sich direkt auf deine Zahngesundheit aus. Wir helfen dir, Stressfaktoren zu identifizieren und bieten Behandlungen, die Körper und Geist entspannen."
+      },
+      "s5": {
+        "title": "Prävention & Langlebigkeit",
+        "desc": "Unser präventiver Ansatz zielt darauf ab, Probleme zu verhindern bevor sie entstehen — für lebenslang gesunde Zähne und ein starkes Immunsystem."
+      },
+      "s6": {
+        "title": "Ganzheitliche Wellness",
+        "desc": "Wir verbinden Zahnmedizin mit ganzheitlicher Gesundheitsförderung und schaffen eine Behandlungserfahrung, die Körper und Seele in Einklang bringt."
+      },
+      "s7": {
+        "title": "Immunstärkung",
+        "desc": "Ein starkes Immunsystem beginnt im Mund. Wir stärken deine körpereigene Abwehr durch gezielte Therapien und unterstützen deine natürliche Widerstandskraft."
+      }
+    },
+    "bottomCta": {
+      "title": "Bereit für Ihre persönliche Beratung?",
+      "description": "Vereinbaren Sie jetzt einen Termin und lassen Sie sich individuell zu unseren speziellen Therapien beraten."
+    }
   }
 }
