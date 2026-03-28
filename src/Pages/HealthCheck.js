@@ -419,7 +419,7 @@ function HealthCheck() {
             <div className="lg:w-[55%]">
               <div className="lg:sticky lg:top-28">
                 <div className="w-full aspect-[10/9] rounded-2xl overflow-hidden bg-[#c4b8a8]">
-                  <img src="/Assets/Shukr.jpg" alt="Health Check" className="w-full h-full object-cover" />
+                  <img src="/Assets/health-check.avif" alt="Health Check" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>

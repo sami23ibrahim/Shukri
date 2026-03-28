@@ -366,7 +366,7 @@ function SpezielleTherapien() {
                 className="w-full aspect-[4/4.5] rounded-2xl overflow-hidden"
                 style={{ backgroundColor: "#c4b8a8" }}
               >
-                <img src="/Assets/Shukr.jpg" alt="Beratung" className="w-full h-full object-cover" />
+                <img src="/Assets/special.avif" alt="Beratung" className="w-full h-full object-cover" />
               </div>
             </div>
 

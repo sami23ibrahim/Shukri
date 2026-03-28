@@ -42,25 +42,34 @@ const NewGridHoverEffectMobile = () => {
   ];
 
   useEffect(() => {
+    const timers = [];
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           data.forEach((_, i) => {
-            setTimeout(() => {
-              setVisible((prev) => {
-                const next = [...prev];
-                next[i] = true;
-                return next;
-              });
-            }, i * 150);
+            timers.push(
+              setTimeout(() => {
+                setVisible((prev) => {
+                  const next = [...prev];
+                  next[i] = true;
+                  return next;
+                });
+              }, i * 150)
+            );
           });
-          observer.disconnect();
+        } else {
+          timers.forEach(clearTimeout);
+          timers.length = 0;
+          setVisible([false, false, false, false]);
         }
       },
       { threshold: 0.15 }
     );
     if (containerRef.current) observer.observe(containerRef.current);
-    return () => observer.disconnect();
+    return () => {
+      timers.forEach(clearTimeout);
+      observer.disconnect();
+    };
   }, []);
 
   return (

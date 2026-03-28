@@ -43,7 +43,6 @@ function Home() {
     <div className="bg-[#FAF9F6] min-h-screen">
      
     
-     {isMobile && <MobileImageSlider />}
 
      <ScrolledLinesV3 />
      <ScrolledLines />

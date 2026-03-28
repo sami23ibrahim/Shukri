@@ -50,7 +50,8 @@ const ServicesCardssmaller2 = () => {
       const windowHeight = window.innerHeight;
       // Animation starts when section is still well below the viewport,
       // completes when section top reaches upper third
-      const start = windowHeight * 2.0;
+      const isMobileView = window.innerWidth < 768;
+      const start = windowHeight * (isMobileView ? 1.1 : 2.0);
       const end = windowHeight * 0.1;
       const progress = Math.min(1, Math.max(0, (start - rect.top) / (start - end)));
       setScrollProgress(progress);
@@ -90,9 +91,10 @@ const ServicesCardssmaller2 = () => {
           const gridRow = Math.floor(index / 4);
           // Final position: no transform
           // Initial: stacked in center, with offset and rotation
-          const translateX = (1 - scrollProgress) * card.targetX;
-          const translateY = (1 - scrollProgress) * card.targetY;
-          const rotate = (1 - scrollProgress) * card.rotate;
+          const mobileScale = window.innerWidth < 768 ? 0.35 : 1;
+          const translateX = (1 - scrollProgress) * card.targetX * mobileScale;
+          const translateY = (1 - scrollProgress) * card.targetY * mobileScale;
+          const rotate = (1 - scrollProgress) * card.rotate * mobileScale;
           return (
             <div
               key={index}
