@@ -24,11 +24,10 @@ const navIcons = {
 			<rect x="14" y="14" width="7" height="7" rx="1" strokeLinecap="round" strokeLinejoin="round" />
 		</svg>
 	),
-	medizinBereiche: (
+	infusions: (
 		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.3} className="w-6 h-6">
-			<path d="M12 2a5 5 0 015 5c0 4-5 7-5 7s-5-3-5-7a5 5 0 015-5z" strokeLinecap="round" strokeLinejoin="round" />
-			<circle cx="12" cy="7" r="1.5" fill="currentColor" stroke="none" />
-			<path d="M19.5 15c1.5.8 2.5 2 2.5 3.5 0 2.5-4.5 4.5-10 4.5S2 21 2 18.5c0-1.5 1-2.7 2.5-3.5" strokeLinecap="round" strokeLinejoin="round" />
+			<path d="M12 2v6M12 22v-8M12 14a4 4 0 100-8 4 4 0 000 8z" strokeLinecap="round" strokeLinejoin="round" />
+			<path d="M8 2h8" strokeLinecap="round" strokeLinejoin="round" />
 		</svg>
 	),
 	ueberMich: (
@@ -124,12 +123,13 @@ const Navbar = () => {
 	};
 
 	const NavItem = ({ onClick, icon, label, isLink, to }) => {
+		const isActive = isLink && location.pathname === to;
 		const inner = (
 			<>
-				<span className="text-[#2A2B2F]/50 group-hover:text-[#2A2B2F] transition-colors duration-300">
+				<span className={`${isActive ? "text-[#2e7d5b] scale-110" : "text-[#2A2B2F]/50"} group-hover:text-[#2e7d5b] transition-all duration-300`}>
 					{icon}
 				</span>
-				<span className="text-[12px] text-[#2A2B2F]/60 group-hover:text-[#2A2B2F] transition-colors duration-300">
+				<span className={`${isActive ? "text-[13px] text-[#2e7d5b] font-bold" : "text-[12px] text-[#2A2B2F]/60"} group-hover:text-[#2e7d5b] transition-all duration-300`}>
 					{label}
 				</span>
 			</>
@@ -183,11 +183,11 @@ const Navbar = () => {
 								<NavItem onClick={() => handleNavigation("beschwerden")} icon={navIcons.beschwerden} label={t("navbar.beschwerden")} />
 								<NavItem onClick={() => handleNavigation("services")} icon={navIcons.leistungen} label={t("navbar.leistungen")} />
 								<NavItem isLink to="/spezielle-therapien" icon={navIcons.spezielleTherapien} label={t("navbar.spezielleTherapien")} />
-								<NavItem onClick={() => handleNavigation("medizin-bereiche")} icon={navIcons.medizinBereiche} label={t("navbar.medizinBereiche")} />
+								<NavItem isLink to="/infusions" icon={navIcons.infusions} label={t("navbar.infusions")} />
+								<NavItem isLink to="/health-check" icon={navIcons.healthCheck} label={t("navbar.healthCheck")} />
 								<NavItem onClick={() => handleNavigation("ueber-mich")} icon={navIcons.ueberMich} label={t("navbar.ueberMich")} />
 								<NavItem isLink to="/blog" icon={navIcons.blog} label={t("navbar.blog")} />
 								<NavItem isLink to="/mein-buch" icon={navIcons.meinBuch} label={t("navbar.meinBuch")} />
-								<NavItem isLink to="/health-check" icon={navIcons.healthCheck} label={t("navbar.healthCheck")} />
 								<a
 									href="https://www.doctolib.de/zahnarztpraxis/berlin/die-drei-zahnaerzte/booking/specialities?profile_skipped=true&utm_source=die-drei-zahnaerzte-website-button&utm_medium=referral&utm_campaign=website-button&utm_content=option-8&bookingFunnelSource=external_referral"
 									target="_blank"
@@ -238,12 +238,20 @@ const Navbar = () => {
 						>
 							{t("navbar.spezielleTherapien")}
 						</Link>
-						<button
-							onClick={() => handleNavigation("medizin-bereiche")}
-							className="text-2xl font-light tracking-wide text-[#2A2B2F] hover:text-[#2A2B2F]/60 transition-colors duration-300"
+						<Link
+							to="/infusions"
+							className="text-2xl font-light tracking-wide text-[#2A2B2F] hover:text-[#2A2B2F]/60 transition-colors duration-300 no-underline"
+							onClick={() => setMenuOpen(false)}
 						>
-							{t("navbar.medizinBereiche")}
-						</button>
+							{t("navbar.infusions")}
+						</Link>
+						<Link
+							to="/health-check"
+							className="text-2xl font-light tracking-wide text-[#2A2B2F] hover:text-[#2A2B2F]/60 transition-colors duration-300 no-underline"
+							onClick={() => setMenuOpen(false)}
+						>
+							{t("navbar.healthCheck")}
+						</Link>
 						<button
 							onClick={() => handleNavigation("ueber-mich")}
 							className="text-2xl font-light tracking-wide text-[#2A2B2F] hover:text-[#2A2B2F]/60 transition-colors duration-300"
@@ -263,13 +271,6 @@ const Navbar = () => {
 							onClick={() => setMenuOpen(false)}
 						>
 							{t("navbar.meinBuch")}
-						</Link>
-						<Link
-							to="/health-check"
-							className="text-2xl font-light tracking-wide text-[#2A2B2F] hover:text-[#2A2B2F]/60 transition-colors duration-300 no-underline"
-							onClick={() => setMenuOpen(false)}
-						>
-							{t("navbar.healthCheck")}
 						</Link>
 
 						<div className="mt-10 flex flex-col items-center space-y-4">

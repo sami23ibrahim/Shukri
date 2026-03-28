@@ -331,21 +331,9 @@ function HealthCheck() {
   const { t } = useTranslation();
   const [activeFocus, setActiveFocus] = useState(0);
   const [openFaq, setOpenFaq] = useState(null);
-  const testimonialsRef = useRef(null);
-
   const includesAnim = useScrollFadeIn();
   const benefitsAnim = useScrollFadeIn();
-  const testimonialsAnim = useScrollFadeIn();
   const faqAnim = useScrollFadeIn();
-
-  const scrollTestimonials = (direction) => {
-    if (testimonialsRef.current) {
-      testimonialsRef.current.scrollBy({
-        left: direction === "left" ? -340 : 340,
-        behavior: "smooth",
-      });
-    }
-  };
 
   const focusAreas = [
     {
@@ -385,15 +373,6 @@ function HealthCheck() {
     { title: t("healthCheck.steps.s2.title"), description: t("healthCheck.steps.s2.desc") },
     { title: t("healthCheck.steps.s3.title"), description: t("healthCheck.steps.s3.desc") },
     { title: t("healthCheck.steps.s4.title"), description: t("healthCheck.steps.s4.desc") },
-  ];
-
-  const testimonials = [
-    { quote: t("healthCheck.testimonials.t1.quote"), name: t("healthCheck.testimonials.t1.name") },
-    { quote: t("healthCheck.testimonials.t2.quote"), name: t("healthCheck.testimonials.t2.name") },
-    { quote: t("healthCheck.testimonials.t3.quote"), name: t("healthCheck.testimonials.t3.name") },
-    { quote: t("healthCheck.testimonials.t4.quote"), name: t("healthCheck.testimonials.t4.name") },
-    { quote: t("healthCheck.testimonials.t5.quote"), name: t("healthCheck.testimonials.t5.name") },
-    { quote: t("healthCheck.testimonials.t6.quote"), name: t("healthCheck.testimonials.t6.name") },
   ];
 
   const faqs = [
@@ -634,41 +613,6 @@ function HealthCheck() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── TESTIMONIALS ── */}
-      <section ref={testimonialsAnim.ref} style={testimonialsAnim.style} className="pb-20 sm:pb-28">
-        <div className="max-w-4xl mx-auto px-5 sm:px-8">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2A2B2F]">
-              {t("healthCheck.testimonialsSection.title")}
-            </h2>
-            <div className="flex items-center space-x-1 bg-white rounded-full px-3 py-1.5 shadow-sm border border-gray-100">
-              <span className="text-sm font-bold text-[#2A2B2F]">4.9</span>
-              <StarIcon />
-              <span className="text-xs text-gray-400 ml-1">180+</span>
-            </div>
-          </div>
-        </div>
-        <div ref={testimonialsRef} className="overflow-x-auto scrollbar-hide">
-          <div className="flex space-x-4 px-5 sm:px-8 pb-4" style={{ paddingLeft: "max(1.25rem, calc((100vw - 56rem) / 2 + 1.25rem))" }}>
-            {testimonials.map((testimonial, i) => (
-              <TestimonialCard key={i} {...testimonial} />
-            ))}
-          </div>
-        </div>
-        <div className="flex items-center justify-center gap-3 mt-6">
-          <button onClick={() => scrollTestimonials("left")} className="w-9 h-9 flex items-center justify-center rounded-full bg-white border border-gray-200 shadow-sm hover:bg-gray-50 transition-colors cursor-pointer">
-            <svg className="w-4 h-4 text-[#2A2B2F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          <button onClick={() => scrollTestimonials("right")} className="w-9 h-9 flex items-center justify-center rounded-full bg-white border border-gray-200 shadow-sm hover:bg-gray-50 transition-colors cursor-pointer">
-            <svg className="w-4 h-4 text-[#2A2B2F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
         </div>
       </section>
 

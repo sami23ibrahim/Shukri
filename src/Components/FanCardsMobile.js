@@ -102,7 +102,7 @@ function FanCardsMobile() {
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      <h2 className="text-[#2A2B2F] text-2xl font-bold text-center mb-12">
+      <h2 className="text-[#2A2B2F] font-black leading-[0.85] tracking-tighter text-left mb-20 max-w-[50%] self-start ml-4" style={{ fontSize: "clamp(1.8rem, 9vw, 3.5rem)" }}>
         Get started in three ways
       </h2>
 

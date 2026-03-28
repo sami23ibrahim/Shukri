@@ -1,14 +1,16 @@
 
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import Shukr from "../Assets/Shukr.jpg";
 import vid from "../Assets/vid.mp4";
 
 const NewGridHoverEffect = () => {
-  const { t, i18n } = useTranslation(); // Get translation function
-  const [hoveredIndex, setHoveredIndex] = useState(null); // State for hover functionality
-  const [bgColor, setBgColor] = useState("#FAF9F6"); // Initial background color
+  const { t, i18n } = useTranslation();
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [bgColor, setBgColor] = useState("#FAF9F6");
+  const sectionRef = useRef(null);
+  const [visibleCards, setVisibleCards] = useState([false, false, false, false]);
 
   // Define the data inside the component
   const data2 = [
@@ -68,6 +70,38 @@ const NewGridHoverEffect = () => {
     };
   }, []);
 
+  useEffect(() => {
+    let timeouts = [];
+    const handleCardScroll = () => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      if (rect.top < windowHeight * 0.75 && rect.bottom > 0) {
+        data2.forEach((_, i) => {
+          const t = setTimeout(() => {
+            setVisibleCards(prev => {
+              const next = [...prev];
+              next[i] = true;
+              return next;
+            });
+          }, i * 150);
+          timeouts.push(t);
+        });
+      } else {
+        timeouts.forEach(clearTimeout);
+        timeouts = [];
+        setVisibleCards([false, false, false, false]);
+      }
+    };
+    window.addEventListener("scroll", handleCardScroll);
+    handleCardScroll();
+    return () => {
+      window.removeEventListener("scroll", handleCardScroll);
+      timeouts.forEach(clearTimeout);
+    };
+  }, []);
+
   const rows = [data2];
 
   return (
@@ -81,11 +115,11 @@ const NewGridHoverEffect = () => {
         paddingTop: "10px",
       }}
     >
-      <h2 className="text-[#2A2B2F] text-3xl md:text-4xl font-bold text-center mb-8 mt-8">
+      <h2 className="text-[#2A2B2F] font-black leading-[0.85] tracking-tighter text-left mb-16 mt-8 max-w-[50%]" style={{ fontSize: "clamp(2.2rem, 7vw, 6rem)" }}>
         Unsere Leistungen
       </h2>
       {rows.map((row, rowIndex) => (
-        <div key={rowIndex} className="flex gap-1">
+        <div key={rowIndex} ref={sectionRef} className="flex gap-1">
           {row.map((item, index) => {
             const globalIndex = index;
             return (
@@ -103,6 +137,9 @@ const NewGridHoverEffect = () => {
                 style={{
                   height: "400px",
                   marginLeft: "2px",
+                  opacity: visibleCards[globalIndex] ? 1 : 0,
+                  transform: visibleCards[globalIndex] ? "translateY(0)" : "translateY(60px)",
+                  transition: "opacity 0.6s ease-out, transform 0.6s ease-out, flex 0.7s ease",
                 }}
                 onMouseEnter={() => setHoveredIndex(globalIndex)} // Set the unique index
                 onMouseLeave={() => setHoveredIndex(null)} // Reset hover state

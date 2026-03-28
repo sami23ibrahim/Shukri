@@ -30,8 +30,8 @@ export default function HeroLine() {
   const [showKlarerPlan, setShowKlarerPlan] = useState(false);
 
   useEffect(() => {
-    const t1 = setTimeout(() => setShowUrsachen(true), 5500);
-    const t2 = setTimeout(() => setShowKlarerPlan(true), 9000);
+    const t1 = setTimeout(() => setShowUrsachen(true), 3000);
+    const t2 = setTimeout(() => setShowKlarerPlan(true), 5000);
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
@@ -49,7 +49,7 @@ export default function HeroLine() {
         >
         <p>Wir begleiten dich auf deiner Reise:</p>
         <p className="mt-2">
-          von chronischen <CrossedWord word="Beschwerden" strikeDelay="1.2s" />{" "}
+          von chronischen <CrossedWord word="Beschwerden" strikeDelay="0.8s" />{" "}
           hin zu chronischer Gesundheit!
         </p>
       </div>
@@ -61,11 +61,11 @@ export default function HeroLine() {
             showUrsachen ? "opacity-0 pointer-events-none" : "opacity-0 animate-fade-in-up"
           }`}
           style={{
-            animationDelay: "2.5s",
+            animationDelay: "1.5s",
             animationFillMode: "forwards",
           }}
         >
-          Bekämpfe nicht nur <CrossedWord word="Symptome." strikeDelay="3.5s" />
+          Bekämpfe nicht nur <CrossedWord word="Symptome." strikeDelay="2s" />
         </p>
         <p
           className={`text-2xl md:text-4xl font-semibold font-serif text-center text-[#2A2B2F] transition-opacity duration-500 ${
@@ -84,11 +84,11 @@ export default function HeroLine() {
             showKlarerPlan ? "opacity-0 pointer-events-none" : "opacity-0 animate-fade-in-up"
           }`}
           style={{
-            animationDelay: "6.5s",
+            animationDelay: "3.5s",
             animationFillMode: "forwards",
           }}
         >
-          Keine weiterer <CrossedWord word="eigenen Versuche." strikeDelay="7.5s" />
+          Keine weiterer <CrossedWord word="eigenen Versuche." strikeDelay="4s" />
         </p>
         <p
           className={`text-2xl md:text-4xl font-semibold font-serif text-center text-[#2A2B2F] transition-opacity duration-500 ${
@@ -103,7 +103,7 @@ export default function HeroLine() {
 
       {/* Right: Shukr image */}
       <div
-        className="flex-1 w-full lg:max-w-[50%] min-h-[40vh] lg:min-h-[80vh] rounded-2xl overflow-hidden bg-cover bg-center bg-no-repeat shadow-lg"
+        className="flex-1 w-full lg:max-w-[50%] min-h-[40vh] lg:min-h-[80vh] rounded-2xl overflow-hidden bg-cover bg-center bg-no-repeat shadow-lg mt-16 lg:mt-24"
         style={{
           backgroundImage: "url(/Assets/Shukr.jpg)",
           backgroundPosition: "center right",

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import HomeVideo from "../Components/HomeVideo";
 import useIsMobile from "../hooks/useIsMobile";
-import ServicesCardssmaller2 from "../Components/ServicesCardssmaller2";
 import NewServicesCardsMobile from "../Components/NewServicesCardsMobile";
 import NewServicesCardsMobile2 from "../Components/NewServicesCardsMobile2";
 
@@ -19,6 +18,7 @@ import FanCards from "../Components/FanCards";
 import FanCardsMobile from "../Components/FanCardsMobile";
 import FlipGrid from "../Components/FlipGrid";
 import MobileImageSlider from "../Components/MobileImageSlider";
+import Testimonials from "../Components/Testimonials";
 function Home() {
   const isMobile = useIsMobile();
   console.log("isMobile:", isMobile, "innerWidth:", window.innerWidth, "innerHeight:", window.innerHeight);
@@ -46,8 +46,6 @@ function Home() {
      <HeroLine />
     
       
-     <ServicesCardssmaller2 />
-
      <ScrolledLines />
 
   
@@ -72,7 +70,9 @@ function Home() {
      <FlipGrid />
 
      {/* Scroll Cards */}
-     {isMobile ? <ScrollCardsMobile /> : <ScrollCards />}
+     {/* {isMobile ? <ScrollCardsMobile /> : <ScrollCards />} */}
+
+     <Testimonials />
 
      <ScrolledLinesV3 />
 

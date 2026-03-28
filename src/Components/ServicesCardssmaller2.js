@@ -6,6 +6,7 @@ const ServicesCardssmaller2 = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [expandedIndex, setExpandedIndex] = useState(null);
   const expandedCardRef = useRef(null);
+  const sectionRef = useRef(null);
   const [scrollProgress, setScrollProgress] = useState(0);
 
   // Close expanded card on outside click only
@@ -40,15 +41,18 @@ const ServicesCardssmaller2 = () => {
     }
   }, [expandedIndex]);
 
-  // Scroll-based animation logic
+  // Scroll-based animation logic — relative to the component's position
   useEffect(() => {
     if (expandedIndex !== null) return;
     const handleScroll = () => {
-      const scrollY = window.scrollY;
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      const startPoint = windowHeight * 0.6;
-      const endPoint = windowHeight * 0.8;
-      const progress = Math.min(1, Math.max(0, (scrollY - startPoint) / (endPoint - startPoint)));
+      // Animation starts when section is still well below the viewport,
+      // completes when section top reaches upper third
+      const start = windowHeight * 2.0;
+      const end = windowHeight * 0.1;
+      const progress = Math.min(1, Math.max(0, (start - rect.top) / (start - end)));
       setScrollProgress(progress);
     };
     window.addEventListener("scroll", handleScroll);
@@ -58,22 +62,18 @@ const ServicesCardssmaller2 = () => {
 
   // Only use the first 8 cards for a 4x2 grid - all Vitamin C
   const cards = [
-    { title: t("services.vitaminC"), bg: "bg-gray-900", img: "/Assets/c.webp", description: t("services.vitaminC_desc"), targetX: -80, targetY: -40, rotate: -8 },
-    { title: t("services.vitaminC"), bg: "bg-gray-900", img: "/Assets/c.webp", description: t("services.vitaminC_desc"), targetX: 60, targetY: -60, rotate: 6 },
-    { title: t("services.vitaminC"), bg: "bg-gray-900", img: "/Assets/c.webp", description: t("services.vitaminC_desc"), targetX: -60, targetY: 60, rotate: 10 },
-    { title: t("services.vitaminC"), bg: "bg-gray-900", img: "/Assets/c.webp", description: t("services.vitaminC_desc"), targetX: 80, targetY: 40, rotate: -12 },
-    { title: t("services.vitaminC"), bg: "bg-gray-900", img: "/Assets/c.webp", description: t("services.vitaminC_desc"), targetX: -60, targetY: -60, rotate: 8 },
-    { title: t("services.vitaminC"), bg: "bg-gray-900", img: "/Assets/c.webp", description: t("services.vitaminC_desc"), targetX: 80, targetY: 60, rotate: -6 },
-    { title: t("services.vitaminC"), bg: "bg-gray-900", img: "/Assets/c.webp", description: t("services.vitaminC_desc"), targetX: -80, targetY: 40, rotate: 12 },
-    { title: t("services.vitaminC"), bg: "bg-gray-900", img: "/Assets/c.webp", description: t("services.vitaminC_desc"), targetX: 60, targetY: 80, rotate: -10 },
+    { title: "Multivitamin", bg: "bg-white", img: "/Assets/drip_multivitamin_a53f61d2c3.avif", duration: "45 min", oldPrice: "79 €", price: "67 €", perSession: "ab 53 € / Sitzung", popupTitle: "Multivitamin Infusion", popupDesc: "Unsere Multivitamin Infusion versorgt Ihren Körper mit allen essentiellen Vitaminen und Mineralstoffen für optimale Gesundheit und Vitalität.", popupPrice: "254 €", popupOldPrice: "299 €", popupPerSession: "Ab 203 €/Sitzung", benefits: ["Energie", "Immunsystem", "Vitalität"], targetX: -280, targetY: -500, rotate: -35 },
+    { title: t("services.vitaminC"), bg: "bg-white", img: "/Assets/drip_vitc_f7557cbb84.avif", duration: "45 min", oldPrice: "79 €", price: "67 €", perSession: "ab 53 € / Sitzung", popupTitle: "Vitamin C Infusion", popupDesc: "Unsere Vitamin C Infusion stärkt das Immunsystem, fördert die Kollagenbildung und schützt Ihre Zellen vor oxidativem Stress.", popupPrice: "254 €", popupOldPrice: "299 €", popupPerSession: "Ab 203 €/Sitzung", benefits: ["Immunsystem", "Hautgesundheit", "Zellschutz"], targetX: 120, targetY: -620, rotate: -12 },
+    { title: "Signature Defence", bg: "bg-white", img: "/Assets/drip_signature_defence_6532db62ee.avif", duration: "45 min", oldPrice: "79 €", price: "67 €", perSession: "ab 53 € / Sitzung", popupTitle: "Signature Defence Infusion", popupDesc: "Unsere Signature Defence Infusion stärkt Ihre natürlichen Abwehrkräfte und unterstützt den Körper bei der Bekämpfung von Infektionen.", popupPrice: "254 €", popupOldPrice: "299 €", popupPerSession: "Ab 203 €/Sitzung", benefits: ["Abwehrkräfte", "Regeneration", "Wohlbefinden"], targetX: -150, targetY: -350, rotate: 55 },
+    { title: "NAD+", bg: "bg-white", img: "/Assets/drip_nad_1969236622.avif", duration: "45 min", oldPrice: "79 €", price: "67 €", perSession: "ab 53 € / Sitzung", popupTitle: "NAD+ Infusion", popupDesc: "Unsere NAD+ Infusion kann die zelluläre Energieproduktion und Zellgesundheit fördern sowie zur Verbesserung der körperlichen und geistigen Leistungsfähigkeit beitragen.", popupPrice: "254 €", popupOldPrice: "299 €", popupPerSession: "Ab 203 €/Sitzung", benefits: ["Energie", "Konzentration & Gedächtnis", "Zellgesundheit"], targetX: 300, targetY: -480, rotate: -45 },
+    { title: "Glutathione", bg: "bg-white", img: "/Assets/drip_glutathione_4b6de816b8.avif", duration: "45 min", oldPrice: "79 €", price: "67 €", perSession: "ab 53 € / Sitzung", popupTitle: "Glutathione Infusion", popupDesc: "Unsere Glutathion Infusion ist das stärkste körpereigene Antioxidans und unterstützt die Entgiftung sowie den Schutz Ihrer Zellen.", popupPrice: "254 €", popupOldPrice: "299 €", popupPerSession: "Ab 203 €/Sitzung", benefits: ["Entgiftung", "Zellschutz", "Anti-Aging"], targetX: -250, targetY: -520, rotate: 32 },
+    { title: "VagusFit", bg: "bg-white", img: "/Assets/drip_vagusfit_8b75f8ed37.avif", duration: "45 min", oldPrice: "79 €", price: "67 €", perSession: "ab 53 € / Sitzung", popupTitle: "VagusFit Infusion", popupDesc: "Unsere VagusFit Infusion unterstützt das Nervensystem und fördert die Stressresistenz durch gezielte Nährstoffversorgung.", popupPrice: "254 €", popupOldPrice: "299 €", popupPerSession: "Ab 203 €/Sitzung", benefits: ["Stressabbau", "Nervensystem", "Entspannung"], targetX: 280, targetY: -450, rotate: -28 },
+    { title: "Spermidine", bg: "bg-white", img: "/Assets/drip_spermidine_2fed94ec8b.avif", duration: "45 min", oldPrice: "79 €", price: "67 €", perSession: "ab 53 € / Sitzung", popupTitle: "Spermidine Infusion", popupDesc: "Unsere Spermidin Infusion fördert die zelluläre Autophagie und unterstützt die natürlichen Erneuerungsprozesse Ihres Körpers.", popupPrice: "254 €", popupOldPrice: "299 €", popupPerSession: "Ab 203 €/Sitzung", benefits: ["Zellerneuerung", "Langlebigkeit", "Autophagie"], targetX: -270, targetY: -470, rotate: 48 },
+    { title: "Myers Cocktail", bg: "bg-white", img: "/Assets/drip_myers_5173c940cb.avif", duration: "45 min", oldPrice: "79 €", price: "67 €", perSession: "ab 53 € / Sitzung", popupTitle: "Myers Cocktail Infusion", popupDesc: "Der klassische Myers Cocktail kombiniert Vitamine und Mineralstoffe für einen umfassenden Gesundheitsboost und mehr Energie.", popupPrice: "254 €", popupOldPrice: "299 €", popupPerSession: "Ab 203 €/Sitzung", benefits: ["Energie", "Immunsystem", "Mineralstoffe"], targetX: 260, targetY: -530, rotate: -40 },
   ];
 
   return (
-    <div className="relative flex flex-col justify-center items-center bg-[#FAF9F6] overflow-hidden max-w-screen min-h-[60vh] pt-0 pb-16">
-      <h1 className="mt-0 mb-32 text-5xl font-bold text-[#2A2B2F] text-center z-5 tracking-tighter">
-
-        {t("Infusions.title")}
-      </h1>
+    <div ref={sectionRef} className="relative flex flex-col justify-center items-center bg-[#FAF9F6] max-w-screen min-h-[60vh] pt-0 pb-16" style={{ overflowX: 'clip', overflowY: 'visible' }}>
       {/* Blurred overlay when expanded */}
       {expandedIndex !== null && (
         <div className="fixed inset-0 bg-black/80 z-40 transition-opacity duration-200 ease-out will-change-opacity" />
@@ -99,7 +99,7 @@ const ServicesCardssmaller2 = () => {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
               onClick={() => setExpandedIndex(index)}
-              className={`w-full h-[280px] rounded-2xl shadow-lg flex flex-col items-center cursor-pointer transition-transform duration-500 relative ${card.bg}`}
+              className={`w-full h-[280px] rounded-2xl shadow-lg flex flex-col cursor-pointer transition-transform duration-500 relative ${card.bg}`}
               style={{
                 zIndex: hoveredIndex === index ? 70 : 10,
                 transform:
@@ -117,18 +117,36 @@ const ServicesCardssmaller2 = () => {
                   transitionDuration: "500ms",
                 }}
               />
-              <div className="relative z-10 flex flex-col w-full h-full p-1">
-                <div className="px-2 pt-2">
-                  <h2 className="font-bold text-xs md:text-lg text-white text-left">{card.title}</h2>
-                  <p className="text-white text-xs md:text-sm w-full text-left opacity-80 line-clamp-3">{card.description}</p>
+              <div className="relative z-10 flex flex-col w-full h-full">
+                <div className="w-full h-40 overflow-hidden rounded-t-2xl">
+                  <img
+                    src={card.img}
+                    alt={card.title}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <div className="relative w-full flex-1 flex items-end">
-                  <div className="w-full h-40 overflow-hidden rounded-b-2xl">
-                    <img
-                      src={card.img}
-                      alt={card.title}
-                      className="w-full h-full object-cover"
-                    />
+                <div className="flex flex-col flex-1 px-4 pt-3 pb-4">
+                  <h2 className="font-semibold text-base md:text-lg text-[#2A2B2F] text-left">{card.title}</h2>
+                  <div className="flex items-center gap-1.5 mt-1 text-[#2A2B2F]/50 text-xs md:text-sm">
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M12 6v6l4 2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span>{card.duration}</span>
+                  </div>
+                  <div className="flex items-end justify-between mt-auto">
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm text-[#2A2B2F]/40 line-through">{card.oldPrice}</span>
+                        <span className="text-lg font-bold text-[#2A2B2F]">{card.price}</span>
+                      </div>
+                      <span className="text-xs text-[#2A2B2F]/50">{card.perSession}</span>
+                    </div>
+                    <button className="w-10 h-10 rounded-full bg-[#2e7d5b] flex items-center justify-center hover:bg-[#256b4d] transition-colors">
+                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 5v14M5 12h14" />
+                      </svg>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -139,153 +157,98 @@ const ServicesCardssmaller2 = () => {
       {/* Expanded card overlay */}
       {expandedIndex !== null && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
-          <div className="absolute inset-0 bg-black/75 transition-opacity duration-200 ease-out will-change-opacity" />
+          <div className="absolute inset-0 bg-black/50 transition-opacity duration-200 ease-out" />
           <div
             ref={expandedCardRef}
-            className="relative flex flex-col items-center justify-center popup-animate"
+            className="relative bg-white rounded-3xl popup-animate flex flex-col overflow-hidden"
             style={{
-              width: "min(1050px, 95vw)",
-              height: "min(500px, 80vh)",
-              maxWidth: "98vw",
+              width: "min(500px, 92vw)",
               maxHeight: "90vh",
-              padding: 0,
+              boxShadow: "0 8px 40px 0 rgba(0,0,0,0.18)",
             }}
           >
-            <div
-              className={`absolute inset-0 ${cards[expandedIndex].bg} rounded-3xl transition-transform duration-500`}
-              style={{
-                boxShadow: "0 8px 40px 0 rgba(0,0,0,0.18)",
+            {/* Close button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setExpandedIndex(null);
               }}
-            />
-            <div className="relative z-10 flex flex-col w-full h-full p-0 items-stretch justify-stretch">
-              {/* Close button */}
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setExpandedIndex(null);
-                }}
-                className="absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 hover:bg-opacity-40 hover:scale-110 rounded-full transition-all duration-150 ease-out shadow-lg will-change-transform"
-              >
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-              
-              {/* Title on top */}
-              <h2 className="font-bold text-3xl md:text-4xl text-white px-6 pt-6 pb-2 w-full text-left pr-16">{cards[expandedIndex].title}</h2>
-              
-              {/* Image and description side by side */}
-              <div className="flex flex-row flex-1 w-full h-full gap-5 items-start justify-center px-6 pb-6">
-                {/* Image on the left - medium size */}
-                <div className="w-2/5 flex items-start justify-center h-full">
-                  <div className="w-full h-[320px] flex items-center justify-center overflow-hidden rounded-2xl">
-                    <img
-                      src={cards[expandedIndex].img}
-                      alt={cards[expandedIndex].title}
-                      className="object-cover h-full w-full"
-                    />
-                  </div>
-                </div>
-                
-                {/* Description on the right with scroll - more space */}
-                <div className="w-3/5 flex flex-col justify-start h-full">
-                  <div className="overflow-y-auto h-full pr-2" style={{ maxHeight: '320px' }}>
-                    {false ? (
-                      // Oral Surgery detailed content
-                      <div className="text-white space-y-4">
-                        <p className="text-base md:text-lg opacity-90 leading-relaxed">
-                          From a simple wisdom tooth removal to a precise <span className="font-semibold">apicoectomy (WSR)</span>, oral surgery at <em>die drei zahnärzte</em> is designed to be as gentle as possible. We combine high-resolution 3-D imaging with minimally invasive techniques, so we remove only what's necessary and leave healthy tissue untouched.
-                        </p>
-                        
-                        <div>
-                          <h3 className="text-lg md:text-xl font-bold mb-3">What to expect</h3>
-                          <ol className="space-y-3 text-sm md:text-base">
-                            <li className="flex">
-                              <span className="font-semibold mr-2">1.</span>
-                              <div>
-                                <span className="font-semibold text-yellow-300">Digital planning</span>: Cone-beam images show nerves, bone density and root shape before we start.
-                              </div>
-                            </li>
-                            <li className="flex">
-                              <span className="font-semibold mr-2">2.</span>
-                              <div>
-                                <span className="font-semibold text-yellow-300">Comfort first</span>: Local anesthetic keeps you relaxed throughout the procedure.
-                              </div>
-                            </li>
-                            <li className="flex">
-                              <span className="font-semibold mr-2">3.</span>
-                              <div>
-                                <span className="font-semibold text-yellow-300">PRGF® healing boost</span>: We place a small membrane of plasma rich in growth factors (made from your own blood sample) into the surgical site. This bioactive layer encourages faster bone regeneration, reduces swelling and cuts recovery time.
-                              </div>
-                            </li>
-                            <li className="flex">
-                              <span className="font-semibold mr-2">4.</span>
-                              <div>
-                                <span className="font-semibold text-yellow-300">Precise closure</span>: Fine sutures and, when needed, a laser finish promote clean, predictable healing.
-                              </div>
-                            </li>
-                          </ol>
-                        </div>
-                        
-                        <p className="text-sm md:text-base opacity-90 leading-relaxed">
-                          We also perform <span className="font-semibold">aesthetic soft-tissue work</span> such as <span className="font-semibold">gingivectomy</span> or gum recontouring, often paired with <span className="font-semibold">aesthetic dentistry</span> and <span className="font-semibold">implantology</span> to complete your smile makeover.
-                        </p>
-                        
-                        <p className="text-sm md:text-base opacity-90 leading-relaxed">
-                          Wondering whether you need a surgical extraction or if a <span className="font-semibold text-yellow-300">microscope root-canal therapy</span> could save the tooth? Click through the links or book a consultation at our Kottbusser Tor clinic to explore every option in one visit.
-                        </p>
+              className="absolute top-4 right-4 z-20 w-9 h-9 flex items-center justify-center bg-white rounded-full shadow-md hover:scale-110 transition-transform"
+            >
+              <svg className="w-4 h-4 text-[#2A2B2F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* Scrollable content */}
+            <div className="overflow-y-auto flex-1">
+              {/* Bag image */}
+              <div className="flex items-center justify-center pt-8 pb-4">
+                <img
+                  src="/Assets/bag.png"
+                  alt={cards[expandedIndex].title}
+                  className="h-48 object-contain"
+                />
+              </div>
+
+              {/* Content */}
+              <div className="px-6 pt-5 pb-4">
+                <h2 className="font-bold text-xl text-[#2A2B2F]">{cards[expandedIndex].popupTitle}</h2>
+                <p className="mt-2 text-sm text-[#2A2B2F]/60 leading-relaxed">{cards[expandedIndex].popupDesc}</p>
+
+                {/* Benefits list */}
+                <div className="mt-5">
+                  {cards[expandedIndex].benefits.map((benefit, i) => (
+                    <div key={i}>
+                      <div className="flex items-center gap-3 py-3">
+                        <span className="w-9 h-9 rounded-full bg-[#e6f4ed] flex items-center justify-center text-[#2e7d5b]">
+                          {i === 0 && (
+                            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                          )}
+                          {i === 1 && (
+                            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                          )}
+                          {i === 2 && (
+                            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6" strokeLinecap="round"/><circle cx="12" cy="16" r="0.5" fill="currentColor"/></svg>
+                          )}
+                        </span>
+                        <span className="font-medium text-[#2A2B2F]">{benefit}</span>
                       </div>
-                    ) : (
-                      // Default content for other cards
-                      <p className="text-white text-lg md:text-xl opacity-90 leading-relaxed">{cards[expandedIndex].description}</p>
-                    )}
-                  </div>
+                      {i < cards[expandedIndex].benefits.length - 1 && (
+                        <div className="h-px bg-[#2A2B2F]/10 ml-12" />
+                      )}
+                    </div>
+                  ))}
                 </div>
+              </div>
+            </div>
+
+            {/* Bottom bar */}
+            <div className="px-6 py-4 border-t border-[#2A2B2F]/10 flex items-center gap-3">
+              <div className="flex-shrink-0">
+                <div className="flex items-center gap-2">
+                  <span className="text-xl font-bold text-[#2A2B2F]">{cards[expandedIndex].popupPrice}</span>
+                  <span className="text-sm text-[#2A2B2F]/40 line-through">{cards[expandedIndex].popupOldPrice}</span>
+                </div>
+                <span className="text-xs text-[#2A2B2F]/50">{cards[expandedIndex].popupPerSession}</span>
+              </div>
+              <div className="flex-1 flex items-center gap-2 justify-end">
+                <button className="px-5 py-2.5 rounded-full border border-[#2A2B2F]/20 text-sm font-medium text-[#2A2B2F] hover:bg-[#2A2B2F]/5 transition-colors">
+                  Mehr erfahren
+                </button>
+                <button className="px-5 py-2.5 rounded-full bg-[#2e7d5b] text-sm font-medium text-white hover:bg-[#256b4d] transition-colors">
+                  Jetzt buchen
+                </button>
               </div>
             </div>
           </div>
           <style>{`
             @keyframes popupFadeIn {
-              0% { 
-                opacity: 0; 
-                transform: translate3d(0, 0, 0) scale3d(0.85, 0.85, 1);
-              }
-              100% { 
-                opacity: 1; 
-                transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
-              }
+              0% { opacity: 0; transform: scale3d(0.85, 0.85, 1); }
+              100% { opacity: 1; transform: scale3d(1, 1, 1); }
             }
-            
             .popup-animate {
               animation: popupFadeIn 0.25s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
-              will-change: transform, opacity;
-              backface-visibility: hidden;
-              transform-style: preserve-3d;
-            }
-            
-            /* Custom scrollbar styling */
-            .overflow-y-auto {
-              scrollbar-width: thin;
-              scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.1);
-            }
-            
-            .overflow-y-auto::-webkit-scrollbar {
-              width: 6px;
-            }
-            
-            .overflow-y-auto::-webkit-scrollbar-track {
-              background: rgba(255, 255, 255, 0.1);
-              border-radius: 3px;
-            }
-            
-            .overflow-y-auto::-webkit-scrollbar-thumb {
-              background: rgba(255, 255, 255, 0.3);
-              border-radius: 3px;
-              transition: background 0.2s ease;
-            }
-            
-            .overflow-y-auto::-webkit-scrollbar-thumb:hover {
-              background: rgba(255, 255, 255, 0.5);
             }
           `}</style>
         </div>

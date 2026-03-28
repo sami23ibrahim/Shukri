@@ -59,7 +59,7 @@ function FanCards() {
       ref={sectionRef}
       className="relative bg-[#FAF9F6] min-h-screen flex flex-col items-center justify-center overflow-hidden px-4"
     >
-      <h2 className="text-[#2A2B2F] text-3xl md:text-4xl font-bold text-center mb-20">
+      <h2 className="text-[#2A2B2F] font-black leading-[0.85] tracking-tighter text-left mb-28 max-w-[50%] self-start ml-10" style={{ fontSize: "clamp(2.2rem, 7vw, 6rem)" }}>
         Get started in three ways
       </h2>
 
