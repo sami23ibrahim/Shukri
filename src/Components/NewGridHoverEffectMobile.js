@@ -69,7 +69,7 @@ const NewGridHoverEffectMobile = () => {
       className="flex flex-col gap-2 w-full px-4 py-6 overflow-hidden"
       style={{ backgroundColor: "#FAF9F6" }}
     >
-      <h2 className="text-[#2A2B2F] text-2xl font-bold text-center mb-6">
+      <h2 className="text-[#2A2B2F] font-black leading-[0.85] tracking-tighter text-left mb-16 max-w-[50%] ml-4" style={{ fontSize: "clamp(1.8rem, 9vw, 3.5rem)" }}>
         Unsere Leistungen
       </h2>
       {data.map((item, index) => {

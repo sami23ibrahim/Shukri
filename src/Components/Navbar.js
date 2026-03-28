@@ -185,7 +185,7 @@ const Navbar = () => {
 								<NavItem isLink to="/spezielle-therapien" icon={navIcons.spezielleTherapien} label={t("navbar.spezielleTherapien")} />
 								<NavItem isLink to="/infusions" icon={navIcons.infusions} label={t("navbar.infusions")} />
 								<NavItem isLink to="/health-check" icon={navIcons.healthCheck} label={t("navbar.healthCheck")} />
-								<NavItem onClick={() => handleNavigation("ueber-mich")} icon={navIcons.ueberMich} label={t("navbar.ueberMich")} />
+								<NavItem isLink to="/ueber-mich" icon={navIcons.ueberMich} label={t("navbar.ueberMich")} />
 								<NavItem isLink to="/blog" icon={navIcons.blog} label={t("navbar.blog")} />
 								<NavItem isLink to="/mein-buch" icon={navIcons.meinBuch} label={t("navbar.meinBuch")} />
 								<a
@@ -252,12 +252,13 @@ const Navbar = () => {
 						>
 							{t("navbar.healthCheck")}
 						</Link>
-						<button
-							onClick={() => handleNavigation("ueber-mich")}
-							className="text-2xl font-light tracking-wide text-[#2A2B2F] hover:text-[#2A2B2F]/60 transition-colors duration-300"
+						<Link
+							to="/ueber-mich"
+							className="text-2xl font-light tracking-wide text-[#2A2B2F] hover:text-[#2A2B2F]/60 transition-colors duration-300 no-underline"
+							onClick={() => setMenuOpen(false)}
 						>
 							{t("navbar.ueberMich")}
-						</button>
+						</Link>
 						<Link
 							to="/blog"
 							className="text-2xl font-light tracking-wide text-[#2A2B2F] hover:text-[#2A2B2F]/60 transition-colors duration-300 no-underline"

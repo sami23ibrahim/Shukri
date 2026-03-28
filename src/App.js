@@ -8,6 +8,7 @@ import SpezielleTherapien from "./Pages/SpezielleTherapien";
 import HealthCheck from "./Pages/HealthCheck";
 import Experience from "./Pages/Experience";
 import Infusions from "./Pages/Infusions";
+import UeberMich from "./Pages/UeberMich";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -29,6 +30,7 @@ function App() {
         <Route path="/mein-buch" element={<MeinBuch />} />
         <Route path="/spezielle-therapien" element={<SpezielleTherapien />} />
         <Route path="/health-check" element={<HealthCheck />} />
+        <Route path="/ueber-mich" element={<UeberMich />} />
         <Route path="/experience" element={<Experience />} />
       </Routes>
     </BrowserRouter>

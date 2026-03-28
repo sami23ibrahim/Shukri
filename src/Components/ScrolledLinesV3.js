@@ -102,7 +102,7 @@ function ScrolledLinesV2({ lines = defaultLines }) {
                     : "text-white/10 opacity-90 text-3xl sm:text-4xl md:text-5xl"
                 }`}
               >
-                {renderWithColors(line, isActive)}
+                {line}
               </p>
             );
           })}
