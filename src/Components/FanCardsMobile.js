@@ -98,11 +98,11 @@ function FanCardsMobile() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-black min-h-[70vh] flex flex-col items-center justify-center overflow-hidden px-4 md:hidden"
+      className="relative bg-[#FAF9F6] min-h-[70vh] flex flex-col items-center justify-center overflow-hidden px-4 md:hidden"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      <h2 className="text-white text-2xl font-bold text-center mb-12">
+      <h2 className="text-[#2A2B2F] text-2xl font-bold text-center mb-12">
         Get started in three ways
       </h2>
 

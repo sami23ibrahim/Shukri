@@ -44,7 +44,7 @@ export default function HeroLine() {
       <div className="flex-1 flex flex-col justify-center gap-8 lg:items-start lg:max-w-[50%]">
         {/* First block - appears first */}
         <div
-          className="text-xl md:text-3xl font-semibold font-serif text-white opacity-0 animate-fade-in-up max-w-3xl leading-relaxed text-center lg:text-left"
+          className="text-xl md:text-3xl font-semibold font-serif text-[#2A2B2F] opacity-0 animate-fade-in-up max-w-3xl leading-relaxed text-center lg:text-left"
           style={{ animationDelay: "0s", animationFillMode: "forwards" }}
         >
         <p>Wir begleiten dich auf deiner Reise:</p>
@@ -57,7 +57,7 @@ export default function HeroLine() {
         {/* Second block - appears, then swaps to "Suche die Ursachen." */}
         <div className="relative min-h-[4rem] flex items-center justify-center lg:justify-start w-full">
         <p
-          className={`text-2xl md:text-4xl font-semibold font-serif text-center text-white absolute transition-opacity duration-500 ${
+          className={`text-2xl md:text-4xl font-semibold font-serif text-center text-[#2A2B2F] absolute transition-opacity duration-500 ${
             showUrsachen ? "opacity-0 pointer-events-none" : "opacity-0 animate-fade-in-up"
           }`}
           style={{
@@ -68,19 +68,19 @@ export default function HeroLine() {
           Bekämpfe nicht nur <CrossedWord word="Symptome." strikeDelay="3.5s" />
         </p>
         <p
-          className={`text-2xl md:text-4xl font-semibold font-serif text-center text-white transition-opacity duration-500 ${
+          className={`text-2xl md:text-4xl font-semibold font-serif text-center text-[#2A2B2F] transition-opacity duration-500 ${
             showUrsachen ? "opacity-100 animate-fade-in-up" : "opacity-0"
           }`}
           style={showUrsachen ? { animationDelay: "0s", animationFillMode: "forwards" } : {}}
         >
-          Suche die <span className="border-b-2 border-white border-solid">Ursachen</span>.
+          Suche die <span className="border-b-2 border-[#2A2B2F] border-solid">Ursachen</span>.
         </p>
         </div>
 
         {/* Third block - appears, then swaps to "Erhalte einen klaren Plan." */}
         <div className="relative min-h-[4rem] flex items-center justify-center lg:justify-start w-full">
         <p
-          className={`text-2xl md:text-4xl font-semibold font-serif text-center text-white absolute transition-opacity duration-500 ${
+          className={`text-2xl md:text-4xl font-semibold font-serif text-center text-[#2A2B2F] absolute transition-opacity duration-500 ${
             showKlarerPlan ? "opacity-0 pointer-events-none" : "opacity-0 animate-fade-in-up"
           }`}
           style={{
@@ -91,12 +91,12 @@ export default function HeroLine() {
           Keine weiterer <CrossedWord word="eigenen Versuche." strikeDelay="7.5s" />
         </p>
         <p
-          className={`text-2xl md:text-4xl font-semibold font-serif text-center text-white transition-opacity duration-500 ${
+          className={`text-2xl md:text-4xl font-semibold font-serif text-center text-[#2A2B2F] transition-opacity duration-500 ${
             showKlarerPlan ? "opacity-100 animate-fade-in-up" : "opacity-0"
           }`}
           style={showKlarerPlan ? { animationDelay: "0s", animationFillMode: "forwards" } : {}}
         >
-          Erhalte einen <span className="border-b-2 border-white border-solid">klaren Plan</span>.
+          Erhalte einen <span className="border-b-2 border-[#2A2B2F] border-solid">klaren Plan</span>.
         </p>
         </div>
       </div>

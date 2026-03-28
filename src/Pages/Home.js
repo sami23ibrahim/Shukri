@@ -40,7 +40,7 @@ function Home() {
 
   return (
 
-    <div className="bg-black min-h-screen">
+    <div className="bg-[#FAF9F6] min-h-screen">
      
      {isMobile && <MobileImageSlider />}
      <HeroLine />
@@ -48,9 +48,9 @@ function Home() {
       
      <ServicesCardssmaller2 />
 
+     <ScrolledLines />
 
-
-   <ScrolledLinesV3 />
+  
    
       
 
@@ -64,7 +64,7 @@ function Home() {
     
 
     {/* 3D Carousel */}
-    <Carousel3D />
+    {/* <Carousel3D /> */}
 
 
 
@@ -74,27 +74,27 @@ function Home() {
      {/* Scroll Cards */}
      {isMobile ? <ScrollCardsMobile /> : <ScrollCards />}
 
-    
+     <ScrolledLinesV3 />
 
  
 
-     
-     <ScrolledLinesV2 />
-     <ScrolledLines />
+{/*      
+     <ScrolledLinesV2 /> */}
+  
 
 
 
 
       
 
-      <div id="landing-page">
+      {/* <div id="landing-page">
         <HomeVideo
           videoSrc="/docs4.mp4"
           mobileVideoSrc="/docsmobile.mp4"
           posterImage="/Assets/c.webp"
           windowWidth={windowWidth}
         />
-      </div>
+      </div> */}
 
 
     </div>

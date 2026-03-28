@@ -69,8 +69,8 @@ const ServicesCardssmaller2 = () => {
   ];
 
   return (
-    <div className="relative flex flex-col justify-center items-center bg-black overflow-hidden max-w-screen min-h-[60vh] pt-0 pb-16">
-      <h1 className="mt-0 mb-32 text-5xl font-bold text-[#f3f3f3] text-center z-5 tracking-tighter">
+    <div className="relative flex flex-col justify-center items-center bg-[#FAF9F6] overflow-hidden max-w-screen min-h-[60vh] pt-0 pb-16">
+      <h1 className="mt-0 mb-32 text-5xl font-bold text-[#2A2B2F] text-center z-5 tracking-tighter">
 
         {t("Infusions.title")}
       </h1>

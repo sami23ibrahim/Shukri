@@ -1,5 +1,35 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+
+function useScrollFadeIn() {
+  const ref = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return {
+    ref,
+    style: {
+      opacity: isVisible ? 1 : 0,
+      transform: isVisible ? "translateY(0)" : "translateY(40px)",
+      transition: "opacity 1.4s ease-out, transform 1.4s ease-out",
+    },
+  };
+}
 
 const ChevronDown = ({ isOpen }) => (
   <svg
@@ -69,7 +99,7 @@ function TherapyCard({ title, image, bgColor }) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
         {/* Text label bottom-left */}
         <div className="absolute bottom-3 left-4 right-4 flex items-end justify-between">
-          <h3 className="text-white text-sm sm:text-base font-semibold leading-tight drop-shadow-md max-w-[70%]">
+          <h3 className="text-white text-base sm:text-lg font-bold leading-tight drop-shadow-md max-w-[70%]">
             {title}
           </h3>
           <CircleArrow />
@@ -81,13 +111,15 @@ function TherapyCard({ title, image, bgColor }) {
 
 function TestimonialCard({ quote, name }) {
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 min-w-[280px] sm:min-w-[320px] flex-shrink-0">
-      <div className="flex mb-3">
-        {[...Array(5)].map((_, i) => (
-          <StarIcon key={i} />
-        ))}
+    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 w-[260px] sm:w-[300px] aspect-square flex-shrink-0 p-6 flex flex-col justify-between select-none">
+      <div>
+        <div className="flex mb-3">
+          {[...Array(5)].map((_, i) => (
+            <StarIcon key={i} />
+          ))}
+        </div>
+        <p className="text-gray-600 text-sm leading-relaxed italic">"{quote}"</p>
       </div>
-      <p className="text-gray-600 text-sm leading-relaxed mb-4 italic">"{quote}"</p>
       <p className="text-[#2A2B2F] font-semibold text-sm">{name}</p>
     </div>
   );
@@ -181,9 +213,9 @@ function FocusCarousel({ t }) {
   const next = () => setActiveSlide((s) => (s === slides.length - 1 ? 0 : s + 1));
 
   return (
-    <section className="px-5 sm:px-8 pb-16 sm:pb-20">
-      <div className="max-w-6xl mx-auto">
-        <div className="relative rounded-3xl overflow-hidden px-6 sm:px-12 py-8 sm:py-10 text-center"
+    <section className="pb-16 sm:pb-20 flex justify-center">
+      <div className="w-[90%] sm:w-[80%]">
+        <div className="relative rounded-3xl overflow-hidden px-6 sm:px-12 py-8 sm:py-10 text-center min-h-[60vh] sm:min-h-[90vh] flex flex-col justify-center"
           style={{
             background: "linear-gradient(135deg, #d4ece1 0%, #e6f4ed 30%, #d9f0e4 60%, #c8e6d8 100%)",
           }}
@@ -195,10 +227,12 @@ function FocusCarousel({ t }) {
               {current.label}
             </p>
 
-            {/* Title */}
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2A2B2F] mb-5 sm:mb-6 italic">
-              {current.title}
-            </h2>
+            {/* Title — fixed height to prevent layout shift */}
+            <div className="h-16 sm:h-20 flex items-center justify-center mb-5 sm:mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2A2B2F] italic">
+                {current.title}
+              </h2>
+            </div>
 
             {/* Icon cluster — 7 icons in circular layout, clickable */}
             <div className="relative w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-5 sm:mb-6">
@@ -212,15 +246,15 @@ function FocusCarousel({ t }) {
                   <button
                     key={i}
                     onClick={() => setActiveSlide(i)}
-                    className={`absolute w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 flex items-center justify-center transition-all duration-500 cursor-pointer focus:outline-none ${
+                    className={`absolute w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 flex items-center justify-center transition-colors duration-300 cursor-pointer focus:outline-none ${
                       current.activeIcon === i
-                        ? "bg-white border-white text-[#2e7d5b] scale-110 shadow-lg"
+                        ? "bg-white border-white text-[#2e7d5b] shadow-lg"
                         : "border-[#2e7d5b]/30 text-[#2e7d5b]/60 hover:border-[#2e7d5b]/60 hover:text-[#2e7d5b]"
                     }`}
                     style={{
                       left: `${x}%`,
                       top: `${y}%`,
-                      transform: `translate(-50%, -50%)${current.activeIcon === i ? " scale(1.1)" : ""}`,
+                      transform: "translate(-50%, -50%)",
                     }}
                   >
                     <span className="text-sm sm:text-base font-bold">{i + 1}</span>
@@ -229,16 +263,18 @@ function FocusCarousel({ t }) {
               })}
             </div>
 
-            {/* Description */}
-            <p className="text-[#2A2B2F]/70 text-sm sm:text-base leading-relaxed max-w-lg mx-auto italic mb-5 sm:mb-6">
-              {current.description}
-            </p>
+            {/* Description — fixed height to prevent layout shift */}
+            <div className="h-20 sm:h-16 flex items-start justify-center mb-5 sm:mb-6">
+              <p className="text-[#2A2B2F]/70 text-sm sm:text-base leading-relaxed max-w-lg mx-auto italic">
+                {current.description}
+              </p>
+            </div>
 
             {/* Navigation */}
             <div className="flex items-center justify-center gap-3">
               <button
                 onClick={prev}
-                className="w-10 h-10 rounded-full border border-[#2e7d5b]/30 flex items-center justify-center text-[#2e7d5b]/70 hover:bg-[#2e7d5b]/10 hover:text-[#2e7d5b] transition-all focus:outline-none"
+                className="w-10 h-10 rounded-full border border-[#2e7d5b]/30 flex items-center justify-center text-[#2e7d5b]/70 hover:bg-[#2e7d5b]/10 hover:text-[#2e7d5b] transition-colors focus:outline-none"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -246,7 +282,7 @@ function FocusCarousel({ t }) {
               </button>
               <button
                 onClick={next}
-                className="w-10 h-10 rounded-full border border-[#2e7d5b]/30 flex items-center justify-center text-[#2e7d5b]/70 hover:bg-[#2e7d5b]/10 hover:text-[#2e7d5b] transition-all focus:outline-none"
+                className="w-10 h-10 rounded-full border border-[#2e7d5b]/30 flex items-center justify-center text-[#2e7d5b]/70 hover:bg-[#2e7d5b]/10 hover:text-[#2e7d5b] transition-colors focus:outline-none"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -263,6 +299,21 @@ function FocusCarousel({ t }) {
 function SpezielleTherapien() {
   const { t } = useTranslation();
   const [openAccordion, setOpenAccordion] = useState(null);
+  const testimonialsRef = useRef(null);
+
+  const scrollTestimonials = (direction) => {
+    if (testimonialsRef.current) {
+      const scrollAmount = 320;
+      testimonialsRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const gridAnim = useScrollFadeIn();
+  const focusAnim = useScrollFadeIn();
+  const testimonialsAnim = useScrollFadeIn();
 
   const toggleAccordion = (index) => {
     setOpenAccordion(openAccordion === index ? null : index);
@@ -310,7 +361,7 @@ function SpezielleTherapien() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
             {/* Left — Image */}
-            <div className="lg:w-[60%] flex-shrink-0">
+            <div className="lg:w-[60%] lg:-ml-8 flex-shrink-0">
               <div
                 className="w-full aspect-[4/4.5] rounded-2xl overflow-hidden"
                 style={{ backgroundColor: "#c4b8a8" }}
@@ -320,7 +371,7 @@ function SpezielleTherapien() {
             </div>
 
             {/* Right — Content + Accordions */}
-            <div className="lg:w-[40%] flex flex-col justify-center">
+            <div className="lg:w-[45%] lg:-mr-[5%] flex flex-col justify-start">
               {/* Badge */}
               <span className="inline-block self-start text-xs font-semibold text-[#2e7d5b] bg-[#e6f4ed] px-3 py-1 rounded-full mb-5">
                 45 Minuten
@@ -382,7 +433,7 @@ function SpezielleTherapien() {
       </section>
 
       {/* Therapy Cards Grid */}
-      <section className="px-5 sm:px-8 pb-16 sm:pb-20">
+      <section ref={gridAnim.ref} style={gridAnim.style} className="px-5 sm:px-8 pb-16 sm:pb-20">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2A2B2F] mb-8 sm:mb-10">
             {t("spezielleTherapien.grid.title")}.
@@ -396,13 +447,15 @@ function SpezielleTherapien() {
       </section>
 
       {/* Focus Carousel Section */}
-      <FocusCarousel t={t} />
+      <div ref={focusAnim.ref} style={focusAnim.style}>
+        <FocusCarousel t={t} />
+      </div>
 
       {/* Testimonials Section */}
-      <section className="pb-16 sm:pb-20">
+      <section ref={testimonialsAnim.ref} style={testimonialsAnim.style} className="pb-16 sm:pb-20">
         <div className="max-w-4xl mx-auto px-5 sm:px-8">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#2A2B2F]">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#2A2B2F]">
               {t("spezielleTherapien.testimonials.title")}
             </h2>
             <div className="flex items-center space-x-1 bg-white rounded-full px-3 py-1.5 shadow-sm border border-gray-100">
@@ -412,12 +465,32 @@ function SpezielleTherapien() {
             </div>
           </div>
         </div>
-        <div className="overflow-x-auto scrollbar-hide">
+        <div ref={testimonialsRef} className="overflow-x-auto scrollbar-hide">
           <div className="flex space-x-4 px-5 sm:px-8 pb-4" style={{ paddingLeft: "max(1.25rem, calc((100vw - 56rem) / 2 + 1.25rem))" }}>
             {testimonials.map((testimonial, index) => (
               <TestimonialCard key={index} {...testimonial} />
             ))}
           </div>
+        </div>
+        <div className="flex items-center justify-center gap-3 mt-6">
+          <button
+            onClick={() => scrollTestimonials("left")}
+            className="w-9 h-9 flex items-center justify-center rounded-full bg-white border border-gray-200 shadow-sm hover:bg-gray-50 transition-colors"
+            aria-label="Scroll left"
+          >
+            <svg className="w-4 h-4 text-[#2A2B2F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            onClick={() => scrollTestimonials("right")}
+            className="w-9 h-9 flex items-center justify-center rounded-full bg-white border border-gray-200 shadow-sm hover:bg-gray-50 transition-colors"
+            aria-label="Scroll right"
+          >
+            <svg className="w-4 h-4 text-[#2A2B2F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
       </section>
 

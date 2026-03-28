@@ -107,7 +107,7 @@ const ScrollCards = () => {
 
   return (
     <div
-      className="bg-[#000000] py-16 relative mb-28"
+      className="bg-[#FAF9F6] py-16 relative mb-28"
       style={{
         paddingBottom: "20px", // Prevent clipping
         overflowX: "hidden", // Prevent horizontal scrolling
@@ -117,7 +117,7 @@ const ScrollCards = () => {
       {/* Title with scaling effect */}
       <h2
         ref={titleRef}
-        className="text-center text-3xl font-bold mb-24 text-white"
+        className="text-center text-3xl font-bold mb-24 text-[#2A2B2F]"
         style={{ filter: "drop-shadow(1px 1px 0.7px #909497)", // Adjusted shadow offset
         }}
       >

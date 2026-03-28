@@ -8,7 +8,7 @@ import vid from "../Assets/vid.mp4";
 const NewGridHoverEffect = () => {
   const { t, i18n } = useTranslation(); // Get translation function
   const [hoveredIndex, setHoveredIndex] = useState(null); // State for hover functionality
-  const [bgColor, setBgColor] = useState("#e8e2d4"); // Initial background color
+  const [bgColor, setBgColor] = useState("#FAF9F6"); // Initial background color
 
   // Define the data inside the component
   const data2 = [
@@ -55,9 +55,9 @@ const NewGridHoverEffect = () => {
 
       // Check if the component is leaving the viewport
       if (rect.bottom < windowHeight + 10) {
-        setBgColor("#000"); // Set light background color
+        setBgColor("#FAF9F6"); // Set light background color
       } else {
-        setBgColor("#000"); // Reset to dark background color
+        setBgColor("#FAF9F6"); // Reset to dark background color
       }
     };
 
@@ -81,7 +81,7 @@ const NewGridHoverEffect = () => {
         paddingTop: "10px",
       }}
     >
-      <h2 className="text-white text-3xl md:text-4xl font-bold text-center mb-8 mt-8">
+      <h2 className="text-[#2A2B2F] text-3xl md:text-4xl font-bold text-center mb-8 mt-8">
         Unsere Leistungen
       </h2>
       {rows.map((row, rowIndex) => (

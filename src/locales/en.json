@@ -7,7 +7,8 @@
     "ueberMich": "About me",
     "blog": "Blog",
     "meinBuch": "My Book",
-    "appointment": "Appointment"
+    "appointment": "Appointment",
+    "healthCheck": "Health Check"
   },
   "Infusions": {
     "title": "Infusions"
@@ -152,6 +153,196 @@
     "bottomCta": {
       "title": "Ready for Your Personal Consultation?",
       "description": "Book an appointment now and get individual advice on our special therapies."
+    }
+  },
+  "healthCheck": {
+    "hero": {
+      "badge": "Dental Health Check",
+      "title": "Health Check",
+      "subtitle": "Targeted diagnostics, personal consultation and an individual health plan — all in one appointment.",
+      "cta": "Book now",
+      "subCta": "incl. diagnostics & consultation"
+    },
+    "glance": {
+      "g1": {
+        "title": "Comprehensive Diagnostics",
+        "desc": "Digital X-rays, intraoral camera and clinical examination for a complete picture of your dental health."
+      },
+      "g2": {
+        "title": "45 Min. Expert Consultation",
+        "desc": "Personal conversation with your dentist about findings, symptoms and your individual health goals."
+      },
+      "g3": {
+        "title": "Individual Treatment Plan",
+        "desc": "Clear recommendations, prioritized actions and a roadmap for your long-term dental health."
+      }
+    },
+    "whyUs": {
+      "title": "Why Die Drei Zahnärzte",
+      "subtitle": "We combine cutting-edge diagnostics with holistic care — no assembly-line medicine, but genuine attention.",
+      "w1": {
+        "title": "Targeted Diagnostics",
+        "desc": "We examine exactly what's relevant — no unnecessary effort, just precise findings as a foundation."
+      },
+      "w2": {
+        "title": "Personal Assessment",
+        "desc": "We listen, ask the right questions and view your dental health in the overall context."
+      },
+      "w3": {
+        "title": "Clear Recommendations",
+        "desc": "Understandable results and honest advice — with access to all suitable treatment options."
+      }
+    },
+    "focusSection": {
+      "title": "Choose Your Focus",
+      "subtitle": "Every check is individual. Choose the focus that best matches your symptoms and goals."
+    },
+    "focus": {
+      "prophylaxe": {
+        "title": "Prevention & Care",
+        "items": ["Professional dental cleaning", "Caries risk analysis", "Individual prevention program"]
+      },
+      "aesthetik": {
+        "title": "Aesthetics & Smile",
+        "items": ["Tooth color & shape analysis", "Whitening consultation", "Veneer & composite options"]
+      },
+      "implantologie": {
+        "title": "Implantology",
+        "items": ["3D bone analysis", "Implant planning", "Immediate restoration options"]
+      },
+      "parodontologie": {
+        "title": "Gums & Periodontology",
+        "items": ["Pocket depth measurement", "Inflammation diagnostics", "Preservation of tooth support"]
+      },
+      "diagnostik": {
+        "title": "Holistic Diagnostics",
+        "items": ["Digital X-rays", "TMJ screening", "Oral flora analysis"]
+      },
+      "ganzheitlich": {
+        "title": "Prevention & Longevity",
+        "items": ["Early detection check", "Risk factor analysis", "Long-term health plan"]
+      }
+    },
+    "stepsSection": {
+      "title": "Your Path to Better Dental Health",
+      "subtitle": "In four clear steps — from diagnostics to your personal health plan."
+    },
+    "steps": {
+      "s1": {
+        "title": "Book Appointment",
+        "desc": "Choose your preferred appointment and focus online — quick and easy."
+      },
+      "s2": {
+        "title": "Diagnostics",
+        "desc": "Comprehensive examination with digital imaging and clinical assessment."
+      },
+      "s3": {
+        "title": "Consultation",
+        "desc": "45-minute personal discussion of your results with your dentist."
+      },
+      "s4": {
+        "title": "Your Health Plan",
+        "desc": "Clear summary of findings, prioritized recommendations and next steps."
+      }
+    },
+    "includes": {
+      "title": "Everything you need — in one appointment.",
+      "i1": {
+        "title": "Diagnostics",
+        "desc": "All examinations included — digital X-rays, clinical assessment and specific tests."
+      },
+      "i2": {
+        "title": "Consultation",
+        "desc": "45 min. personal conversation about your findings, symptoms and goals."
+      },
+      "i3": {
+        "title": "Health Plan",
+        "desc": "Individual treatment plan with clear recommendations and concrete next steps."
+      }
+    },
+    "benefitsSection": {
+      "title": "Where Diagnostics Meets Real Care",
+      "subtitle": "State-of-the-art dentistry, combined with personal attention and holistic understanding."
+    },
+    "benefits": {
+      "b1": {
+        "title": "Advanced Diagnostics",
+        "desc": "Digital X-rays, intraoral camera and specialized testing for precise findings."
+      },
+      "b2": {
+        "title": "Expert Consultation",
+        "desc": "Detailed discussion of your results and personal health goals."
+      },
+      "b3": {
+        "title": "Individual Plan",
+        "desc": "Clear recommendations including lifestyle advice and personal treatment options."
+      },
+      "b4": {
+        "title": "Ongoing Care",
+        "desc": "Follow-up appointments and regular check-ups to accompany your progress."
+      }
+    },
+    "testimonialsSection": {
+      "title": "What Our Patients Say"
+    },
+    "testimonials": {
+      "t1": {
+        "quote": "The health check was incredibly thorough. I finally knew exactly where I stood and what made sense next.",
+        "name": "Ela"
+      },
+      "t2": {
+        "quote": "I had symptoms for a while that no one could properly diagnose. Here, everything was viewed holistically for the first time.",
+        "name": "Ulla"
+      },
+      "t3": {
+        "quote": "In regular treatment for 6 months now. Great combination of communication and professionalism.",
+        "name": "Matthias"
+      },
+      "t4": {
+        "quote": "Really nice atmosphere — you can tell real experts work here who genuinely take their time.",
+        "name": "Viki"
+      },
+      "t5": {
+        "quote": "I felt very comfortable. The team is super friendly and puts great effort into every treatment.",
+        "name": "Sophie"
+      },
+      "t6": {
+        "quote": "Always satisfied — all-around great care and honest communication.",
+        "name": "Mohamed"
+      }
+    },
+    "faqSection": {
+      "title": "Frequently Asked Questions"
+    },
+    "faq": {
+      "q1": {
+        "title": "What does the Health Check include?",
+        "content": "The Health Check includes comprehensive diagnostics (digital X-rays, clinical assessment, specialized tests if needed), a 45-minute consultation with your dentist and an individual health plan with clear recommendations."
+      },
+      "q2": {
+        "title": "How do I choose the right focus?",
+        "content": "Choose the focus that best matches your current symptoms or goals. If you're unsure, we're happy to help you decide — just reach out."
+      },
+      "q3": {
+        "title": "How do I prepare?",
+        "content": "Please bring your insurance card and, if available, any recent findings or X-rays. Feel free to note down questions beforehand. No special preparation is needed."
+      },
+      "q4": {
+        "title": "Is the cost covered by insurance?",
+        "content": "Many services are covered by private health insurance. For publicly insured patients, we provide a transparent cost estimate. Talk to us — we advise honestly and without hidden costs."
+      },
+      "q5": {
+        "title": "How are the results discussed?",
+        "content": "All findings are explained in detail during your personal consultation. You also receive a written summary with your individual health plan."
+      },
+      "q6": {
+        "title": "Do I have to start treatment afterwards?",
+        "content": "No, the Health Check is non-binding. You receive recommendations and can decide at your own pace whether and which treatments make sense for you."
+      }
+    },
+    "bottomCta": {
+      "title": "Ready for Your Health Check?",
+      "desc": "Book an appointment now and gain clarity about your dental health."
     }
   }
 }

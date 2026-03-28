@@ -57,9 +57,9 @@ function FanCards() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-black min-h-screen flex flex-col items-center justify-center overflow-hidden px-4"
+      className="relative bg-[#FAF9F6] min-h-screen flex flex-col items-center justify-center overflow-hidden px-4"
     >
-      <h2 className="text-white text-3xl md:text-4xl font-bold text-center mb-20">
+      <h2 className="text-[#2A2B2F] text-3xl md:text-4xl font-bold text-center mb-20">
         Get started in three ways
       </h2>
 
