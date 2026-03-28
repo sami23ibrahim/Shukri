@@ -51,8 +51,8 @@ const ServicesCardssmaller2 = () => {
       // Animation starts when section is still well below the viewport,
       // completes when section top reaches upper third
       const isMobileView = window.innerWidth < 768;
-      const start = windowHeight * (isMobileView ? 1.1 : 2.0);
-      const end = windowHeight * 0.1;
+      const start = windowHeight * (isMobileView ? 0.55 : 2.0);
+      const end = windowHeight * (isMobileView ? 0.25 : 0.1);
       const progress = Math.min(1, Math.max(0, (start - rect.top) / (start - end)));
       setScrollProgress(progress);
     };
