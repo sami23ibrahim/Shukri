@@ -8,7 +8,7 @@ import vid from "../Assets/vid.mp4";
 const NewGridHoverEffect = () => {
   const { t, i18n } = useTranslation();
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [bgColor, setBgColor] = useState("#FAF9F6");
+  const [bgColor, setBgColor] = useState("#ffffff");
   const sectionRef = useRef(null);
   const [visibleCards, setVisibleCards] = useState([false, false, false, false]);
 
@@ -17,34 +17,29 @@ const NewGridHoverEffect = () => {
     {
       title: "grid1",
       label: "Beratung",
-      subtitle: "Ganzheitliche Anamnese & Behandlungsplan",
-      location: "Online & in Berlin",
-      image: Shukr,
+      subtitle: "Umfassende Anamnese und individueller Behandlungsplan, abgestimmt auf K\u00F6rper, Lebensstil und pers\u00F6nliche Bed\u00FCrfnisse.",
+      image: "/Assets/beratung.jpg",
       video: vid,
     },
     {
       title: "grid2",
       label: "Diagnostik",
-      subtitle: 'Die Mehrwert bringt "Weit über Standardlabore"',
-      location: "Berlin",
-      image: Shukr,
+      subtitle: "Pr\u00E4zise Diagnostik, die \u00FCber Standardlabore hinausgeht und tiefere Einblicke in pers\u00F6nliche Gesundheitswerte erm\u00F6glicht.",
+      image: "/Assets/Diagnostik.jpg",
       video: vid,
     },
     {
       title: "grid3",
       label: "Infusion",
-      subtitle: "individuelle Mischungen & extra speziell bei uns:",
-      bullets: ["Ketamin Therapie", "Schimmel Therapie"],
-      location: "Berlin",
-      image: Shukr,
+      subtitle: "Individuelle Infusionskonzepte - inklusive spezialisierter Anwendungen wie Ketamin- und Schimmeltherapie.",
+      image: "/Assets/infusion.jpg",
       video: vid,
     },
     {
       title: "grid4",
       label: "Mentoring",
-      subtitle: "Behandlungsplan mit Leichtigkeit umsetzen (Ernährung, Bewegung, Stressmanagement, Detox)",
-      location: "Online & in Berlin",
-      image: Shukr,
+      subtitle: "Behandlungspl\u00E4ne verstehen und nachhaltig in den Alltag integrieren, mit Fokus auf Ern\u00E4hrung, Bewegung, Mindset und Stressbalance.",
+      image: "/Assets/Mentoring.JPG",
       video: vid,
     },
   ];
@@ -57,13 +52,13 @@ const NewGridHoverEffect = () => {
 
       // Check if the component is leaving the viewport
       if (rect.bottom < windowHeight + 10) {
-        setBgColor("#FAF9F6"); // Set light background color
+        setBgColor("#ffffff"); // Set light background color
       } else {
-        setBgColor("#FAF9F6"); // Reset to dark background color
+        setBgColor("#ffffff"); // Reset to dark background color
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -94,7 +89,7 @@ const NewGridHoverEffect = () => {
         setVisibleCards([false, false, false, false]);
       }
     };
-    window.addEventListener("scroll", handleCardScroll);
+    window.addEventListener("scroll", handleCardScroll, { passive: true });
     handleCardScroll();
     return () => {
       window.removeEventListener("scroll", handleCardScroll);
@@ -115,7 +110,7 @@ const NewGridHoverEffect = () => {
         paddingTop: "10px",
       }}
     >
-      <h2 className="text-[#2A2B2F] font-black leading-[0.85] tracking-tighter text-left mb-16 mt-8 max-w-[50%]" style={{ fontSize: "clamp(2.2rem, 7vw, 6rem)" }}>
+      <h2 className="text-[#43A9AB] font-black leading-[0.85] tracking-tighter text-left mb-16 mt-8 max-w-[50%]" style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}>
         Unsere Leistungen
       </h2>
       {rows.map((row, rowIndex) => (
@@ -126,12 +121,10 @@ const NewGridHoverEffect = () => {
               <div
                 key={globalIndex}
                 className={`relative overflow-hidden rounded-lg transition-all duration-700 ${
-                  true
-                    ? hoveredIndex === globalIndex
-                      ? "flex-[1.2] z-10"
-                      : hoveredIndex !== null
-                      ? "flex-[0.9]"
-                      : "flex-1"
+                  hoveredIndex === globalIndex
+                    ? "flex-[1.2] z-10"
+                    : hoveredIndex !== null
+                    ? "flex-[0.9]"
                     : "flex-1"
                 }`}
                 style={{
@@ -141,8 +134,8 @@ const NewGridHoverEffect = () => {
                   transform: visibleCards[globalIndex] ? "translateY(0)" : "translateY(60px)",
                   transition: "opacity 0.6s ease-out, transform 0.6s ease-out, flex 0.7s ease",
                 }}
-                onMouseEnter={() => setHoveredIndex(globalIndex)} // Set the unique index
-                onMouseLeave={() => setHoveredIndex(null)} // Reset hover state
+                onMouseEnter={() => setHoveredIndex(globalIndex)}
+                onMouseLeave={() => setHoveredIndex(null)}
               >
                 {hoveredIndex === globalIndex ? (
                   <video
@@ -160,6 +153,7 @@ const NewGridHoverEffect = () => {
                     className="w-full h-full object-cover"
                   />
                 )}
+                <div className="absolute inset-0 bg-black/40 pointer-events-none" />
                 <div className="absolute top-6 left-8 right-4">
                   <h3 className="text-white font-bold uppercase text-3xl">
                     {item.label}

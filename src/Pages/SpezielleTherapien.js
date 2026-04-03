@@ -50,7 +50,7 @@ const StarIcon = () => (
 
 const CircleArrow = () => (
   <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm group-hover:bg-white group-hover:scale-110 transition-all duration-300">
-    <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#2A2B2F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#515757]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
     </svg>
   </div>
@@ -63,7 +63,7 @@ function AccordionItem({ title, children, isOpen, onToggle }) {
         onClick={onToggle}
         className="w-full flex items-center justify-between py-5 px-1 text-left focus:outline-none group"
       >
-        <span className="text-base sm:text-lg font-medium text-[#2A2B2F] group-hover:text-[#422f40] transition-colors">
+        <span className="text-base sm:text-lg font-medium text-[#515757] group-hover:text-[#422f40] transition-colors">
           {title}
         </span>
         <ChevronDown isOpen={isOpen} />
@@ -120,7 +120,7 @@ function TestimonialCard({ quote, name }) {
         </div>
         <p className="text-gray-600 text-sm leading-relaxed italic">"{quote}"</p>
       </div>
-      <p className="text-[#2A2B2F] font-semibold text-sm">{name}</p>
+      <p className="text-[#515757] font-semibold text-sm">{name}</p>
     </div>
   );
 }
@@ -217,19 +217,19 @@ function FocusCarousel({ t }) {
       <div className="w-[90%] sm:w-[80%]">
         <div className="relative rounded-3xl overflow-hidden px-6 sm:px-12 py-8 sm:py-10 text-center min-h-[60vh] sm:min-h-[90vh] flex flex-col justify-center"
           style={{
-            background: "linear-gradient(135deg, #d4ece1 0%, #e6f4ed 30%, #d9f0e4 60%, #c8e6d8 100%)",
+            background: "linear-gradient(135deg, #d4ece1 0%, #e0f4f5 30%, #d9f0e4 60%, #c8e6d8 100%)",
           }}
         >
 
           <div className="relative z-10">
             {/* Label */}
-            <p className="text-[#2e7d5b]/70 text-xs sm:text-sm tracking-widest uppercase mb-2">
+            <p className="text-[#43a9ab]/70 text-xs sm:text-sm tracking-widest uppercase mb-2">
               {current.label}
             </p>
 
             {/* Title — fixed height to prevent layout shift */}
             <div className="h-16 sm:h-20 flex items-center justify-center mb-5 sm:mb-6">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2A2B2F] italic">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#43A9AB] italic">
                 {current.title}
               </h2>
             </div>
@@ -248,8 +248,8 @@ function FocusCarousel({ t }) {
                     onClick={() => setActiveSlide(i)}
                     className={`absolute w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 flex items-center justify-center transition-colors duration-300 cursor-pointer focus:outline-none ${
                       current.activeIcon === i
-                        ? "bg-white border-white text-[#2e7d5b] shadow-lg"
-                        : "border-[#2e7d5b]/30 text-[#2e7d5b]/60 hover:border-[#2e7d5b]/60 hover:text-[#2e7d5b]"
+                        ? "bg-white border-white text-[#43a9ab] shadow-lg"
+                        : "border-[#43a9ab]/30 text-[#43a9ab]/60 hover:border-[#43a9ab]/60 hover:text-[#43a9ab]"
                     }`}
                     style={{
                       left: `${x}%`,
@@ -265,7 +265,7 @@ function FocusCarousel({ t }) {
 
             {/* Description — fixed height to prevent layout shift */}
             <div className="h-20 sm:h-16 flex items-start justify-center mb-5 sm:mb-6">
-              <p className="text-[#2A2B2F]/70 text-sm sm:text-base leading-relaxed max-w-lg mx-auto italic">
+              <p className="text-[#515757]/70 text-sm sm:text-base leading-relaxed max-w-lg mx-auto italic">
                 {current.description}
               </p>
             </div>
@@ -274,7 +274,7 @@ function FocusCarousel({ t }) {
             <div className="flex items-center justify-center gap-3">
               <button
                 onClick={prev}
-                className="w-10 h-10 rounded-full border border-[#2e7d5b]/30 flex items-center justify-center text-[#2e7d5b]/70 hover:bg-[#2e7d5b]/10 hover:text-[#2e7d5b] transition-colors focus:outline-none"
+                className="w-10 h-10 rounded-full border border-[#43a9ab]/30 flex items-center justify-center text-[#43a9ab]/70 hover:bg-[#43a9ab]/10 hover:text-[#43a9ab] transition-colors focus:outline-none"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -282,7 +282,7 @@ function FocusCarousel({ t }) {
               </button>
               <button
                 onClick={next}
-                className="w-10 h-10 rounded-full border border-[#2e7d5b]/30 flex items-center justify-center text-[#2e7d5b]/70 hover:bg-[#2e7d5b]/10 hover:text-[#2e7d5b] transition-colors focus:outline-none"
+                className="w-10 h-10 rounded-full border border-[#43a9ab]/30 flex items-center justify-center text-[#43a9ab]/70 hover:bg-[#43a9ab]/10 hover:text-[#43a9ab] transition-colors focus:outline-none"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -312,7 +312,6 @@ function SpezielleTherapien() {
   };
 
   const gridAnim = useScrollFadeIn();
-  const focusAnim = useScrollFadeIn();
   const testimonialsAnim = useScrollFadeIn();
 
   const toggleAccordion = (index) => {
@@ -355,7 +354,7 @@ function SpezielleTherapien() {
   ];
 
   return (
-    <div className="bg-[#FAF9F6] min-h-screen">
+    <div className="bg-white min-h-screen">
       {/* Hero Section — two-column layout */}
       <section className="pt-24 sm:pt-28 pb-12 sm:pb-16 px-5 sm:px-8">
         <div className="max-w-6xl mx-auto">
@@ -373,12 +372,12 @@ function SpezielleTherapien() {
             {/* Right — Content + Accordions */}
             <div className="lg:w-[45%] lg:-mr-[5%] flex flex-col justify-start">
               {/* Badge */}
-              <span className="inline-block self-start text-xs font-semibold text-[#2e7d5b] bg-[#e6f4ed] px-3 py-1 rounded-full mb-5">
+              <span className="inline-block self-start text-xs font-semibold text-[#43a9ab] bg-[#e0f4f5] px-3 py-1 rounded-full mb-5">
                 45 Minuten
               </span>
 
               {/* Title */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#2A2B2F] mb-5 tracking-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#43A9AB] mb-5 tracking-tight">
                 {t("spezielleTherapien.hero.title")}
               </h1>
 
@@ -389,7 +388,7 @@ function SpezielleTherapien() {
                   href="https://www.doctolib.de/zahnarztpraxis/berlin/die-drei-zahnaerzte/booking/specialities?bookingFunnelSource=profile"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#2e7d5b] font-semibold no-underline hover:underline flex items-center gap-1"
+                  className="text-[#43a9ab] font-semibold no-underline hover:underline flex items-center gap-1"
                 >
                   {t("spezielleTherapien.hero.locationCta")}
                   <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -435,7 +434,7 @@ function SpezielleTherapien() {
       {/* Therapy Cards Grid */}
       <section ref={gridAnim.ref} style={gridAnim.style} className="px-5 sm:px-8 pb-16 sm:pb-20">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2A2B2F] mb-8 sm:mb-10">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#43A9AB] mb-8 sm:mb-10">
             {t("spezielleTherapien.grid.title")}.
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-2.5">
@@ -446,20 +445,17 @@ function SpezielleTherapien() {
         </div>
       </section>
 
-      {/* Focus Carousel Section */}
-      <div ref={focusAnim.ref} style={focusAnim.style}>
-        <FocusCarousel t={t} />
-      </div>
+      {/* Focus Carousel Section — removed */}
 
       {/* Testimonials Section */}
       <section ref={testimonialsAnim.ref} style={testimonialsAnim.style} className="pb-16 sm:pb-20">
         <div className="max-w-4xl mx-auto px-5 sm:px-8">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#2A2B2F]">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#43A9AB]">
               {t("spezielleTherapien.testimonials.title")}
             </h2>
             <div className="flex items-center space-x-1 bg-white rounded-full px-3 py-1.5 shadow-sm border border-gray-100">
-              <span className="text-sm font-bold text-[#2A2B2F]">4.9</span>
+              <span className="text-sm font-bold text-[#515757]">4.9</span>
               <StarIcon />
               <span className="text-xs text-gray-400 ml-1">180+</span>
             </div>
@@ -478,7 +474,7 @@ function SpezielleTherapien() {
             className="w-9 h-9 flex items-center justify-center rounded-full bg-white border border-gray-200 shadow-sm hover:bg-gray-50 transition-colors"
             aria-label="Scroll left"
           >
-            <svg className="w-4 h-4 text-[#2A2B2F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 text-[#515757]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
@@ -487,7 +483,7 @@ function SpezielleTherapien() {
             className="w-9 h-9 flex items-center justify-center rounded-full bg-white border border-gray-200 shadow-sm hover:bg-gray-50 transition-colors"
             aria-label="Scroll right"
           >
-            <svg className="w-4 h-4 text-[#2A2B2F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 text-[#515757]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
@@ -497,7 +493,7 @@ function SpezielleTherapien() {
       {/* Bottom CTA */}
       <section className="px-5 sm:px-8 pb-16 sm:pb-20">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#2A2B2F] mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-4">
             {t("spezielleTherapien.bottomCta.title")}
           </h2>
           <p className="text-gray-600 mb-8 text-sm sm:text-base">

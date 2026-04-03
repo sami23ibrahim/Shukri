@@ -1,32 +1,26 @@
 import { useState, useEffect, useRef } from "react";
-import Shukr from "../Assets/Shukr.jpg";
-
+import { useNavigate } from "react-router-dom";
 const cardData = [
   {
-    image: Shukr,
-    label: "Körperliche Symptome",
-    title: "Körperliche Symptome",
-    items: ["Ursachen & Zusammenhänge", "Diagnostik", "Plan + Umsetzung"],
+    image: "/Assets/1.avif",
+    label: "K\u00F6rperliche Symptome",
+    title: "K\u00F6rperliche Symptome",
+    desc: "Analyse von Ursachen und Zusammenh\u00E4ngen als Grundlage f\u00FCr gezielte Diagnostik und Therapie.",
+    path: "/koerperliche-symptome",
   },
   {
-    image: Shukr,
-    label: "Prävention & Longevity",
-    title: "Prävention & Longevity",
-    items: [
-      "Genetik: dein persönlicher Blueprint",
-      "Biofeedback: HRV & CGM",
-      "Longevity-Plan: Ernährung · Biohacking · Infusionen",
-    ],
+    image: "/Assets/2.avif",
+    label: "Pr\u00E4vention & Longevity",
+    title: "Pr\u00E4vention & Longevity",
+    desc: "Fr\u00FCherkennung und gezielte Ma\u00DFnahmen zur langfristigen Stabilisierung von Gesundheit und Leistungsf\u00E4higkeit.",
+    path: "/praevention-longevity",
   },
   {
-    image: Shukr,
+    image: "/Assets/3.avif",
     label: "Psychische Beschwerden",
     title: "Psychische Beschwerden",
-    items: [
-      "Ketamin-assistierte Therapie",
-      "Biodynamische Psychotherapie",
-      "Verhaltenstherapie",
-    ],
+    desc: "Ganzheitliche Therapieans\u00E4tze zur Stabilisierung der mentalen Gesundheit und F\u00F6rderung innerer Balance.",
+    path: "/psychotherapie",
   },
 ];
 
@@ -37,6 +31,7 @@ function FanCardsMobile() {
   const [activeIndex, setActiveIndex] = useState(1);
   const sectionRef = useRef(null);
   const touchStartX = useRef(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -61,8 +56,8 @@ function FanCardsMobile() {
     }
   };
 
-  const cardW = 280;
-  const cardH = 380;
+  const cardW = 240;
+  const cardH = 320;
   const sideScale = 0.75;
   const peekWidth = 50;
 
@@ -98,12 +93,12 @@ function FanCardsMobile() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[#FAF9F6] min-h-[70vh] flex flex-col items-center justify-center overflow-hidden px-4 md:hidden"
+      className="relative bg-white min-h-[70vh] flex flex-col items-center justify-center overflow-x-hidden px-4 pb-16 md:hidden"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      <h2 className="text-[#2A2B2F] font-black leading-[0.85] tracking-tighter text-left mb-20 max-w-[50%] self-start ml-4" style={{ fontSize: "clamp(1.8rem, 9vw, 3.5rem)" }}>
-        Get started in three ways
+      <h2 className="text-[#43A9AB] font-black leading-[0.85] tracking-tighter text-left mb-20 max-w-[50%] self-start ml-4" style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}>
+        Deine Themen im Fokus
       </h2>
 
       <div
@@ -119,7 +114,8 @@ function FanCardsMobile() {
           return (
             <div
               key={i}
-              className="absolute rounded-2xl overflow-hidden shadow-2xl"
+              onClick={() => i === activeIndex && navigate(card.path)}
+              className="absolute rounded-2xl overflow-hidden shadow-2xl cursor-pointer"
               style={{
                 width: `${cardW}px`,
                 height: `${cardH}px`,
@@ -141,14 +137,10 @@ function FanCardsMobile() {
                 className="absolute inset-0 w-full h-full object-cover"
                 draggable={false}
               />
-              <div className="absolute inset-0 bg-black/20" />
+              <div className="absolute inset-0 bg-black/40" />
               <div className="absolute inset-0 flex flex-col justify-end p-3 text-white">
                 <h3 className="text-base font-bold mb-1">{card.title}</h3>
-                <ul className="text-xs space-y-0.5 opacity-90 list-disc list-inside">
-                  {card.items.map((item, j) => (
-                    <li key={j}>{item}</li>
-                  ))}
-                </ul>
+                <p className="text-xs opacity-90">{card.desc}</p>
               </div>
             </div>
           );

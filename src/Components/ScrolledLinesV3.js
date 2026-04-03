@@ -4,7 +4,7 @@ const defaultLines = [
   "Wir begleiten dich auf deiner Reise: von chronischen Beschwerden hin zu chronischer Gesundheit!",
   "Bekämpfe nicht nur Symptome. ",
   "Suche die Ursachen. ",
-  "Keine weiterer eigenen Versuche.",
+  "Keine weiteren Eigenversuche.",
   "Erhalte einen klaren Plan. ",
 ];
 

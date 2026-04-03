@@ -16,7 +16,7 @@ function TestimonialCard({ quote, name }) {
         </div>
         <p className="text-gray-600 text-sm leading-relaxed">"{quote}"</p>
       </div>
-      <p className="text-[#2A2B2F] font-semibold text-sm mt-4">{name}</p>
+      <p className="text-[#515757] font-semibold text-sm mt-4">{name}</p>
     </div>
   );
 }
@@ -47,11 +47,11 @@ export default function Testimonials() {
     <section className="pt-20 sm:pt-28 pb-20 sm:pb-28">
       <div className="px-5 sm:px-8 md:px-10 mb-12">
         <div className="flex items-end justify-between">
-          <h2 className="text-[#2A2B2F] font-black leading-[0.85] tracking-tighter text-left max-w-[50%]" style={{ fontSize: "clamp(2.2rem, 7vw, 6rem)" }}>
+          <h2 className="text-[#43A9AB] font-black leading-[0.85] tracking-tighter text-left max-w-[50%]" style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}>
             {t("healthCheck.testimonialsSection.title")}
           </h2>
           <div className="flex items-center space-x-1 bg-white rounded-full px-3 py-1.5 shadow-sm border border-gray-100">
-            <span className="text-sm font-bold text-[#2A2B2F]">4.9</span>
+            <span className="text-sm font-bold text-[#515757]">4.9</span>
             <StarIcon />
             <span className="text-xs text-gray-400 ml-1">180+</span>
           </div>
@@ -66,12 +66,12 @@ export default function Testimonials() {
       </div>
       <div className="flex items-center justify-center gap-3 mt-6">
         <button onClick={() => scroll("left")} className="w-9 h-9 flex items-center justify-center rounded-full bg-white border border-gray-200 shadow-sm hover:bg-gray-50 transition-colors cursor-pointer">
-          <svg className="w-4 h-4 text-[#2A2B2F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 text-[#515757]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
         </button>
         <button onClick={() => scroll("right")} className="w-9 h-9 flex items-center justify-center rounded-full bg-white border border-gray-200 shadow-sm hover:bg-gray-50 transition-colors cursor-pointer">
-          <svg className="w-4 h-4 text-[#2A2B2F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 text-[#515757]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </button>

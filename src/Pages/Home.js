@@ -19,6 +19,7 @@ import FanCardsMobile from "../Components/FanCardsMobile";
 import FlipGrid from "../Components/FlipGrid";
 import MobileImageSlider from "../Components/MobileImageSlider";
 import Testimonials from "../Components/Testimonials";
+import MeinAnsatz from "../Components/MeinAnsatz";
 function Home() {
   const isMobile = useIsMobile();
   console.log("isMobile:", isMobile, "innerWidth:", window.innerWidth, "innerHeight:", window.innerHeight);
@@ -40,12 +41,12 @@ function Home() {
 
   return (
 
-    <div className="bg-[#FAF9F6] min-h-screen">
+    <div className="bg-white min-h-screen">
      
     
 
      <ScrolledLinesV3 />
-     <ScrolledLines />
+     
 
   
    
@@ -65,18 +66,19 @@ function Home() {
 
 
 
-{/* Flip Grid */}
-     <FlipGrid />
+{/* Flip Grid — moved to Extras */}
 
      {/* Scroll Cards */}
      {/* {isMobile ? <ScrollCardsMobile /> : <ScrollCards />} */}
+
+     <MeinAnsatz />
 
      <Testimonials />
 
      {/* <HeroLine /> */}
 
 
-     {isMobile && <MobileImageSlider />}
+     {/* MobileImageSlider moved to Extras */}
 
 
 

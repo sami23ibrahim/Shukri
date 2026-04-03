@@ -77,16 +77,16 @@ function FocusCard({ title, items, icon, isActive, onClick }) {
       onClick={onClick}
       className={`text-left rounded-2xl p-6 transition-all duration-300 border-2 cursor-pointer w-full ${
         isActive
-          ? "bg-white border-[#2e7d5b] shadow-lg scale-[1.02]"
-          : "bg-white border-transparent shadow-sm hover:shadow-md hover:border-[#2e7d5b]/20"
+          ? "bg-white border-[#43a9ab] shadow-lg scale-[1.02]"
+          : "bg-white border-transparent shadow-sm hover:shadow-md hover:border-[#43a9ab]/20"
       }`}
     >
       <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 transition-colors duration-300 ${
-        isActive ? "bg-[#e6f4ed] text-[#2e7d5b]" : "bg-gray-100 text-gray-500"
+        isActive ? "bg-[#e0f4f5] text-[#43a9ab]" : "bg-gray-100 text-gray-500"
       }`}>
         {icon}
       </div>
-      <h3 className="text-base sm:text-lg font-bold text-[#2A2B2F] mb-3">{title}</h3>
+      <h3 className="text-base sm:text-lg font-bold text-[#515757] mb-3">{title}</h3>
       <ul className="space-y-2">
         {items.map((item, i) => (
           <li key={i} className="flex items-start gap-2 text-sm text-gray-500">
@@ -103,14 +103,14 @@ function StepCard({ number, title, description, isLast }) {
   return (
     <div className="flex-1 relative">
       <div className="flex flex-col items-center text-center px-4">
-        <div className="w-12 h-12 rounded-full bg-[#e6f4ed] text-[#2e7d5b] flex items-center justify-center text-lg font-bold mb-4">
+        <div className="w-12 h-12 rounded-full bg-[#e0f4f5] text-[#43a9ab] flex items-center justify-center text-lg font-bold mb-4">
           {number}
         </div>
-        <h3 className="text-base sm:text-lg font-bold text-[#2A2B2F] mb-2">{title}</h3>
+        <h3 className="text-base sm:text-lg font-bold text-[#515757] mb-2">{title}</h3>
         <p className="text-sm text-gray-500 leading-relaxed">{description}</p>
       </div>
       {!isLast && (
-        <div className="hidden md:block absolute top-6 left-[60%] w-[80%] h-[1px] bg-[#2e7d5b]/20" />
+        <div className="hidden md:block absolute top-6 left-[60%] w-[80%] h-[1px] bg-[#43a9ab]/20" />
       )}
     </div>
   );
@@ -125,7 +125,7 @@ function TestimonialCard({ quote, name }) {
         </div>
         <p className="text-gray-600 text-sm leading-relaxed">"{quote}"</p>
       </div>
-      <p className="text-[#2A2B2F] font-semibold text-sm mt-4">{name}</p>
+      <p className="text-[#515757] font-semibold text-sm mt-4">{name}</p>
     </div>
   );
 }
@@ -134,7 +134,7 @@ function AccordionItem({ title, children, isOpen, onToggle }) {
   return (
     <div className="border-b border-gray-200">
       <button onClick={onToggle} className="w-full flex items-center justify-between py-5 sm:py-6 px-1 text-left focus:outline-none group cursor-pointer">
-        <span className="text-base sm:text-lg font-medium text-[#2A2B2F] group-hover:text-[#422f40] transition-colors pr-4">{title}</span>
+        <span className="text-base sm:text-lg font-medium text-[#515757] group-hover:text-[#422f40] transition-colors pr-4">{title}</span>
         <ChevronDown isOpen={isOpen} />
       </button>
       <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-96 opacity-100 pb-5" : "max-h-0 opacity-0"}`}>
@@ -408,7 +408,7 @@ function HealthCheck() {
   ];
 
   return (
-    <div className="bg-[#FAF9F6] min-h-screen">
+    <div className="bg-white min-h-screen">
 
       {/* ── HERO — Sticky image left + scrolling sidebar right ── */}
       <section className="pt-40 sm:pt-44 px-5 sm:px-8 lg:px-16">
@@ -429,10 +429,10 @@ function HealthCheck() {
 
               {/* Block 1: Title + Price */}
               <div className="pb-10 sm:pb-14">
-                <span className="inline-block text-xs font-semibold text-[#2e7d5b] bg-[#e6f4ed] px-3 py-1 rounded-full mb-5 tracking-wide">
+                <span className="inline-block text-xs font-semibold text-[#43a9ab] bg-[#e0f4f5] px-3 py-1 rounded-full mb-5 tracking-wide">
                   {t("healthCheck.hero.badge")}
                 </span>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#2A2B2F] mb-4 tracking-tight leading-[1.1]">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#43A9AB] mb-4 tracking-tight leading-[1.1]">
                   {t("healthCheck.hero.title")}
                 </h1>
                 <p className="text-gray-500 text-base leading-relaxed mb-6">
@@ -442,7 +442,7 @@ function HealthCheck() {
                   href="https://www.doctolib.de/zahnarztpraxis/berlin/die-drei-zahnaerzte/booking/specialities?bookingFunnelSource=profile"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center bg-[#2e7d5b] text-white px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#256b4d] transition-colors duration-200 no-underline shadow-sm"
+                  className="inline-flex items-center bg-[#43a9ab] text-white px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-sm"
                 >
                   {t("healthCheck.hero.cta")}
                   <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -453,7 +453,7 @@ function HealthCheck() {
 
               {/* Block 2: At a Glance */}
               <div className="border-t border-gray-200 py-8 sm:py-10">
-                <h2 className="text-lg font-bold text-[#2A2B2F] mb-5">Auf einen Blick</h2>
+                <h2 className="text-lg font-bold text-[#515757] mb-5">Auf einen Blick</h2>
                 <div className="space-y-4">
                   {[
                     { icon: focusIcons.scan, label: t("healthCheck.glance.g1.title") },
@@ -461,8 +461,8 @@ function HealthCheck() {
                     { icon: focusIcons.leaf, label: t("healthCheck.glance.g3.title") },
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-3">
-                      <span className="text-[#2e7d5b] flex-shrink-0">{item.icon}</span>
-                      <span className="text-sm text-[#2A2B2F]">{item.label}</span>
+                      <span className="text-[#43a9ab] flex-shrink-0">{item.icon}</span>
+                      <span className="text-sm text-[#515757]">{item.label}</span>
                     </div>
                   ))}
                 </div>
@@ -470,7 +470,7 @@ function HealthCheck() {
 
               {/* Block 3: Why Us */}
               <div className="border-t border-gray-200 py-8 sm:py-10">
-                <h2 className="text-lg font-bold text-[#2A2B2F] mb-5">{t("healthCheck.whyUs.title")}</h2>
+                <h2 className="text-lg font-bold text-[#515757] mb-5">{t("healthCheck.whyUs.title")}</h2>
                 <div className="space-y-4">
                   {[
                     t("healthCheck.whyUs.w1.desc"),
@@ -478,10 +478,10 @@ function HealthCheck() {
                     t("healthCheck.whyUs.w3.desc"),
                   ].map((text, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-[#2e7d5b] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-[#43a9ab] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm text-[#2A2B2F]/70">{text}</span>
+                      <span className="text-sm text-[#515757]/70">{text}</span>
                     </div>
                   ))}
                 </div>
@@ -489,7 +489,7 @@ function HealthCheck() {
 
               {/* Block 4: Choose Your Focus */}
               <div className="border-t border-gray-200 py-8 sm:py-10">
-                <h2 className="text-lg font-bold text-[#2A2B2F] mb-5">{t("healthCheck.focusSection.title")}</h2>
+                <h2 className="text-lg font-bold text-[#515757] mb-5">{t("healthCheck.focusSection.title")}</h2>
                 <div className="grid grid-cols-2 gap-3">
                   {focusAreas.map((area, i) => (
                     <button
@@ -497,16 +497,16 @@ function HealthCheck() {
                       onClick={() => setActiveFocus(i)}
                       className={`flex items-center gap-2.5 p-3.5 rounded-xl text-left transition-all duration-200 cursor-pointer border ${
                         activeFocus === i
-                          ? "bg-white border-[#2e7d5b] shadow-sm"
-                          : "bg-transparent border-gray-200 hover:border-[#2e7d5b]/30"
+                          ? "bg-white border-[#43a9ab] shadow-sm"
+                          : "bg-transparent border-gray-200 hover:border-[#43a9ab]/30"
                       }`}
                     >
                       <span className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${
-                        activeFocus === i ? "bg-[#e6f4ed] text-[#2e7d5b]" : "bg-gray-100 text-gray-400"
+                        activeFocus === i ? "bg-[#e0f4f5] text-[#43a9ab]" : "bg-gray-100 text-gray-400"
                       }`}>
                         {area.icon}
                       </span>
-                      <span className="text-xs font-medium text-[#2A2B2F] leading-tight">{area.title}</span>
+                      <span className="text-xs font-medium text-[#515757] leading-tight">{area.title}</span>
                     </button>
                   ))}
                 </div>
@@ -515,7 +515,7 @@ function HealthCheck() {
                     href="https://www.doctolib.de/zahnarztpraxis/berlin/die-drei-zahnaerzte/booking/specialities?bookingFunnelSource=profile"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center bg-[#2e7d5b] text-white px-6 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#256b4d] transition-colors duration-200 no-underline"
+                    className="w-full flex items-center justify-center bg-[#43a9ab] text-white px-6 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline"
                   >
                     {t("healthCheck.hero.cta")}
                   </a>
@@ -524,9 +524,9 @@ function HealthCheck() {
 
               {/* Block 5: Not sure? */}
               <div className="border-t border-gray-200 py-8 sm:py-10">
-                <button className="w-full flex items-center justify-between p-5 rounded-xl bg-white border border-gray-200 hover:border-[#2e7d5b]/30 transition-colors text-left cursor-pointer">
+                <button className="w-full flex items-center justify-between p-5 rounded-xl bg-white border border-gray-200 hover:border-[#43a9ab]/30 transition-colors text-left cursor-pointer">
                   <div>
-                    <p className="text-sm font-semibold text-[#2A2B2F] mb-1">Nicht sicher, womit Sie starten sollen?</p>
+                    <p className="text-sm font-semibold text-[#515757] mb-1">Nicht sicher, womit Sie starten sollen?</p>
                     <p className="text-xs text-gray-500">Wir beraten Sie kostenlos.</p>
                   </div>
                   <svg className="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -543,7 +543,7 @@ function HealthCheck() {
       {/* ── STEP BY STEP — Scroll-driven video experience ── */}
       <section className="pt-20 sm:pt-28">
         <div className="max-w-5xl mx-auto px-5 sm:px-8 text-center mb-8">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2A2B2F] mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#43A9AB] mb-4">
             {t("healthCheck.stepsSection.title")}
           </h2>
           <p className="text-gray-500 text-sm sm:text-base max-w-xl mx-auto">
@@ -556,9 +556,9 @@ function HealthCheck() {
       {/* ── EVERYTHING INCLUDED ── */}
       <section ref={includesAnim.ref} style={includesAnim.style} className="pt-28 sm:pt-40 pb-20 sm:pb-28 px-5 sm:px-8">
         <div className="max-w-5xl mx-auto">
-          <div className="rounded-3xl overflow-hidden" style={{ background: "linear-gradient(135deg, #d4ece1 0%, #e6f4ed 30%, #d9f0e4 60%, #c8e6d8 100%)" }}>
+          <div className="rounded-3xl overflow-hidden" style={{ background: "linear-gradient(135deg, #d4ece1 0%, #e0f4f5 30%, #d9f0e4 60%, #c8e6d8 100%)" }}>
             <div className="px-8 sm:px-14 py-12 sm:py-16">
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#2A2B2F] mb-10 text-center">
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-10 text-center">
                 {t("healthCheck.includes.title")}
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
@@ -580,11 +580,11 @@ function HealthCheck() {
                   },
                 ].map((item, i) => (
                   <div key={i} className="text-center">
-                    <div className="w-12 h-12 rounded-xl bg-white/80 text-[#2e7d5b] flex items-center justify-center mx-auto mb-4 shadow-sm">
+                    <div className="w-12 h-12 rounded-xl bg-white/80 text-[#43a9ab] flex items-center justify-center mx-auto mb-4 shadow-sm">
                       {item.icon}
                     </div>
-                    <h3 className="text-base font-bold text-[#2A2B2F] mb-2">{item.title}</h3>
-                    <p className="text-sm text-[#2A2B2F]/60 leading-relaxed">{item.desc}</p>
+                    <h3 className="text-base font-bold text-[#515757] mb-2">{item.title}</h3>
+                    <p className="text-sm text-[#515757]/60 leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -596,7 +596,7 @@ function HealthCheck() {
       {/* ── WHY CHOOSE US — 4 benefits ── */}
       <section ref={benefitsAnim.ref} style={benefitsAnim.style} className="pb-20 sm:pb-28 px-5 sm:px-8">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2A2B2F] mb-4 text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#43A9AB] mb-4 text-center">
             {t("healthCheck.benefitsSection.title")}
           </h2>
           <p className="text-gray-500 text-sm sm:text-base max-w-xl mx-auto text-center mb-12">
@@ -605,10 +605,10 @@ function HealthCheck() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((b, i) => (
               <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center hover:shadow-md transition-shadow duration-300">
-                <div className="w-12 h-12 rounded-xl bg-[#e6f4ed] text-[#2e7d5b] flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 rounded-xl bg-[#e0f4f5] text-[#43a9ab] flex items-center justify-center mx-auto mb-4">
                   {b.icon}
                 </div>
-                <h3 className="text-base font-bold text-[#2A2B2F] mb-2">{b.title}</h3>
+                <h3 className="text-base font-bold text-[#515757] mb-2">{b.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{b.desc}</p>
               </div>
             ))}
@@ -619,7 +619,7 @@ function HealthCheck() {
       {/* ── FAQ ── */}
       <section ref={faqAnim.ref} style={faqAnim.style} className="pb-20 sm:pb-28 px-5 sm:px-8">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2A2B2F] mb-10 text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#43A9AB] mb-10 text-center">
             {t("healthCheck.faqSection.title")}
           </h2>
           <div className="border-t border-gray-200">
@@ -635,7 +635,7 @@ function HealthCheck() {
       {/* ── BOTTOM CTA ── */}
       <section className="pb-20 sm:pb-28 px-5 sm:px-8">
         <div className="max-w-3xl mx-auto">
-          <div className="rounded-3xl overflow-hidden text-center px-8 sm:px-14 py-14 sm:py-20" style={{ background: "linear-gradient(135deg, #2A2B2F 0%, #3a3b3f 50%, #2A2B2F 100%)" }}>
+          <div className="rounded-3xl overflow-hidden text-center px-8 sm:px-14 py-14 sm:py-20" style={{ background: "linear-gradient(135deg, #515757 0%, #3a3b3f 50%, #515757 100%)" }}>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
               {t("healthCheck.bottomCta.title")}
             </h2>
@@ -646,7 +646,7 @@ function HealthCheck() {
               href="https://www.doctolib.de/zahnarztpraxis/berlin/die-drei-zahnaerzte/booking/specialities?bookingFunnelSource=profile"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center bg-white text-[#2A2B2F] px-8 py-4 rounded-xl text-base font-semibold hover:bg-gray-100 transition-colors duration-200 no-underline shadow-sm"
+              className="inline-flex items-center bg-white text-[#515757] px-8 py-4 rounded-xl text-base font-semibold hover:bg-gray-100 transition-colors duration-200 no-underline shadow-sm"
             >
               {t("healthCheck.hero.cta")}
               <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -79,17 +79,17 @@ function FlipGrid() {
     return (
       <section
         ref={sectionRef}
-        className="relative bg-[#FAF9F6] min-h-screen flex flex-col overflow-hidden"
+        className="relative bg-white min-h-screen flex flex-col overflow-hidden"
         style={{ padding: "2rem 1.5rem" }}
       >
         <h2
-          className="text-[#2A2B2F] font-black leading-[0.85] tracking-tighter mb-6"
+          className="text-[#515757] font-black leading-[0.85] tracking-tighter mb-6"
           style={{ fontSize: "clamp(2.5rem, 14vw, 5rem)" }}
         >
-          SHUKRI<br />Title
+          VIVECURA<br />Title
         </h2>
 
-        <p className="text-[#2A2B2F] text-base font-semibold leading-snug mb-8" style={{ maxWidth: "280px" }}>
+        <p className="text-[#515757] text-base font-semibold leading-snug mb-8" style={{ maxWidth: "280px" }}>
           Placeholder description text goes here, combining tools for professional presentation, visibility, connection and knowledge sharing.
         </p>
 
@@ -112,19 +112,19 @@ function FlipGrid() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[#FAF9F6] min-h-screen flex flex-row overflow-hidden"
+      className="relative bg-white min-h-screen flex flex-row overflow-hidden"
       style={{ padding: "3rem 4rem" }}
     >
       <div className="flex flex-col justify-between" style={{ width: "45%", paddingRight: "2rem" }}>
         <h2
-          className="text-[#2A2B2F] font-black leading-[0.85] tracking-tighter"
+          className="text-[#515757] font-black leading-[0.85] tracking-tighter"
           style={{ fontSize: "clamp(2.8rem, 8.4vw, 7.7rem)" }}
         >
-          SHUKRI<br />Title
+          VIVECURA<br />Title
         </h2>
 
         <p
-          className="text-[#2A2B2F] text-lg md:text-xl font-semibold leading-snug"
+          className="text-[#515757] text-lg md:text-xl font-semibold leading-snug"
           style={{ maxWidth: "320px", marginLeft: "55%", marginBottom: "5%" }}
         >
           Placeholder description text goes here, combining tools for professional presentation, visibility, connection and knowledge sharing.

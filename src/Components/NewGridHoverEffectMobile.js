@@ -11,32 +11,27 @@ const NewGridHoverEffectMobile = () => {
 
   const data = [
     {
-      label: "Ganzheitliche Beratung",
-      subtitle: "Ganzheitliche Anamnese & Behandlungsplan",
-      location: "Online & in Berlin",
-      image: Shukr,
+      label: "Beratung",
+      subtitle: "Umfassende Anamnese und individueller Behandlungsplan, abgestimmt auf K\u00F6rper, Lebensstil und pers\u00F6nliche Bed\u00FCrfnisse.",
+      image: "/Assets/beratung.jpg",
       video: vid,
     },
     {
       label: "Diagnostik",
-      subtitle: 'Die Mehrwert bringt "Weit über Standardlabore"',
-      location: "Berlin",
-      image: Shukr,
+      subtitle: "Pr\u00E4zise Diagnostik, die \u00FCber Standardlabore hinausgeht und tiefere Einblicke in pers\u00F6nliche Gesundheitswerte erm\u00F6glicht.",
+      image: "/Assets/Diagnostik.jpg",
       video: vid,
     },
     {
       label: "Infusion",
-      subtitle: "individuelle Mischungen & extra speziell bei uns:",
-      bullets: ["Ketamin Therapie", "Schimmel Therapie"],
-      location: "Berlin",
-      image: Shukr,
+      subtitle: "Individuelle Infusionskonzepte - inklusive spezialisierter Anwendungen wie Ketamin- und Schimmeltherapie.",
+      image: "/Assets/infusion.jpg",
       video: vid,
     },
     {
-      label: "Ärztliches Mentoring",
-      subtitle: "Behandlungsplan mit Leichtigkeit umsetzen (Ernährung, Bewegung, Stressmanagement, Detox)",
-      location: "Online & in Berlin",
-      image: Shukr,
+      label: "Mentoring",
+      subtitle: "Behandlungspl\u00E4ne verstehen und nachhaltig in den Alltag integrieren, mit Fokus auf Ern\u00E4hrung, Bewegung, Mindset und Stressbalance.",
+      image: "/Assets/Mentoring.JPG",
       video: vid,
     },
   ];
@@ -76,9 +71,9 @@ const NewGridHoverEffectMobile = () => {
     <div
       ref={containerRef}
       className="flex flex-col gap-2 w-full px-4 py-6 overflow-hidden"
-      style={{ backgroundColor: "#FAF9F6" }}
+      style={{ backgroundColor: "#ffffff" }}
     >
-      <h2 className="text-[#2A2B2F] font-black leading-[0.85] tracking-tighter text-left mb-16 max-w-[50%] ml-4" style={{ fontSize: "clamp(1.8rem, 9vw, 3.5rem)" }}>
+      <h2 className="text-[#43A9AB] font-black leading-[0.85] tracking-tighter text-left mb-16 max-w-[50%] ml-4" style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}>
         Unsere Leistungen
       </h2>
       {data.map((item, index) => {
@@ -114,6 +109,7 @@ const NewGridHoverEffectMobile = () => {
                 className="absolute inset-0 w-full h-full object-cover"
               />
             )}
+            <div className="absolute inset-0 bg-black/40 pointer-events-none" />
             {isExpanded ? (
               <>
                 <div className="absolute top-5 left-6 right-4">

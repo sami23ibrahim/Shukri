@@ -49,8 +49,8 @@ function Carousel3D() {
   };
 
   return (
-    <section className="relative bg-[#FAF9F6] min-h-screen flex flex-col items-center justify-center overflow-hidden">
-      <h2 className="text-[#2A2B2F] text-3xl md:text-4xl font-bold text-center mb-16">
+    <section className="relative bg-white min-h-screen flex flex-col items-center justify-center overflow-hidden">
+      <h2 className="text-[#43A9AB] text-3xl md:text-4xl font-bold text-center mb-16">
         Social media
       </h2>
 

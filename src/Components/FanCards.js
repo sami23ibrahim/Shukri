@@ -1,32 +1,26 @@
 import { useState, useEffect, useRef } from "react";
-import Shukr from "../Assets/Shukr.jpg";
-
+import { useNavigate } from "react-router-dom";
 const cardData = [
   {
-    image: Shukr,
-    label: "Körperliche Symptome",
-    title: "Körperliche Symptome",
-    items: ["Ursachen & Zusammenhänge", "Diagnostik", "Plan + Umsetzung"],
+    image: "/Assets/1.avif",
+    label: "K\u00F6rperliche Symptome",
+    title: "K\u00F6rperliche Symptome",
+    desc: "Analyse von Ursachen und Zusammenh\u00E4ngen als Grundlage f\u00FCr gezielte Diagnostik und Therapie.",
+    path: "/koerperliche-symptome",
   },
   {
-    image: Shukr,
-    label: "Prävention & Longevity",
-    title: "Prävention & Longevity",
-    items: [
-      "Genetik: dein persönlicher Blueprint",
-      "Biofeedback: HRV & CGM",
-      "Longevity-Plan: Ernährung · Biohacking · Infusionen",
-    ],
+    image: "/Assets/2.avif",
+    label: "Pr\u00E4vention & Longevity",
+    title: "Pr\u00E4vention & Longevity",
+    desc: "Fr\u00FCherkennung und gezielte Ma\u00DFnahmen zur langfristigen Stabilisierung von Gesundheit und Leistungsf\u00E4higkeit.",
+    path: "/praevention-longevity",
   },
   {
-    image: Shukr,
+    image: "/Assets/3.avif",
     label: "Psychische Beschwerden",
     title: "Psychische Beschwerden",
-    items: [
-      "Ketamin-assistierte Therapie",
-      "Biodynamische Psychotherapie",
-      "Verhaltenstherapie",
-    ],
+    desc: "Ganzheitliche Therapieans\u00E4tze zur Stabilisierung der mentalen Gesundheit und F\u00F6rderung innerer Balance.",
+    path: "/psychotherapie",
   },
 ];
 
@@ -34,6 +28,7 @@ function FanCards() {
   const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState(null);
   const sectionRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -45,8 +40,8 @@ function FanCards() {
   }, []);
 
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-  const cardW = isMobile ? 240 : 360;
-  const cardH = isMobile ? 340 : 460;
+  const cardW = isMobile ? 220 : 280;
+  const cardH = isMobile ? 300 : 380;
 
   const positions = [
     { x: -(cardW * 1), rotate: 0, z: 0, scale: 0.88 },
@@ -57,16 +52,16 @@ function FanCards() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[#FAF9F6] min-h-screen flex flex-col items-center justify-center overflow-hidden px-4"
+      className="relative bg-white min-h-screen flex flex-col items-center justify-center overflow-x-hidden px-4 pb-20"
     >
-      <h2 className="text-[#2A2B2F] font-black leading-[0.85] tracking-tighter text-left mb-28 max-w-[50%] self-start ml-10" style={{ fontSize: "clamp(2.2rem, 7vw, 6rem)" }}>
-        Get started in three ways
+      <h2 className="text-[#43A9AB] font-black leading-[0.85] tracking-tighter text-left mb-28 max-w-[50%] self-start ml-10" style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}>
+        Deine Themen im Fokus
       </h2>
 
       <div
         className="relative"
         style={{
-          width: isMobile ? "340px" : "700px",
+          width: isMobile ? "320px" : "580px",
           height: `${cardH + 40}px`,
         }}
       >
@@ -76,6 +71,7 @@ function FanCards() {
             <div
               key={i}
               className="absolute rounded-2xl overflow-hidden shadow-2xl cursor-pointer"
+              onClick={() => navigate(card.path)}
               onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered(null)}
               style={{
@@ -98,14 +94,10 @@ function FanCards() {
                 className="absolute inset-0 w-full h-full object-cover"
                 draggable={false}
               />
-              <div className="absolute inset-0 bg-black/10" />
+              <div className="absolute inset-0 bg-black/40" />
               <div className="absolute inset-0 flex flex-col justify-end p-4 text-white">
                 <h3 className="text-lg font-bold mb-2">{card.title}</h3>
-                <ul className="text-sm space-y-1 opacity-90 list-disc list-inside">
-                  {card.items.map((item, j) => (
-                    <li key={j}>{item}</li>
-                  ))}
-                </ul>
+                <p className="text-sm opacity-90">{card.desc}</p>
               </div>
             </div>
           );

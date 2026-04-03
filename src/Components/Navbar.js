@@ -58,6 +58,11 @@ const navIcons = {
 			<path d="M22 12h-4l-3 9L9 3l-3 9H2" strokeLinecap="round" strokeLinejoin="round" />
 		</svg>
 	),
+	extras: (
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.3} className="w-6 h-6">
+			<path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8L12 2z" strokeLinecap="round" strokeLinejoin="round" />
+		</svg>
+	),
 };
 
 const Navbar = () => {
@@ -126,10 +131,10 @@ const Navbar = () => {
 		const isActive = isLink && location.pathname === to;
 		const inner = (
 			<>
-				<span className={`${isActive ? "text-[#2e7d5b] scale-110" : "text-[#2A2B2F]/50"} group-hover:text-[#2e7d5b] transition-all duration-300`}>
+				<span className={`${isActive ? "text-[#43a9ab] scale-110" : "text-[#515757]/50"} group-hover:text-[#43a9ab] transition-all duration-300`}>
 					{icon}
 				</span>
-				<span className={`${isActive ? "text-[13px] text-[#2e7d5b] font-bold" : "text-[12px] text-[#2A2B2F]/60"} group-hover:text-[#2e7d5b] transition-all duration-300`}>
+				<span className={`${isActive ? "text-[13px] text-[#43a9ab] font-bold" : "text-[12px] text-[#515757]/60"} group-hover:text-[#43a9ab] transition-all duration-300`}>
 					{label}
 				</span>
 			</>
@@ -139,7 +144,7 @@ const Navbar = () => {
 			return (
 				<Link
 					to={to}
-					className="group flex flex-col items-center gap-1.5 px-4 py-2 no-underline focus:outline-none"
+					className="group flex flex-col items-center gap-1 px-4 py-1 no-underline focus:outline-none"
 				>
 					{inner}
 				</Link>
@@ -149,7 +154,7 @@ const Navbar = () => {
 		return (
 			<button
 				onClick={onClick}
-				className="group flex flex-col items-center gap-1.5 px-4 py-2 focus:outline-none"
+				className="group flex flex-col items-center gap-1 px-4 py-1 focus:outline-none"
 			>
 				{inner}
 			</button>
@@ -163,28 +168,29 @@ const Navbar = () => {
 					isVisible ? "translate-y-0" : "-translate-y-full"
 				}`}
 			>
-				<div className="w-full bg-[#FAF9F6] border-b border-[#2A2B2F]/[0.06]">
+				<div className="w-full bg-white border-b border-[#515757]/[0.06]">
 					{isMobile ? (
 						<div className="flex items-center justify-between px-5 py-3">
-							<span className="text-sm font-medium tracking-[0.15em] uppercase text-[#2A2B2F]">
-								Shukri
+							<span className="text-sm font-medium tracking-[0.15em] uppercase text-[#515757]">
+								ViveCura
 							</span>
 							<button
 								onClick={() => setMenuOpen(!menuOpen)}
 								className="w-8 h-8 flex flex-col items-center justify-center gap-1.5"
 							>
-								<span className="block w-5 h-[1.5px] bg-[#2A2B2F]"></span>
-								<span className="block w-5 h-[1.5px] bg-[#2A2B2F]"></span>
+								<span className="block w-5 h-[1.5px] bg-[#515757]"></span>
+								<span className="block w-5 h-[1.5px] bg-[#515757]"></span>
 							</button>
 						</div>
 					) : (
-						<div className="flex items-center justify-center py-3 px-4">
+						<div className="flex items-center justify-center py-1.5 px-4">
 							<div className="flex items-center">
 								<NavItem onClick={() => handleNavigation("beschwerden")} icon={navIcons.beschwerden} label={t("navbar.beschwerden")} />
 								<NavItem onClick={() => handleNavigation("services")} icon={navIcons.leistungen} label={t("navbar.leistungen")} />
 								<NavItem isLink to="/spezielle-therapien" icon={navIcons.spezielleTherapien} label={t("navbar.spezielleTherapien")} />
 								<NavItem isLink to="/infusions" icon={navIcons.infusions} label={t("navbar.infusions")} />
 								<NavItem isLink to="/health-check" icon={navIcons.healthCheck} label={t("navbar.healthCheck")} />
+								<NavItem isLink to="/extras" icon={navIcons.extras} label="Extras" />
 								<NavItem isLink to="/ueber-mich" icon={navIcons.ueberMich} label={t("navbar.ueberMich")} />
 								<NavItem isLink to="/blog" icon={navIcons.blog} label={t("navbar.blog")} />
 								<NavItem isLink to="/mein-buch" icon={navIcons.meinBuch} label={t("navbar.meinBuch")} />
@@ -192,12 +198,12 @@ const Navbar = () => {
 									href="https://www.doctolib.de/zahnarztpraxis/berlin/die-drei-zahnaerzte/booking/specialities?profile_skipped=true&utm_source=die-drei-zahnaerzte-website-button&utm_medium=referral&utm_campaign=website-button&utm_content=option-8&bookingFunnelSource=external_referral"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="group flex flex-col items-center gap-1.5 px-4 py-2 no-underline focus:outline-none"
+									className="group flex flex-col items-center gap-1 px-4 py-1 no-underline focus:outline-none"
 								>
-									<span className="text-[#2A2B2F]/50 group-hover:text-[#2A2B2F] transition-colors duration-300">
+									<span className="text-[#515757]/50 group-hover:text-[#515757] transition-colors duration-300">
 										{navIcons.appointment}
 									</span>
-									<span className="text-[12px] text-[#2A2B2F]/60 group-hover:text-[#2A2B2F] transition-colors duration-300">
+									<span className="text-[12px] text-[#515757]/60 group-hover:text-[#515757] transition-colors duration-300">
 										{t("navbar.appointment")}
 									</span>
 								</a>
@@ -208,12 +214,12 @@ const Navbar = () => {
 			</nav>
 
 			{menuOpen && (
-				<div className="fixed inset-0 bg-[#FAF9F6] flex flex-col items-center justify-center z-[60]">
+				<div className="fixed inset-0 bg-white flex flex-col items-center justify-center z-[60]">
 					<button
 						onClick={() => setMenuOpen(false)}
 						className="absolute top-8 right-8 w-10 h-10 flex items-center justify-center"
 					>
-						<svg className="w-6 h-6 text-[#2A2B2F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<svg className="w-6 h-6 text-[#515757]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
 						</svg>
 					</button>
@@ -221,54 +227,61 @@ const Navbar = () => {
 					<div className="flex flex-col space-y-7 text-center">
 						<button
 							onClick={() => handleNavigation("beschwerden")}
-							className="text-2xl font-light tracking-wide text-[#2A2B2F] hover:text-[#2A2B2F]/60 transition-colors duration-300"
+							className="text-2xl font-light tracking-wide text-[#515757] hover:text-[#515757]/60 transition-colors duration-300"
 						>
 							{t("navbar.beschwerden")}
 						</button>
 						<button
 							onClick={() => handleNavigation("services")}
-							className="text-2xl font-light tracking-wide text-[#2A2B2F] hover:text-[#2A2B2F]/60 transition-colors duration-300"
+							className="text-2xl font-light tracking-wide text-[#515757] hover:text-[#515757]/60 transition-colors duration-300"
 						>
 							{t("navbar.leistungen")}
 						</button>
 						<Link
 							to="/spezielle-therapien"
-							className="text-2xl font-light tracking-wide text-[#2A2B2F] hover:text-[#2A2B2F]/60 transition-colors duration-300 no-underline"
+							className="text-2xl font-light tracking-wide text-[#515757] hover:text-[#515757]/60 transition-colors duration-300 no-underline"
 							onClick={() => setMenuOpen(false)}
 						>
 							{t("navbar.spezielleTherapien")}
 						</Link>
 						<Link
 							to="/infusions"
-							className="text-2xl font-light tracking-wide text-[#2A2B2F] hover:text-[#2A2B2F]/60 transition-colors duration-300 no-underline"
+							className="text-2xl font-light tracking-wide text-[#515757] hover:text-[#515757]/60 transition-colors duration-300 no-underline"
 							onClick={() => setMenuOpen(false)}
 						>
 							{t("navbar.infusions")}
 						</Link>
 						<Link
 							to="/health-check"
-							className="text-2xl font-light tracking-wide text-[#2A2B2F] hover:text-[#2A2B2F]/60 transition-colors duration-300 no-underline"
+							className="text-2xl font-light tracking-wide text-[#515757] hover:text-[#515757]/60 transition-colors duration-300 no-underline"
 							onClick={() => setMenuOpen(false)}
 						>
 							{t("navbar.healthCheck")}
 						</Link>
 						<Link
+							to="/extras"
+							className="text-2xl font-light tracking-wide text-[#515757] hover:text-[#515757]/60 transition-colors duration-300 no-underline"
+							onClick={() => setMenuOpen(false)}
+						>
+							Extras
+						</Link>
+						<Link
 							to="/ueber-mich"
-							className="text-2xl font-light tracking-wide text-[#2A2B2F] hover:text-[#2A2B2F]/60 transition-colors duration-300 no-underline"
+							className="text-2xl font-light tracking-wide text-[#515757] hover:text-[#515757]/60 transition-colors duration-300 no-underline"
 							onClick={() => setMenuOpen(false)}
 						>
 							{t("navbar.ueberMich")}
 						</Link>
 						<Link
 							to="/blog"
-							className="text-2xl font-light tracking-wide text-[#2A2B2F] hover:text-[#2A2B2F]/60 transition-colors duration-300 no-underline"
+							className="text-2xl font-light tracking-wide text-[#515757] hover:text-[#515757]/60 transition-colors duration-300 no-underline"
 							onClick={() => setMenuOpen(false)}
 						>
 							{t("navbar.blog")}
 						</Link>
 						<Link
 							to="/mein-buch"
-							className="text-2xl font-light tracking-wide text-[#2A2B2F] hover:text-[#2A2B2F]/60 transition-colors duration-300 no-underline"
+							className="text-2xl font-light tracking-wide text-[#515757] hover:text-[#515757]/60 transition-colors duration-300 no-underline"
 							onClick={() => setMenuOpen(false)}
 						>
 							{t("navbar.meinBuch")}
@@ -277,7 +290,7 @@ const Navbar = () => {
 						<div className="mt-10 flex flex-col items-center space-y-4">
 							<a
 								href="tel:03069005528"
-								className="text-lg text-[#2A2B2F]/50 hover:text-[#2A2B2F] transition-colors duration-300 no-underline tracking-widest"
+								className="text-lg text-[#515757]/50 hover:text-[#515757] transition-colors duration-300 no-underline tracking-widest"
 							>
 								(030) 69005528
 							</a>
@@ -285,7 +298,7 @@ const Navbar = () => {
 								href="https://www.doctolib.de/zahnarztpraxis/berlin/die-drei-zahnaerzte/booking/specialities?bookingFunnelSource=profile"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="text-sm tracking-[0.15em] uppercase font-medium text-white bg-[#2A2B2F] px-8 py-3.5 rounded-full hover:bg-[#3a3b3f] transition-all duration-300 no-underline hover:no-underline"
+								className="text-sm tracking-[0.15em] uppercase font-medium text-white bg-[#515757] px-8 py-3.5 rounded-full hover:bg-[#3a3b3f] transition-all duration-300 no-underline hover:no-underline"
 							>
 								{t("navbar.appointment")}
 							</a>

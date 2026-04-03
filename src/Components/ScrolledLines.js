@@ -54,7 +54,7 @@ function ScrolledLines({ lines = defaultLines }) {
   const sectionHeight = `${100 + (lines.length - 1) * 60}vh`;
 
   return (
-    <section ref={sectionRef} className="relative bg-[#FAF9F6]" style={{ height: sectionHeight }}>
+    <section ref={sectionRef} className="relative bg-white" style={{ height: sectionHeight }}>
       <div className="sticky top-0 flex h-screen items-center justify-center px-4">
         <div className="w-full max-w-5xl text-center">
           {lines.map((line, index) => {
@@ -64,8 +64,8 @@ function ScrolledLines({ lines = defaultLines }) {
                 key={`${line}-${index}`}
                 className={`transition-all duration-500 ease-out font-semibold tracking-tight ${
                   isActive
-                    ? "text-[#2A2B2F] opacity-100 text-3xl sm:text-4xl md:text-5xl"
-                    : "text-[#2A2B2F]/10 opacity-90 text-3xl sm:text-4xl md:text-5xl"
+                    ? "text-[#515757] opacity-100 text-3xl sm:text-4xl md:text-5xl"
+                    : "text-[#515757]/10 opacity-90 text-3xl sm:text-4xl md:text-5xl"
                 }`}
               >
                 {line}

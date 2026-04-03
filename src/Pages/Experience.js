@@ -139,7 +139,7 @@ function Experience() {
   const clipPath = `inset(${insetVal}% round ${radiusVal}px)`;
 
   return (
-    <div className="bg-[#FAF9F6]">
+    <div className="bg-white">
       {/* Spacer so user scrolls into the section */}
       <div style={{ height: "50vh" }} />
 

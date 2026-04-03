@@ -63,7 +63,7 @@ const HomeVideo = ({ videoSrc = "/docs.mp4", mobileVideoSrc = "/vertical-intro.m
       key={i18n.language} // Force re-render when language changes
       className="relative w-full overflow-hidden transition-colors"
       style={{
-        backgroundColor: "#FAF9F6",
+        backgroundColor: "#ffffff",
         transition: "background-color 1.5s ease",
         paddingBottom: "190px", // Adds space at the bottom
       }}

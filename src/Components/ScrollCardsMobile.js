@@ -72,11 +72,11 @@ const ScrollCardsMobile = () => {
 
   return (
     <div
-      className="bg-[#FAF9F6] py-10 relative md:hidden"
+      className="bg-white py-10 relative md:hidden"
       style={{ overflowX: "hidden", overflowY: "visible" }}
     >
       <h2
-        className="text-center text-2xl font-bold mb-8 text-[#2A2B2F]"
+        className="text-center text-2xl font-bold mb-8 text-[#515757]"
         style={{ filter: "drop-shadow(1px 1px 0.7px #909497)" }}
       >
         Our Visitors Love Us!
