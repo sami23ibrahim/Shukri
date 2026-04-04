@@ -3,6 +3,9 @@ import { useEffect } from "react";
 import Navbar from "./Components/Navbar";
 import Home from "./Pages/Home";
 import Blog from "./Pages/Blog";
+import BlogPost from "./Pages/BlogPost";
+import Admin from "./Pages/Admin";
+import BlogEditor from "./Pages/BlogEditor";
 import MeinBuch from "./Pages/MeinBuch";
 import SpezielleTherapien from "./Pages/SpezielleTherapien";
 import HealthCheck from "./Pages/HealthCheck";
@@ -32,6 +35,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/infusions" element={<Infusions />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/edit/:id" element={<BlogEditor />} />
         <Route path="/mein-buch" element={<MeinBuch />} />
         <Route path="/spezielle-therapien" element={<SpezielleTherapien />} />
         <Route path="/health-check" element={<HealthCheck />} />

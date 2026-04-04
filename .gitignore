@@ -9,3 +9,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .DS_Store
+blog-mcp-server/.env
+blog-mcp-server/node_modules/
