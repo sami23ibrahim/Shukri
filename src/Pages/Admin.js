@@ -97,6 +97,8 @@ function Admin() {
       .upload(fileName, file, { upsert: true });
 
     if (uploadError) {
+      console.error("Upload error:", uploadError);
+      alert("Upload fehlgeschlagen: " + uploadError.message);
       setUploading(false);
       return null;
     }
@@ -113,6 +115,8 @@ function Admin() {
     const url = await uploadThumbnail(file, post.id);
     if (url) {
       setEditThumbnail(url);
+    } else {
+      setUploading(false);
     }
   };
 
@@ -406,13 +410,15 @@ function Admin() {
                       {/* Toggle publish */}
                       <button
                         onClick={() => togglePublish(post)}
-                        className={`px-2.5 py-1 rounded-md text-[10px] font-medium transition-all duration-300 ${
-                          post.published
-                            ? "bg-green-50 text-green-600 hover:bg-orange-50 hover:text-orange-500"
-                            : "bg-orange-50 text-orange-500 hover:bg-green-50 hover:text-green-600"
-                        }`}
+                        className="relative w-9 h-5 rounded-full transition-colors duration-300 focus:outline-none"
+                        style={{ backgroundColor: post.published ? "#43a9ab" : "#d1d5db" }}
+                        title={post.published ? "Veröffentlicht — klicken zum Verbergen" : "Entwurf — klicken zum Veröffentlichen"}
                       >
-                        {post.published ? "Unpublish" : "Publish"}
+                        <span
+                          className={`absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full shadow transition-transform duration-300 ${
+                            post.published ? "translate-x-4" : "translate-x-0"
+                          }`}
+                        />
                       </button>
 
                       {/* Delete */}
