@@ -27,12 +27,15 @@ function Blog() {
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="mb-12">
-          <h1 className="text-3xl font-light tracking-wide text-[#515757] mb-2">
-            Blog
+          <h1 className="text-3xl font-light tracking-wide text-[#515757] mb-1">
+            Wissen
           </h1>
-          <div className="w-12 h-[2px] bg-[#43a9ab]/40 mb-3" />
-          <p className="text-[#515757]/50 text-sm">
-            Aktuelle Beiträge &amp; Einblicke
+          <p className="text-lg text-[#43a9ab] font-light mb-3">
+            einfach &amp; verständlich
+          </p>
+          <div className="w-12 h-[2px] bg-[#43a9ab]/40 mb-4" />
+          <p className="text-[#515757]/50 text-sm max-w-lg leading-relaxed">
+            Hier bekommst du meine ganzheitliche Perspektive über unterschiedliche Themen, immer wissenschaftlich gestützt und einfach erklärt.
           </p>
         </div>
 
