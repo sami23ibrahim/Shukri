@@ -110,24 +110,13 @@ HTML RULES:
   // ══════════════════════════════════════════════
   server.tool(
     "list_blog_posts",
-    "List all blog posts on the ViveCura website.",
-    {
-      include_unpublished: z
-        .boolean()
-        .optional()
-        .describe("Include unpublished/draft posts. Defaults to false."),
-    },
-    async ({ include_unpublished }) => {
-      let query = supabase
+    "List all blog posts on the ViveCura website (both published and drafts).",
+    {},
+    async () => {
+      const { data, error } = await supabase
         .from("blog_posts")
         .select("id, title, slug, description, published, language, created_at, updated_at")
         .order("created_at", { ascending: false });
-
-      if (!include_unpublished) {
-        query = query.eq("published", true);
-      }
-
-      const { data, error } = await query;
 
       if (error) {
         return {
@@ -153,118 +142,19 @@ HTML RULES:
   );
 
   // ══════════════════════════════════════════════
-  //  TOOL: update_blog_post
+  //  TOOL: read_blog_post
   // ══════════════════════════════════════════════
   server.tool(
-    "update_blog_post",
-    "Update an existing blog post by its slug.",
+    "read_blog_post",
+    "Read the full content of a specific blog post by its slug. Use this to understand what has already been written.",
     {
-      slug: z.string().describe("The slug of the post to update"),
-      title: z.string().optional().describe("New title"),
-      description: z.string().optional().describe("New description"),
-      html_content: z
-        .string()
-        .optional()
-        .describe("New HTML content (complete page)"),
-      thumbnail_url: z.string().optional().describe("New thumbnail URL"),
-      new_slug: z.string().optional().describe("New URL slug"),
-    },
-    async ({ slug, title, description, html_content, thumbnail_url, new_slug }) => {
-      const updates = { updated_at: new Date().toISOString() };
-      if (title !== undefined) updates.title = title;
-      if (description !== undefined) updates.description = description;
-      if (html_content !== undefined) updates.html_content = html_content;
-      if (thumbnail_url !== undefined) updates.thumbnail_url = thumbnail_url;
-      if (new_slug !== undefined) updates.slug = new_slug;
-
-      const { data, error } = await supabase
-        .from("blog_posts")
-        .update(updates)
-        .eq("slug", slug)
-        .select()
-        .single();
-
-      if (error) {
-        return {
-          content: [{ type: "text", text: `Error updating post: ${error.message}` }],
-        };
-      }
-
-      return {
-        content: [{ type: "text", text: `Post "${data.title}" updated successfully.` }],
-      };
-    }
-  );
-
-  // ══════════════════════════════════════════════
-  //  TOOL: unpublish_blog_post
-  // ══════════════════════════════════════════════
-  server.tool(
-    "unpublish_blog_post",
-    "Unpublish a blog post (hides it from the website without deleting).",
-    {
-      slug: z.string().describe("The slug of the post to unpublish"),
+      slug: z.string().describe("The slug of the post to read"),
     },
     async ({ slug }) => {
       const { data, error } = await supabase
         .from("blog_posts")
-        .update({ published: false, updated_at: new Date().toISOString() })
+        .select("*")
         .eq("slug", slug)
-        .select()
-        .single();
-
-      if (error) {
-        return { content: [{ type: "text", text: `Error: ${error.message}` }] };
-      }
-
-      return {
-        content: [{ type: "text", text: `Post "${data.title}" has been unpublished.` }],
-      };
-    }
-  );
-
-  // ══════════════════════════════════════════════
-  //  TOOL: republish_blog_post
-  // ══════════════════════════════════════════════
-  server.tool(
-    "republish_blog_post",
-    "Republish a previously unpublished blog post.",
-    {
-      slug: z.string().describe("The slug of the post to republish"),
-    },
-    async ({ slug }) => {
-      const { data, error } = await supabase
-        .from("blog_posts")
-        .update({ published: true, updated_at: new Date().toISOString() })
-        .eq("slug", slug)
-        .select()
-        .single();
-
-      if (error) {
-        return { content: [{ type: "text", text: `Error: ${error.message}` }] };
-      }
-
-      return {
-        content: [{ type: "text", text: `Post "${data.title}" is now live again.` }],
-      };
-    }
-  );
-
-  // ══════════════════════════════════════════════
-  //  TOOL: delete_blog_post
-  // ══════════════════════════════════════════════
-  server.tool(
-    "delete_blog_post",
-    "Permanently delete a blog post. This cannot be undone.",
-    {
-      slug: z.string().describe("The slug of the post to delete"),
-    },
-    async ({ slug }) => {
-      const { data, error } = await supabase
-        .from("blog_posts")
-        .delete()
-        .eq("slug", slug)
-        .select()
         .single();
 
       if (error) {
@@ -273,7 +163,10 @@ HTML RULES:
 
       return {
         content: [
-          { type: "text", text: `Post "${data.title}" has been permanently deleted.` },
+          {
+            type: "text",
+            text: `Title: ${data.title}\nSlug: ${data.slug}\nStatus: ${data.published ? "Published" : "Draft"}\nLanguage: ${data.language}\nDescription: ${data.description || "(none)"}\nCreated: ${new Date(data.created_at).toLocaleDateString("de-DE")}\n\nHTML Content:\n${data.html_content}`,
+          },
         ],
       };
     }
