@@ -6,7 +6,9 @@
       "Bash(npx playwright:*)",
       "Bash(npm install:*)",
       "Bash(node -e \"require\\(''playwright''\\)\")",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(node:*)",
+      "Bash(PORT=3001 timeout 3 node index.js)"
     ]
   }
 }
