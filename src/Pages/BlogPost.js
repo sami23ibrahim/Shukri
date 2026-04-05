@@ -131,7 +131,7 @@ function BlogPost() {
         title={post.title}
         className="w-full border-0"
         style={{ height: `${iframeHeight}px`, minHeight: "400px" }}
-        sandbox="allow-scripts allow-same-origin"
+        sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
       />
     </div>
   );
