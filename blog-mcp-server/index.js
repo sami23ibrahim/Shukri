@@ -48,7 +48,6 @@ HTML RULES:
 - Each blog post should have its own unique design, layout, colors, fonts, and animations.
 - Include <!DOCTYPE html>, <html>, <head>, and <body> tags.
 - Make the design responsive (mobile-friendly).
-- Keep the HTML concise and under 10KB. Avoid excessive repetition in CSS.
 - Use Google Fonts via @import if needed, but all other styles must be inline.`,
     {
       title: z.string().describe("The blog post title"),
@@ -187,7 +186,7 @@ if (process.env.PORT) {
   );
 
   const app = express();
-  app.use(express.json());
+  app.use(express.json({ limit: "50mb" }));
 
   app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
