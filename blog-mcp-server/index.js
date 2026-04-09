@@ -5,6 +5,7 @@ import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import express from "express";
 import { createClient } from "@supabase/supabase-js";
 import { z } from "zod";
+import crypto from "crypto";
 
 // ── Supabase client (uses service role key to bypass RLS) ──
 const supabase = createClient(
@@ -188,15 +189,49 @@ if (process.env.PORT) {
 
   app.get("/health", (_req, res) => res.json({ status: "ok" }));
 
-  // New Streamable HTTP endpoint for Claude.ai connectors
+  // Streamable HTTP endpoint
+  const mcpSessions = new Map();
+
   app.post("/mcp", async (req, res) => {
-    const server = createBlogServer();
+    const sessionId = req.headers["mcp-session-id"];
+    if (sessionId && mcpSessions.has(sessionId)) {
+      const transport = mcpSessions.get(sessionId);
+      await transport.handleRequest(req, res);
+      return;
+    }
+
     const transport = new StreamableHTTPServerTransport({
-      sessionIdGenerator: undefined,
+      sessionIdGenerator: () => crypto.randomUUID(),
     });
-    res.on("close", () => transport.close());
+    transport.onclose = () => {
+      const sid = transport.sessionId;
+      if (sid) mcpSessions.delete(sid);
+    };
+    const server = createBlogServer();
     await server.connect(transport);
+    mcpSessions.set(transport.sessionId, transport);
     await transport.handleRequest(req, res);
+  });
+
+  app.get("/mcp", async (req, res) => {
+    const sessionId = req.headers["mcp-session-id"];
+    if (sessionId && mcpSessions.has(sessionId)) {
+      const transport = mcpSessions.get(sessionId);
+      await transport.handleRequest(req, res);
+    } else {
+      res.status(400).json({ error: "No session. POST first." });
+    }
+  });
+
+  app.delete("/mcp", async (req, res) => {
+    const sessionId = req.headers["mcp-session-id"];
+    if (sessionId && mcpSessions.has(sessionId)) {
+      const transport = mcpSessions.get(sessionId);
+      await transport.handleRequest(req, res);
+      mcpSessions.delete(sessionId);
+    } else {
+      res.status(400).json({ error: "No session." });
+    }
   });
 
   // Legacy SSE (keep for backward compat with first laptop)
