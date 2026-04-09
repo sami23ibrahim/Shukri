@@ -8,9 +8,11 @@ import { z } from "zod";
 import crypto from "crypto";
 
 // ── Supabase client (uses service role key to bypass RLS) ──
+// Strip any whitespace/newlines that may have been introduced when pasting
+// the key into the host's env-var UI (e.g. Render wraps long values).
 const supabase = createClient(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY
+  (process.env.SUPABASE_URL || "").replace(/\s+/g, ""),
+  (process.env.SUPABASE_SERVICE_ROLE_KEY || "").replace(/\s+/g, "")
 );
 
 // ── Helper: generate URL-friendly slug from title ──
