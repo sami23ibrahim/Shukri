@@ -176,32 +176,40 @@ HTML RULES:
 }
 
 // ══════════════════════════════════════════════
-//  START: Remote (SSE) or Local (stdio)
+//  START: Remote (Streamable HTTP + SSE) or Local (stdio)
 // ══════════════════════════════════════════════
 if (process.env.PORT) {
-  // ── Remote mode: Express + SSE ──
+  const { StreamableHTTPServerTransport } = await import(
+    "@modelcontextprotocol/sdk/server/streamableHttp.js"
+  );
+
   const app = express();
   app.use(express.json());
 
-  const sessions = new Map();
-
-  // Health check for Render
   app.get("/health", (_req, res) => res.json({ status: "ok" }));
 
-  // SSE endpoint — Claude connects here
+  // New Streamable HTTP endpoint for Claude.ai connectors
+  app.post("/mcp", async (req, res) => {
+    const server = createBlogServer();
+    const transport = new StreamableHTTPServerTransport({
+      sessionIdGenerator: undefined,
+    });
+    res.on("close", () => transport.close());
+    await server.connect(transport);
+    await transport.handleRequest(req, res);
+  });
+
+  // Legacy SSE (keep for backward compat with first laptop)
+  const sessions = new Map();
+
   app.get("/sse", async (req, res) => {
     const transport = new SSEServerTransport("/messages", res);
     sessions.set(transport.sessionId, transport);
-
-    res.on("close", () => {
-      sessions.delete(transport.sessionId);
-    });
-
+    res.on("close", () => sessions.delete(transport.sessionId));
     const server = createBlogServer();
     await server.connect(transport);
   });
 
-  // Message endpoint — Claude sends tool calls here
   app.post("/messages", async (req, res) => {
     const sessionId = req.query.sessionId;
     const transport = sessions.get(sessionId);
@@ -214,10 +222,9 @@ if (process.env.PORT) {
 
   const port = parseInt(process.env.PORT);
   app.listen(port, () => {
-    console.log(`ViveCura Blog MCP server running on port ${port} (SSE mode)`);
+    console.log(`ViveCura Blog MCP server running on port ${port}`);
   });
 } else {
-  // ── Local mode: stdio for Claude Desktop ──
   const server = createBlogServer();
   const transport = new StdioServerTransport();
   await server.connect(transport);
