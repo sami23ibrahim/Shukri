@@ -204,7 +204,7 @@ if (process.env.PORT) {
     const sessionId = req.headers["mcp-session-id"];
     if (sessionId && mcpSessions.has(sessionId)) {
       const transport = mcpSessions.get(sessionId);
-      await transport.handleRequest(req, res);
+      await transport.handleRequest(req, res, req.body);
       return;
     }
 
@@ -217,8 +217,10 @@ if (process.env.PORT) {
     };
     const server = createBlogServer();
     await server.connect(transport);
-    mcpSessions.set(transport.sessionId, transport);
-    await transport.handleRequest(req, res);
+    await transport.handleRequest(req, res, req.body);
+    if (transport.sessionId) {
+      mcpSessions.set(transport.sessionId, transport);
+    }
   });
 
   app.get("/mcp", async (req, res) => {
