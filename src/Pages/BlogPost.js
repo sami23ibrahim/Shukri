@@ -133,6 +133,26 @@ function BlogPost() {
         style={{ height: `${iframeHeight}px`, minHeight: "400px" }}
         sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
       />
+
+      {/* CTA Section */}
+      <div className="bg-[#f7f9f9] py-16 px-4 text-center">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-light text-[#515757] mb-4">
+            Haben Sie Fragen oder möchten einen Termin?
+          </h2>
+          <p className="text-[#515757]/70 mb-8 text-base">
+            Wir beraten Sie gerne persönlich in unserer Praxis.
+          </p>
+          <a
+            href="https://www.doctolib.de/zahnarztpraxis/berlin/die-drei-zahnaerzte/booking/specialities?bookingFunnelSource=profile"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-[#43a9ab] hover:bg-[#3a9496] text-white px-8 py-3 rounded-lg text-base font-medium transition-colors duration-300 no-underline"
+          >
+            Termin vereinbaren
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

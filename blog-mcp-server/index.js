@@ -44,11 +44,12 @@ function createBlogServer() {
 IMPORTANT WORKFLOW: ALWAYS show the user a preview of the HTML as an artifact FIRST. Only call this tool AFTER the user has approved the design.
 
 HTML RULES:
-- Must be a COMPLETE, self-contained HTML page with ALL styles inlined (no external CSS links).
+- Must be a COMPLETE, self-contained HTML page. All styles in a <style> block in the <head> — no external CSS, no inline styles in the body.
 - Each blog post should have its own unique design, layout, colors, fonts, and animations.
-- Include <!DOCTYPE html>, <html>, <head>, and <body> tags.
+- Include <!DOCTYPE html>, <html lang="de">, <head>, and <body> tags.
 - Make the design responsive (mobile-friendly).
-- Use Google Fonts via @import if needed, but all other styles must be inline.`,
+- Use Google Fonts via @import in the style block if needed.
+- Do NOT include any CTA (call-to-action) buttons, appointment/Termin links, or footer sections in the HTML. The website adds these automatically.`,
     {
       title: z.string().describe("The blog post title"),
       description: z
