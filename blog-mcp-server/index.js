@@ -203,25 +203,46 @@ if (process.env.PORT) {
   const mcpSessions = new Map();
 
   app.post("/mcp", async (req, res) => {
-    const sessionId = req.headers["mcp-session-id"];
-    if (sessionId && mcpSessions.has(sessionId)) {
-      const transport = mcpSessions.get(sessionId);
-      await transport.handleRequest(req, res, req.body);
-      return;
-    }
+    try {
+      const sessionId = req.headers["mcp-session-id"];
+      if (sessionId && mcpSessions.has(sessionId)) {
+        const transport = mcpSessions.get(sessionId);
+        await transport.handleRequest(req, res, req.body);
+        return;
+      }
 
-    const transport = new StreamableHTTPServerTransport({
-      sessionIdGenerator: () => crypto.randomUUID(),
-    });
-    transport.onclose = () => {
-      const sid = transport.sessionId;
-      if (sid) mcpSessions.delete(sid);
-    };
-    const server = createBlogServer();
-    await server.connect(transport);
-    await transport.handleRequest(req, res, req.body);
-    if (transport.sessionId) {
-      mcpSessions.set(transport.sessionId, transport);
+      // If client sent a stale session ID (e.g. after redeploy), tell it to re-initialize
+      if (sessionId) {
+        res.status(404).json({
+          jsonrpc: "2.0",
+          error: { code: -32000, message: "Session expired. Please reconnect." },
+          id: req.body?.id || null,
+        });
+        return;
+      }
+
+      const transport = new StreamableHTTPServerTransport({
+        sessionIdGenerator: () => crypto.randomUUID(),
+      });
+      transport.onclose = () => {
+        const sid = transport.sessionId;
+        if (sid) mcpSessions.delete(sid);
+      };
+      const server = createBlogServer();
+      await server.connect(transport);
+      await transport.handleRequest(req, res, req.body);
+      if (transport.sessionId) {
+        mcpSessions.set(transport.sessionId, transport);
+      }
+    } catch (err) {
+      console.error("MCP POST error:", err);
+      if (!res.headersSent) {
+        res.status(500).json({
+          jsonrpc: "2.0",
+          error: { code: -32603, message: err.message || "Internal error" },
+          id: req.body?.id || null,
+        });
+      }
     }
   });
 
