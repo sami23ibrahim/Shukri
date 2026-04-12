@@ -8,7 +8,14 @@
       "Bash(node -e \"require\\(''playwright''\\)\")",
       "Bash(ls:*)",
       "Bash(node:*)",
-      "Bash(PORT=3001 timeout 3 node index.js)"
+      "Bash(PORT=3001 timeout 3 node index.js)",
+      "Bash(git add:*)",
+      "Bash(git commit -m ':*)",
+      "Bash(curl:*)",
+      "Bash(cd /tmp)",
+      "Bash(printf '%s' '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2024-11-05\",\"capabilities\":{},\"clientInfo\":{\"name\":\"test\",\"version\":\"1.0\"}}}')",
+      "Bash(awk '{print $2}')",
+      "Bash(git push:*)"
     ]
   }
 }

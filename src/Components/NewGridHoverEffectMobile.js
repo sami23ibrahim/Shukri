@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import Shukr from "../Assets/Shukr.jpg";
-import vid from "../Assets/vid.mp4";
 
 const NewGridHoverEffectMobile = () => {
   const { i18n } = useTranslation();
@@ -13,26 +12,22 @@ const NewGridHoverEffectMobile = () => {
     {
       label: "Beratung",
       subtitle: "Umfassende Anamnese und individueller Behandlungsplan, abgestimmt auf K\u00F6rper, Lebensstil und pers\u00F6nliche Bed\u00FCrfnisse.",
-      image: "/Assets/beratung.jpg",
-      video: vid,
+      image: "/Assets/Beratungen.jpeg",
     },
     {
       label: "Diagnostik",
       subtitle: "Pr\u00E4zise Diagnostik, die \u00FCber Standardlabore hinausgeht und tiefere Einblicke in pers\u00F6nliche Gesundheitswerte erm\u00F6glicht.",
-      image: "/Assets/Diagnostik.jpg",
-      video: vid,
+      image: "/Assets/Diagnostik.jpeg",
     },
     {
       label: "Infusion",
       subtitle: "Individuelle Infusionskonzepte - inklusive spezialisierter Anwendungen wie Ketamin- und Schimmeltherapie.",
-      image: "/Assets/infusion.jpg",
-      video: vid,
+      image: "/Assets/Infusionen.jpeg",
     },
     {
       label: "Mentoring",
       subtitle: "Behandlungspl\u00E4ne verstehen und nachhaltig in den Alltag integrieren, mit Fokus auf Ern\u00E4hrung, Bewegung, Mindset und Stressbalance.",
-      image: "/Assets/Mentoring.JPG",
-      video: vid,
+      image: "/Assets/Mentoring.png",
     },
   ];
 
@@ -93,22 +88,11 @@ const NewGridHoverEffectMobile = () => {
               setExpandedIndex(isExpanded ? null : index)
             }
           >
-            {isExpanded ? (
-              <video
-                src={item.video}
-                className="absolute inset-0 w-full h-full object-cover"
-                muted
-                loop
-                autoPlay
-                playsInline
-              />
-            ) : (
-              <img
-                src={item.image}
-                alt={item.label}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-            )}
+            <img
+              src={item.image}
+              alt={item.label}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
             <div className="absolute inset-0 bg-black/40 pointer-events-none" />
             {isExpanded ? (
               <>

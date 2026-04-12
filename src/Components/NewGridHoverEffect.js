@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import Shukr from "../Assets/Shukr.jpg";
-import vid from "../Assets/vid.mp4";
 
 const NewGridHoverEffect = () => {
   const { t, i18n } = useTranslation();
@@ -18,29 +17,25 @@ const NewGridHoverEffect = () => {
       title: "grid1",
       label: "Beratung",
       subtitle: "Umfassende Anamnese und individueller Behandlungsplan, abgestimmt auf K\u00F6rper, Lebensstil und pers\u00F6nliche Bed\u00FCrfnisse.",
-      image: "/Assets/beratung.jpg",
-      video: vid,
+      image: "/Assets/Beratungen.jpeg",
     },
     {
       title: "grid2",
       label: "Diagnostik",
       subtitle: "Pr\u00E4zise Diagnostik, die \u00FCber Standardlabore hinausgeht und tiefere Einblicke in pers\u00F6nliche Gesundheitswerte erm\u00F6glicht.",
-      image: "/Assets/Diagnostik.jpg",
-      video: vid,
+      image: "/Assets/Diagnostik.jpeg",
     },
     {
       title: "grid3",
       label: "Infusion",
       subtitle: "Individuelle Infusionskonzepte - inklusive spezialisierter Anwendungen wie Ketamin- und Schimmeltherapie.",
-      image: "/Assets/infusion.jpg",
-      video: vid,
+      image: "/Assets/Infusionen.jpeg",
     },
     {
       title: "grid4",
       label: "Mentoring",
       subtitle: "Behandlungspl\u00E4ne verstehen und nachhaltig in den Alltag integrieren, mit Fokus auf Ern\u00E4hrung, Bewegung, Mindset und Stressbalance.",
-      image: "/Assets/Mentoring.JPG",
-      video: vid,
+      image: "/Assets/Mentoring.png",
     },
   ];
 
@@ -137,22 +132,11 @@ const NewGridHoverEffect = () => {
                 onMouseEnter={() => setHoveredIndex(globalIndex)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
-                {hoveredIndex === globalIndex ? (
-                  <video
-                    src={item.video}
-                    className="w-full h-full object-cover"
-                    muted
-                    loop
-                    autoPlay
-                    playsInline
-                  />
-                ) : (
-                  <img
-                    src={item.image}
-                    alt={t(`grid_hover.items.${item.title}`)}
-                    className="w-full h-full object-cover"
-                  />
-                )}
+                <img
+                  src={item.image}
+                  alt={t(`grid_hover.items.${item.title}`)}
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-black/40 pointer-events-none" />
                 <div className="absolute top-6 left-8 right-4">
                   <h3 className="text-white font-bold uppercase text-3xl">
