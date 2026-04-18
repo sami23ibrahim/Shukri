@@ -120,10 +120,9 @@ const NewGridHoverEffect = () => {
           {row.map((item, index) => {
             const globalIndex = index;
             return (
-              <Link
-                to={item.route}
+              <div
                 key={globalIndex}
-                className={`relative overflow-hidden rounded-lg transition-all duration-700 cursor-pointer block ${
+                className={`relative overflow-hidden rounded-lg transition-all duration-700 block ${
                   hoveredIndex === globalIndex
                     ? "flex-[1.2] z-10"
                     : hoveredIndex !== null
@@ -161,17 +160,20 @@ const NewGridHoverEffect = () => {
                     </ul>
                   )}
                 </div>
-                <div className="absolute left-8 bottom-6">
-                  <span className="inline-block bg-white text-[#43A9AB] font-semibold text-sm px-5 py-2 rounded-full shadow-md hover:bg-[#43A9AB] hover:text-white transition-colors">
+                <div className="absolute right-8 bottom-6">
+                  <Link
+                    to={item.route}
+                    className="inline-block bg-white text-[#43A9AB] font-bold text-base px-7 py-3 rounded-full shadow-lg hover:bg-[#43A9AB] hover:text-white transition-colors no-underline"
+                  >
                     Mehr erfahren &rarr;
-                  </span>
+                  </Link>
                 </div>
                 {item.location && (
                   <div className="absolute right-4 bottom-6">
                     <p className="text-white text-base font-semibold text-right">{item.location}</p>
                   </div>
                 )}
-              </Link>
+              </div>
             );
           })}
         </div>

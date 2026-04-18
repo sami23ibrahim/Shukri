@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Shukr from "../Assets/Shukr.jpg";
 
 const NewGridHoverEffectMobile = () => {
   const { i18n } = useTranslation();
-  const navigate = useNavigate();
   const [expandedIndex, setExpandedIndex] = useState(null);
   const [visible, setVisible] = useState([false, false, false, false]);
   const containerRef = useRef(null);
@@ -90,13 +89,7 @@ const NewGridHoverEffectMobile = () => {
               transition: "transform 0.6s ease-out, opacity 0.5s ease-out, height 0.5s ease-in-out",
               willChange: "transform, opacity",
             }}
-            onClick={() => {
-              if (isExpanded) {
-                navigate(item.route);
-              } else {
-                setExpandedIndex(index);
-              }
-            }}
+            onClick={() => setExpandedIndex(isExpanded ? null : index)}
           >
             <img
               src={item.image}
@@ -121,10 +114,14 @@ const NewGridHoverEffectMobile = () => {
                     </ul>
                   )}
                 </div>
-                <div className="absolute left-6 bottom-4">
-                  <span className="inline-block bg-white text-[#43A9AB] font-semibold text-xs px-4 py-1.5 rounded-full shadow-md">
+                <div className="absolute right-6 bottom-4">
+                  <Link
+                    to={item.route}
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-block bg-white text-[#43A9AB] font-bold text-sm px-5 py-2.5 rounded-full shadow-lg no-underline"
+                  >
                     Mehr erfahren &rarr;
-                  </span>
+                  </Link>
                 </div>
                 {item.location && (
                   <div className="absolute right-4 bottom-4">

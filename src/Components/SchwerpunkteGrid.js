@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function useScrollFadeIn() {
   const ref = useRef(null);
@@ -33,7 +33,6 @@ function useScrollFadeIn() {
 }
 
 function FlipCard({ title, image, desc, bgColor, href, flipped, onFlip, onUnflip }) {
-  const navigate = useNavigate();
   const [isTouch, setIsTouch] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const hasBack = Boolean(desc);
@@ -68,14 +67,6 @@ function FlipCard({ title, image, desc, bgColor, href, flipped, onFlip, onUnflip
     if (!isTouch) setFlipped(false);
   };
   const handleClick = () => {
-    if (href) {
-      if (isTouch && hasBack && !flipped) {
-        setFlipped(true);
-        return;
-      }
-      navigate(href);
-      return;
-    }
     if (hasBack) setFlipped((f) => !f);
   };
 
@@ -98,10 +89,7 @@ function FlipCard({ title, image, desc, bgColor, href, flipped, onFlip, onUnflip
       tabIndex={hasBack ? 0 : undefined}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
-          if (href) {
-            e.preventDefault();
-            navigate(href);
-          } else if (hasBack) {
+          if (hasBack) {
             e.preventDefault();
             setFlipped((f) => !f);
           }
@@ -157,12 +145,16 @@ function FlipCard({ title, image, desc, bgColor, href, flipped, onFlip, onUnflip
               {desc}
             </p>
             {href && (
-              <span className="mt-5 inline-flex items-center gap-2 self-end text-[#43A9AB] bg-white font-semibold text-xs sm:text-sm tracking-wide rounded-full px-4 py-2 shadow-sm">
+              <Link
+                to={href}
+                onClick={(e) => e.stopPropagation()}
+                className="mt-5 inline-flex items-center gap-2 self-end text-[#43A9AB] bg-white font-bold text-sm sm:text-base tracking-wide rounded-full px-6 py-3 shadow-lg no-underline hover:shadow-xl transition-shadow"
+              >
                 Mehr erfahren
-                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4}>
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4}>
                   <path d="M5 12h14M13 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-              </span>
+              </Link>
             )}
           </div>
         )}
