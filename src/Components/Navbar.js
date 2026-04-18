@@ -220,7 +220,7 @@ const Navbar = () => {
 					{isMobile ? (
 						<div ref={mobileNavRef} className="relative flex items-center justify-center px-3 py-2 gap-2">
 							<Link to="/" className="absolute left-3 flex items-center no-underline focus:outline-none shrink-0">
-								<img src="/Assets/LOGO.png" alt="ViveCura" className="h-14 w-auto object-contain" style={{ filter: "drop-shadow(0 0 0.6px #43A9AB) drop-shadow(0 0 0.6px #43A9AB) drop-shadow(0 0 0.6px #43A9AB) drop-shadow(0 0 0.6px #43A9AB)" }} />
+								<img src="/Assets/logo6.png" alt="ViveCura" className="h-16 w-auto object-contain" />
 							</Link>
 							<div className="flex items-center gap-4">
 								<div className="relative">
@@ -357,7 +357,7 @@ const Navbar = () => {
 					) : (
 						<div className="relative flex items-center justify-center py-1.5 px-6">
 							<Link to="/" className="absolute left-6 flex items-center no-underline focus:outline-none shrink-0">
-								<img src="/Assets/LOGO.png" alt="ViveCura" className="h-16 w-auto object-contain" style={{ filter: "drop-shadow(0 0 0.6px #43A9AB) drop-shadow(0 0 0.6px #43A9AB) drop-shadow(0 0 0.6px #43A9AB) drop-shadow(0 0 0.6px #43A9AB)" }} />
+								<img src="/Assets/logo6.png" alt="ViveCura" className="h-20 w-auto object-contain" />
 							</Link>
 							<div className="flex items-center">
 								<NavItem isLink to="/" icon={navIcons.home} label={t("navbar.home")} />
@@ -451,7 +451,7 @@ const Navbar = () => {
 				<div className="fixed inset-0 bg-white z-[110] overflow-y-auto">
 					<div className="flex items-center justify-between px-5 py-4 border-b border-[#515757]/10">
 						<Link to="/" onClick={() => setMenuOpen(false)} className="flex items-center no-underline">
-							<img src="/Assets/LOGO.png" alt="ViveCura" className="h-16 w-auto object-contain" style={{ filter: "drop-shadow(0 0 0.6px #43A9AB) drop-shadow(0 0 0.6px #43A9AB) drop-shadow(0 0 0.6px #43A9AB) drop-shadow(0 0 0.6px #43A9AB)" }} />
+							<img src="/Assets/logo6.png" alt="ViveCura" className="h-20 w-auto object-contain" />
 						</Link>
 						<button
 							onClick={() => setMenuOpen(false)}
