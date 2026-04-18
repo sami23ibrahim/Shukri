@@ -4,20 +4,43 @@ import { Link, useLocation } from "react-router-dom";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 const navIcons = {
-	beschwerden: (
-		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.3} className="w-6 h-6">
-			<path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2" strokeLinecap="round" strokeLinejoin="round" />
-			<circle cx="9" cy="7" r="4" strokeLinecap="round" strokeLinejoin="round" />
-			<path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" strokeLinecap="round" strokeLinejoin="round" />
+	home: (
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-7 h-7">
+			<path d="M3 10.5L12 3l9 7.5V20a1 1 0 01-1 1h-5v-6h-6v6H4a1 1 0 01-1-1v-9.5z" strokeLinecap="round" strokeLinejoin="round" />
+		</svg>
+	),
+	mentoring: (
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-7 h-7">
+			<path d="M12 14l8-4-8-4-8 4 8 4z" strokeLinecap="round" strokeLinejoin="round" />
+			<path d="M6 11v4c0 1.5 2.7 3 6 3s6-1.5 6-3v-4" strokeLinecap="round" strokeLinejoin="round" />
+			<path d="M20 10v5" strokeLinecap="round" strokeLinejoin="round" />
+		</svg>
+	),
+	beratung: (
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-7 h-7">
+			<path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2v10z" strokeLinecap="round" strokeLinejoin="round" />
+			<path d="M8 10h.01M12 10h.01M16 10h.01" strokeLinecap="round" strokeLinejoin="round" />
+		</svg>
+	),
+	chevron: (
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-3 h-3">
+			<path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
 		</svg>
 	),
 	leistungen: (
-		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.3} className="w-6 h-6">
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-7 h-7">
 			<path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" strokeLinecap="round" strokeLinejoin="round" />
 		</svg>
 	),
+	fokus: (
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-7 h-7">
+			<circle cx="12" cy="12" r="9" strokeLinecap="round" strokeLinejoin="round" />
+			<circle cx="12" cy="12" r="5" strokeLinecap="round" strokeLinejoin="round" />
+			<circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none" />
+		</svg>
+	),
 	spezielleTherapien: (
-		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.3} className="w-6 h-6">
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-7 h-7">
 			<rect x="3" y="3" width="7" height="7" rx="1" strokeLinecap="round" strokeLinejoin="round" />
 			<rect x="14" y="3" width="7" height="7" rx="1" strokeLinecap="round" strokeLinejoin="round" />
 			<rect x="3" y="14" width="7" height="7" rx="1" strokeLinecap="round" strokeLinejoin="round" />
@@ -25,41 +48,41 @@ const navIcons = {
 		</svg>
 	),
 	infusions: (
-		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.3} className="w-6 h-6">
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-7 h-7">
 			<path d="M12 2v6M12 22v-8M12 14a4 4 0 100-8 4 4 0 000 8z" strokeLinecap="round" strokeLinejoin="round" />
 			<path d="M8 2h8" strokeLinecap="round" strokeLinejoin="round" />
 		</svg>
 	),
 	ueberMich: (
-		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.3} className="w-6 h-6">
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-7 h-7">
 			<path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" strokeLinecap="round" strokeLinejoin="round" />
 			<circle cx="12" cy="7" r="4" strokeLinecap="round" strokeLinejoin="round" />
 		</svg>
 	),
 	blog: (
-		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.3} className="w-6 h-6">
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-7 h-7">
 			<path d="M12 20h9M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4L16.5 3.5z" strokeLinecap="round" strokeLinejoin="round" />
 		</svg>
 	),
 	meinBuch: (
-		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.3} className="w-6 h-6">
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-7 h-7">
 			<path d="M4 19.5A2.5 2.5 0 016.5 17H20" strokeLinecap="round" strokeLinejoin="round" />
 			<path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" strokeLinecap="round" strokeLinejoin="round" />
 		</svg>
 	),
 	appointment: (
-		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.3} className="w-6 h-6">
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-7 h-7">
 			<rect x="3" y="4" width="18" height="18" rx="2" strokeLinecap="round" strokeLinejoin="round" />
 			<path d="M16 2v4M8 2v4M3 10h18" strokeLinecap="round" strokeLinejoin="round" />
 		</svg>
 	),
-	healthCheck: (
-		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.3} className="w-6 h-6">
+	diagnostik: (
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-7 h-7">
 			<path d="M22 12h-4l-3 9L9 3l-3 9H2" strokeLinecap="round" strokeLinejoin="round" />
 		</svg>
 	),
 	extras: (
-		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.3} className="w-6 h-6">
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-7 h-7">
 			<path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8L12 2z" strokeLinecap="round" strokeLinejoin="round" />
 		</svg>
 	),
@@ -72,7 +95,32 @@ const Navbar = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [isVisible, setIsVisible] = useState(true);
+	const [servicesOpen, setServicesOpen] = useState(false);
+	const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+	const [mobileLeistungenOpen, setMobileLeistungenOpen] = useState(false);
 	const lastScrollY = React.useRef(0);
+	const mobileNavRef = React.useRef(null);
+
+	useEffect(() => {
+		if (!mobileServicesOpen && !mobileLeistungenOpen) return;
+		const handleDocClick = (e) => {
+			if (mobileNavRef.current && !mobileNavRef.current.contains(e.target)) {
+				setMobileServicesOpen(false);
+				setMobileLeistungenOpen(false);
+			}
+		};
+		document.addEventListener("mousedown", handleDocClick);
+		document.addEventListener("touchstart", handleDocClick);
+		return () => {
+			document.removeEventListener("mousedown", handleDocClick);
+			document.removeEventListener("touchstart", handleDocClick);
+		};
+	}, [mobileServicesOpen, mobileLeistungenOpen]);
+
+	useEffect(() => {
+		setMobileServicesOpen(false);
+		setMobileLeistungenOpen(false);
+	}, [location.pathname]);
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -134,7 +182,7 @@ const Navbar = () => {
 				<span className={`${isActive ? "text-[#43a9ab] scale-110" : "text-[#515757]/50"} group-hover:text-[#43a9ab] transition-all duration-300`}>
 					{icon}
 				</span>
-				<span className={`${isActive ? "text-[13px] text-[#43a9ab] font-bold" : "text-[12px] text-[#515757]/60"} group-hover:text-[#43a9ab] transition-all duration-300`}>
+				<span className={`${isActive ? "text-[15px] text-[#43a9ab] font-extrabold" : "text-[14px] text-[#515757]/90 font-bold"} group-hover:text-[#43a9ab] transition-all duration-300`}>
 					{label}
 				</span>
 			</>
@@ -144,7 +192,7 @@ const Navbar = () => {
 			return (
 				<Link
 					to={to}
-					className="group flex flex-col items-center gap-1 px-4 py-1 no-underline focus:outline-none"
+					className="group flex flex-col items-center gap-1 px-6 py-1 no-underline focus:outline-none"
 				>
 					{inner}
 				</Link>
@@ -154,7 +202,7 @@ const Navbar = () => {
 		return (
 			<button
 				onClick={onClick}
-				className="group flex flex-col items-center gap-1 px-4 py-1 focus:outline-none"
+				className="group flex flex-col items-center gap-1 px-6 py-1 focus:outline-none"
 			>
 				{inner}
 			</button>
@@ -164,47 +212,233 @@ const Navbar = () => {
 	return (
 		<>
 			<nav
-				className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out ${
+				className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ease-in-out ${
 					isVisible ? "translate-y-0" : "-translate-y-full"
 				}`}
 			>
 				<div className="w-full bg-white border-b border-[#515757]/[0.06]">
 					{isMobile ? (
-						<div className="flex items-center justify-between px-5 py-3">
-							<span className="text-sm font-medium tracking-[0.15em] uppercase text-[#515757]">
-								ViveCura
-							</span>
-							<button
-								onClick={() => setMenuOpen(!menuOpen)}
-								className="w-8 h-8 flex flex-col items-center justify-center gap-1.5"
-							>
-								<span className="block w-5 h-[1.5px] bg-[#515757]"></span>
-								<span className="block w-5 h-[1.5px] bg-[#515757]"></span>
-							</button>
-						</div>
-					) : (
-						<div className="flex items-center justify-center py-1.5 px-4">
-							<div className="flex items-center">
-								<NavItem onClick={() => handleNavigation("beschwerden")} icon={navIcons.beschwerden} label={t("navbar.beschwerden")} />
-								<NavItem onClick={() => handleNavigation("services")} icon={navIcons.leistungen} label={t("navbar.leistungen")} />
-								<NavItem isLink to="/spezielle-therapien" icon={navIcons.spezielleTherapien} label={t("navbar.spezielleTherapien")} />
-								<NavItem isLink to="/infusions" icon={navIcons.infusions} label={t("navbar.infusions")} />
-								<NavItem isLink to="/health-check" icon={navIcons.healthCheck} label={t("navbar.healthCheck")} />
-								<NavItem isLink to="/extras" icon={navIcons.extras} label="Extras" />
-								<NavItem isLink to="/ueber-mich" icon={navIcons.ueberMich} label={t("navbar.ueberMich")} />
-								<NavItem isLink to="/blog" icon={navIcons.blog} label={t("navbar.blog")} />
-								<NavItem isLink to="/mein-buch" icon={navIcons.meinBuch} label={t("navbar.meinBuch")} />
+						<div ref={mobileNavRef} className="flex items-center justify-between px-3 py-2 gap-2">
+							<Link to="/" className="flex items-center no-underline focus:outline-none shrink-0">
+								<img src="/Assets/LOGO.png" alt="ViveCura" className="h-16 w-auto object-contain" />
+							</Link>
+							<div className="flex items-center gap-4">
+								<div className="relative">
+									<button
+										type="button"
+										onClick={() => { setMobileServicesOpen((v) => !v); setMobileLeistungenOpen(false); }}
+										className="flex flex-col items-center justify-center gap-1 w-[72px] py-1 text-[#515757]/80 hover:text-[#43a9ab]"
+									>
+										<span>{navIcons.fokus}</span>
+										<span className="flex items-center gap-0.5 text-[12px] font-semibold">
+											Fokus
+											<span className={`transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`}>{navIcons.chevron}</span>
+										</span>
+									</button>
+									{mobileServicesOpen && (
+										<div className="fixed left-3 right-3 top-[88px] z-[120]">
+											<div className="bg-white border border-[#515757]/10 rounded-2xl shadow-xl px-4 py-3 grid grid-cols-2 gap-x-3 gap-y-2">
+												<Link
+													to="/koerperliche-symptome"
+													onClick={() => setMobileServicesOpen(false)}
+													className="flex items-center gap-2.5 px-2 py-2 rounded-lg hover:bg-[#43a9ab]/5 no-underline"
+												>
+													<div className="w-10 h-10 rounded-full overflow-hidden ring-1 ring-[#515757]/10 shrink-0">
+														<img src="/Assets/KoerperlicheBeschwerden.png" alt="" className="w-full h-full object-cover" />
+													</div>
+													<span className="text-[12px] font-semibold text-[#515757] leading-tight">{t("navbar.koerperlicheBeschwerden")}</span>
+												</Link>
+												<Link
+													to="/praevention-longevity"
+													onClick={() => setMobileServicesOpen(false)}
+													className="flex items-center gap-2.5 px-2 py-2 rounded-lg hover:bg-[#43a9ab]/5 no-underline"
+												>
+													<div className="w-10 h-10 rounded-full overflow-hidden ring-1 ring-[#515757]/10 shrink-0">
+														<img src="/Assets/PraeventionLongevity.png" alt="" className="w-full h-full object-cover" />
+													</div>
+													<span className="text-[12px] font-semibold text-[#515757] leading-tight">{t("navbar.praeventionLongevity")}</span>
+												</Link>
+												<Link
+													to="/psychotherapie"
+													onClick={() => setMobileServicesOpen(false)}
+													className="flex items-center gap-2.5 px-2 py-2 rounded-lg hover:bg-[#43a9ab]/5 no-underline"
+												>
+													<div className="w-10 h-10 rounded-full overflow-hidden ring-1 ring-[#515757]/10 shrink-0">
+														<img src="/Assets/Psychotherapie.png" alt="" className="w-full h-full object-cover" />
+													</div>
+													<span className="text-[12px] font-semibold text-[#515757] leading-tight">{t("navbar.psychotherapie")}</span>
+												</Link>
+											</div>
+										</div>
+									)}
+								</div>
+								<div className="relative">
+									<button
+										type="button"
+										onClick={() => { setMobileLeistungenOpen((v) => !v); setMobileServicesOpen(false); }}
+										className="flex flex-col items-center justify-center gap-1 w-[72px] py-1 text-[#515757]/80 hover:text-[#43a9ab]"
+									>
+										<span>{navIcons.leistungen}</span>
+										<span className="flex items-center gap-0.5 text-[12px] font-semibold">
+											Leistungen
+											<span className={`transition-transform duration-200 ${mobileLeistungenOpen ? "rotate-180" : ""}`}>{navIcons.chevron}</span>
+										</span>
+									</button>
+									{mobileLeistungenOpen && (
+										<div className="fixed left-3 right-3 top-[88px] z-[120]">
+											<div className="bg-white border border-[#515757]/10 rounded-2xl shadow-xl px-4 py-3 grid grid-cols-2 gap-x-3 gap-y-2">
+												<Link
+													to="/beratung"
+													onClick={() => setMobileLeistungenOpen(false)}
+													className="flex items-center gap-2.5 px-2 py-2 rounded-lg hover:bg-[#43a9ab]/5 no-underline"
+												>
+													<div className="w-10 h-10 rounded-full overflow-hidden ring-1 ring-[#515757]/10 shrink-0">
+														<img src="/Assets/Beratung.png" alt="" className="w-full h-full object-cover" />
+													</div>
+													<span className="text-[12px] font-semibold text-[#515757] leading-tight">{t("navbar.beratung")}</span>
+												</Link>
+												<Link
+													to="/infusions"
+													onClick={() => setMobileLeistungenOpen(false)}
+													className="flex items-center gap-2.5 px-2 py-2 rounded-lg hover:bg-[#43a9ab]/5 no-underline"
+												>
+													<div className="w-10 h-10 rounded-full overflow-hidden ring-1 ring-[#515757]/10 shrink-0">
+														<img src="/Assets/Infusionen.jpeg" alt="" className="w-full h-full object-cover" />
+													</div>
+													<span className="text-[12px] font-semibold text-[#515757] leading-tight">{t("navbar.infusions")}</span>
+												</Link>
+												<Link
+													to="/mentoring"
+													onClick={() => setMobileLeistungenOpen(false)}
+													className="flex items-center gap-2.5 px-2 py-2 rounded-lg hover:bg-[#43a9ab]/5 no-underline"
+												>
+													<div className="w-10 h-10 rounded-full overflow-hidden ring-1 ring-[#515757]/10 shrink-0">
+														<img src="/Assets/Mentoring.png" alt="" className="w-full h-full object-cover" />
+													</div>
+													<span className="text-[12px] font-semibold text-[#515757] leading-tight">{t("navbar.mentoring")}</span>
+												</Link>
+												<Link
+													to="/diagnostik"
+													onClick={() => setMobileLeistungenOpen(false)}
+													className="flex items-center gap-2.5 px-2 py-2 rounded-lg hover:bg-[#43a9ab]/5 no-underline"
+												>
+													<div className="w-10 h-10 rounded-full overflow-hidden ring-1 ring-[#515757]/10 shrink-0">
+														<img src="/Assets/Diagnostik.png" alt="" className="w-full h-full object-cover" />
+													</div>
+													<span className="text-[12px] font-semibold text-[#515757] leading-tight">{t("navbar.diagnostik")}</span>
+												</Link>
+											</div>
+										</div>
+									)}
+								</div>
+								<button
+									type="button"
+									onClick={() => setMenuOpen(!menuOpen)}
+									className="flex flex-col items-center justify-center gap-1 w-[72px] py-1 text-[#515757]/80 hover:text-[#43a9ab]"
+								>
+									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-7 h-7">
+										<circle cx="5" cy="12" r="1.5" fill="currentColor" stroke="none" />
+										<circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none" />
+										<circle cx="19" cy="12" r="1.5" fill="currentColor" stroke="none" />
+									</svg>
+									<span className="text-[12px] font-semibold">More</span>
+								</button>
 								<a
-									href="https://www.doctolib.de/zahnarztpraxis/berlin/die-drei-zahnaerzte/booking/specialities?profile_skipped=true&utm_source=die-drei-zahnaerzte-website-button&utm_medium=referral&utm_campaign=website-button&utm_content=option-8&bookingFunnelSource=external_referral"
+									href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="group flex flex-col items-center gap-1 px-4 py-1 no-underline focus:outline-none"
+									className="flex flex-col items-center justify-center gap-1 w-[72px] py-1.5 rounded-lg bg-[#43a9ab] text-white no-underline hover:bg-[#378f91]"
 								>
-									<span className="text-[#515757]/50 group-hover:text-[#515757] transition-colors duration-300">
-										{navIcons.appointment}
-									</span>
-									<span className="text-[12px] text-[#515757]/60 group-hover:text-[#515757] transition-colors duration-300">
-										{t("navbar.appointment")}
+									<span>{navIcons.appointment}</span>
+									<span className="text-[12px] font-bold">Buchen</span>
+								</a>
+							</div>
+						</div>
+					) : (
+						<div className="relative flex items-center justify-center py-1.5 px-6">
+							<Link to="/" className="absolute left-6 flex items-center no-underline focus:outline-none shrink-0">
+								<img src="/Assets/LOGO.png" alt="ViveCura" className="h-24 w-auto object-contain" />
+							</Link>
+							<div className="flex items-center">
+								<NavItem isLink to="/" icon={navIcons.home} label={t("navbar.home")} />
+								<div
+									className="relative"
+									onMouseEnter={() => setServicesOpen(true)}
+									onMouseLeave={() => setServicesOpen(false)}
+								>
+									<button
+										type="button"
+										className="group flex flex-col items-center gap-1 px-6 py-1 focus:outline-none"
+									>
+										<span className={`${servicesOpen ? "text-[#43a9ab] scale-110" : "text-[#515757]/50"} group-hover:text-[#43a9ab] transition-all duration-300`}>
+											{navIcons.fokus}
+										</span>
+										<span className={`flex items-center gap-1 ${servicesOpen ? "text-[15px] text-[#43a9ab] font-extrabold" : "text-[14px] text-[#515757]/90 font-bold"} group-hover:text-[#43a9ab] transition-all duration-300`}>
+											Fokus
+											<span className={`transition-transform duration-300 ${servicesOpen ? "rotate-180" : ""}`}>
+												{navIcons.chevron}
+											</span>
+										</span>
+									</button>
+									<div
+										className={`absolute left-0 top-full pt-3 transition-all duration-200 ${
+											servicesOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-1"
+										}`}
+									>
+										<div className="bg-white border border-[#515757]/10 rounded-2xl shadow-xl px-6 py-5">
+											<div className="flex items-center gap-4">
+												<Link
+													to="/koerperliche-symptome"
+													className="group flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-[#43a9ab]/5 no-underline transition-colors"
+												>
+													<div className="w-14 h-14 rounded-full overflow-hidden ring-1 ring-[#515757]/10 group-hover:ring-[#43a9ab] transition-all duration-200 shrink-0">
+														<img src="/Assets/KoerperlicheBeschwerden.png" alt="" className="w-full h-full object-cover" />
+													</div>
+													<span className="text-[14px] font-semibold text-[#515757] group-hover:text-[#43a9ab] leading-tight transition-colors whitespace-nowrap">
+														{t("navbar.koerperlicheBeschwerden")}
+													</span>
+												</Link>
+												<Link
+													to="/praevention-longevity"
+													className="group flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-[#43a9ab]/5 no-underline transition-colors"
+												>
+													<div className="w-14 h-14 rounded-full overflow-hidden ring-1 ring-[#515757]/10 group-hover:ring-[#43a9ab] transition-all duration-200 shrink-0">
+														<img src="/Assets/PraeventionLongevity.png" alt="" className="w-full h-full object-cover" />
+													</div>
+													<span className="text-[14px] font-semibold text-[#515757] group-hover:text-[#43a9ab] leading-tight transition-colors whitespace-nowrap">
+														{t("navbar.praeventionLongevity")}
+													</span>
+												</Link>
+												<Link
+													to="/psychotherapie"
+													className="group flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-[#43a9ab]/5 no-underline transition-colors"
+												>
+													<div className="w-14 h-14 rounded-full overflow-hidden ring-1 ring-[#515757]/10 group-hover:ring-[#43a9ab] transition-all duration-200 shrink-0">
+														<img src="/Assets/Psychotherapie.png" alt="" className="w-full h-full object-cover" />
+													</div>
+													<span className="text-[14px] font-semibold text-[#515757] group-hover:text-[#43a9ab] leading-tight transition-colors whitespace-nowrap">
+														{t("navbar.psychotherapie")}
+													</span>
+												</Link>
+											</div>
+										</div>
+									</div>
+								</div>
+								<NavItem isLink to="/beratung" icon={navIcons.beratung} label={t("navbar.beratung")} />
+								<NavItem isLink to="/diagnostik" icon={navIcons.diagnostik} label={t("navbar.diagnostik")} />
+								<NavItem isLink to="/infusions" icon={navIcons.infusions} label={t("navbar.infusions")} />
+								<NavItem isLink to="/mentoring" icon={navIcons.mentoring} label={t("navbar.mentoring")} />
+								<NavItem isLink to="/extras" icon={navIcons.extras} label="Ketamin" />
+								<NavItem isLink to="/ueber-mich" icon={navIcons.ueberMich} label={t("navbar.ueberMich")} />
+								<NavItem isLink to="/blog" icon={navIcons.blog} label={t("navbar.blog")} />
+								<a
+									href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="group flex items-center px-3 py-3 ml-2 rounded-xl bg-[#43a9ab] hover:bg-[#378f91] transition-colors duration-300 no-underline focus:outline-none"
+								>
+									<span className="text-[14px] text-white font-extrabold transition-colors duration-300">
+										Buchen
 									</span>
 								</a>
 							</div>
@@ -214,100 +448,101 @@ const Navbar = () => {
 			</nav>
 
 			{menuOpen && (
-				<div className="fixed inset-0 bg-white flex flex-col items-center justify-center z-[60]">
-					<button
-						onClick={() => setMenuOpen(false)}
-						className="absolute top-8 right-8 w-10 h-10 flex items-center justify-center"
-					>
-						<svg className="w-6 h-6 text-[#515757]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
-						</svg>
-					</button>
-
-					<div className="flex flex-col space-y-7 text-center">
+				<div className="fixed inset-0 bg-white z-[110] overflow-y-auto">
+					<div className="flex items-center justify-between px-5 py-4 border-b border-[#515757]/10">
+						<Link to="/" onClick={() => setMenuOpen(false)} className="flex items-center no-underline">
+							<img src="/Assets/LOGO.png" alt="ViveCura" className="h-12 w-auto object-contain" />
+						</Link>
 						<button
-							onClick={() => handleNavigation("beschwerden")}
-							className="text-2xl font-light tracking-wide text-[#515757] hover:text-[#515757]/60 transition-colors duration-300"
+							onClick={() => setMenuOpen(false)}
+							className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-[#515757]/5"
+							aria-label="Menü schließen"
 						>
-							{t("navbar.beschwerden")}
+							<svg className="w-5 h-5 text-[#515757]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+							</svg>
 						</button>
-						<button
-							onClick={() => handleNavigation("services")}
-							className="text-2xl font-light tracking-wide text-[#515757] hover:text-[#515757]/60 transition-colors duration-300"
-						>
-							{t("navbar.leistungen")}
-						</button>
-						<Link
-							to="/spezielle-therapien"
-							className="text-2xl font-light tracking-wide text-[#515757] hover:text-[#515757]/60 transition-colors duration-300 no-underline"
-							onClick={() => setMenuOpen(false)}
-						>
-							{t("navbar.spezielleTherapien")}
-						</Link>
-						<Link
-							to="/infusions"
-							className="text-2xl font-light tracking-wide text-[#515757] hover:text-[#515757]/60 transition-colors duration-300 no-underline"
-							onClick={() => setMenuOpen(false)}
-						>
-							{t("navbar.infusions")}
-						</Link>
-						<Link
-							to="/health-check"
-							className="text-2xl font-light tracking-wide text-[#515757] hover:text-[#515757]/60 transition-colors duration-300 no-underline"
-							onClick={() => setMenuOpen(false)}
-						>
-							{t("navbar.healthCheck")}
-						</Link>
-						<Link
-							to="/extras"
-							className="text-2xl font-light tracking-wide text-[#515757] hover:text-[#515757]/60 transition-colors duration-300 no-underline"
-							onClick={() => setMenuOpen(false)}
-						>
-							Extras
-						</Link>
-						<Link
-							to="/ueber-mich"
-							className="text-2xl font-light tracking-wide text-[#515757] hover:text-[#515757]/60 transition-colors duration-300 no-underline"
-							onClick={() => setMenuOpen(false)}
-						>
-							{t("navbar.ueberMich")}
-						</Link>
-						<Link
-							to="/blog"
-							className="text-2xl font-light tracking-wide text-[#515757] hover:text-[#515757]/60 transition-colors duration-300 no-underline"
-							onClick={() => setMenuOpen(false)}
-						>
-							{t("navbar.blog")}
-						</Link>
-						<Link
-							to="/mein-buch"
-							className="text-2xl font-light tracking-wide text-[#515757] hover:text-[#515757]/60 transition-colors duration-300 no-underline"
-							onClick={() => setMenuOpen(false)}
-						>
-							{t("navbar.meinBuch")}
-						</Link>
+					</div>
 
-						<div className="mt-10 flex flex-col items-center space-y-4">
+					<div className="px-5 pt-6 pb-10 max-w-md mx-auto">
+						<h2 className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#43a9ab] mb-4">
+							Menü
+						</h2>
+						<div className="flex flex-col gap-2">
+							{[
+								{ to: "/", icon: navIcons.home, label: t("navbar.home") },
+								{ to: "/extras", icon: navIcons.extras, label: "Ketamin" },
+								{ to: "/ueber-mich", icon: navIcons.ueberMich, label: t("navbar.ueberMich") },
+								{ to: "/blog", icon: navIcons.blog, label: t("navbar.blog") },
+							].map((item) => (
+								<Link
+									key={item.to}
+									to={item.to}
+									onClick={() => setMenuOpen(false)}
+									className="group flex items-center gap-4 px-4 py-3 rounded-2xl border border-[#515757]/10 hover:border-[#43a9ab] hover:bg-[#43a9ab]/5 no-underline transition-all"
+								>
+									<span className="w-10 h-10 rounded-full bg-[#43a9ab]/10 text-[#43a9ab] flex items-center justify-center shrink-0">
+										{item.icon}
+									</span>
+									<span className="flex-1 text-[15px] font-semibold text-[#515757] group-hover:text-[#43a9ab] transition-colors">
+										{item.label}
+									</span>
+									<svg className="w-4 h-4 text-[#515757]/40 group-hover:text-[#43a9ab] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+										<path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+									</svg>
+								</Link>
+							))}
+						</div>
+
+						<h2 className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#43a9ab] mt-10 mb-4">
+							Kontakt
+						</h2>
+						<div className="flex flex-col gap-3">
 							<a
-								href="tel:03069005528"
-								className="text-lg text-[#515757]/50 hover:text-[#515757] transition-colors duration-300 no-underline tracking-widest"
+								href="tel:030200060860"
+								className="flex items-center gap-3 px-4 py-3 rounded-2xl border border-[#515757]/10 hover:border-[#43a9ab] hover:bg-[#43a9ab]/5 no-underline transition-all"
 							>
-								(030) 69005528
+								<span className="w-10 h-10 rounded-full bg-[#43a9ab]/10 text-[#43a9ab] flex items-center justify-center shrink-0">
+									<svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+										<path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" strokeLinecap="round" strokeLinejoin="round" />
+									</svg>
+								</span>
+								<div className="flex-1">
+									<div className="text-[11px] font-semibold tracking-wider uppercase text-[#515757]/50">Anrufen</div>
+									<div className="text-[15px] font-semibold text-[#515757]">030 200060860</div>
+								</div>
 							</a>
 							<a
-								href="https://www.doctolib.de/zahnarztpraxis/berlin/die-drei-zahnaerzte/booking/specialities?bookingFunnelSource=profile"
-								target="_blank"
-								rel="noopener noreferrer"
-								className="text-sm tracking-[0.15em] uppercase font-medium text-white bg-[#515757] px-8 py-3.5 rounded-full hover:bg-[#3a3b3f] transition-all duration-300 no-underline hover:no-underline"
+								href="mailto:praxis@vivecura.com"
+								className="flex items-center gap-3 px-4 py-3 rounded-2xl border border-[#515757]/10 hover:border-[#43a9ab] hover:bg-[#43a9ab]/5 no-underline transition-all"
 							>
-								{t("navbar.appointment")}
+								<span className="w-10 h-10 rounded-full bg-[#43a9ab]/10 text-[#43a9ab] flex items-center justify-center shrink-0">
+									<svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+										<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" strokeLinecap="round" strokeLinejoin="round" />
+										<path d="M22 6l-10 7L2 6" strokeLinecap="round" strokeLinejoin="round" />
+									</svg>
+								</span>
+								<div className="flex-1">
+									<div className="text-[11px] font-semibold tracking-wider uppercase text-[#515757]/50">E-Mail</div>
+									<div className="text-[15px] font-semibold text-[#515757]">praxis@vivecura.com</div>
+								</div>
 							</a>
 						</div>
+
+						<a
+							href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="mt-8 flex items-center justify-center gap-2 w-full py-4 rounded-2xl bg-[#43a9ab] text-white font-bold tracking-wide hover:bg-[#378f91] transition-colors no-underline"
+						>
+							{navIcons.appointment}
+							<span>Termin buchen</span>
+						</a>
 					</div>
 				</div>
 			)}
 
-			<LanguageSwitcher />
+			{/* <LanguageSwitcher /> hidden until i18n is production-ready */}
 		</>
 	);
 };

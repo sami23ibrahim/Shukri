@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { useTranslation } from "react-i18next";
+import SchwerpunkteGrid from "../Components/SchwerpunkteGrid";
+import UnifiedBottomCta from "../Components/UnifiedBottomCta";
 
 function useScrollFadeIn() {
   const ref = useRef(null);
@@ -146,20 +148,24 @@ function AccordionItem({ title, children, isOpen, onToggle }) {
 
 const experienceChapters = [
   {
-    video: "/Assets/1.mp4",
-    videoMob: "/Assets/1mob.mp4",
+    video: "/Assets/videos/aerztliche-beratung.mp4",
+    videoMob: "/Assets/videos/aerztliche-beratung.mp4",
   },
   {
-    video: "/Assets/2.mp4",
-    videoMob: "/Assets/2mob.mp4",
+    video: "/Assets/videos/stoffwechselanalyse.mp4",
+    videoMob: "/Assets/videos/stoffwechselanalyse.mp4",
   },
   {
-    video: "/Assets/3.mp4",
-    videoMob: "/Assets/3mob.mp4",
+    video: "/Assets/videos/hrv-stressanalyse.mp4",
+    videoMob: "/Assets/videos/hrv-stressanalyse.mp4",
   },
   {
-    video: "/Assets/4.mp4",
-    videoMob: "/Assets/4mob.mp4",
+    video: "/Assets/videos/naehrstoffanalyse.mp4",
+    videoMob: "/Assets/videos/naehrstoffanalyse.mp4",
+  },
+  {
+    video: "/Assets/videos/blutproben.mp4",
+    videoMob: "/Assets/videos/blutproben.mp4",
   },
 ];
 
@@ -337,34 +343,34 @@ function HealthCheck() {
 
   const focusAreas = [
     {
-      title: t("healthCheck.focus.prophylaxe.title"),
-      items: t("healthCheck.focus.prophylaxe.items", { returnObjects: true }),
-      icon: focusIcons.shield,
+      title: t("healthCheck.focus.darm.title"),
+      items: t("healthCheck.focus.darm.items", { returnObjects: true }),
+      icon: focusIcons.leaf,
     },
     {
-      title: t("healthCheck.focus.aesthetik.title"),
-      items: t("healthCheck.focus.aesthetik.items", { returnObjects: true }),
-      icon: focusIcons.sparkle,
-    },
-    {
-      title: t("healthCheck.focus.implantologie.title"),
-      items: t("healthCheck.focus.implantologie.items", { returnObjects: true }),
-      icon: focusIcons.tooth,
-    },
-    {
-      title: t("healthCheck.focus.parodontologie.title"),
-      items: t("healthCheck.focus.parodontologie.items", { returnObjects: true }),
+      title: t("healthCheck.focus.psyche.title"),
+      items: t("healthCheck.focus.psyche.items", { returnObjects: true }),
       icon: focusIcons.heart,
     },
     {
-      title: t("healthCheck.focus.diagnostik.title"),
-      items: t("healthCheck.focus.diagnostik.items", { returnObjects: true }),
+      title: t("healthCheck.focus.stoffwechsel.title"),
+      items: t("healthCheck.focus.stoffwechsel.items", { returnObjects: true }),
       icon: focusIcons.scan,
     },
     {
-      title: t("healthCheck.focus.ganzheitlich.title"),
-      items: t("healthCheck.focus.ganzheitlich.items", { returnObjects: true }),
-      icon: focusIcons.leaf,
+      title: t("healthCheck.focus.leistung.title"),
+      items: t("healthCheck.focus.leistung.items", { returnObjects: true }),
+      icon: focusIcons.sparkle,
+    },
+    {
+      title: t("healthCheck.focus.immun.title"),
+      items: t("healthCheck.focus.immun.items", { returnObjects: true }),
+      icon: focusIcons.shield,
+    },
+    {
+      title: t("healthCheck.focus.praevention.title"),
+      items: t("healthCheck.focus.praevention.items", { returnObjects: true }),
+      icon: focusIcons.tooth,
     },
   ];
 
@@ -373,6 +379,7 @@ function HealthCheck() {
     { title: t("healthCheck.steps.s2.title"), description: t("healthCheck.steps.s2.desc") },
     { title: t("healthCheck.steps.s3.title"), description: t("healthCheck.steps.s3.desc") },
     { title: t("healthCheck.steps.s4.title"), description: t("healthCheck.steps.s4.desc") },
+    { title: t("healthCheck.steps.s5.title"), description: t("healthCheck.steps.s5.desc") },
   ];
 
   const faqs = [
@@ -419,7 +426,7 @@ function HealthCheck() {
             <div className="lg:w-[55%]">
               <div className="lg:sticky lg:top-28">
                 <div className="w-full aspect-[10/9] rounded-2xl overflow-hidden bg-[#c4b8a8]">
-                  <img src="/Assets/health-check.avif" alt="Health Check" className="w-full h-full object-cover" />
+                  <img src="/Assets/Diagnostik2.png" alt="Diagnostik" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
@@ -439,7 +446,7 @@ function HealthCheck() {
                   {t("healthCheck.hero.subtitle")}
                 </p>
                 <a
-                  href="https://www.doctolib.de/zahnarztpraxis/berlin/die-drei-zahnaerzte/booking/specialities?bookingFunnelSource=profile"
+                  href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center bg-[#43a9ab] text-white px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-sm"
@@ -473,15 +480,17 @@ function HealthCheck() {
                 <h2 className="text-lg font-bold text-[#515757] mb-5">{t("healthCheck.whyUs.title")}</h2>
                 <div className="space-y-4">
                   {[
-                    t("healthCheck.whyUs.w1.desc"),
-                    t("healthCheck.whyUs.w2.desc"),
-                    t("healthCheck.whyUs.w3.desc"),
-                  ].map((text, i) => (
+                    { title: t("healthCheck.whyUs.w1.title"), desc: t("healthCheck.whyUs.w1.desc") },
+                    { title: t("healthCheck.whyUs.w2.title"), desc: t("healthCheck.whyUs.w2.desc") },
+                    { title: t("healthCheck.whyUs.w3.title"), desc: t("healthCheck.whyUs.w3.desc") },
+                  ].map((item, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-[#43a9ab] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm text-[#515757]/70">{text}</span>
+                      <span className="text-sm text-[#515757]/70">
+                        <span className="font-semibold text-[#515757]">{item.title}.</span> {item.desc}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -512,7 +521,7 @@ function HealthCheck() {
                 </div>
                 <div className="mt-6">
                   <a
-                    href="https://www.doctolib.de/zahnarztpraxis/berlin/die-drei-zahnaerzte/booking/specialities?bookingFunnelSource=profile"
+                    href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full flex items-center justify-center bg-[#43a9ab] text-white px-6 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline"
@@ -520,19 +529,6 @@ function HealthCheck() {
                     {t("healthCheck.hero.cta")}
                   </a>
                 </div>
-              </div>
-
-              {/* Block 5: Not sure? */}
-              <div className="border-t border-gray-200 py-8 sm:py-10">
-                <button className="w-full flex items-center justify-between p-5 rounded-xl bg-white border border-gray-200 hover:border-[#43a9ab]/30 transition-colors text-left cursor-pointer">
-                  <div>
-                    <p className="text-sm font-semibold text-[#515757] mb-1">Nicht sicher, womit Sie starten sollen?</p>
-                    <p className="text-xs text-gray-500">Wir beraten Sie kostenlos.</p>
-                  </div>
-                  <svg className="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
               </div>
 
             </div>
@@ -543,15 +539,63 @@ function HealthCheck() {
       {/* ── STEP BY STEP — Scroll-driven video experience ── */}
       <section className="pt-20 sm:pt-28">
         <div className="max-w-5xl mx-auto px-5 sm:px-8 text-center mb-8">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#43A9AB] mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#43A9AB]">
             {t("healthCheck.stepsSection.title")}
           </h2>
-          <p className="text-gray-500 text-sm sm:text-base max-w-xl mx-auto">
-            {t("healthCheck.stepsSection.subtitle")}
-          </p>
         </div>
         <ScrollVideoExperience steps={steps} isMobile={typeof window !== "undefined" && window.innerWidth < 768} />
       </section>
+
+      {/* ── SCHWERPUNKTE GRID (9 cards) ── */}
+      <SchwerpunkteGrid
+        therapies={[
+          {
+            title: "Stoffwechsel-Analyse (BIA)",
+            desc: "Erhalte einen klaren Überblick über deinen Körper. Von Muskel- und Fettanteil bis zur Zellgesundheit. Wir analysieren Energie, Hydration und Balance. So lassen sich Ernährung, Training und Regeneration gezielt optimieren.",
+            image: "/Assets/spezielle%20therapien/BIA.png",
+          },
+          {
+            title: "Stress-Analyse (HRV)",
+            desc: "Verstehe, wie dein Körper mit Stress und Erholung umgeht. Wir machen sichtbar, was im Alltag oft verborgen bleibt. Für mehr Balance, besseren Schlaf und nachhaltige Regeneration.",
+            image: "/Assets/spezielle%20therapien/Stressanalyse%20HRV.png",
+          },
+          {
+            title: "Genetik & Epigenetik",
+            desc: "Deine Gene zeigen dein Potenzial, dein Lebensstil entscheidet über die Umsetzung. Wir analysieren, wie dein Körper arbeitet und reagiert. Für personalisierte Strategien, die wirklich zu dir passen.",
+            image: "/Assets/spezielle%20therapien/GenetikandEpigenetik.png",
+          },
+          {
+            title: "Nährstoff-Analyse",
+            desc: "Schnell, unkompliziert und ohne Blutabnahme. Wir erkennen mögliche Defizite und Belastungen frühzeitig. Die ideale Grundlage für gezielte nächste Schritte.",
+            image: "/Assets/spezielle%20therapien/Naehrstoffanalyse.png",
+          },
+          {
+            title: "Labor (Vollblut & Urin)",
+            desc: "Tiefergehende Einblicke in Nährstoffe, Hormone und Entzündungsprozesse. Präzise Diagnostik auf Zellebene statt oberflächlicher Werte. Für eine fundierte und individuelle Therapieplanung.",
+            image: "/Assets/spezielle%20therapien/Labor.png",
+          },
+          {
+            title: "Darm-Funktion",
+            desc: "Der Darm ist die Basis deiner Gesundheit. Wir analysieren Mikrobiom, Verdauung und Immunfunktion. Für mehr Wohlbefinden, Energie und innere Balance.",
+            image: "/Assets/spezielle%20therapien/Darmfunktion.png",
+          },
+          {
+            title: "Schimmel & Mykotoxine",
+            desc: "Belastungen erkennen, die oft lange unentdeckt bleiben. Wir prüfen Zusammenhänge zwischen Umwelt und Symptomen. Für gezielte Klarheit und passende Therapieansätze.",
+            image: "/Assets/spezielle%20therapien/SchimmelanaMykotoxine.png",
+          },
+          {
+            title: "Schwermetalle & Chelattherapie",
+            desc: "Verborgene Belastungen sichtbar machen. Diagnostik und Therapie erfolgen ärztlich begleitet. Für sichere und strukturierte Ausleitungskonzepte.",
+            image: "/Assets/spezielle%20therapien/Schwermetall%20Ausleitung.png",
+          },
+          {
+            title: "Schlaf-Analyse",
+            desc: "Schlaf verstehen statt nur bewerten. Wir analysieren deine nächtliche Regeneration und Erholungsfähigkeit. Für einen individuellen Plan zu besserem, tieferem Schlaf.",
+            image: "/Assets/spezielle%20therapien/Schlafanalyse.png",
+          },
+        ]}
+      />
 
       {/* ── EVERYTHING INCLUDED ── */}
       <section ref={includesAnim.ref} style={includesAnim.style} className="pt-28 sm:pt-40 pb-20 sm:pb-28 px-5 sm:px-8">
@@ -561,7 +605,7 @@ function HealthCheck() {
               <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-10 text-center">
                 {t("healthCheck.includes.title")}
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {[
                   {
                     icon: focusIcons.scan,
@@ -578,6 +622,11 @@ function HealthCheck() {
                     title: t("healthCheck.includes.i3.title"),
                     desc: t("healthCheck.includes.i3.desc"),
                   },
+                  {
+                    icon: focusIcons.sparkle,
+                    title: t("healthCheck.includes.i4.title"),
+                    desc: t("healthCheck.includes.i4.desc"),
+                  },
                 ].map((item, i) => (
                   <div key={i} className="text-center">
                     <div className="w-12 h-12 rounded-xl bg-white/80 text-[#43a9ab] flex items-center justify-center mx-auto mb-4 shadow-sm">
@@ -593,7 +642,8 @@ function HealthCheck() {
         </div>
       </section>
 
-      {/* ── WHY CHOOSE US — 4 benefits ── */}
+      {/* ── WHY CHOOSE US — 4 benefits — HIDDEN, keep for later ── */}
+      {false && (
       <section ref={benefitsAnim.ref} style={benefitsAnim.style} className="pb-20 sm:pb-28 px-5 sm:px-8">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#43A9AB] mb-4 text-center">
@@ -615,8 +665,10 @@ function HealthCheck() {
           </div>
         </div>
       </section>
+      )}
 
-      {/* ── FAQ ── */}
+      {/* ── FAQ — HIDDEN, keep for later ── */}
+      {false && (
       <section ref={faqAnim.ref} style={faqAnim.style} className="pb-20 sm:pb-28 px-5 sm:px-8">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#43A9AB] mb-10 text-center">
@@ -631,31 +683,9 @@ function HealthCheck() {
           </div>
         </div>
       </section>
+      )}
 
-      {/* ── BOTTOM CTA ── */}
-      <section className="pb-20 sm:pb-28 px-5 sm:px-8">
-        <div className="max-w-3xl mx-auto">
-          <div className="rounded-3xl overflow-hidden text-center px-8 sm:px-14 py-14 sm:py-20" style={{ background: "linear-gradient(135deg, #515757 0%, #3a3b3f 50%, #515757 100%)" }}>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
-              {t("healthCheck.bottomCta.title")}
-            </h2>
-            <p className="text-white/60 text-sm sm:text-base max-w-md mx-auto mb-8">
-              {t("healthCheck.bottomCta.desc")}
-            </p>
-            <a
-              href="https://www.doctolib.de/zahnarztpraxis/berlin/die-drei-zahnaerzte/booking/specialities?bookingFunnelSource=profile"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center bg-white text-[#515757] px-8 py-4 rounded-xl text-base font-semibold hover:bg-gray-100 transition-colors duration-200 no-underline shadow-sm"
-            >
-              {t("healthCheck.hero.cta")}
-              <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </section>
+      <UnifiedBottomCta className="pb-20 sm:pb-28 px-5 sm:px-8 pt-8 sm:pt-12" />
 
     </div>
   );

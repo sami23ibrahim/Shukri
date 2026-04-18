@@ -2,21 +2,21 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 const cardData = [
   {
-    image: "/Assets/1.avif",
+    image: "/Assets/KoerperlicheBeschwerden.png",
     label: "K\u00F6rperliche Symptome",
     title: "K\u00F6rperliche Symptome",
     desc: "Analyse von Ursachen und Zusammenh\u00E4ngen als Grundlage f\u00FCr gezielte Diagnostik und Therapie.",
     path: "/koerperliche-symptome",
   },
   {
-    image: "/Assets/2.avif",
+    image: "/Assets/PraeventionLongevity.png",
     label: "Pr\u00E4vention & Longevity",
     title: "Pr\u00E4vention & Longevity",
     desc: "Fr\u00FCherkennung und gezielte Ma\u00DFnahmen zur langfristigen Stabilisierung von Gesundheit und Leistungsf\u00E4higkeit.",
     path: "/praevention-longevity",
   },
   {
-    image: "/Assets/3.avif",
+    image: "/Assets/Psychotherapie.png",
     label: "Psychische Beschwerden",
     title: "Psychische Beschwerden",
     desc: "Ganzheitliche Therapieans\u00E4tze zur Stabilisierung der mentalen Gesundheit und F\u00F6rderung innerer Balance.",
@@ -93,11 +93,11 @@ function FanCardsMobile() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-white min-h-[70vh] flex flex-col items-center justify-center overflow-x-hidden px-4 pb-16 md:hidden"
+      className="relative bg-white flex flex-col items-center justify-center overflow-x-hidden px-4 py-10 sm:py-14 md:hidden"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      <h2 className="text-[#43A9AB] font-black leading-[0.85] tracking-tighter text-left mb-20 max-w-[50%] self-start ml-4" style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}>
+      <h2 className="text-[#43A9AB] font-black leading-[0.85] tracking-tighter text-left mb-10 max-w-[50%] self-start ml-4" style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}>
         Deine Themen im Fokus
       </h2>
 

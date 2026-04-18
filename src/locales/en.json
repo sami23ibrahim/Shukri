@@ -1,14 +1,19 @@
 {
   "navbar": {
-    "beschwerden": "Complaints & Diagnoses",
+    "home": "Home",
     "leistungen": "Services",
+    "koerperlicheBeschwerden": "Physical Complaints",
+    "praeventionLongevity": "Prevention & Longevity",
+    "psychotherapie": "Psychotherapy",
     "spezielleTherapien": "Special Therapies",
     "infusions": "Infusions",
     "ueberMich": "About me",
     "blog": "Blog",
     "meinBuch": "My Book",
     "appointment": "Appointment",
-    "healthCheck": "Health Check"
+    "diagnostik": "Diagnostics",
+    "mentoring": "Mentoring",
+    "beratung": "Consultations"
   },
   "Infusions": {
     "title": "Infusions"
@@ -63,33 +68,33 @@
       }
     },
     "grid": {
-      "title": "Our Specializations",
+      "title": "Special Therapies",
       "subtitle": "Specialized treatments for your dental health — from prevention to aesthetics."
     },
     "therapies": {
-      "prophylaxe": {
-        "title": "Prevention & Care",
-        "desc": "Professional dental cleaning and individual prevention programs for long-term healthy teeth."
+      "ketamin": {
+        "title": "Ketamine",
+        "desc": "Individualized ketamine therapy for treatment-resistant depression, anxiety disorders and chronic pain."
       },
-      "implantologie": {
-        "title": "Implantology",
-        "desc": "High-quality dental implants as a permanent replacement for missing teeth — natural and durable."
+      "schwermetall": {
+        "title": "Heavy Metal Detox",
+        "desc": "Targeted elimination of toxic heavy metals to relieve cells, nervous system, and immune function."
       },
-      "aesthetik": {
-        "title": "Aesthetic Dentistry",
-        "desc": "Veneers, whitening, and invisible corrections for your most beautiful smile."
+      "schimmel": {
+        "title": "Mold",
+        "desc": "Diagnostics and therapy for chronic mold exposure and the symptoms it causes."
       },
-      "parodontologie": {
-        "title": "Periodontology",
-        "desc": "Treatment of gum diseases and preservation of the tooth support structure."
+      "darmreset": {
+        "title": "Gut Reset",
+        "desc": "Restoring and regenerating the gut flora as a foundation for immunity, energy, and mental balance."
       },
-      "endodontie": {
-        "title": "Endodontics",
-        "desc": "Modern root canal treatments to preserve your natural teeth."
+      "hormone": {
+        "title": "Hormones",
+        "desc": "Precise hormone diagnostics and individual balance concepts for energy, mood, and performance."
       },
-      "kieferorthopaedie": {
-        "title": "Orthodontics",
-        "desc": "Correcting misaligned teeth — with invisible aligners or classic methods."
+      "burnout": {
+        "title": "Burnout",
+        "desc": "Holistic guidance from exhaustion back into balance — with focus on the nervous system and regeneration."
       }
     },
     "philosophy": {
@@ -157,107 +162,115 @@
   },
   "healthCheck": {
     "hero": {
-      "badge": "Dental Health Check",
-      "title": "Health Check",
-      "subtitle": "Targeted diagnostics, personal consultation and an individual health plan — all in one appointment.",
+      "badge": "Your Health Check",
+      "title": "Diagnostics",
+      "subtitle": "In a single appointment you'll receive in-depth diagnostics, a conversation about your personal health, and an individual plan tailored precisely to your body and your life.",
       "cta": "Book now",
       "subCta": "incl. diagnostics & consultation"
     },
     "glance": {
       "g1": {
-        "title": "Comprehensive Diagnostics",
+        "title": "Holistic Diagnostics",
         "desc": "Digital X-rays, intraoral camera and clinical examination for a complete picture of your dental health."
       },
       "g2": {
-        "title": "45 Min. Expert Consultation",
+        "title": "60 Min. Medical Consultation",
         "desc": "Personal conversation with your dentist about findings, symptoms and your individual health goals."
       },
       "g3": {
-        "title": "Individual Treatment Plan",
+        "title": "Your Individual Treatment Plan",
         "desc": "Clear recommendations, prioritized actions and a roadmap for your long-term dental health."
       }
     },
     "whyUs": {
-      "title": "Why Die Drei Zahnärzte",
+      "title": "Why VIVECURA?",
       "subtitle": "We combine cutting-edge diagnostics with holistic care — no assembly-line medicine, but genuine attention.",
       "w1": {
-        "title": "Targeted Diagnostics",
-        "desc": "We examine exactly what's relevant — no unnecessary effort, just precise findings as a foundation."
+        "title": "Causes, not symptoms",
+        "desc": "We don't treat what shows up on the surface — we treat what's behind it. Our diagnostics go deeper than the usual standard and uncover what conventional exams often miss."
       },
       "w2": {
-        "title": "Personal Assessment",
-        "desc": "We listen, ask the right questions and view your dental health in the overall context."
+        "title": "Precision, not guesswork",
+        "desc": "Every recommendation is based on your individual values. No one-size-fits-all, no gut feeling. What we recommend is grounded in measurable evidence."
       },
       "w3": {
-        "title": "Clear Recommendations",
-        "desc": "Understandable results and honest advice — with access to all suitable treatment options."
+        "title": "A picture that fits together",
+        "desc": "We look at your blood, your gut, your hormones, micronutrients, and your lifestyle in context — because health is never a single finding."
       }
     },
     "focusSection": {
-      "title": "Choose Your Focus",
+      "title": "The Most Common Complaints",
       "subtitle": "Every check is individual. Choose the focus that best matches your symptoms and goals."
     },
     "focus": {
-      "prophylaxe": {
-        "title": "Prevention & Care",
-        "items": ["Professional dental cleaning", "Caries risk analysis", "Individual prevention program"]
+      "darm": {
+        "title": "Gut & Digestion",
+        "items": ["Microbiome analysis", "Food intolerances", "Gut reset program"]
       },
-      "aesthetik": {
-        "title": "Aesthetics & Smile",
-        "items": ["Tooth color & shape analysis", "Whitening consultation", "Veneer & composite options"]
+      "psyche": {
+        "title": "Mind & Nervous System",
+        "items": ["Stress & sleep analysis", "Nervous system regulation", "Holistic support"]
       },
-      "implantologie": {
-        "title": "Implantology",
-        "items": ["3D bone analysis", "Implant planning", "Immediate restoration options"]
+      "stoffwechsel": {
+        "title": "Metabolism & Hormones",
+        "items": ["Hormone diagnostics", "Thyroid & sex hormones", "Individual balance plan"]
       },
-      "parodontologie": {
-        "title": "Gums & Periodontology",
-        "items": ["Pocket depth measurement", "Inflammation diagnostics", "Preservation of tooth support"]
+      "leistung": {
+        "title": "Performance & Energy",
+        "items": ["Mitochondria check", "Micronutrient status", "Energy & recovery plan"]
       },
-      "diagnostik": {
-        "title": "Holistic Diagnostics",
-        "items": ["Digital X-rays", "TMJ screening", "Oral flora analysis"]
+      "immun": {
+        "title": "Immune System & Infections",
+        "items": ["Immune profile", "Chronic infections & toxins", "Strengthening your defenses"]
       },
-      "ganzheitlich": {
+      "praevention": {
         "title": "Prevention & Longevity",
         "items": ["Early detection check", "Risk factor analysis", "Long-term health plan"]
       }
     },
     "stepsSection": {
-      "title": "Your Path to Better Dental Health",
-      "subtitle": "In four clear steps — from diagnostics to your personal health plan."
+      "title": "Your Path to Better Health",
+      "subtitle": ""
     },
     "steps": {
       "s1": {
-        "title": "Book Appointment",
-        "desc": "Choose your preferred appointment and focus online — quick and easy."
+        "title": "Medical Consultation",
+        "desc": "Detailed holistic anamnesis."
       },
       "s2": {
-        "title": "Diagnostics",
-        "desc": "Comprehensive examination with digital imaging and clinical assessment."
+        "title": "Metabolic Analysis",
+        "desc": "Bioimpedance measurement of phase angle, cellular energy assessment & body composition (muscle/fat, hydration)."
       },
       "s3": {
-        "title": "Consultation",
-        "desc": "45-minute personal discussion of your results with your dentist."
+        "title": "HRV Stress Analysis",
+        "desc": "Stress, recovery & burnout tendencies. Seeing mental health in biology."
       },
       "s4": {
-        "title": "Your Health Plan",
-        "desc": "Clear summary of findings, prioritized recommendations and next steps."
+        "title": "Nutrient Analysis",
+        "desc": "Spectrophotometry (hand scan) for rapid assessment of numerous vitamins, minerals and heavy metals in tissue."
+      },
+      "s5": {
+        "title": "Blood Draw on Indication",
+        "desc": "Selection from one of the largest parameter lists in Germany (partnership with IMD Berlin)."
       }
     },
     "includes": {
-      "title": "Everything you need — in one appointment.",
+      "title": "Everything you need in one appointment!",
       "i1": {
         "title": "Diagnostics",
-        "desc": "All examinations included — digital X-rays, clinical assessment and specific tests."
+        "desc": "Targeted lab analyses, functional tests and clinical assessment. Tailored individually to your symptoms."
       },
       "i2": {
         "title": "Consultation",
-        "desc": "45 min. personal conversation about your findings, symptoms and goals."
+        "desc": "Before we recommend anything, we understand your body, your story and your goals."
       },
       "i3": {
         "title": "Health Plan",
-        "desc": "Individual treatment plan with clear recommendations and concrete next steps."
+        "desc": "You don't get generic advice, but a concrete plan. Tailored precisely to you, with clear next steps."
+      },
+      "i4": {
+        "title": "Mentoring",
+        "desc": "We accompany you long term, adapt your plan, and stay by your side until you truly arrive where you want to be."
       }
     },
     "benefitsSection": {
@@ -287,28 +300,28 @@
     },
     "testimonials": {
       "t1": {
-        "quote": "The health check was incredibly thorough. I finally knew exactly where I stood and what made sense next.",
-        "name": "Ela"
+        "quote": "Mr. Jarmoukli is an exceptional doctor with a deep, holistic approach. He takes his time, listens carefully, analyzes thoroughly, and explains his recommendations with great professional competence and clarity. You can feel right away that it's not about quick fixes for him, but about sustainable health.",
+        "name": "Miriam"
       },
       "t2": {
-        "quote": "I had symptoms for a while that no one could properly diagnose. Here, everything was viewed holistically for the first time.",
-        "name": "Ulla"
+        "quote": "I felt in very good hands with Mr. Jarmoukli from the very beginning. His calm, attentive and at the same time very authentic manner inspires trust immediately. What struck me as especially positive was how much time he takes to truly listen and to understand the individual connections.",
+        "name": "Nurül"
       },
       "t3": {
-        "quote": "In regular treatment for 6 months now. Great combination of communication and professionalism.",
-        "name": "Matthias"
+        "quote": "I would like to warmly thank him for the exceptionally competent and empathetic care. You can tell right away that the work here is not 'standardized', but holistic and with genuine interest in the person. An absolute recommendation for anyone who values quality, competence and personal care.",
+        "name": "Majd"
       },
       "t4": {
-        "quote": "Really nice atmosphere — you can tell real experts work here who genuinely take their time.",
-        "name": "Viki"
+        "quote": "I can only recommend Dr. Shukri Jarmoukli. I came in for an iron infusion but received a comprehensive and holistic consultation. Very professional — you can tell the patient is truly at the center of everything here.",
+        "name": "Pauli"
       },
       "t5": {
-        "quote": "I felt very comfortable. The team is super friendly and puts great effort into every treatment.",
-        "name": "Sophie"
+        "quote": "I can't put into words how grateful I am to have met Shukri and that he can support me along the way. For me, he is not just a classic doctor. He has such a comprehensive, holistic understanding of how mental and physical health really work — from nutrition and a healthy lifestyle, to regulating the nervous system, bodywork, and mental health.",
+        "name": "Philipp"
       },
       "t6": {
-        "quote": "Always satisfied — all-around great care and honest communication.",
-        "name": "Mohamed"
+        "quote": "A wonderfully pleasant doctor who doesn't work by the standard playbook, but truly addresses each patient's individual health needs. With my medical history, I've tried a lot, but here I really feel well-advised.",
+        "name": "Katharina"
       }
     },
     "faqSection": {

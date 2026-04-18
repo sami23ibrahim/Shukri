@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import Shukr from "../Assets/Shukr.jpg";
 
 const NewGridHoverEffectMobile = () => {
   const { i18n } = useTranslation();
+  const navigate = useNavigate();
   const [expandedIndex, setExpandedIndex] = useState(null);
   const [visible, setVisible] = useState([false, false, false, false]);
   const containerRef = useRef(null);
@@ -13,21 +15,25 @@ const NewGridHoverEffectMobile = () => {
       label: "Beratung",
       subtitle: "Umfassende Anamnese und individueller Behandlungsplan, abgestimmt auf K\u00F6rper, Lebensstil und pers\u00F6nliche Bed\u00FCrfnisse.",
       image: "/Assets/Beratungen.jpeg",
+      route: "/beratung",
     },
     {
       label: "Diagnostik",
       subtitle: "Pr\u00E4zise Diagnostik, die \u00FCber Standardlabore hinausgeht und tiefere Einblicke in pers\u00F6nliche Gesundheitswerte erm\u00F6glicht.",
-      image: "/Assets/Diagnostik.jpeg",
+      image: "/Assets/Diagnostik.png",
+      route: "/diagnostik",
     },
     {
       label: "Infusion",
       subtitle: "Individuelle Infusionskonzepte - inklusive spezialisierter Anwendungen wie Ketamin- und Schimmeltherapie.",
       image: "/Assets/Infusionen.jpeg",
+      route: "/infusions",
     },
     {
       label: "Mentoring",
       subtitle: "Behandlungspl\u00E4ne verstehen und nachhaltig in den Alltag integrieren, mit Fokus auf Ern\u00E4hrung, Bewegung, Mindset und Stressbalance.",
       image: "/Assets/Mentoring.png",
+      route: "/mentoring",
     },
   ];
 
@@ -65,10 +71,10 @@ const NewGridHoverEffectMobile = () => {
   return (
     <div
       ref={containerRef}
-      className="flex flex-col gap-2 w-full px-4 py-6 overflow-hidden"
+      className="flex flex-col gap-2 w-full px-4 py-10 sm:py-14 overflow-hidden"
       style={{ backgroundColor: "#ffffff" }}
     >
-      <h2 className="text-[#43A9AB] font-black leading-[0.85] tracking-tighter text-left mb-16 max-w-[50%] ml-4" style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}>
+      <h2 className="text-[#43A9AB] font-black leading-[0.85] tracking-tighter text-left mb-10 max-w-[50%] ml-4" style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}>
         Unsere Leistungen
       </h2>
       {data.map((item, index) => {
@@ -84,9 +90,13 @@ const NewGridHoverEffectMobile = () => {
               transition: "transform 0.6s ease-out, opacity 0.5s ease-out, height 0.5s ease-in-out",
               willChange: "transform, opacity",
             }}
-            onClick={() =>
-              setExpandedIndex(isExpanded ? null : index)
-            }
+            onClick={() => {
+              if (isExpanded) {
+                navigate(item.route);
+              } else {
+                setExpandedIndex(index);
+              }
+            }}
           >
             <img
               src={item.image}
@@ -110,6 +120,11 @@ const NewGridHoverEffectMobile = () => {
                       ))}
                     </ul>
                   )}
+                </div>
+                <div className="absolute left-6 bottom-4">
+                  <span className="inline-block bg-white text-[#43A9AB] font-semibold text-xs px-4 py-1.5 rounded-full shadow-md">
+                    Mehr erfahren &rarr;
+                  </span>
                 </div>
                 {item.location && (
                   <div className="absolute right-4 bottom-4">

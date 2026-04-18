@@ -6,7 +6,7 @@ const shots = [
   {
     title: "Vitamin D Shot",
     img: "/Assets/infusions-pics/Vitamin D Shot.png",
-    duration: "5 min",
+    duration: "15 min.",
     oldPrice: "40 €",
     price: "25 €",
     desc: "Eine einzige Spritze kann monatelange tägliche Einnahme ersetzen.",
@@ -19,7 +19,7 @@ const shots = [
   {
     title: "Magnesium Shot",
     img: "/Assets/infusions-pics/Magnesium Shot.png",
-    duration: "5 min",
+    duration: "15 min.",
     price: "ca. 39 €",
     desc: "Eine einzige Infusion kann das erreichen, was Tabletten in Wochen kaum schaffen.",
     tags: ["Entspannung", "Durchblutung", "Fatigue"],
@@ -27,6 +27,20 @@ const shots = [
     ingredients: "Magnesium 6mmol (i.v.)",
     whyTitle: "Warum dieser Shot – und warum als Serie?",
     whyText: "Es geht nicht darum, Speicher aufzufüllen. Es geht darum, was in dem Moment passiert, wenn Magnesium direkt ins Blut geht und was passiert, wenn man diesen Moment wiederholt.\n\nMagnesium i.v. kann die glatte Muskulatur der Blutgefäße sofort entspannen, den Blutdruck senken und die Durchblutung schlagartig steigern. Viele Patienten spüren es live: eine intensive Wärme breitet sich vom Arm über den ganzen Körper aus. Das ist echte Vasodilatation, der Körper öffnet sich buchstäblich! Muskeln können loslassen, das Nervensystem kann runterfahren, der Herzrhythmus kann sich stabilisieren.\n\nBei chronischer Erschöpfung und Fatigue kann genau dieser kurzfristige Reset entscheidend sein. Nicht weil der Körper danach dauerhaft verändert ist, sondern weil jede Wiederholung das Nervensystem trainiert, wieder in diesen Zustand zu kommen. Wie ein Reset-Knopf, der mit jeder Sitzung leichter zu drücken ist. Als Serie angewendet, kann sich diese kurze, tiefe Entspannung in nachhaltige Erholung verwandeln; messbar an HRV, Schlafqualität und Energielevel.",
+  },
+  {
+    title: "Glutathion Shot",
+    img: "/Assets/infusions-pics/Glutathion Shot.png",
+    duration: "15 min.",
+    price: "45 €",
+    desc: "Direkt intravenös für sofortige Bioverfügbarkeit auf Zellniveau.",
+    tags: ["Entgiftung", "Zellschutz", "Skin Glow-Up"],
+    popupDesc:
+      "Der Körper produziert Glutathion selbst, aber Stress, Toxine, Alter und Nährstoffmängel leeren die Speicher schnell. Oral aufgenommen wird es kaum resorbiert: Magensäure und Darmenzyme bauen es ab, bevor es ankommt. Dieser Shot liefert reduziertes Glutathion direkt in die Vene: sofort bioverfügbar, sofort wirksam. Die Zellen bekommen das, was sie wirklich brauchen.",
+    ingredients: "Reduziertes Glutathion 1.800 mg (L-Glutathion)",
+    whyTitle: "Warum dieser Shot?",
+    whyText:
+      "Glutathion ist das mächtigste körpereigene Antioxidans. Es neutralisiert freie Radikale, regeneriert andere Antioxidantien wie Vitamin C und E, und ist zentraler Bestandteil der Leberdetoxifikation. Gleichzeitig schützt es Mitochondrien, unterstützt das Immunsystem und kann die Haut von innen aufhellen. Wer chronisch erschöpft ist, viele Toxine ausgesetzt war oder einfach auf Zellniveau regenerieren will, für den ist das der direkteste Weg.",
   },
 ];
 

@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import Shukr from "../Assets/Shukr.jpg";
 
 function useScrollFadeIn(threshold = 0.1) {
   const ref = useRef(null);
@@ -136,7 +135,7 @@ function Psychotherapie() {
 
       {/* Hero Image Banner */}
       <HeroBanner
-        image={Shukr}
+        image="/Assets/Psychotherapie.png"
         badge="Psychotherapie"
         title={<>Ganzheitliche <em className="italic">Psychotherapie</em></>}
         subtitle={"Mein Ansatz ist, Empfindungen, Gef\u00FChle, Gedanken und Handlungen mit dir zu synchronisieren. Mit dem Ziel, dich schnellstm\u00F6glich auf dem Weg zu deinem besseren Selbst zu begleiten."}
@@ -150,18 +149,10 @@ function Psychotherapie() {
         </div>
         <div className="flex flex-wrap gap-4">
           <a
-            href="https://www.doctolib.de"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/extras"
             className="inline-flex items-center bg-[#43a9ab] text-white px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-lg shadow-[#43a9ab]/25"
           >
-            Kostenloses Orientierungsgespr&auml;ch (15 Min)
-          </a>
-          <a
-            href="#ketamin"
-            className="inline-flex items-center border border-[#43a9ab]/30 text-[#43a9ab] bg-white/60 backdrop-blur-sm px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-white/80 transition-colors duration-200 no-underline"
-          >
-            Mehr &uuml;ber Ketamin-Therapie
+            Mehr &uuml;ber Ketamin erfahren
           </a>
         </div>
       </HeroBanner>
@@ -341,7 +332,7 @@ function Psychotherapie() {
           </div>
           <div className="mt-10 flex flex-wrap gap-4">
             <a
-              href="https://www.doctolib.de"
+              href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center bg-[#43a9ab] text-white px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-sm"
@@ -349,7 +340,7 @@ function Psychotherapie() {
               Kostenloses Orientierungsgespr&auml;ch (15 Min)
             </a>
             <a
-              href="https://www.doctolib.de"
+              href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center border border-[#43a9ab]/30 text-[#43a9ab] px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#43a9ab]/5 transition-colors duration-200 no-underline"
@@ -421,7 +412,7 @@ function Psychotherapie() {
           </h2>
           <div className="flex flex-wrap gap-4 justify-center mt-10">
             <a
-              href="https://www.doctolib.de"
+              href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center bg-[#43a9ab] text-white px-8 py-4 rounded-xl text-base font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-lg shadow-[#43a9ab]/20"
@@ -429,7 +420,7 @@ function Psychotherapie() {
               Kostenloses Orientierungsgespr&auml;ch (15 Min)
             </a>
             <a
-              href="https://www.doctolib.de"
+              href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center border border-[#43a9ab]/30 text-[#43a9ab] px-8 py-4 rounded-xl text-base font-semibold hover:bg-[#43a9ab]/5 transition-colors duration-200 no-underline"

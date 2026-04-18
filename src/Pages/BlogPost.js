@@ -144,7 +144,7 @@ function BlogPost() {
             Wir beraten Sie gerne persönlich in unserer Praxis.
           </p>
           <a
-            href="https://www.doctolib.de/zahnarztpraxis/berlin/die-drei-zahnaerzte/booking/specialities?bookingFunnelSource=profile"
+            href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-[#43a9ab] hover:bg-[#3a9496] text-white px-8 py-3 rounded-lg text-base font-medium transition-colors duration-300 no-underline"

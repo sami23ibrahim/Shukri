@@ -16,6 +16,10 @@ import Extras from "./Pages/Extras";
 import KoerperlicheSymptome from "./Pages/KoerperlicheSymptome";
 import PraeventionLongevity from "./Pages/PraeventionLongevity";
 import Psychotherapie from "./Pages/Psychotherapie";
+import Beratung from "./Pages/Beratung";
+import Mentoring from "./Pages/Mentoring";
+import TherapieDetail from "./Pages/TherapieDetail";
+import LegalNotice from "./Pages/LegalNotice";
 import Footer from "./Components/Footer";
 
 function ScrollToTop() {
@@ -40,13 +44,17 @@ function App() {
         <Route path="/admin/edit/:id" element={<BlogEditor />} />
         <Route path="/mein-buch" element={<MeinBuch />} />
         <Route path="/spezielle-therapien" element={<SpezielleTherapien />} />
-        <Route path="/health-check" element={<HealthCheck />} />
+        <Route path="/therapien/:slug" element={<TherapieDetail />} />
+        <Route path="/rechtliches" element={<LegalNotice />} />
+        <Route path="/diagnostik" element={<HealthCheck />} />
         <Route path="/ueber-mich" element={<UeberMich />} />
         <Route path="/extras" element={<Extras />} />
         <Route path="/experience" element={<Experience />} />
         <Route path="/koerperliche-symptome" element={<KoerperlicheSymptome />} />
         <Route path="/praevention-longevity" element={<PraeventionLongevity />} />
         <Route path="/psychotherapie" element={<Psychotherapie />} />
+        <Route path="/beratung" element={<Beratung />} />
+        <Route path="/mentoring" element={<Mentoring />} />
       </Routes>
       <Footer />
     </BrowserRouter>

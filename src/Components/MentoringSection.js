@@ -42,7 +42,7 @@ function MentoringSection() {
       >
         <div className="h-full flex flex-col justify-end items-end p-6 gap-3">
           <a
-            href="https://www.doctolib.de"
+            href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-teal-500 hover:bg-teal-600 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"

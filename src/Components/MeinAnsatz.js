@@ -159,8 +159,7 @@ export default function MeinAnsatz() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex flex-col items-center bg-white overflow-x-hidden"
-      style={{ padding: "80px 24px 100px" }}
+      className="relative flex flex-col items-center bg-white overflow-x-hidden py-14 px-5 sm:px-10"
     >
       {/* Ambient glow */}
       <div
@@ -176,7 +175,7 @@ export default function MeinAnsatz() {
 
       <div className="relative z-[1] w-full flex flex-col items-center max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-left mb-16 w-full self-start pl-4 sm:pl-10 max-w-[70%] sm:max-w-[50%]">
+        <div className="text-left mb-12 sm:mb-16 w-full self-start max-w-[70%] sm:max-w-[50%]">
           <h2
             className="text-[#43A9AB] font-black leading-[0.85] tracking-tighter"
             style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}

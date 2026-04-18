@@ -1,21 +1,26 @@
 {
   "navbar": {
-    "beschwerden": "Beschwerden & Diagnosen",
+    "home": "Home",
     "leistungen": "Leistungen",
+    "koerperlicheBeschwerden": "Körperliche Beschwerden",
+    "praeventionLongevity": "Prävention & Longevity",
+    "psychotherapie": "Psychotherapie",
     "spezielleTherapien": "Spezielle Therapien",
     "infusions": "Infusionen",
     "ueberMich": "Über mich",
     "blog": "Blog",
     "meinBuch": "Mein Buch",
     "appointment": "Termin buchen",
-    "healthCheck": "Health Check"
+    "diagnostik": "Diagnostik",
+    "mentoring": "Mentoring",
+    "beratung": "Beratungen"
   },
   "Infusions": {
     "title": "Infusions"
   },
   "services": {
     "vitaminC": "Vitamin C",
-    "vitaminC_desc": "Vitamin C Infusionen für Energie, Immunsystem und Wohlbefinden."
+    "vitaminC_desc": "VIVECURA bietet dir eine sorgfältig kuratierte Auswahl an Infusionen und Shots, die individuell auf deine Bedürfnisse abgestimmt werden. Auch wenn du noch nicht genau weißt, was deinem Körper fehlt, begleiten wir dich mit persönlicher Beratung und finden gemeinsam die passende Lösung für dich."
   },
   "services_mobile": {
     "items": {
@@ -63,33 +68,33 @@
       }
     },
     "grid": {
-      "title": "Unsere Schwerpunkte",
+      "title": "Spezielle Therapien",
       "subtitle": "Spezialisierte Behandlungen für Ihre Zahngesundheit — von Vorsorge bis Ästhetik."
     },
     "therapies": {
-      "prophylaxe": {
-        "title": "Prophylaxe & Vorsorge",
-        "desc": "Professionelle Zahnreinigung und individuelle Vorsorgeprogramme für langfristig gesunde Zähne."
+      "ketamin": {
+        "title": "Ketamin",
+        "desc": "Individuelle Ketamin-Therapie bei therapieresistenten Depressionen, Angststörungen und chronischen Schmerzen."
       },
-      "implantologie": {
-        "title": "Implantologie",
-        "desc": "Hochwertige Zahnimplantate als dauerhafter Ersatz für fehlende Zähne — natürlich und belastbar."
+      "schwermetall": {
+        "title": "Schwermetall-Entgiftung",
+        "desc": "Gezielte Ausleitung toxischer Schwermetalle zur Entlastung von Zellen, Nervensystem und Immunfunktion."
       },
-      "aesthetik": {
-        "title": "Ästhetische Zahnheilkunde",
-        "desc": "Veneers, Bleaching und unsichtbare Korrekturen für Ihr schönstes Lächeln."
+      "schimmel": {
+        "title": "Schimmel",
+        "desc": "Diagnostik und Therapie chronischer Schimmelpilzbelastung und daraus resultierender Beschwerden."
       },
-      "parodontologie": {
-        "title": "Parodontologie",
-        "desc": "Behandlung von Zahnfleischerkrankungen und Erhalt des Zahnhalteapparats."
+      "darmreset": {
+        "title": "Darm-Reset",
+        "desc": "Sanierung und Regeneration der Darmflora als Fundament für Immunsystem, Energie und mentale Balance."
       },
-      "endodontie": {
-        "title": "Endodontie",
-        "desc": "Moderne Wurzelkanalbehandlungen zum Erhalt Ihrer natürlichen Zähne."
+      "hormone": {
+        "title": "Hormone",
+        "desc": "Präzise Hormondiagnostik und individuelle Balance-Konzepte für Energie, Stimmung und Leistungsfähigkeit."
       },
-      "kieferorthopaedie": {
-        "title": "Kieferorthopädie",
-        "desc": "Zahnfehlstellungen korrigieren — mit unsichtbaren Alignern oder klassischen Methoden."
+      "burnout": {
+        "title": "Burnout",
+        "desc": "Ganzheitliche Begleitung aus Erschöpfung zurück in Balance — mit Fokus auf Nervensystem und Regeneration."
       }
     },
     "philosophy": {
@@ -157,107 +162,115 @@
   },
   "healthCheck": {
     "hero": {
-      "badge": "Dental Health Check",
-      "title": "Health Check",
-      "subtitle": "Gezielte Diagnostik, persönliche Beratung und ein individueller Gesundheitsplan — alles in einem Termin.",
+      "badge": "Dein Health Check",
+      "title": "Diagnostik",
+      "subtitle": "In einem einzigen Termin erhältst du eine fundierte Diagnostik, ein Gespräch über deine persönliche Gesundheit und einen individuellen Plan, der genau an deinen Körper und an dein Leben angepasst ist.",
       "cta": "Jetzt buchen",
       "subCta": "inkl. Diagnostik & Beratung"
     },
     "glance": {
       "g1": {
-        "title": "Umfassende Diagnostik",
+        "title": "Ganzheitliche Diagnostik",
         "desc": "Digitales Röntgen, intraorale Kamera und klinische Befundung für ein vollständiges Bild Ihrer Zahngesundheit."
       },
       "g2": {
-        "title": "45 Min. Expertenberatung",
+        "title": "60 Min. ärztliche Beratung",
         "desc": "Persönliches Gespräch mit Ihrem Zahnarzt zu Befunden, Symptomen und Ihren individuellen Gesundheitszielen."
       },
       "g3": {
-        "title": "Individueller Behandlungsplan",
+        "title": "Dein individueller Behandlungsplan",
         "desc": "Klare Empfehlungen, priorisierte Maßnahmen und ein Fahrplan für Ihre langfristige Zahngesundheit."
       }
     },
     "whyUs": {
-      "title": "Warum Die Drei Zahnärzte",
+      "title": "Warum VIVECURA?",
       "subtitle": "Wir verbinden modernste Diagnostik mit ganzheitlicher Betreuung — keine Fließbandmedizin, sondern echte Zuwendung.",
       "w1": {
-        "title": "Gezielte Diagnostik",
-        "desc": "Wir untersuchen genau das, was relevant ist — kein unnötiger Aufwand, sondern präzise Befunde als Grundlage."
+        "title": "Ursachen statt Symptome",
+        "desc": "Wir behandeln nicht, was sich zeigt, sondern was dahintersteckt. Unsere Diagnostik geht tiefer als der normale Standard und deckt auf, was klassische Untersuchungen oft übersehen."
       },
       "w2": {
-        "title": "Persönliche Anamnese",
-        "desc": "Wir hören zu, stellen die richtigen Fragen und betrachten Ihre Zahngesundheit im Gesamtkontext."
+        "title": "Präzision statt Raten",
+        "desc": "Jede Empfehlung basiert auf deinen individuellen Werten. Kein Schema F, kein Bauchgefühl. Was wir empfehlen, ist messbar begründet."
       },
       "w3": {
-        "title": "Klare Empfehlungen",
-        "desc": "Verständliche Ergebnisse und ehrliche Beratung — mit Zugang zu allen passenden Behandlungsoptionen."
+        "title": "Ein Bild, das zusammenpasst",
+        "desc": "Wir betrachten dein Blut, deinen Darm, deine Hormone, Mikronährstoffe und deinen Lebensstil im Zusammenhang — weil Gesundheit kein Einzelbefund ist."
       }
     },
     "focusSection": {
-      "title": "Wählen Sie Ihren Schwerpunkt",
+      "title": "Die häufigsten Beschwerden",
       "subtitle": "Jeder Check ist individuell. Wählen Sie den Fokus, der am besten zu Ihren Beschwerden und Zielen passt."
     },
     "focus": {
-      "prophylaxe": {
-        "title": "Prophylaxe & Vorsorge",
-        "items": ["Professionelle Zahnreinigung", "Kariesrisikoanalyse", "Individuelles Vorsorgeprogramm"]
+      "darm": {
+        "title": "Darm & Verdauung",
+        "items": ["Mikrobiom-Analyse", "Nahrungsmittelunverträglichkeiten", "Darm-Reset-Programm"]
       },
-      "aesthetik": {
-        "title": "Ästhetik & Lächeln",
-        "items": ["Zahnfarbe & Formanalyse", "Bleaching-Beratung", "Veneer- & Kompositoptionen"]
+      "psyche": {
+        "title": "Psyche & Nervensystem",
+        "items": ["Stress- & Schlafanalyse", "Regulation des Nervensystems", "Ganzheitliche Begleitung"]
       },
-      "implantologie": {
-        "title": "Implantologie",
-        "items": ["3D-Knochenanalyse", "Implantatplanung", "Sofortversorgungsoptionen"]
+      "stoffwechsel": {
+        "title": "Stoffwechsel & Hormone",
+        "items": ["Hormon-Diagnostik", "Schilddrüsen- & Geschlechtshormone", "Individuelles Balance-Konzept"]
       },
-      "parodontologie": {
-        "title": "Zahnfleisch & Parodontologie",
-        "items": ["Taschentiefenmessung", "Entzündungsdiagnostik", "Erhalt des Zahnhalteapparats"]
+      "leistung": {
+        "title": "Leistung & Energie",
+        "items": ["Mitochondrien-Check", "Mikronährstoff-Status", "Energie- & Regenerationsplan"]
       },
-      "diagnostik": {
-        "title": "Ganzheitliche Diagnostik",
-        "items": ["Digitales Röntgen", "CMD-Screening", "Mundflora-Analyse"]
+      "immun": {
+        "title": "Immunsystem & Infekte",
+        "items": ["Immun-Profil", "Chronische Infekte & Toxine", "Stärkung der Abwehr"]
       },
-      "ganzheitlich": {
+      "praevention": {
         "title": "Prävention & Longevity",
         "items": ["Früherkennungs-Check", "Risikofaktor-Analyse", "Langzeit-Gesundheitsplan"]
       }
     },
     "stepsSection": {
-      "title": "Ihr Weg zu besserer Zahngesundheit",
-      "subtitle": "In vier klaren Schritten — von der Diagnostik bis zum persönlichen Gesundheitsplan."
+      "title": "Dein Weg zu besserer Gesundheit",
+      "subtitle": ""
     },
     "steps": {
       "s1": {
-        "title": "Termin buchen",
-        "desc": "Wählen Sie online Ihren Wunschtermin und Ihren Schwerpunkt — schnell und unkompliziert."
+        "title": "Ärztliche Beratung",
+        "desc": "Ausführliche ganzheitliche Anamnese."
       },
       "s2": {
-        "title": "Diagnostik",
-        "desc": "Umfassende Untersuchung mit digitaler Bildgebung und klinischer Befundung."
+        "title": "Stoffwechsel-Analyse",
+        "desc": "Bioimpedanz zur Messung von Phasenwinkel, Zellenergie-Einschätzung & Körperzusammensetzung (Muskel/Fett, Hydration)."
       },
       "s3": {
-        "title": "Beratungsgespräch",
-        "desc": "45 Minuten persönliche Besprechung Ihrer Ergebnisse mit Ihrem Zahnarzt."
+        "title": "HRV-Stressanalyse",
+        "desc": "Stress, Erholung & Burn-Out Tendenzen. Psychische Gesundheit in der Biologie sehen."
       },
       "s4": {
-        "title": "Ihr Gesundheitsplan",
-        "desc": "Klare Zusammenfassung der Befunde, priorisierte Empfehlungen und nächste Schritte."
+        "title": "Nährstoff-Analyse",
+        "desc": "Spektralfotometrie (Hand-Scan) zur schnellen Einschätzung von zahlreichen Vitaminen, Mineralien und Schwermetallen im Gewebe."
+      },
+      "s5": {
+        "title": "Blutentnahme nach Indikation",
+        "desc": "Auswahl aus einer der größten Parameterlisten in Deutschland (Partnerschaft mit IMD-Berlin)."
       }
     },
     "includes": {
-      "title": "Alles, was Sie brauchen — in einem Termin.",
+      "title": "Alles was du brauchst in einem Termin!",
       "i1": {
         "title": "Diagnostik",
-        "desc": "Alle Untersuchungen inklusive — digitales Röntgen, klinische Befundung und spezifische Tests."
+        "desc": "Gezielte Laboranalysen, funktionelle Tests und klinische Befundung. Individuell abgestimmt auf deine Beschwerden."
       },
       "i2": {
         "title": "Beratung",
-        "desc": "45 Min. persönliches Gespräch zu Ihren Befunden, Symptomen und Zielen."
+        "desc": "Bevor wir dir irgendetwas empfehlen, verstehen wir deinen Körper, deine Geschichte und deine Ziele."
       },
       "i3": {
         "title": "Gesundheitsplan",
-        "desc": "Individueller Behandlungsplan mit klaren Empfehlungen und konkreten nächsten Schritten."
+        "desc": "Du bekommst keinen allgemeinen Rat, sondern einen konkreten Plan. Genau auf dich abgestimmt, mit klaren nächsten Schritten."
+      },
+      "i4": {
+        "title": "Mentoring",
+        "desc": "Wir begleiten dich langfristig, passen deinen Plan an und bleiben an deiner Seite, bis du wirklich dort ankommst, wo du hinwillst."
       }
     },
     "benefitsSection": {
@@ -287,28 +300,28 @@
     },
     "testimonials": {
       "t1": {
-        "quote": "Der Health Check war unglaublich gründlich. Ich wusste endlich genau, wo ich stehe und was als Nächstes sinnvoll ist.",
-        "name": "Ela"
+        "quote": "Herr Jarmoukli ist ein außergewöhnlicher Arzt mit einem tiefgehenden, ganzheitlichen Ansatz. Er nimmt sich Zeit, hört genau zu, analysiert sorgfältig und erklärt seine Empfehlungen mit großer fachlicher Kompetenz und Klarheit. Man spürt sofort, dass es ihm nicht um schnelle Lösungen, sondern um nachhaltige Gesundheit geht.",
+        "name": "Miriam"
       },
       "t2": {
-        "quote": "Ich hatte schon länger Beschwerden, die niemand richtig einordnen konnte. Hier wurde zum ersten Mal alles zusammenhängend betrachtet.",
-        "name": "Ulla"
+        "quote": "Ich habe mich bei Herrn Jarmoukli von Anfang an sehr gut aufgehoben gefühlt. Seine ruhige, aufmerksame und zugleich sehr authentische Art schafft sofort Vertrauen. Besonders positiv ist mir aufgefallen, wie viel Zeit er sich nimmt, um wirklich zuzuhören und die individuellen Zusammenhänge zu verstehen.",
+        "name": "Nurül"
       },
       "t3": {
-        "quote": "Seit 6 Monaten in regelmäßiger Behandlung. Tolle Kombination aus Kommunikation und Professionalität.",
-        "name": "Matthias"
+        "quote": "Ich möchte mich herzlich für die außergewöhnlich kompetente und einfühlsame Betreuung bedanken. Man merkt sofort, dass hier nicht \"standardisiert\", sondern ganzheitlich und mit echtem Interesse am Menschen gearbeitet wird. Absolute Empfehlung für alle, die Wert auf Qualität, Kompetenz und persönliche Betreuung legen.",
+        "name": "Majd"
       },
       "t4": {
-        "quote": "Wirklich nette Atmosphäre — man merkt, dass hier echte Fachleute arbeiten, die sich wirklich Zeit nehmen.",
-        "name": "Viki"
+        "quote": "Ich kann Dr. Shukri Jarmoukli nur empfehlen. Wegen einer Eiseninfusion gekommen, aber eine umfassende und ganzheitliche Beratung erhalten. Sehr professionell – man merkt, dass hier wirklich auf den Patienten eingegangen wird.",
+        "name": "Pauli"
       },
       "t5": {
-        "quote": "Ich habe mich sehr wohl gefühlt. Das Team ist super lieb und gibt sich in jeder Behandlung große Mühe.",
-        "name": "Sophie"
+        "quote": "Ich kann gar nicht in Worte fassen, wie dankbar ich bin Shukri begegnet zu sein und, dass er mich hierbei unterstützen kann. Er ist für mich nicht einfach nur ein klassischer Arzt. Er hat ein so umfassendes ganzheitliches Verständnis, wie mentale und körperliche Gesundheit wirklich funktioniert. Angefangen bei der Ernährung, einem gesunden Lebensstil bis hin zur Regulierung des Nervensystems, Körperarbeit und mentaler Gesundheit.",
+        "name": "Philipp"
       },
       "t6": {
-        "quote": "Immer wieder zufrieden — rundum tolle Betreuung und ehrliche Kommunikation.",
-        "name": "Mohamed"
+        "quote": "Super angenehmer Arzt, der nicht nach Standard arbeitet, sondern wirklich individuell auf die gesundheitlichen Bedürfnisse seiner Patient:innen eingeht. Habe mit meiner Krankheitsgeschichte schon viel ausprobiert, aber fühle mich hier echt gut beraten.",
+        "name": "Katharina"
       }
     },
     "faqSection": {

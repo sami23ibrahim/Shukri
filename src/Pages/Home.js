@@ -20,6 +20,9 @@ import FlipGrid from "../Components/FlipGrid";
 import MobileImageSlider from "../Components/MobileImageSlider";
 import Testimonials from "../Components/Testimonials";
 import MeinAnsatz from "../Components/MeinAnsatz";
+import SchwerpunkteGrid from "../Components/SchwerpunkteGrid";
+import ScrollingCards from "../Components/ScrollingCards";
+import UnifiedBottomCta from "../Components/UnifiedBottomCta";
 function Home() {
   const isMobile = useIsMobile();
   console.log("isMobile:", isMobile, "innerWidth:", window.innerWidth, "innerHeight:", window.innerHeight);
@@ -73,7 +76,12 @@ function Home() {
 
      <MeinAnsatz />
 
+     <SchwerpunkteGrid />
+
+     <ScrollingCards />
+
      <Testimonials />
+     <UnifiedBottomCta />
 
      {/* <HeroLine /> */}
 

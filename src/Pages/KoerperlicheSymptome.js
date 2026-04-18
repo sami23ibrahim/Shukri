@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import Shukr from "../Assets/Shukr.jpg";
 
 function useScrollFadeIn(threshold = 0.1) {
   const ref = useRef(null);
@@ -172,12 +171,12 @@ function KoerperlicheSymptome() {
 
       {/* Hero Image Banner */}
       <HeroBanner
-        image={Shukr}
+        image="/Assets/KoerperlicheBeschwerden.png"
         badge={"K\u00F6rperliche Symptome"}
         title={<>Du hast Beschwerden - aber keine klare <em className="italic">Ursache?</em></>}
         subtitle={"Unauff\u00E4llige Befunde bedeuten nicht, dass alles in Ordnung ist. Oft fehlt nur das Verst\u00E4ndnis f\u00FCr die Zusammenh\u00E4nge im System."}
         ctaText="Termin vereinbaren"
-        ctaHref="https://www.doctolib.de"
+        ctaHref="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
         trustItems={["Systematisches Denken", "Diagnostik nach Bedarf", "Umsetzbare individuelle Therapie"]}
       />
 
@@ -286,7 +285,7 @@ function KoerperlicheSymptome() {
           </div>
 
           <a
-            href="https://www.doctolib.de"
+            href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center bg-[#43a9ab] text-white px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-sm"
@@ -364,7 +363,7 @@ function KoerperlicheSymptome() {
           </div>
           <div className="mt-10">
             <a
-              href="https://www.doctolib.de"
+              href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center bg-[#43a9ab] text-white px-8 py-4 rounded-xl text-base font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-sm"
@@ -433,7 +432,7 @@ function KoerperlicheSymptome() {
             Und daraus einen Plan erstellen, der wirklich f&uuml;r dich und dein Leben funktioniert.
           </p>
           <a
-            href="https://www.doctolib.de"
+            href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center bg-[#43a9ab] text-white px-10 py-4 rounded-xl text-base font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-lg shadow-[#43a9ab]/20"

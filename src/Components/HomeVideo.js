@@ -149,7 +149,7 @@ const HomeVideo = ({ videoSrc = "/docs.mp4", mobileVideoSrc = "/vertical-intro.m
               >{t("tagline")}</p>
             </div>
             <div className="mt-10">
-            <a href="https://www.doctolib.de/zahnarztpraxis/berlin/die-drei-zahnaerzte/booking/specialities?profile_skipped=true&utm_source=die-drei-zahnaerzte-website-button&utm_medium=referral&utm_campaign=website-button&utm_content=option-8&bookingFunnelSource=external_referral" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile" target="_blank" rel="noopener noreferrer">
   <button className="px-6 py-2 text-xl font-semibold border border-white rounded-3xl hover:bg-white hover:text-[#422f40] transition-all">
     {t("button")}
   </button>

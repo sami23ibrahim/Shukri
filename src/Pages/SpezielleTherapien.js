@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import SchwerpunkteGrid from "../Components/SchwerpunkteGrid";
+import UnifiedBottomCta from "../Components/UnifiedBottomCta";
 
 function useScrollFadeIn() {
   const ref = useRef(null);
@@ -48,14 +50,6 @@ const StarIcon = () => (
   </svg>
 );
 
-const CircleArrow = () => (
-  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm group-hover:bg-white group-hover:scale-110 transition-all duration-300">
-    <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#515757]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-    </svg>
-  </div>
-);
-
 function AccordionItem({ title, children, isOpen, onToggle }) {
   return (
     <div className="border-b border-gray-200">
@@ -75,34 +69,6 @@ function AccordionItem({ title, children, isOpen, onToggle }) {
       >
         <div className="px-1 text-gray-600 text-sm sm:text-base leading-relaxed">
           {children}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function TherapyCard({ title, image, bgColor }) {
-  return (
-    <div className="group cursor-pointer">
-      <div
-        className="relative rounded-2xl overflow-hidden aspect-[2/1.1] sm:aspect-[5/2.2]"
-        style={{ backgroundColor: bgColor || "#d5cec6" }}
-      >
-        {image && (
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-        )}
-        {/* Gradient overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-        {/* Text label bottom-left */}
-        <div className="absolute bottom-3 left-4 right-4 flex items-end justify-between">
-          <h3 className="text-white text-base sm:text-lg font-bold leading-tight drop-shadow-md max-w-[70%]">
-            {title}
-          </h3>
-          <CircleArrow />
         </div>
       </div>
     </div>
@@ -311,46 +277,20 @@ function SpezielleTherapien() {
     }
   };
 
-  const gridAnim = useScrollFadeIn();
   const testimonialsAnim = useScrollFadeIn();
 
   const toggleAccordion = (index) => {
     setOpenAccordion(openAccordion === index ? null : index);
   };
 
-  const therapies = [
-    {
-      title: t("spezielleTherapien.therapies.prophylaxe.title"),
-      image: "/Assets/stress.jfif",
-    },
-    {
-      title: t("spezielleTherapien.therapies.implantologie.title"),
-      image: "/Assets/stress.jfif",
-    },
-    {
-      title: t("spezielleTherapien.therapies.aesthetik.title"),
-      image: "/Assets/stress.jfif",
-    },
-    {
-      title: t("spezielleTherapien.therapies.parodontologie.title"),
-      image: "/Assets/stress.jfif",
-    },
-    {
-      title: t("spezielleTherapien.therapies.endodontie.title"),
-      image: "/Assets/stress.jfif",
-    },
-    {
-      title: t("spezielleTherapien.therapies.kieferorthopaedie.title"),
-      image: "/Assets/stress.jfif",
-    },
-  ];
 
   const testimonials = [
-    { quote: t("spezielleTherapien.testimonials.t1.quote"), name: t("spezielleTherapien.testimonials.t1.name") },
-    { quote: t("spezielleTherapien.testimonials.t2.quote"), name: t("spezielleTherapien.testimonials.t2.name") },
-    { quote: t("spezielleTherapien.testimonials.t3.quote"), name: t("spezielleTherapien.testimonials.t3.name") },
-    { quote: t("spezielleTherapien.testimonials.t4.quote"), name: t("spezielleTherapien.testimonials.t4.name") },
-    { quote: t("spezielleTherapien.testimonials.t5.quote"), name: t("spezielleTherapien.testimonials.t5.name") },
+    { quote: t("healthCheck.testimonials.t1.quote"), name: t("healthCheck.testimonials.t1.name") },
+    { quote: t("healthCheck.testimonials.t2.quote"), name: t("healthCheck.testimonials.t2.name") },
+    { quote: t("healthCheck.testimonials.t3.quote"), name: t("healthCheck.testimonials.t3.name") },
+    { quote: t("healthCheck.testimonials.t4.quote"), name: t("healthCheck.testimonials.t4.name") },
+    { quote: t("healthCheck.testimonials.t5.quote"), name: t("healthCheck.testimonials.t5.name") },
+    { quote: t("healthCheck.testimonials.t6.quote"), name: t("healthCheck.testimonials.t6.name") },
   ];
 
   return (
@@ -385,7 +325,7 @@ function SpezielleTherapien() {
               <div className="flex items-center gap-3 mb-5 text-sm text-gray-500">
                 <span>{t("spezielleTherapien.hero.locationLabel")}</span>
                 <a
-                  href="https://www.doctolib.de/zahnarztpraxis/berlin/die-drei-zahnaerzte/booking/specialities?bookingFunnelSource=profile"
+                  href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#43a9ab] font-semibold no-underline hover:underline flex items-center gap-1"
@@ -432,18 +372,7 @@ function SpezielleTherapien() {
       </section>
 
       {/* Therapy Cards Grid */}
-      <section ref={gridAnim.ref} style={gridAnim.style} className="px-5 sm:px-8 pb-16 sm:pb-20">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#43A9AB] mb-8 sm:mb-10">
-            {t("spezielleTherapien.grid.title")}.
-          </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-2.5">
-            {therapies.map((therapy, index) => (
-              <TherapyCard key={index} {...therapy} />
-            ))}
-          </div>
-        </div>
-      </section>
+      <SchwerpunkteGrid />
 
       {/* Focus Carousel Section — removed */}
 
@@ -490,28 +419,7 @@ function SpezielleTherapien() {
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="px-5 sm:px-8 pb-16 sm:pb-20">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-4">
-            {t("spezielleTherapien.bottomCta.title")}
-          </h2>
-          <p className="text-gray-600 mb-8 text-sm sm:text-base">
-            {t("spezielleTherapien.bottomCta.description")}
-          </p>
-          <a
-            href="https://www.doctolib.de/zahnarztpraxis/berlin/die-drei-zahnaerzte/booking/specialities?bookingFunnelSource=profile"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center bg-[#422f40] text-white px-8 py-4 rounded-xl text-base font-semibold hover:bg-[#5a3d54] transition-colors duration-200 no-underline hover:no-underline shadow-sm"
-          >
-            {t("spezielleTherapien.hero.cta")}
-            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
-        </div>
-      </section>
+      <UnifiedBottomCta className="px-5 sm:px-8 pb-16 sm:pb-20 pt-8 sm:pt-12" />
     </div>
   );
 }

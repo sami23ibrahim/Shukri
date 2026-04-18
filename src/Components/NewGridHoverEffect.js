@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import Shukr from "../Assets/Shukr.jpg";
 
 const NewGridHoverEffect = () => {
@@ -18,24 +19,28 @@ const NewGridHoverEffect = () => {
       label: "Beratung",
       subtitle: "Umfassende Anamnese und individueller Behandlungsplan, abgestimmt auf K\u00F6rper, Lebensstil und pers\u00F6nliche Bed\u00FCrfnisse.",
       image: "/Assets/Beratungen.jpeg",
+      route: "/beratung",
     },
     {
       title: "grid2",
       label: "Diagnostik",
       subtitle: "Pr\u00E4zise Diagnostik, die \u00FCber Standardlabore hinausgeht und tiefere Einblicke in pers\u00F6nliche Gesundheitswerte erm\u00F6glicht.",
-      image: "/Assets/Diagnostik.jpeg",
+      image: "/Assets/Diagnostik.png",
+      route: "/diagnostik",
     },
     {
       title: "grid3",
       label: "Infusion",
       subtitle: "Individuelle Infusionskonzepte - inklusive spezialisierter Anwendungen wie Ketamin- und Schimmeltherapie.",
       image: "/Assets/Infusionen.jpeg",
+      route: "/infusions",
     },
     {
       title: "grid4",
       label: "Mentoring",
       subtitle: "Behandlungspl\u00E4ne verstehen und nachhaltig in den Alltag integrieren, mit Fokus auf Ern\u00E4hrung, Bewegung, Mindset und Stressbalance.",
       image: "/Assets/Mentoring.png",
+      route: "/mentoring",
     },
   ];
 
@@ -97,25 +102,28 @@ const NewGridHoverEffect = () => {
   return (
     <div
       id="new-grid-hover"
-      className="relative flex flex-col gap-4 p-4 w-full mt-0 pt-0 pl-10 pr-10 transition-colors"
+      className="relative flex flex-col gap-4 w-full px-5 sm:px-10 transition-colors"
       style={{
         backgroundColor: bgColor,
         transition: "background-color 1.2s ease",
-        paddingBottom: "180px", // Keeps existing spacing
-        paddingTop: "10px",
+        paddingBottom: "56px",
+        paddingTop: "56px",
       }}
     >
-      <h2 className="text-[#43A9AB] font-black leading-[0.85] tracking-tighter text-left mb-16 mt-8 max-w-[50%]" style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}>
-        Unsere Leistungen
-      </h2>
+      <div className="w-full max-w-7xl mx-auto">
+        <h2 className="text-[#43A9AB] font-black leading-[0.85] tracking-tighter text-left mb-12 sm:mb-16 max-w-[50%]" style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}>
+          Unsere Leistungen
+        </h2>
+      </div>
       {rows.map((row, rowIndex) => (
         <div key={rowIndex} ref={sectionRef} className="flex gap-1">
           {row.map((item, index) => {
             const globalIndex = index;
             return (
-              <div
+              <Link
+                to={item.route}
                 key={globalIndex}
-                className={`relative overflow-hidden rounded-lg transition-all duration-700 ${
+                className={`relative overflow-hidden rounded-lg transition-all duration-700 cursor-pointer block ${
                   hoveredIndex === globalIndex
                     ? "flex-[1.2] z-10"
                     : hoveredIndex !== null
@@ -153,12 +161,17 @@ const NewGridHoverEffect = () => {
                     </ul>
                   )}
                 </div>
+                <div className="absolute left-8 bottom-6">
+                  <span className="inline-block bg-white text-[#43A9AB] font-semibold text-sm px-5 py-2 rounded-full shadow-md hover:bg-[#43A9AB] hover:text-white transition-colors">
+                    Mehr erfahren &rarr;
+                  </span>
+                </div>
                 {item.location && (
                   <div className="absolute right-4 bottom-6">
                     <p className="text-white text-base font-semibold text-right">{item.location}</p>
                   </div>
                 )}
-              </div>
+              </Link>
             );
           })}
         </div>

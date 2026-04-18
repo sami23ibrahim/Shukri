@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import Shukr from "../Assets/Shukr.jpg";
 
 function useScrollFadeIn(threshold = 0.1) {
   const ref = useRef(null);
@@ -155,12 +154,12 @@ function PraeventionLongevity() {
 
       {/* Hero Image Banner */}
       <HeroBanner
-        image={Shukr}
+        image="/Assets/PraeventionLongevity.png"
         badge={"Pr\u00E4vention & Longevity"}
         title={<>Raus aus dem Funktionieren-Modus. Rein in die <em className="italic">Lebendigkeit.</em></>}
         subtitle="Mehr Energie. Mehr Klarheit. Mehr Lebendigkeit. Durch Strategien, die individuell zu dir passen."
         ctaText="Termin vereinbaren"
-        ctaHref="https://www.doctolib.de"
+        ctaHref="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
         trustItems={["Klare Schritte", "Diagnostik & Biofeedback", "Transparente Entscheidungen"]}
       />
 
@@ -343,7 +342,7 @@ function PraeventionLongevity() {
           </div>
           <div className="mt-10">
             <a
-              href="https://www.doctolib.de"
+              href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center bg-[#43a9ab] text-white px-8 py-4 rounded-xl text-base font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-sm"
@@ -412,7 +411,7 @@ function PraeventionLongevity() {
             Dann buche jetzt deinen Termin oder erhalte deinen kostenlosen Start Guide.
           </p>
           <a
-            href="https://www.doctolib.de"
+            href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center bg-[#43a9ab] text-white px-10 py-4 rounded-xl text-base font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-lg shadow-[#43a9ab]/20"

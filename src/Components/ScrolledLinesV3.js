@@ -81,7 +81,7 @@ function ScrolledLinesV2({ lines = defaultLines }) {
     <section ref={sectionRef} className="relative" style={{ height: sectionHeight }}>
       <div className="sticky top-0 h-screen overflow-hidden">
         <video
-          src="/docs4.mp4"
+          src="/Assets/videos/home2.mp4"
           className="absolute inset-0 w-full h-full object-cover z-0"
           autoPlay
           muted

@@ -5,25 +5,23 @@ const footerLinks = {
     { label: "K\u00F6rperliche Symptome", to: "/koerperliche-symptome" },
     { label: "Pr\u00E4vention & Longevity", to: "/praevention-longevity" },
     { label: "Psychotherapie", to: "/psychotherapie" },
-    { label: "Spezielle Therapien", to: "/spezielle-therapien" },
   ],
   Angebot: [
     { label: "Infusionen", to: "/infusions" },
-    { label: "Health Check", to: "/health-check" },
-    { label: "Extras", to: "/extras" },
+    { label: "Diagnostik", to: "/diagnostik" },
   ],
   Kontakt: [
-    { label: "(030) 69005528", to: null, href: "tel:03069005528" },
-    { label: "info@vivecura.de", to: null, href: "mailto:info@vivecura.de" },
+    { label: "030 200060860", to: null, href: "tel:030200060860" },
+    { label: "praxis@vivecura.com", to: null, href: "mailto:praxis@vivecura.com" },
   ],
 };
 
 const socialLinks = [
   {
     label: "Instagram",
-    href: "#",
+    href: "https://www.instagram.com/vivecura/",
     icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+      <svg className="w-12 h-12" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
         <rect x="2" y="2" width="20" height="20" rx="5" />
         <circle cx="12" cy="12" r="5" />
         <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
@@ -32,9 +30,9 @@ const socialLinks = [
   },
   {
     label: "LinkedIn",
-    href: "#",
+    href: "https://www.linkedin.com/in/shukri-jarmoukli/",
     icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+      <svg className="w-12 h-12" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
         <rect x="2" y="2" width="20" height="20" rx="3" />
         <path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 10v7" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
@@ -42,18 +40,18 @@ const socialLinks = [
   },
   {
     label: "TikTok",
-    href: "#",
+    href: "https://www.tiktok.com/@shukri.jarmoukli",
     icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+      <svg className="w-12 h-12" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
         <path d="M9 12a4 4 0 104 4V4a5 5 0 005 5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
   {
     label: "YouTube",
-    href: "#",
+    href: "https://www.youtube.com/@shukrijarmoukli",
     icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+      <svg className="w-12 h-12" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
         <rect x="2" y="4" width="20" height="16" rx="4" />
         <path d="M10 9l5 3-5 3V9z" fill="currentColor" stroke="none" />
       </svg>
@@ -135,12 +133,12 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} ViveCura. Alle Rechte vorbehalten.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-[#515757]/30 text-xs hover:text-[#515757]/60 transition-colors no-underline">
+            <Link to="/rechtliches#impressum" className="text-[#515757]/30 text-xs hover:text-[#515757]/60 transition-colors no-underline">
               Impressum
-            </a>
-            <a href="#" className="text-[#515757]/30 text-xs hover:text-[#515757]/60 transition-colors no-underline">
+            </Link>
+            <Link to="/rechtliches#datenschutz" className="text-[#515757]/30 text-xs hover:text-[#515757]/60 transition-colors no-underline">
               Datenschutz
-            </a>
+            </Link>
           </div>
         </div>
       </div>
