@@ -143,17 +143,15 @@ function KetaminCTA() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </a>
-          <a
-            href="https://www.vivecura.com/blog/ketamin-therapie"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/blog/ketamin-therapie"
             className="inline-flex items-center justify-center gap-2 border border-[#43a9ab] text-[#43a9ab] px-7 py-3.5 rounded-xl text-sm sm:text-base font-semibold hover:bg-[#43a9ab]/5 transition-colors duration-200 no-underline"
           >
             Zum Blog-Artikel
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
-          </a>
+          </Link>
         </div>
         <p className="text-[#515757]/50 text-sm mt-8 max-w-lg mx-auto leading-relaxed">
           Tiefer einsteigen, alle Details, Studien und Mechanismen — mehr über Ketamin und die Wissenschaft dahinter im Blog.
