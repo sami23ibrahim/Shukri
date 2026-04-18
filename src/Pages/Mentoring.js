@@ -1,7 +1,9 @@
 import FlipGrid from "../Components/FlipGrid";
 import FanCards from "../Components/FanCards";
+import FanCardsMobile from "../Components/FanCardsMobile";
 import UnifiedBottomCta from "../Components/UnifiedBottomCta";
 import ProcessTimeline from "../Components/ProcessTimeline";
+import useIsMobile from "../hooks/useIsMobile";
 
 const mentoringFocusCards = [
   {
@@ -79,10 +81,15 @@ const processSteps = [
 ];
 
 function Mentoring() {
+  const isMobile = useIsMobile();
   return (
     <div className="bg-white min-h-screen pt-20">
       <FlipGrid />
-      <FanCards cards={mentoringFocusCards} />
+      {isMobile ? (
+        <FanCardsMobile cards={mentoringFocusCards} />
+      ) : (
+        <FanCards cards={mentoringFocusCards} />
+      )}
       <ProcessTimeline
         title="Individuell statt Schublade!"
         subtitle="So läuft das Mentoring ab:"

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-const cardData = [
+const defaultCardData = [
   {
     image: "/Assets/KoerperlicheBeschwerden.png",
     label: "K\u00F6rperliche Symptome",
@@ -26,12 +26,13 @@ const cardData = [
 
 const SWIPE_THRESHOLD = 50;
 
-function FanCardsMobile() {
+function FanCardsMobile({ cards: cardData = defaultCardData, title = "Deine Themen im Fokus" }) {
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(1);
   const sectionRef = useRef(null);
   const touchStartX = useRef(0);
   const navigate = useNavigate();
+  const lastIndex = cardData.length - 1;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -50,7 +51,7 @@ function FanCardsMobile() {
     const diff = touchStartX.current - e.changedTouches[0].clientX;
     if (Math.abs(diff) < SWIPE_THRESHOLD) return;
     if (diff > 0) {
-      setActiveIndex((prev) => Math.min(prev + 1, 2));
+      setActiveIndex((prev) => Math.min(prev + 1, lastIndex));
     } else {
       setActiveIndex((prev) => Math.max(prev - 1, 0));
     }
@@ -85,7 +86,7 @@ function FanCardsMobile() {
     return {
       x: cardW * 0.5 + peekWidth,
       scale: sideScale,
-      z: 2 - index,
+      z: lastIndex - index,
       opacity: 0.95,
     };
   };
@@ -98,7 +99,7 @@ function FanCardsMobile() {
       onTouchEnd={handleTouchEnd}
     >
       <h2 className="text-[#43A9AB] font-black leading-[0.85] tracking-tighter text-left mb-10 max-w-[50%] self-start ml-4" style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}>
-        Deine Themen im Fokus
+        {title}
       </h2>
 
       <div
@@ -114,8 +115,8 @@ function FanCardsMobile() {
           return (
             <div
               key={i}
-              onClick={() => i === activeIndex && navigate(card.path)}
-              className="absolute rounded-2xl overflow-hidden shadow-2xl cursor-pointer"
+              onClick={() => i === activeIndex && card.path && navigate(card.path)}
+              className={`absolute rounded-2xl overflow-hidden shadow-2xl ${card.path ? "cursor-pointer" : ""}`}
               style={{
                 width: `${cardW}px`,
                 height: `${cardH}px`,

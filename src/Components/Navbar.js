@@ -218,9 +218,9 @@ const Navbar = () => {
 			>
 				<div className="w-full bg-white border-b border-[#515757]/[0.06]">
 					{isMobile ? (
-						<div ref={mobileNavRef} className="flex items-center justify-between px-3 py-2 gap-2">
-							<Link to="/" className="flex items-center no-underline focus:outline-none shrink-0">
-								<img src="/Assets/LOGO.png" alt="ViveCura" className="h-12 w-auto object-contain" />
+						<div ref={mobileNavRef} className="relative flex items-center justify-center px-3 py-2 gap-2">
+							<Link to="/" className="absolute left-3 flex items-center no-underline focus:outline-none shrink-0">
+								<img src="/Assets/LOGO.png" alt="ViveCura" className="h-14 w-auto object-contain" style={{ filter: "drop-shadow(0 0 0.6px #43A9AB) drop-shadow(0 0 0.6px #43A9AB) drop-shadow(0 0 0.6px #43A9AB) drop-shadow(0 0 0.6px #43A9AB)" }} />
 							</Link>
 							<div className="flex items-center gap-4">
 								<div className="relative">
@@ -337,27 +337,27 @@ const Navbar = () => {
 									className="flex flex-col items-center justify-center gap-0.5 w-[60px] py-1 text-[#515757]/80 hover:text-[#43a9ab]"
 								>
 									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
-										<circle cx="5" cy="12" r="1.5" fill="currentColor" stroke="none" />
-										<circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none" />
-										<circle cx="19" cy="12" r="1.5" fill="currentColor" stroke="none" />
+										<line x1="4" y1="7" x2="20" y2="7" strokeLinecap="round" />
+										<line x1="4" y1="12" x2="20" y2="12" strokeLinecap="round" />
+										<line x1="4" y1="17" x2="20" y2="17" strokeLinecap="round" />
 									</svg>
 									<span className="text-[11px] font-semibold">More</span>
 								</button>
+								</div>
 								<a
 									href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="flex flex-col items-center justify-center gap-0.5 w-[60px] py-1.5 rounded-lg bg-[#43a9ab] text-white no-underline hover:bg-[#378f91]"
+									className="absolute right-3 flex flex-col items-center justify-center gap-0.5 w-[60px] py-1.5 rounded-lg bg-[#43a9ab] text-white no-underline hover:bg-[#378f91]"
 								>
 									<span>{navIcons.appointment}</span>
 									<span className="text-[11px] font-bold">Buchen</span>
 								</a>
-							</div>
 						</div>
 					) : (
 						<div className="relative flex items-center justify-center py-1.5 px-6">
 							<Link to="/" className="absolute left-6 flex items-center no-underline focus:outline-none shrink-0">
-								<img src="/Assets/LOGO.png" alt="ViveCura" className="h-16 w-auto object-contain" />
+								<img src="/Assets/LOGO.png" alt="ViveCura" className="h-16 w-auto object-contain" style={{ filter: "drop-shadow(0 0 0.6px #43A9AB) drop-shadow(0 0 0.6px #43A9AB) drop-shadow(0 0 0.6px #43A9AB) drop-shadow(0 0 0.6px #43A9AB)" }} />
 							</Link>
 							<div className="flex items-center">
 								<NavItem isLink to="/" icon={navIcons.home} label={t("navbar.home")} />
@@ -451,7 +451,7 @@ const Navbar = () => {
 				<div className="fixed inset-0 bg-white z-[110] overflow-y-auto">
 					<div className="flex items-center justify-between px-5 py-4 border-b border-[#515757]/10">
 						<Link to="/" onClick={() => setMenuOpen(false)} className="flex items-center no-underline">
-							<img src="/Assets/LOGO.png" alt="ViveCura" className="h-12 w-auto object-contain" />
+							<img src="/Assets/LOGO.png" alt="ViveCura" className="h-16 w-auto object-contain" style={{ filter: "drop-shadow(0 0 0.6px #43A9AB) drop-shadow(0 0 0.6px #43A9AB) drop-shadow(0 0 0.6px #43A9AB) drop-shadow(0 0 0.6px #43A9AB)" }} />
 						</Link>
 						<button
 							onClick={() => setMenuOpen(false)}
