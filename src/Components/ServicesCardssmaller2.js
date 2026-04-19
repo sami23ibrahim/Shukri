@@ -229,9 +229,14 @@ const ServicesCardssmaller2 = () => {
             <div className="px-6 py-4 border-t border-[#515757]/10 flex items-center gap-3">
               <span className="text-xl font-bold text-[#515757]">{cards[expandedIndex].price}</span>
               <div className="flex-1 flex items-center gap-2 justify-end">
-                <button className="px-5 py-2.5 rounded-full bg-[#43a9ab] text-sm font-medium text-white hover:bg-[#389193] transition-colors">
+                <a
+                  href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2.5 rounded-full bg-[#43a9ab] text-sm font-medium text-white hover:bg-[#389193] transition-colors no-underline"
+                >
                   Jetzt buchen
-                </button>
+                </a>
               </div>
             </div>
           </div>

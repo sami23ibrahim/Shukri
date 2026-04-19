@@ -5,16 +5,31 @@ import { useTranslation } from "react-i18next"; // Import translation hook
 
 const HomeVideo = ({ videoSrc = "/docs.mp4", mobileVideoSrc = "/vertical-intro.mp4", posterImage = "/Assets/logo2.png", windowWidth }) => {
   const { t, i18n } = useTranslation(); // Get translation function
-  const [currentVideoSrc, setCurrentVideoSrc] = useState(videoSrc);
+  const initialIsMobile = typeof windowWidth === "number" ? windowWidth <= 1288 : false;
+  const [currentVideoSrc, setCurrentVideoSrc] = useState(initialIsMobile ? mobileVideoSrc : videoSrc);
   const [videoPadding, setVideoPadding] = useState("0px"); // Padding for shrinking effect
-  const [isMobile, setIsMobile] = useState(false); // Track if it's a mobile screen
+  const [isMobile, setIsMobile] = useState(initialIsMobile); // Track if it's a mobile screen
   const [videoError, setVideoError] = useState(false); // Track video loading errors
   const videoRef = useRef(null);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = true; // Force mute for all browsers
-    }
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = true;
+    v.setAttribute("muted", "");
+    v.setAttribute("playsinline", "");
+    v.setAttribute("webkit-playsinline", "");
+    const tryPlay = () => {
+      const p = v.play();
+      if (p && typeof p.catch === "function") p.catch(() => {});
+    };
+    tryPlay();
+    v.addEventListener("loadedmetadata", tryPlay);
+    v.addEventListener("canplay", tryPlay);
+    return () => {
+      v.removeEventListener("loadedmetadata", tryPlay);
+      v.removeEventListener("canplay", tryPlay);
+    };
   }, [currentVideoSrc]);
 
   // Force re-render when language changes
