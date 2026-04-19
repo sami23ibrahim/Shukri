@@ -149,7 +149,7 @@ function Psychotherapie() {
         </div>
         <div className="flex flex-wrap gap-4">
           <a
-            href="/extras"
+            href="/ketamin"
             className="inline-flex items-center bg-[#43a9ab] text-white px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-lg shadow-[#43a9ab]/25"
           >
             Mehr &uuml;ber Ketamin erfahren

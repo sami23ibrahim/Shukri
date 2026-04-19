@@ -172,7 +172,7 @@ export default function SchwerpunkteGrid({ therapies: therapiesProp, title: titl
       title: t("spezielleTherapien.therapies.ketamin.title"),
       desc: t("spezielleTherapien.therapies.ketamin.desc"),
       image: "/Assets/Spezielle%20Therapien2/Ketamin%20Therapie.png",
-      href: "/extras",
+      href: "/ketamin",
     },
     {
       title: t("spezielleTherapien.therapies.schwermetall.title"),

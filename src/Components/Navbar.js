@@ -428,7 +428,7 @@ const Navbar = () => {
 								<NavItem isLink to="/diagnostik" icon={navIcons.diagnostik} label={t("navbar.diagnostik")} />
 								<NavItem isLink to="/infusions" icon={navIcons.infusions} label={t("navbar.infusions")} />
 								<NavItem isLink to="/mentoring" icon={navIcons.mentoring} label={t("navbar.mentoring")} />
-								<NavItem isLink to="/extras" icon={navIcons.extras} label="Ketamin" />
+								<NavItem isLink to="/ketamin" icon={navIcons.extras} label="Ketamin" />
 								<NavItem isLink to="/ueber-mich" icon={navIcons.ueberMich} label={t("navbar.ueberMich")} />
 								<NavItem isLink to="/blog" icon={navIcons.blog} label={t("navbar.blog")} />
 								<a
@@ -471,7 +471,7 @@ const Navbar = () => {
 						<div className="flex flex-col gap-2">
 							{[
 								{ to: "/", icon: navIcons.home, label: t("navbar.home") },
-								{ to: "/extras", icon: navIcons.extras, label: "Ketamin" },
+								{ to: "/ketamin", icon: navIcons.extras, label: "Ketamin" },
 								{ to: "/ueber-mich", icon: navIcons.ueberMich, label: t("navbar.ueberMich") },
 								{ to: "/blog", icon: navIcons.blog, label: t("navbar.blog") },
 							].map((item) => (

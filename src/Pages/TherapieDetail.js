@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 const therapies = {
   ketamin: { title: "Ketamin-Therapie", html: "/therapien-html/ketamin.html" },
   "schwermetall-ausleitung": { title: "Schwermetall-Ausleitung", html: "/therapien-html/schwermetall-ausleitung.html" },
-  "schimmel-therapie": { title: "Schimmel-Therapie", html: null },
+  "schimmel-therapie": { title: "Schimmel-Therapie", html: "/therapien-html/schimmel-therapie.html" },
   "darm-reset": { title: "Darm Reset", html: "/therapien-html/darm-reset.html" },
   hormone: { title: "Hormone", html: "/therapien-html/hormone.html" },
   "burnout-fix": { title: "Burnout Fix", html: "/therapien-html/burnout-fix.html" },

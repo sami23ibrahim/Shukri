@@ -48,7 +48,7 @@ function App() {
         <Route path="/rechtliches" element={<LegalNotice />} />
         <Route path="/diagnostik" element={<HealthCheck />} />
         <Route path="/ueber-mich" element={<UeberMich />} />
-        <Route path="/extras" element={<Extras />} />
+        <Route path="/ketamin" element={<Extras />} />
         <Route path="/experience" element={<Experience />} />
         <Route path="/koerperliche-symptome" element={<KoerperlicheSymptome />} />
         <Route path="/praevention-longevity" element={<PraeventionLongevity />} />

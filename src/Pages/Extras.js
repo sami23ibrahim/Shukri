@@ -31,7 +31,7 @@ function KetaminHero() {
     ? "/Assets/Ketamin%20Bild%20Jonas%20Hochkant%20AI.png"
     : "/Assets/Ketamin%20Infusion%20Bild%20Jonas%20AI%20.png";
   return (
-    <section className="-mt-[25vh] px-5 sm:px-8 lg:px-16 pb-10 sm:pb-16 relative z-10">
+    <section className="px-5 sm:px-8 lg:px-16 pt-8 sm:pt-12 pb-10 sm:pb-16 relative z-10">
       <div className="max-w-[1100px] mx-auto">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 lg:items-stretch">
           <div className="lg:w-[55%]">
