@@ -11,3 +11,7 @@ yarn-error.log*
 .DS_Store
 blog-mcp-server/.env
 blog-mcp-server/node_modules/
+
+# Raw source videos — only compressed .mp4 should ship
+*.mov
+

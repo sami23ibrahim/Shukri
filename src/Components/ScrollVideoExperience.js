@@ -138,17 +138,21 @@ function ScrollVideoExperience({ chapters, isMobile }) {
           ))}
 
           <div
-            className="absolute bottom-10 left-1/2 -translate-x-1/2"
-            style={{ opacity: 1, pointerEvents: "none" }}
+            className="absolute left-1/2 -translate-x-1/2"
+            style={{
+              bottom: `calc(${insetVal}% + 1.5rem)`,
+              opacity: 1,
+              pointerEvents: "none",
+            }}
           >
             <style>{`
               @keyframes glimmerDown {
-                0%, 100% { opacity: 0; transform: translateY(-4px); }
-                50% { opacity: 1; transform: translateY(4px); }
+                0%, 100% { opacity: 0; transform: translateY(-6px); }
+                50% { opacity: 1; transform: translateY(6px); }
               }
               .scroll-glimmer { animation: glimmerDown 2.5s ease-in-out infinite; }
             `}</style>
-            <svg className="w-6 h-6 text-white/50 scroll-glimmer" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-10 h-10 sm:w-12 sm:h-12 text-white/70 scroll-glimmer" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7" />
             </svg>
           </div>

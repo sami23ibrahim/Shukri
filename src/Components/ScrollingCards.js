@@ -153,6 +153,18 @@ export default function ScrollingCards({ speedSeconds = 36, title = "Tiefer eint
         </div>
       )}
 
+      <div className="max-w-7xl mx-auto px-5 sm:px-10 mt-10 sm:mt-14 text-center">
+        <Link
+          to="/blog"
+          className="inline-flex items-center gap-2 text-[#43A9AB] font-semibold text-sm sm:text-base hover:gap-3 transition-all no-underline"
+        >
+          Alle Blogartikel entdecken
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+            <path d="M5 12h14M13 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </Link>
+      </div>
+
       <style>{`
         @keyframes scrollingCardsLoop {
           from { transform: translateX(0); }

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import useIsMobile from "../hooks/useIsMobile";
 
 const defaultLines = [
   "Wir begleiten dich auf deiner Reise: von chronischen Beschwerden hin zu chronischer Gesundheit!",
@@ -36,6 +37,8 @@ function renderWithColors(line, isActive) {
 function ScrolledLinesV2({ lines = defaultLines }) {
   const sectionRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const isMobile = useIsMobile();
+  const videoSrc = isMobile ? "/Assets/videos/home-mobile.mp4" : "/Assets/videos/home-desktop.mp4";
 
   useEffect(() => {
     let rafId = 0;
@@ -81,7 +84,8 @@ function ScrolledLinesV2({ lines = defaultLines }) {
     <section ref={sectionRef} className="relative" style={{ height: sectionHeight }}>
       <div className="sticky top-0 h-screen overflow-hidden">
         <video
-          src="/Assets/videos/home2.mp4"
+          key={videoSrc}
+          src={videoSrc}
           className="absolute inset-0 w-full h-full object-cover z-0"
           autoPlay
           muted
