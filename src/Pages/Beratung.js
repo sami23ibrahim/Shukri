@@ -1,5 +1,6 @@
 import FlipGrid from "../Components/FlipGrid";
 import UnifiedBottomCta from "../Components/UnifiedBottomCta";
+import Seo from "../Components/Seo";
 
 const beratungCards = [
   {
@@ -31,6 +32,11 @@ const beratungCards = [
 function Beratung() {
   return (
     <div className="bg-white min-h-screen pt-20">
+      <Seo
+        path="/beratung"
+        title="Ärztliche Beratung Berlin – Funktionelle Medizin"
+        description="Persönliche ärztliche Beratung in Berlin: Erstgespräch, Zweitmeinung und individuelle Therapieplanung in der funktionellen Medizin."
+      />
       <FlipGrid
         title="Deine ärztliche Beratung"
         subtitle={`Ich höre zu, sortiere Komplexität und denke interdisziplinär.

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { supabase } from "../supabaseClient";
+import Seo from "../Components/Seo";
 
 function Blog() {
   const [posts, setPosts] = useState([]);
@@ -24,6 +25,11 @@ function Blog() {
 
   return (
     <div className="min-h-screen pt-24 pb-16 px-4">
+      <Seo
+        path="/blog"
+        title="Blog – Funktionelle Medizin, Longevity & Prävention"
+        description="Aktuelle Beiträge zu funktioneller Medizin, Prävention, Longevity und integrativer Therapie aus der ViveCura Praxis in Berlin."
+      />
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="mb-12">

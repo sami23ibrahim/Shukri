@@ -2,6 +2,8 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import FanCards from "../Components/FanCards";
 import FanCardsMobile from "../Components/FanCardsMobile";
 import useIsMobile from "../hooks/useIsMobile";
+import Seo from "../Components/Seo";
+import { Helmet } from "react-helmet-async";
 
 const mentoringCards = [
   {
@@ -562,6 +564,24 @@ function PraeventionLongevity() {
 
   return (
     <div className="bg-white min-h-screen">
+      <Seo
+        path="/praevention-longevity"
+        title="Prävention & Longevity Berlin – Personalisierte Strategien"
+        description="Longevity- und Präventionsmedizin in Berlin: Genetik, Biofeedback, CGM, HRV, Mentoring. Individuelle Strategien für mehr Energie, Klarheit und gesunde Jahre."
+      />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqData.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          })}
+        </script>
+      </Helmet>
 
       {/* Hero Image Banner */}
       <HeroBanner

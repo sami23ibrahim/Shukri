@@ -2,6 +2,8 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import FanCards from "../Components/FanCards";
 import FanCardsMobile from "../Components/FanCardsMobile";
 import useIsMobile from "../hooks/useIsMobile";
+import Seo from "../Components/Seo";
+import { Helmet } from "react-helmet-async";
 
 const soArbeiteIchCards = [
   {
@@ -1345,6 +1347,24 @@ function Psychotherapie() {
 
   return (
     <div className="bg-white min-h-screen">
+      <Seo
+        path="/psychotherapie"
+        title="Psychotherapie & Ketamin-assistierte Therapie Berlin"
+        description="Psychotherapeutische Begleitung und Ketamin-assistierte Verfahren in Berlin – integrativer Ansatz für Depression, Trauma und chronischen Stress."
+      />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqData.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          })}
+        </script>
+      </Helmet>
 
       {/* Hero Image Banner */}
       <HeroBanner

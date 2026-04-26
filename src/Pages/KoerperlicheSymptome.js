@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import ScrolledLines from "../Components/ScrolledLines";
 import SchwerpunkteGrid from "../Components/SchwerpunkteGrid";
 import WunderpillePlan from "../Components/WunderpillePlan";
+import Seo from "../Components/Seo";
 
 function useScrollFadeIn(threshold = 0.1) {
   const ref = useRef(null);
@@ -284,6 +285,11 @@ function KoerperlicheSymptome() {
 
   return (
     <div className="bg-white min-h-screen">
+      <Seo
+        path="/koerperliche-symptome"
+        title="Körperliche Symptome verstehen – Ursachenmedizin Berlin"
+        description="Wenn Standardmedizin keine Antworten findet: ursachenorientierte Diagnostik in Berlin für unspezifische und chronische körperliche Symptome."
+      />
 
       {/* Hero Image Banner */}
       <HeroBanner

@@ -23,6 +23,8 @@ import MeinAnsatz from "../Components/MeinAnsatz";
 import SchwerpunkteGrid from "../Components/SchwerpunkteGrid";
 import ScrollingCards from "../Components/ScrollingCards";
 import UnifiedBottomCta from "../Components/UnifiedBottomCta";
+import Seo from "../Components/Seo";
+import { Helmet } from "react-helmet-async";
 function Home() {
   const isMobile = useIsMobile();
   console.log("isMobile:", isMobile, "innerWidth:", window.innerWidth, "innerHeight:", window.innerHeight);
@@ -45,8 +47,38 @@ function Home() {
   return (
 
     <div className="bg-white min-h-screen">
-     
-    
+      <Seo
+        path="/"
+        title="Funktionelle Medizin, Prävention & Longevity in Berlin"
+        description="Praxis für funktionelle Medizin, Prävention, Longevity und Psychotherapie in Berlin. Ganzheitliche Diagnostik und personalisierte Therapien."
+      />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "MedicalClinic",
+            name: "ViveCura",
+            url: "https://vivecura.com",
+            logo: "https://vivecura.com/Assets/logo6.png",
+            image: "https://vivecura.com/Assets/logo6.png",
+            telephone: "+4930200060860",
+            email: "praxis@vivecura.com",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Berlin",
+              addressCountry: "DE",
+            },
+            medicalSpecialty: ["InternalMedicine", "Psychiatric"],
+            sameAs: [
+              "https://www.instagram.com/vivecura/",
+              "https://www.linkedin.com/in/shukri-jarmoukli/",
+              "https://www.tiktok.com/@shukri.jarmoukli",
+              "https://www.youtube.com/@shukrijarmoukli",
+            ],
+            areaServed: { "@type": "City", name: "Berlin" },
+          })}
+        </script>
+      </Helmet>
 
      <ScrolledLinesV3 />
      

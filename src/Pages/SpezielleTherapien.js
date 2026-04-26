@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import SchwerpunkteGrid from "../Components/SchwerpunkteGrid";
 import UnifiedBottomCta from "../Components/UnifiedBottomCta";
+import Seo from "../Components/Seo";
 
 function useScrollFadeIn() {
   const ref = useRef(null);
@@ -295,6 +296,11 @@ function SpezielleTherapien() {
 
   return (
     <div className="bg-white min-h-screen">
+      <Seo
+        path="/spezielle-therapien"
+        title="Spezielle Therapien – Funktionelle Medizin Berlin"
+        description="Erweiterte Therapien aus der funktionellen Medizin in Berlin: Infusionen, Chelattherapie, Schwermetallausleitung, Schimmelbelastung, Darmaufbau und mehr."
+      />
       {/* Hero Section — two-column layout */}
       <section className="pt-24 sm:pt-28 pb-12 sm:pb-16 px-5 sm:px-8">
         <div className="max-w-6xl mx-auto">

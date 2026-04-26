@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState, useCallback } from "react";
+import Seo from "../Components/Seo";
 
 const chapters = [
   {
@@ -140,6 +141,11 @@ function Experience() {
 
   return (
     <div className="bg-white">
+      <Seo
+        path="/experience"
+        title="Vivecura Experience – Longevity Erlebnis Berlin"
+        description="Das Vivecura Experience – ein strukturierter Tag rund um Diagnostik, Beratung und Longevity-Methoden in Berlin."
+      />
       {/* Spacer so user scrolls into the section */}
       <div style={{ height: "50vh" }} />
 

@@ -1,5 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import Shukr from "../Assets/Shukr.jpg";
+import Seo from "../Components/Seo";
+import { Helmet } from "react-helmet-async";
 
 function useScrollFadeIn(delay = 0) {
   const ref = useRef(null);
@@ -42,6 +44,30 @@ function UeberMich() {
 
   return (
     <div className="bg-white min-h-screen">
+      <Seo
+        path="/ueber-mich"
+        title="Über mich – Dr. Shukri Jarmoukli"
+        description="Internist, funktionelle Medizin und Longevity-Spezialist in Berlin. Erfahrung, Ausbildung und der ganzheitliche Behandlungsansatz von Dr. Shukri Jarmoukli."
+      />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: "Dr. Shukri Jarmoukli",
+            jobTitle: "Arzt für funktionelle Medizin und Longevity",
+            worksFor: { "@type": "MedicalClinic", name: "ViveCura", url: "https://vivecura.com" },
+            url: "https://vivecura.com/ueber-mich",
+            image: "https://vivecura.com/Assets/%C3%9Cber%20mich.png",
+            sameAs: [
+              "https://www.instagram.com/vivecura/",
+              "https://www.linkedin.com/in/shukri-jarmoukli/",
+              "https://www.tiktok.com/@shukri.jarmoukli",
+              "https://www.youtube.com/@shukrijarmoukli",
+            ],
+          })}
+        </script>
+      </Helmet>
 
       {/* Hero — Text + Portrait side by side */}
       <section className="pt-36 sm:pt-44 pb-16 sm:pb-24 px-5 sm:px-8">

@@ -4,6 +4,7 @@ import FanCardsMobile from "../Components/FanCardsMobile";
 import UnifiedBottomCta from "../Components/UnifiedBottomCta";
 import ProcessTimeline from "../Components/ProcessTimeline";
 import useIsMobile from "../hooks/useIsMobile";
+import Seo from "../Components/Seo";
 
 const mentoringFocusCards = [
   {
@@ -84,6 +85,11 @@ function Mentoring() {
   const isMobile = useIsMobile();
   return (
     <div className="bg-white min-h-screen pt-20">
+      <Seo
+        path="/mentoring"
+        title="1:1 Mentoring – Longevity & Gesundheit Berlin"
+        description="Persönliches 1:1 Mentoring zur Umsetzung individueller Longevity- und Gesundheitsstrategien – ärztlich begleitet, alltagstauglich und messbar."
+      />
       <FlipGrid />
       {isMobile ? (
         <FanCardsMobile cards={mentoringFocusCards} />

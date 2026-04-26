@@ -3,6 +3,8 @@ import ScrolledLines from "../Components/ScrolledLines";
 import ScrollVideoExperience from "../Components/ScrollVideoExperience";
 import { Link } from "react-router-dom";
 import useIsMobile from "../hooks/useIsMobile";
+import Seo from "../Components/Seo";
+import { Helmet } from "react-helmet-async";
 
 const ketaminLines = [
   "So hat es einer meiner Patienten formuliert:",
@@ -276,6 +278,53 @@ function Extras() {
   const isMobile = useIsMobile();
   return (
     <div className="bg-white min-h-screen pt-20">
+      <Seo
+        path="/ketamin"
+        title="Ketamin-Therapie Berlin – Ketamin-Infusionen ärztlich begleitet"
+        description="Ketamin-assistierte Therapie in Berlin – ärztlich begleitete Infusionen und Shots zur Behandlung von Depression, Trauma und therapieresistenten Symptomen."
+      />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "Was ist Ketamin-assistierte Therapie?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Ketamin-assistierte Therapie kombiniert ärztlich begleitete Ketamin-Infusionen oder -Shots mit psychotherapeutischer Vor- und Nachbereitung zur Behandlung von Depression, Trauma und therapieresistenten Symptomen.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Für wen eignet sich Ketamin-Therapie?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Sie kann eine Option sein bei therapieresistenter Depression, posttraumatischen Belastungsstörungen oder chronischem Stress, wenn klassische Verfahren nicht ausreichend gewirkt haben. Die Indikation wird in einem ärztlichen Erstgespräch geklärt.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Wie läuft eine Ketamin-Infusion in Berlin ab?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Nach ärztlichem Erstgespräch und Indikationsstellung erfolgt die Infusion in der Praxis unter ärztlicher Aufsicht. Die Behandlung dauert ca. 60–90 Minuten inklusive Vor- und Nachbereitung.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Übernimmt die Krankenkasse die Kosten?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Ketamin-Therapie ist in Deutschland in der Regel keine Kassenleistung und wird privat abgerechnet. Eine genaue Kostenübersicht erhalten Sie im Erstgespräch.",
+                },
+              },
+            ],
+          })}
+        </script>
+      </Helmet>
       <ScrolledLines lines={ketaminLines} title="Ketamin-Erfahrung" />
       <KetaminHero />
       <IframeSection

@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import ServicesCardssmaller2 from "../Components/ServicesCardssmaller2";
+import Seo from "../Components/Seo";
 
 const shots = [
   {
@@ -206,6 +207,11 @@ function Infusions() {
 
   return (
     <div className="bg-white min-h-screen">
+      <Seo
+        path="/infusions"
+        title="Infusionstherapie Berlin – NAD+, Vitamin C, Aminosäuren"
+        description="Hochdosierte Infusionstherapien in Berlin: NAD+, Vitamin C, Glutathion, Aminosäuren, Mikronährstoffe. Ärztlich indiziert und individuell zusammengestellt."
+      />
       {/* Hero section to give scroll room for card animation */}
       <section className="relative z-40 flex flex-col items-center justify-center text-center px-6 pt-28 pb-20 bg-white">
         <span className="inline-block text-[#43a9ab] text-sm tracking-[0.2em] uppercase font-medium mb-6">

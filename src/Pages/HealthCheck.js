@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import SchwerpunkteGrid from "../Components/SchwerpunkteGrid";
 import UnifiedBottomCta from "../Components/UnifiedBottomCta";
+import Seo from "../Components/Seo";
 
 function useScrollFadeIn() {
   const ref = useRef(null);
@@ -416,6 +417,11 @@ function HealthCheck() {
 
   return (
     <div className="bg-white min-h-screen">
+      <Seo
+        path="/diagnostik"
+        title="Diagnostik & Health Check Berlin – Funktionelle Medizin"
+        description="Erweiterte Diagnostik in Berlin: Genetik, Vollblutanalyse, BIA, HRV, Mikrobiom, Schwermetalle. Ganzheitlicher Health Check als Grundlage für gezielte Therapie."
+      />
 
       {/* ── HERO — Sticky image left + scrolling sidebar right ── */}
       <section className="pt-40 sm:pt-44 px-5 sm:px-8 lg:px-16">
