@@ -49,10 +49,10 @@ function UeberMich() {
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 lg:items-center">
             <div className="lg:w-[55%]">
               <span className="inline-block text-xs font-semibold text-white bg-[#43A9AB] px-3 py-1 rounded-full mb-6 tracking-wide">
-                Persönlich
+                Über mich
               </span>
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#43A9AB] tracking-tight leading-[1.08] mb-8">
-                Über mich
+                Shukri Jarmoukli
               </h1>
               <div ref={heroText.ref} style={heroText.style}>
                 <p className="text-xl sm:text-2xl font-medium text-[#515757] leading-relaxed">
@@ -62,7 +62,7 @@ function UeberMich() {
             </div>
             <div className="lg:w-[40%]">
               <div className="rounded-2xl overflow-hidden">
-                <img src={Shukr} alt="Dr. Shukri" className="w-full h-auto object-cover" />
+                <img src="/Assets/%C3%9Cber%20mich.png" alt="Dr. Shukri" className="w-full h-auto object-cover" />
               </div>
             </div>
           </div>
@@ -78,10 +78,7 @@ function UeberMich() {
       <section ref={section1.ref} style={section1.style} className="py-16 sm:py-24 px-5 sm:px-8">
         <div className="max-w-3xl mx-auto space-y-6">
           <p className="text-base sm:text-lg text-[#515757]/80 leading-relaxed">
-            Ich sehe den Menschen nicht als Summe einzelner Symptome, sondern als ein lebendiges System, in dem alles miteinander verbunden ist: Körper, Gedanken, Biochemie, Lebensstil. Mich interessiert nicht nur, was nicht funktioniert — sondern warum es aus dem Gleichgewicht geraten ist. Denn genau dort beginnt echte Veränderung.
-          </p>
-          <p className="text-base sm:text-lg text-[#515757]/80 leading-relaxed">
-            Ich verbinde moderne Medizin mit Lebensstilmedizin, funktionellen und orthomolekularen Ansätzen, Genetik, Toxikologie sowie psychotherapeutischen und biodynamischen Verfahren. Nicht, um möglichst viel zu machen, sondern um Zusammenhänge zu verstehen, die oft übersehen werden. Meine Arbeit beginnt also dort, wo Standardlösungen aufhören.
+            Ich sehe den Menschen nicht als Summe einzelner Symptome, sondern als ein lebendiges System, in dem alles miteinander verbunden ist: Körper, Gedanken, Biochemie, Lebensstil. Mich interessiert nicht nur, was nicht funktioniert, sondern warum es aus dem Gleichgewicht geraten ist. Denn genau dort kann eine nachhaltige Veränderung beginnen. Indem man an den Ursachen arbeitet, nicht nur an einzelnen Symptomen.
           </p>
         </div>
       </section>
@@ -101,10 +98,7 @@ function UeberMich() {
       <section ref={section2.ref} style={section2.style} className="py-16 sm:py-24 px-5 sm:px-8">
         <div className="max-w-3xl mx-auto space-y-6">
           <p className="text-base sm:text-lg text-[#515757]/80 leading-relaxed">
-            Ich bin in Syrien aufgewachsen. Das bedeutet: viel Bewegung, Sonne, ein Körper, der einfach funktioniert hat. Als ich dann mit 19 Jahren nach Deutschland kam, hat sich das aber innerhalb kürzester Zeit verändert. Plötzlich hatte ich Allergien, Unverträglichkeiten, Sodbrennen, depressive Phasen — und habe über 30 Kilo zugenommen. Mein Körper hat sich fremd angefühlt.
-          </p>
-          <p className="text-base sm:text-lg text-[#515757]/80 leading-relaxed">
-            Ich habe verzweifelt nach Antworten gesucht — und vor allem nach Lösungen, die über reine Symptombehandlungen hinausgehen. Medikamente konnten vieles zwar kurzfristig unterdrücken, aber nichts wirklich lösen. Und ich wusste: Ich will nicht abhängig sein. Ich will nicht für immer Tabletten schlucken müssen. Ich will verstehen.
+            Getrieben von meiner eigenen Leidensgeschichte und der meiner liebsten Personen, habe ich zahlreiche Methoden ausprobiert. Vieles hat funktioniert, vieles aber eben auch nicht. Das was funktionierte, war nicht Teil meines Humanmedizin-Studiums. Ich konnte nicht verstehen, wieso dies nie thematisiert wurde. Aus diesem Grund habe ich viele Weiterbildungen gemacht, viel recherchiert und viel wertvolles Wissen gefunden, das im klassischen Studium nicht vorkommt, aber dennoch mein Leben und das Leben vieler anderer Menschen verändert hat.
           </p>
         </div>
       </section>
@@ -113,11 +107,8 @@ function UeberMich() {
       <section ref={section3.ref} style={section3.style} className="pb-16 sm:pb-24 px-5 sm:px-8">
         <div className="max-w-3xl mx-auto space-y-6">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] tracking-tight mb-2">
-            Also habe ich angefangen, alles zu hinterfragen.
+            Der größte Wendepunkt für mich war die Kälte.
           </h2>
-          <p className="text-base sm:text-lg text-[#515757]/80 leading-relaxed">
-            Ich habe meine Ernährung umgestellt, meinen Alltag neu strukturiert, meine Bewegung und meine Atmungsgewohnheiten verändert. Schritt für Schritt hat sich so mein Zustand verbessert. Nicht sofort, nicht linear, aber definitiv spürbar.
-          </p>
         </div>
       </section>
 
@@ -126,23 +117,35 @@ function UeberMich() {
         <div className="max-w-3xl mx-auto">
           <div className="rounded-2xl px-8 sm:px-12 py-10 sm:py-14" style={{ backgroundColor: "#43A9AB" }}>
             <p className="text-lg sm:text-xl text-white leading-relaxed">
-              Doch der größte Wendepunkt auf meinem Weg war die <strong>Kälte</strong>. Eisbaden hat nicht nur meinen Körper verändert, sondern auch meinen Kopf. Meine Resilienz. Meine Fähigkeit, mit Stress umzugehen. Zum ersten Mal hatte ich das Gefühl von innerer Ruhe.
+              <strong>Eisbaden</strong> hat nicht nur meinen Körper verändert, sondern auch meinen Kopf. Meine Resilienz. Meine Fähigkeit, mit Stress umzugehen. Ich habe mich von meinen depressiven Beschwerden befreit.
             </p>
             <p className="text-base sm:text-lg text-white/70 leading-relaxed mt-4">
-              Und gleichzeitig habe ich gemerkt, wie wenig von all dem Teil der klassischen medizinischen Ausbildung ist — obwohl es dafür wissenschaftliche Grundlagen gibt.
+              Gleichzeitig wurde mir bewusst, wie wenig auch dies Teil der klassischen medizinischen Ausbildung ist, obwohl es dazu über 1.300 Studien gibt und dennoch null Lehrinhalt.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Section 4 — Functional Medicine */}
+      {/* Section 4 — Integrative Approach */}
       <section ref={section4.ref} style={section4.style} className="py-16 sm:py-24 px-5 sm:px-8">
         <div className="max-w-3xl mx-auto space-y-6">
           <p className="text-base sm:text-lg text-[#515757]/80 leading-relaxed">
-            Ich habe begonnen, mich intensiv mit funktioneller Medizin auseinanderzusetzen — mit der Frage: <em>Wie kann man Wissenschaft so nutzen, dass sie im echten Leben funktioniert?</em>
+            Meine Auseinandersetzung mit alternativen Ansätzen begann also nicht aus einer esoterischen Motivation heraus, sondern aus dem Wunsch, wissenschaftliche Erkenntnisse in eine tatsächlich umsetzbare Praxis zu übersetzen. Oft wird angenommen, dass alles außerhalb der klassischen Schulmedizin per se unwissenschaftlich sei. Diese Sicht greift jedoch zu kurz. Viele Ansätze sind wissenschaftlich fundiert, finden jedoch bislang keinen festen Platz in etablierten Therapiekonzepten.
           </p>
           <p className="text-base sm:text-lg text-[#515757]/80 leading-relaxed">
-            Heute ist genau das mein Fokus. Ich arbeite nicht mit schnellen Lösungen. Ich arbeite daran, Dein System zu verstehen. Ich übersetze komplexe Zusammenhänge in Dinge, die Du wirklich in Deinem Leben umsetzen kannst — und begleite Dich dabei Schritt für Schritt. Auch dann, wenn noch nicht alles sofort klar ist. Denn echte Gesundheit ist kein schneller Fix, sondern ein fortlaufender Prozess.
+            Durch meine kontinuierliche Weiterbildung sowie die praktische Arbeit mit Patient:innen in unterschiedlichen medizinischen Disziplinen, darunter Lebensstilmedizin, funktionelle und anthroposophische Medizin, orthomolekulare Medizin, Genetik und Epigenetik, Toxikologie und Umweltmedizin sowie psychotherapeutische und biodynamische Verfahren, einschließlich ketaminassistierter Therapie, habe ich ein integratives Behandlungssystem entwickelt.
+          </p>
+          <p className="text-base sm:text-lg text-[#515757]/80 leading-relaxed">
+            Dieses System verbindet die jeweiligen Stärken der einzelnen Ansätze zu einem klar strukturierten Gesamtkonzept. Ziel ist es nicht, Methoden isoliert nebeneinander anzuwenden, sondern sie so aufeinander abzustimmen, dass sinnvolle Synergien entstehen und sich die einzelnen Maßnahmen gegenseitig verstärken, anstatt sich zu widersprechen.
+          </p>
+          <p className="text-base sm:text-lg text-[#515757]/80 leading-relaxed">
+            Ein derart breit aufgestellter und zugleich systematisch integrierter Ansatz ist selten. Er ermöglicht es, Patient:innen nicht eindimensional, sondern in ihrer gesamten Komplexität zu betrachten und individuell abgestimmte, ganzheitliche Therapien anzubieten.
+          </p>
+          <p className="text-base sm:text-lg text-[#515757]/80 leading-relaxed">
+            Nicht, um möglichst viel zu machen, sondern um Zusammenhänge zu verstehen, die oft übersehen werden. Nicht als willkürliche Kombination verschiedener Medizinformen, sondern als strukturiertes Konzept, in dem jeder Ansatz seinen klaren Platz hat, mit dem Ziel, einen wirklich ganzheitlichen Blick und eine integrierte Behandlung zu ermöglichen. Meine Arbeit beginnt dort, wo Standardlösungen aufhören.
+          </p>
+          <p className="text-base sm:text-lg text-[#515757]/80 leading-relaxed">
+            Dabei begleite ich Dich als Mentor. Denn Lebensstiloptimierung ist häufig die Basis jeder nachhaltigen Verbesserung und genau hier scheitern viele nicht am Wissen, sondern an der Umsetzung. Die beste Therapie kann nichts bewirken, wenn sie nicht gelebt wird. Deshalb braucht es mehr als einen Behandlungsplan: Es braucht Begleitung, Feintuning und echte Unterstützung durch den gesamten Prozess der Veränderung.
           </p>
         </div>
       </section>
@@ -151,7 +154,7 @@ function UeberMich() {
       <section ref={section5.ref} style={section5.style} className="pb-16 sm:pb-24 px-5 sm:px-8">
         <div className="max-w-3xl mx-auto space-y-6">
           <p className="text-base sm:text-lg text-[#515757]/80 leading-relaxed">
-            Ich habe mich selbst von meinen gesundheitlichen Problemen befreit. Nicht durch ein einzelnes Wundermittel, sondern durch konsequente Veränderung. Und genau diese Erfahrung gebe ich weiter.
+            Ich habe mich selbst von gesundheitlichen Problemen befreit und vielen weiteren Menschen geholfen. Nicht durch ein einzelnes Wundermittel, sondern durch konsequente Veränderung mit einem klaren Plan und Struktur. Genau diese Erfahrung gebe ich nun weiter.
           </p>
         </div>
       </section>
@@ -159,10 +162,81 @@ function UeberMich() {
       {/* Closing Statement */}
       <section ref={closing.ref} style={closing.style} className="pb-24 sm:pb-36 px-5 sm:px-8">
         <div className="max-w-3xl mx-auto">
-          <div className="border-t border-[#515757]/10 pt-12">
+          <div className="border-t border-[#515757]/10 pt-12 space-y-6">
             <p className="text-xl sm:text-2xl font-medium text-[#515757] leading-relaxed">
-              Mein Ziel ist nicht nur, dass es Dir besser geht. Mein Ziel ist, dass Du verstehst, <em>warum</em> — und Deinen Körper so gut kennenlernst, dass Du langfristig unabhängig wirst.
+              Mein Ziel ist nicht nur, dass es Dir besser geht. Mein Ziel ist, dass Du verstehst, <em>warum</em> — und Deinen Körper so gut kennenlernst, dass Du langfristig unabhängig wirst. Ich weiß, dass ich meine Arbeit gut gemacht habe, wenn meine Patienten mich irgendwann weniger brauchen.
             </p>
+            <p className="text-base sm:text-lg text-[#515757]/80 leading-relaxed">
+              Du möchtest mehr über meine persönliche Story erfahren? Dann klick einfach auf den Button unten oder schau auf meinen Socials vorbei!
+            </p>
+            <div className="pt-2">
+              <a
+                href="/ueber-mich_Vivecura_v4.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center bg-[#43a9ab] text-white px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-sm"
+              >
+                Mehr erfahren
+                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
+            <div className="pt-6">
+              <p className="text-sm font-semibold tracking-[2px] uppercase text-[#43a9ab] mb-4">
+                Folge mir auf
+              </p>
+              <div className="flex items-center gap-6">
+                <a
+                  href="https://www.instagram.com/vivecura/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="text-[#515757]/50 hover:text-[#43a9ab] transition-colors duration-200"
+                >
+                  <svg className="w-11 h-11" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                    <rect x="2" y="2" width="20" height="20" rx="5" />
+                    <circle cx="12" cy="12" r="5" />
+                    <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/shukri-jarmoukli/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="text-[#515757]/50 hover:text-[#43a9ab] transition-colors duration-200"
+                >
+                  <svg className="w-11 h-11" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                    <rect x="2" y="2" width="20" height="20" rx="3" />
+                    <path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 10v7" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.tiktok.com/@shukri.jarmoukli"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="TikTok"
+                  className="text-[#515757]/50 hover:text-[#43a9ab] transition-colors duration-200"
+                >
+                  <svg className="w-11 h-11" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                    <path d="M9 12a4 4 0 104 4V4a5 5 0 005 5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.youtube.com/@shukrijarmoukli"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"
+                  className="text-[#515757]/50 hover:text-[#43a9ab] transition-colors duration-200"
+                >
+                  <svg className="w-11 h-11" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                    <rect x="2" y="4" width="20" height="16" rx="4" />
+                    <path d="M10 9l5 3-5 3V9z" fill="currentColor" stroke="none" />
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

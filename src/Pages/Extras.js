@@ -8,7 +8,7 @@ const ketaminLines = [
   "So hat es einer meiner Patienten formuliert:",
   "Gesprächstherapie ist, als gehe man zu Fuß.",
   "Verhaltenstherapie ist, als fahre man Fahrrad.",
-  "Ketamin assistierte Therapie ist, als führe man Ferrari.\u201C",
+  "Ketamin assistierte Therapie ist, als fährt man Ferrari.\u201C",
 ];
 
 const sublines = [

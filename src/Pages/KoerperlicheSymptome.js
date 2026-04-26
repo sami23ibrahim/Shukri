@@ -1,4 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
+import ScrolledLines from "../Components/ScrolledLines";
+import SchwerpunkteGrid from "../Components/SchwerpunkteGrid";
+import WunderpillePlan from "../Components/WunderpillePlan";
 
 function useScrollFadeIn(threshold = 0.1) {
   const ref = useRef(null);
@@ -109,32 +112,10 @@ function HeroBanner({ image, badge, title, subtitle, ctaText, ctaHref, trustItem
 }
 
 const recognizeItems = [
-  'Deine Werte sind "ok" - aber du f\u00FChlst dich nicht ok',
+  'Deine Werte sind "ok" - aber du fühlst dich nicht ok',
   "Du warst bei mehreren Spezialisten, aber niemand kann dir helfen",
-  "Es wurde viel getestet, aber es gibt keinen klaren Plan",
-  "Du hast vieles ausprobiert mit kurzfristigem Effekt, aber ohne Stabilit\u00E4t",
-  "Symptome ver\u00E4ndern sich, aber verschwinden nicht vollst\u00E4ndig",
-  "Die Ursache bleibt unklar oder wird vorschnell erkl\u00E4rt",
-];
-
-const topicClusters = [
-  { title: "Ersch\u00F6pfung, Brain Fog, Akku st\u00E4ndig leer", desc: "Wenn Energie fehlt, obwohl Blutwerte ok sind" },
-  { title: "Darm, Bl\u00E4hbauch, Unvertr\u00E4glichkeiten", desc: "Darm-Systemlogik: Reizung, Barriere, Mikrobiom, Trigger" },
-  { title: "Schmerzen, Entz\u00FCndung, diffuse Beschwerden", desc: "Entz\u00FCndungslogik statt Symptom-Jagen" },
-];
-
-const moreTopics = [
-  "Schlafst\u00F6rungen, morgens nicht erholt",
-  "Kopfschmerz, Haut, Histamin-Muster",
-  "Infektanf\u00E4lligkeit, immunassoziierte Muster",
-];
-
-const therapyLevers = [
-  "Lebensstil als Grundlage",
-  "Pflanzliche Therapien gezielt eingesetzt",
-  "Hochdosis-N\u00E4hrstofftherapien - wenn passend, nicht als Trend",
-  "Entgiftungsstrategien pr\u00E4zise angewendet",
-  "Mentoring f\u00FCr echte Umsetzung im Alltag",
+  "Du hast vieles ausprobiert mit kurzfristigem Effekt, aber ohne Stabilität",
+  "Die Ursache bleibt unklar oder wird vorschnell erklärt",
 ];
 
 const processSteps = [
@@ -142,6 +123,145 @@ const processSteps = [
   { num: "02", title: "Entscheidung", desc: "Welche Diagnostik ist wirklich sinnvoll f\u00FCr dich?" },
   { num: "03", title: "Dein individueller Plan", desc: "Klare Schritte und begleitete Handlungsumsetzung" },
 ];
+
+const includesIcons = {
+  heart: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6">
+      <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  ),
+  scan: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6">
+      <path d="M3 7V5a2 2 0 012-2h2M17 3h2a2 2 0 012 2v2M21 17v2a2 2 0 01-2 2h-2M7 21H5a2 2 0 01-2-2v-2" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="12" cy="12" r="4" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  ),
+  leaf: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6">
+      <path d="M17 8C8 10 5.9 16.17 3.82 21.34M5 19l2-2M3 7c3.6-1.4 8-1 11 2 3 3 3.4 7.4 2 11" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  ),
+  sparkle: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6">
+      <path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8L12 2z" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  ),
+};
+
+const includesItems = [
+  { icon: "heart", title: "Beratung", desc: "Bevor wir dir irgendetwas empfehlen, verstehen wir deinen Körper, deine Geschichte und deine Ziele." },
+  { icon: "scan", title: "Diagnostik", desc: "Gezielte Laboranalysen, funktionelle Tests und klinische Befundung. Individuell abgestimmt auf deine Beschwerden." },
+  { icon: "leaf", title: "Gesundheitsplan", desc: "Du bekommst keinen allgemeinen Rat, sondern einen konkreten Plan. Genau auf dich abgestimmt, mit klaren nächsten Schritten." },
+  { icon: "sparkle", title: "Mentoring", desc: "Wir begleiten dich langfristig, passen deinen Plan an und bleiben an deiner Seite, bis du wirklich dort ankommst, wo du hinwillst." },
+];
+
+const ZITAT_WUNDERPILLE_CSS = `
+.quote-wrap {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  max-width: 900px;
+  margin: -25vh auto 0;
+  padding: 0 24px 24px;
+}
+.quote-box {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid rgba(67, 169, 171, 0.25);
+  border-radius: 24px;
+  padding: 64px 72px;
+  overflow: hidden;
+}
+@media (max-width: 680px) {
+  .quote-box { padding: 48px 36px; }
+}
+.quote-box::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 40px;
+  bottom: 40px;
+  width: 4px;
+  background: linear-gradient(to bottom, transparent, #43A9AB 20%, #43A9AB 80%, transparent);
+  border-radius: 0 4px 4px 0;
+}
+.quote-box::after {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(67,169,171,0.06), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.quote-mark {
+  font-size: 140px;
+  line-height: 1;
+  color: rgba(67, 169, 171, 0.12);
+  font-family: Georgia, serif;
+  position: absolute;
+  top: 20px;
+  left: 56px;
+  pointer-events: none;
+  user-select: none;
+}
+@media (max-width: 680px) {
+  .quote-mark { font-size: 90px; left: 28px; }
+}
+.quote-text {
+  font-size: clamp(20px, 2.6vw, 28px);
+  font-weight: 600;
+  line-height: 1.5;
+  color: #1a1f24;
+  letter-spacing: -0.015em;
+  margin: 0 0 32px 0;
+  position: relative;
+  z-index: 1;
+}
+.quote-text em {
+  font-style: normal;
+  color: #43A9AB;
+}
+.quote-attr {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+.quote-attr-line {
+  width: 32px;
+  height: 1.5px;
+  background: rgba(67, 169, 171, 0.5);
+  flex-shrink: 0;
+}
+.quote-attr-name {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #43A9AB;
+}
+.quote-attr-role {
+  font-size: 13px;
+  color: #9aa2a7;
+  margin-left: 4px;
+}
+`;
+
+function ZitatWunderpille() {
+  return (
+    <div className="quote-wrap">
+      <style>{ZITAT_WUNDERPILLE_CSS}</style>
+      <figure className="quote-box">
+        <span className="quote-mark">&ldquo;</span>
+        <blockquote className="quote-text">
+          Du suchst eine L&ouml;sung, aber keine Wunderpille. Die habe ich auch nicht. Was ich f&uuml;r dich habe: <em>Struktur. Systemlogik.</em> Und einen Weg, der dich und deine Beschwerden ernst nimmt.
+        </blockquote>
+      </figure>
+    </div>
+  );
+}
 
 const faqData = [
   { q: "Warum wurde bei mir bisher nichts gefunden?", a: "Weil oft nur nach Standardursachen gesucht wird und nicht nach funktionellen Zusammenh\u00E4ngen." },
@@ -154,13 +274,9 @@ const faqData = [
 
 function KoerperlicheSymptome() {
   const [openFaq, setOpenFaq] = useState(null);
-  const [showMore, setShowMore] = useState(false);
-  const recognizeAnim = useScrollFadeIn();
   const perspectiveAnim = useScrollFadeIn();
   const approachAnim = useScrollFadeIn();
-  const clustersAnim = useScrollFadeIn();
   const diagnostikAnim = useScrollFadeIn();
-  const therapyAnim = useScrollFadeIn();
   const processAnim = useScrollFadeIn();
   const fitAnim = useScrollFadeIn();
   const faqAnim = useScrollFadeIn();
@@ -181,32 +297,8 @@ function KoerperlicheSymptome() {
       />
 
       {/* Vielleicht kennst du das */}
-      <section ref={recognizeAnim.ref} style={recognizeAnim.style} className="py-16 sm:py-24 px-5 sm:px-8">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-10 tracking-tight">
-            Vielleicht kennst du das:
-          </h2>
-          <div className="space-y-4 mb-12">
-            {recognizeItems.map((item, i) => (
-              <div key={i} className="flex items-start gap-4 group">
-                <div className="mt-2 w-2 h-2 rounded-full bg-[#43a9ab]/30 group-hover:bg-[#43a9ab] transition-colors flex-shrink-0" />
-                <p className="text-[#515757]/70 text-base sm:text-lg leading-relaxed">{item}</p>
-              </div>
-            ))}
-          </div>
-          <div className="relative pl-6 border-l-2 border-[#43a9ab]/20">
-            <p className="text-[#515757] text-lg sm:text-xl font-medium leading-relaxed mb-2">
-              Du suchst eine L&ouml;sung, aber keine Wunderpille.
-            </p>
-            <p className="text-[#515757]/60 text-base sm:text-lg leading-relaxed mb-4">
-              Die habe ich auch nicht!
-            </p>
-            <p className="text-[#515757]/70 text-base leading-relaxed">
-              Was ich f&uuml;r dich habe: <strong className="text-[#43a9ab]">Struktur. Systemlogik.</strong> Und einen Weg, der dich und deine Beschwerden ernst nimmt.
-            </p>
-          </div>
-        </div>
-      </section>
+      <ScrolledLines lines={recognizeItems} title="Vielleicht kennst du das:" />
+      <ZitatWunderpille />
 
       {/* Perspektivwechsel */}
       <section ref={perspectiveAnim.ref} style={perspectiveAnim.style} className="py-16 sm:py-24 px-5 sm:px-8">
@@ -248,55 +340,30 @@ function KoerperlicheSymptome() {
       </section>
 
       {/* Themen-Cluster */}
-      <section ref={clustersAnim.ref} style={clustersAnim.style} className="py-16 sm:py-24 px-5 sm:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="grid sm:grid-cols-3 gap-4 mb-6">
-            {topicClusters.map((topic, i) => (
-              <div
-                key={i}
-                className="group rounded-2xl border border-[#43a9ab]/15 p-6 sm:p-8 hover:border-[#43a9ab]/40 hover:shadow-lg transition-all duration-300 cursor-pointer"
-                style={{ background: "rgba(67,169,171,0.03)" }}
-              >
-                <div className="w-10 h-10 rounded-full bg-[#43a9ab]/10 flex items-center justify-center mb-5 group-hover:bg-[#43a9ab]/20 transition-colors">
-                  <span className="text-[#43a9ab] text-sm font-bold">{String(i + 1).padStart(2, "0")}</span>
-                </div>
-                <h4 className="text-[#515757] text-base font-semibold mb-3 leading-snug">{topic.title}</h4>
-                <p className="text-[#515757]/50 text-sm leading-relaxed">{topic.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          <button
-            onClick={() => setShowMore(!showMore)}
-            className="text-[#43a9ab] text-sm font-medium flex items-center gap-2 hover:gap-3 transition-all mb-6 focus:outline-none"
-          >
-            {showMore ? "Weniger anzeigen" : "Mehr anzeigen"}
-            <ChevronDown isOpen={showMore} />
-          </button>
-          <div className={`overflow-hidden transition-all duration-500 ${showMore ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}>
-            <div className="space-y-3 pb-4">
-              {moreTopics.map((t, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#43a9ab]/40" />
-                  <span className="text-[#515757]/60 text-sm">{t}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <a
-            href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center bg-[#43a9ab] text-white px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-sm"
-          >
-            Hier zur Verbesserung der Beschwerden
-            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
-        </div>
-      </section>
+      <SchwerpunkteGrid
+        title=""
+        therapies={[
+          { title: "Erschöpfung, Brain Fog, Akku ständig leer", desc: "Wenn Energie fehlt, obwohl Blutwerte ok sind", image: "/Assets/Bilder%206%20Kacheln/Ersch%C3%B6pfung.png" },
+          { title: "Darm, Blähbauch, Unverträglichkeiten", desc: "Darm-Systemlogik: Reizung, Barriere, Mikrobiom, Trigger", image: "/Assets/Bilder%206%20Kacheln/Darm.png" },
+          { title: "Schmerzen, Entzündung, diffuse Beschwerden", desc: "Entzündungslogik statt Symptom-Jagen", image: "/Assets/Bilder%206%20Kacheln/Schmerzen.png" },
+          { title: "Schlafstörungen, morgens nicht erholt", image: "/Assets/Bilder%206%20Kacheln/Schlafprobleme.png" },
+          { title: "Kopfschmerz, Haut, Histamin-Muster", image: "/Assets/Bilder%206%20Kacheln/Kopfschmerz.png" },
+          { title: "Infektanfälligkeit, immunassoziierte Muster", image: "/Assets/Bilder%206%20Kacheln/Infektanf%C3%A4lligkeit.png" },
+        ]}
+      />
+      <div className="max-w-7xl mx-auto px-5 sm:px-10 pb-16 sm:pb-20">
+        <a
+          href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center bg-[#43a9ab] text-white px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-sm"
+        >
+          Hier zur Verbesserung der Beschwerden
+          <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
 
       {/* Diagnostik */}
       <section ref={diagnostikAnim.ref} style={diagnostikAnim.style} className="py-16 sm:py-24 px-5 sm:px-8">
@@ -324,55 +391,28 @@ function KoerperlicheSymptome() {
       </section>
 
       {/* Therapiehebel */}
-      <section ref={therapyAnim.ref} style={therapyAnim.style} className="py-16 sm:py-24 px-5 sm:px-8">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-3 tracking-tight">
-            Ohne Wunderpille, aber mit konkretem Plan
-          </h2>
-          <p className="text-[#515757]/60 text-base sm:text-lg leading-relaxed mb-10">
-            Es gibt selten die eine L&ouml;sung. Aber es gibt Hebel, die viel ver&auml;ndern k&ouml;nnen, wenn sie richtig priorisiert sind:
-          </p>
-          <div className="space-y-4 mb-10">
-            {therapyLevers.map((lever, i) => (
-              <div key={i} className="flex items-center gap-4 group">
-                <div className="w-8 h-8 rounded-full border border-[#43a9ab]/20 flex items-center justify-center flex-shrink-0 group-hover:bg-[#43a9ab]/10 transition-colors">
-                  <span className="text-[#43a9ab] text-xs font-bold">{i + 1}</span>
-                </div>
-                <p className="text-[#515757]/70 text-base sm:text-lg">{lever}</p>
-              </div>
-            ))}
-          </div>
-          <p className="text-[#515757]/70 text-base leading-relaxed">
-            Als einzigartiges Konzept verbindet mein Ansatz verschiedene Formen der Medizin zu einem ganzheitlichen System. Statt isolierter Einzelma&szlig;nahmen entsteht eine Kombination aus unterschiedlichen Therapieformen, um nicht nur Symptome zu behandeln, sondern echte Ver&auml;nderung zu erm&ouml;glichen. Entscheidend ist dabei das Zusammenspiel aus aktiver Eigenverantwortung und pr&auml;ziser Unterst&uuml;tzung meinerseits. Denn nachhaltige Gesundheit entsteht nicht durch einzelne Ma&szlig;nahmen, sondern durch ihr bewusstes Zusammenwirken.
-          </p>
-        </div>
-      </section>
+      <WunderpillePlan />
 
-      {/* Prozess */}
-      <section ref={processAnim.ref} style={processAnim.style} className="py-16 sm:py-24 px-5 sm:px-8">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-12 tracking-tight">So starten wir</h2>
-          <div className="grid sm:grid-cols-3 gap-6">
-            {processSteps.map((step) => (
-              <div key={step.num} className="relative">
-                <div className="text-5xl font-black text-[#43a9ab]/10 mb-3">{step.num}</div>
-                <h4 className="text-[#515757] text-lg font-semibold mb-2">{step.title}</h4>
-                <p className="text-[#515757]/60 text-sm leading-relaxed">{step.desc}</p>
+      {/* Alles was du brauchst in einem Termin */}
+      <section ref={processAnim.ref} style={processAnim.style} className="pt-16 sm:pt-24 pb-20 sm:pb-28 px-5 sm:px-8">
+        <div className="max-w-5xl mx-auto">
+          <div className="rounded-3xl overflow-hidden" style={{ background: "linear-gradient(135deg, #d4ece1 0%, #e0f4f5 30%, #d9f0e4 60%, #c8e6d8 100%)" }}>
+            <div className="px-8 sm:px-14 py-12 sm:py-16">
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-10 text-center">
+                Alles was du brauchst in einem Termin!
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {includesItems.map((item, i) => (
+                  <div key={i} className="text-center">
+                    <div className="w-12 h-12 rounded-xl bg-white/80 text-[#43a9ab] flex items-center justify-center mx-auto mb-4 shadow-sm">
+                      {includesIcons[item.icon]}
+                    </div>
+                    <h3 className="text-base font-bold text-[#515757] mb-2">{item.title}</h3>
+                    <p className="text-sm text-[#515757]/60 leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-          <div className="mt-10">
-            <a
-              href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center bg-[#43a9ab] text-white px-8 py-4 rounded-xl text-base font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-sm"
-            >
-              Termin vereinbaren
-              <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
+            </div>
           </div>
         </div>
       </section>

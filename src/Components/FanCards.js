@@ -54,11 +54,13 @@ function FanCards({ cards: cardData = defaultCardData, title = "Deine Themen im 
       ref={sectionRef}
       className="relative bg-white flex flex-col items-center justify-center overflow-x-hidden px-5 sm:px-10 py-10 sm:py-14"
     >
-      <div className="w-full max-w-7xl mx-auto">
-        <h2 className="text-[#43A9AB] font-black leading-[0.85] tracking-tighter text-left mb-12 sm:mb-16 max-w-[50%]" style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}>
-          {title}
-        </h2>
-      </div>
+      {title && (
+        <div className="w-full max-w-7xl mx-auto">
+          <h2 className="text-[#43A9AB] font-black leading-[0.85] tracking-tighter text-left mb-12 sm:mb-16 max-w-[50%]" style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}>
+            {title}
+          </h2>
+        </div>
+      )}
 
       <div
         className="relative"

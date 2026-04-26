@@ -98,9 +98,11 @@ function FanCardsMobile({ cards: cardData = defaultCardData, title = "Deine Them
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      <h2 className="text-[#43A9AB] font-black leading-[0.85] tracking-tighter text-left mb-10 max-w-[50%] self-start ml-4" style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}>
-        {title}
-      </h2>
+      {title && (
+        <h2 className="text-[#43A9AB] font-black leading-[0.85] tracking-tighter text-left mb-10 max-w-[50%] self-start ml-4" style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}>
+          {title}
+        </h2>
+      )}
 
       <div
         className="relative"

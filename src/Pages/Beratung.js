@@ -6,7 +6,7 @@ const beratungCards = [
     number: "1",
     front: "Aktives Zuhören",
     image: "/Assets/Images_Beratung/Aktives Zuhören.png",
-    back: "20 Min Gespräch mit Raum für deine Beschwerden, Geschichte & Biografie. Deine subjektive Empfindung wird immer ernst genommen.",
+    back: "30 Min Gespräch mit Raum für deine Beschwerden, Geschichte & Biografie. Deine subjektive Empfindung wird immer ernst genommen.",
   },
   {
     number: "2",

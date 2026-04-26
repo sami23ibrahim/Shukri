@@ -207,17 +207,19 @@ export default function SchwerpunkteGrid({ therapies: therapiesProp, title: titl
   ];
 
   const therapies = therapiesProp || defaultTherapies;
-  const title = titleProp || t("spezielleTherapien.grid.title");
+  const title = titleProp === undefined ? t("spezielleTherapien.grid.title") : titleProp;
 
   return (
     <section ref={gridAnim.ref} style={gridAnim.style} className="px-5 sm:px-10 py-10 sm:py-14">
       <div className="max-w-7xl mx-auto">
-        <h2
-          className="text-[#43A9AB] font-black leading-[0.85] tracking-tighter mb-12 sm:mb-16"
-          style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}
-        >
-          {title}
-        </h2>
+        {title && (
+          <h2
+            className="text-[#43A9AB] font-black leading-[0.85] tracking-tighter mb-12 sm:mb-16"
+            style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}
+          >
+            {title}
+          </h2>
+        )}
         <FlipGridInner therapies={therapies} />
       </div>
     </section>

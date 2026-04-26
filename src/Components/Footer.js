@@ -9,6 +9,9 @@ const footerLinks = {
   Angebot: [
     { label: "Infusionen", to: "/infusions" },
     { label: "Diagnostik", to: "/diagnostik" },
+    { label: "Beratungen", to: "/beratung" },
+    { label: "Ketamin-Therapie", to: "/ketamin" },
+    { label: "Mentoring", to: "/mentoring" },
   ],
   Kontakt: [
     { label: "030 200060860", to: null, href: "tel:030200060860" },

@@ -445,17 +445,20 @@ function HealthCheck() {
                 <p className="text-gray-500 text-base leading-relaxed mb-6">
                   {t("healthCheck.hero.subtitle")}
                 </p>
-                <a
-                  href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center bg-[#43a9ab] text-white px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-sm"
-                >
-                  {t("healthCheck.hero.cta")}
-                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </a>
+                <div className="flex flex-wrap items-center gap-4">
+                  <span className="text-sm font-semibold text-[#43a9ab]">Alles f&uuml;r nur 300 &euro;</span>
+                  <a
+                    href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center bg-[#43a9ab] text-white px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-sm"
+                  >
+                    {t("healthCheck.hero.cta")}
+                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </a>
+                </div>
               </div>
 
               {/* Block 2: At a Glance */}
@@ -608,14 +611,14 @@ function HealthCheck() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {[
                   {
-                    icon: focusIcons.scan,
-                    title: t("healthCheck.includes.i1.title"),
-                    desc: t("healthCheck.includes.i1.desc"),
-                  },
-                  {
                     icon: focusIcons.heart,
                     title: t("healthCheck.includes.i2.title"),
                     desc: t("healthCheck.includes.i2.desc"),
+                  },
+                  {
+                    icon: focusIcons.scan,
+                    title: t("healthCheck.includes.i1.title"),
+                    desc: t("healthCheck.includes.i1.desc"),
                   },
                   {
                     icon: focusIcons.leaf,
