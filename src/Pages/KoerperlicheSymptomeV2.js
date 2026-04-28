@@ -1,24 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import ScrolledLines from "../Components/ScrolledLines";
 import SchwerpunkteGrid from "../Components/SchwerpunkteGrid";
-import WunderpillePlan from "../Components/WunderpillePlan";
 import Seo from "../Components/Seo";
-
-function useScrollFadeIn(threshold = 0.1) {
-  const ref = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setIsVisible(true); observer.unobserve(el); } },
-      { threshold }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [threshold]);
-  return { ref, style: { opacity: isVisible ? 1 : 0, transform: isVisible ? "translateY(0)" : "translateY(40px)", transition: "opacity 1.2s ease-out, transform 1.2s ease-out" } };
-}
 
 const ChevronDown = ({ isOpen }) => (
   <svg className={`w-5 h-5 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -39,91 +22,6 @@ function AccordionItem({ title, children, isOpen, onToggle }) {
     </div>
   );
 }
-
-function HeroBanner({ image, badge, title, subtitle, ctaText, ctaHref, trustItems }) {
-  const [scrollY, setScrollY] = useState(0);
-  const handleScroll = useCallback(() => setScrollY(window.scrollY), []);
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
-
-  return (
-    <section className="relative w-full overflow-hidden" style={{ minHeight: "85vh" }}>
-      <div
-        className="absolute inset-0 w-full h-full"
-        style={{ transform: `translateY(${scrollY * 0.3}px)` }}
-      >
-        <img
-          src={image}
-          alt=""
-          className="w-full h-full object-cover"
-          style={{ minHeight: "110%" }}
-        />
-        <div className="absolute inset-0" style={{
-          background: "linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.50) 55%, rgba(0,0,0,0.40) 75%, rgba(255,255,255,0.3) 90%, rgba(255,255,255,1) 100%)",
-        }} />
-      </div>
-
-      <div className="relative z-10 flex flex-col justify-end px-5 sm:px-8 pt-24 pb-12 sm:pb-16" style={{ minHeight: "85vh" }}>
-        <div className="max-w-4xl mx-auto w-full">
-          <div
-            className="inline-block text-[10px] sm:text-xs font-medium tracking-[3px] uppercase mb-5 px-4 py-2 rounded-full"
-            style={{ background: "rgba(255,255,255,0.15)", color: "#fff", backdropFilter: "blur(8px)" }}
-          >
-            {badge}
-          </div>
-          <h1
-            className="text-white font-black leading-[0.92] tracking-tighter mb-6"
-            style={{ fontSize: "clamp(2rem, 5.5vw, 4rem)" }}
-          >
-            {title}
-          </h1>
-          <p className="text-white/80 text-lg sm:text-xl leading-relaxed mb-8 max-w-2xl">
-            {subtitle}
-          </p>
-
-          <a
-            href={ctaHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center bg-[#43a9ab] text-white px-8 py-4 rounded-xl text-base font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-lg shadow-[#43a9ab]/25"
-          >
-            {ctaText}
-            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
-
-          {trustItems && (
-            <div className="mt-10 flex flex-wrap gap-4 sm:gap-8">
-              {trustItems.map((t) => (
-                <div key={t} className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-white" />
-                  <span className="text-xs sm:text-sm text-white tracking-wide">{t}</span>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-const recognizeItems = [
-  'Deine Werte sind "ok" - aber du fühlst dich nicht ok',
-  "Du warst bei mehreren Spezialisten, aber niemand kann dir helfen",
-  "Du hast vieles ausprobiert mit kurzfristigem Effekt, aber ohne Stabilität",
-  "Die Ursache bleibt unklar oder wird vorschnell erklärt",
-];
-
-const processSteps = [
-  { num: "01", title: "Erstgespr\u00E4ch", desc: "Struktur, Verlauf und Priorit\u00E4ten verstehen" },
-  { num: "02", title: "Entscheidung", desc: "Welche Diagnostik ist wirklich sinnvoll f\u00FCr dich?" },
-  { num: "03", title: "Dein individueller Plan", desc: "Klare Schritte und begleitete Handlungsumsetzung" },
-];
 
 const includesIcons = {
   heart: (
@@ -156,11 +54,43 @@ const includesItems = [
   { icon: "sparkle", title: "Mentoring", desc: "Wir begleiten dich langfristig, passen deinen Plan an und bleiben an deiner Seite, bis du wirklich dort ankommst, wo du hinwillst." },
 ];
 
+const faqData = [
+  { q: "Warum wurde bei mir bisher nichts gefunden?", a: "Weil oft nur nach Standardursachen gesucht wird und nicht nach funktionellen Zusammenhängen." },
+  { q: "Machst du viele Tests?", a: "Ja. Ich arbeite mit Diagnostik, aber sehr gezielt. Mir geht es nicht darum, endlos viele Tests zu machen, sondern nur genau das, was wirklich für dich sinnvoll ist. So vermeiden wir unnötige Kosten und bekommen trotzdem die Informationen, die wir brauchen." },
+  { q: "Bekomme ich einfach Supplemente?", a: "Supplemente bekommst du bei deinem Coach oder AI-Coach. Bei mir werden sie gezielt im Rahmen der orthomolekularen Medizin eingesetzt, also medizinisch und individuell auf dich abgestimmt. Das kann auch höhere Dosierungen beinhalten, um einen therapeutischen Effekt zu erreichen. Supplements sind bei mir Teil einer Therapie und weitaus mehr als nur klassische Nahrungsergänzung." },
+  { q: "Kannst du mir garantieren, dass sich meine Beschwerden verbessern werden?", a: "Nein. Aber wir gehen strukturiert vor und geben nicht vorschnell auf. Mir ist wichtig, dich aktiv im Prozess zu begleiten und dich auch mental zu stärken. Denn echte Veränderung braucht oft beides: einen klaren Plan und die Motivation, ihn umzusetzen." },
+  { q: "Wie schnell merke ich eine Veränderung?", a: "Das ist sehr individuell. Erfahrungsgemäß spüren viele Patient:innen bereits nach 2-4 Wochen erste Veränderungen. Wenn der gewünschte Effekt ausbleibt, passen wir die Therapie gezielt an und justieren nach." },
+  { q: 'Was ist, wenn alles "psychosomatisch" genannt wird?', a: 'Wir betrachten das differenziert. Psyche und Körper sind miteinander verbunden, das stimmt. Aber "psychisch" ist nicht automatisch die Erklärung für unauffällige Standardwerte. Deshalb untersuchen wir immer beides. Und wir beziehen auch beides in die Behandlung ein. Du wirst bei mir nicht einfach weitergeschickt. Stattdessen schauen wir gemeinsam, welche Faktoren bei dir wirklich eine Rolle spielen und wie sie zusammenwirken.' },
+];
+
+function useScrollFadeIn(threshold = 0.1) {
+  const ref = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setIsVisible(true); observer.unobserve(el); } },
+      { threshold }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [threshold]);
+  return { ref, style: { opacity: isVisible ? 1 : 0, transform: isVisible ? "translateY(0)" : "translateY(40px)", transition: "opacity 1.2s ease-out, transform 1.2s ease-out" } };
+}
+
+const recognizeItems = [
+  'Deine Werte sind "ok" - aber du fühlst dich nicht ok',
+  "Du warst bei mehreren Spezialisten, aber niemand kann dir helfen",
+  "Du hast vieles ausprobiert mit kurzfristigem Effekt, aber ohne Stabilität",
+  "Die Ursache bleibt unklar oder wird vorschnell erklärt",
+];
+
 const ZITAT_WUNDERPILLE_CSS = `
 .quote-wrap {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   max-width: 900px;
-  margin: -25vh auto 0;
+  margin: -75vh auto 0;
   padding: 0 24px 24px;
 }
 .quote-box {
@@ -265,16 +195,79 @@ function ZitatWunderpille() {
   );
 }
 
-const faqData = [
-  { q: "Warum wurde bei mir bisher nichts gefunden?", a: "Weil oft nur nach Standardursachen gesucht wird und nicht nach funktionellen Zusammenh\u00E4ngen." },
-  { q: "Machst du viele Tests?", a: "Ja. Ich arbeite mit Diagnostik, aber sehr gezielt. Mir geht es nicht darum, endlos viele Tests zu machen, sondern nur genau das, was wirklich f\u00FCr dich sinnvoll ist. So vermeiden wir unn\u00F6tige Kosten und bekommen trotzdem die Informationen, die wir brauchen." },
-  { q: "Bekomme ich einfach Supplemente?", a: "Supplemente bekommst du bei deinem Coach oder AI-Coach. Bei mir werden sie gezielt im Rahmen der orthomolekularen Medizin eingesetzt, also medizinisch und individuell auf dich abgestimmt. Das kann auch h\u00F6here Dosierungen beinhalten, um einen therapeutischen Effekt zu erreichen. Supplements sind bei mir Teil einer Therapie und weitaus mehr als nur klassische Nahrungserg\u00E4nzung." },
-  { q: "Kannst du mir garantieren, dass sich meine Beschwerden verbessern werden?", a: "Nein. Aber wir gehen strukturiert vor und geben nicht vorschnell auf. Mir ist wichtig, dich aktiv im Prozess zu begleiten und dich auch mental zu st\u00E4rken. Denn echte Ver\u00E4nderung braucht oft beides: einen klaren Plan und die Motivation, ihn umzusetzen." },
-  { q: "Wie schnell merke ich eine Ver\u00E4nderung?", a: "Das ist sehr individuell. Erfahrungsgem\u00E4\u00DF sp\u00FCren viele Patient:innen bereits nach 2-4 Wochen erste Ver\u00E4nderungen. Wenn der gew\u00FCnschte Effekt ausbleibt, passen wir die Therapie gezielt an und justieren nach." },
-  { q: 'Was ist, wenn alles "psychosomatisch" genannt wird?', a: 'Wir betrachten das differenziert. Psyche und K\u00F6rper sind miteinander verbunden, das stimmt. Aber "psychisch" ist nicht automatisch die Erkl\u00E4rung f\u00FCr unauff\u00E4llige Standardwerte. Deshalb untersuchen wir immer beides. Und wir beziehen auch beides in die Behandlung ein. Du wirst bei mir nicht einfach weitergeschickt. Stattdessen schauen wir gemeinsam, welche Faktoren bei dir wirklich eine Rolle spielen und wie sie zusammenwirken.' },
-];
+function HeroBanner({ image, badge, title, subtitle, ctaText, ctaHref, trustItems }) {
+  const [scrollY, setScrollY] = useState(0);
+  const handleScroll = useCallback(() => setScrollY(window.scrollY), []);
 
-function KoerperlicheSymptome() {
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
+
+  return (
+    <section className="relative w-full overflow-hidden" style={{ minHeight: "85vh" }}>
+      <div
+        className="absolute inset-0 w-full h-full"
+        style={{ transform: `translateY(${scrollY * 0.3}px)` }}
+      >
+        <img
+          src={image}
+          alt=""
+          className="w-full h-full object-cover"
+          style={{ minHeight: "110%" }}
+        />
+        <div className="absolute inset-0" style={{
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.50) 55%, rgba(0,0,0,0.40) 75%, rgba(255,255,255,0.3) 90%, rgba(255,255,255,1) 100%)",
+        }} />
+      </div>
+
+      <div className="relative z-10 flex flex-col justify-end px-5 sm:px-8 pt-24 pb-12 sm:pb-16" style={{ minHeight: "85vh" }}>
+        <div className="max-w-4xl mx-auto w-full">
+          <div
+            className="inline-block text-[10px] sm:text-xs font-medium tracking-[3px] uppercase mb-5 px-4 py-2 rounded-full"
+            style={{ background: "rgba(255,255,255,0.15)", color: "#fff", backdropFilter: "blur(8px)" }}
+          >
+            {badge}
+          </div>
+          <h1
+            className="text-white font-black leading-[0.92] tracking-tighter mb-6"
+            style={{ fontSize: "clamp(2rem, 5.5vw, 4rem)" }}
+          >
+            {title}
+          </h1>
+          <p className="text-white/80 text-lg sm:text-xl leading-relaxed mb-8 max-w-2xl">
+            {subtitle}
+          </p>
+
+          <a
+            href={ctaHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center bg-[#43a9ab] text-white px-8 py-4 rounded-xl text-base font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-lg shadow-[#43a9ab]/25"
+          >
+            {ctaText}
+            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+
+          {trustItems && (
+            <div className="mt-10 flex flex-wrap gap-4 sm:gap-8">
+              {trustItems.map((t) => (
+                <div key={t} className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                  <span className="text-xs sm:text-sm text-white tracking-wide">{t}</span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function KoerperlicheSymptomeV2() {
   const [openFaq, setOpenFaq] = useState(null);
   const perspectiveAnim = useScrollFadeIn();
   const approachAnim = useScrollFadeIn();
@@ -287,27 +280,24 @@ function KoerperlicheSymptome() {
   return (
     <div className="bg-white min-h-screen">
       <Seo
-        path="/koerperliche-symptome"
+        path="/koerperliche-symptome-v2"
         title="Körperliche Symptome verstehen – Ursachenmedizin Berlin"
         description="Wenn Standardmedizin keine Antworten findet: ursachenorientierte Diagnostik in Berlin für unspezifische und chronische körperliche Symptome."
       />
 
-      {/* Hero Image Banner */}
       <HeroBanner
         image="/Assets/KoerperlicheBeschwerden.png"
-        badge={"K\u00F6rperliche Symptome"}
+        badge={"Körperliche Symptome"}
         title={<>Du hast Beschwerden - aber keine klare <em className="italic">Ursache?</em></>}
-        subtitle={"Unauff\u00E4llige Befunde bedeuten nicht, dass alles in Ordnung ist. Oft fehlt nur das Verst\u00E4ndnis f\u00FCr die Zusammenh\u00E4nge im System."}
+        subtitle={"Unauffällige Befunde bedeuten nicht, dass alles in Ordnung ist. Oft fehlt nur das Verständnis für die Zusammenhänge im System."}
         ctaText="Termin vereinbaren"
         ctaHref="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
         trustItems={["Systematisches Denken", "Diagnostik nach Bedarf", "Umsetzbare individuelle Therapie"]}
       />
 
-      {/* Vielleicht kennst du das */}
       <ScrolledLines lines={recognizeItems} title="Vielleicht kennst du das:" />
       <ZitatWunderpille />
 
-      {/* Perspektivwechsel */}
       <section ref={perspectiveAnim.ref} style={perspectiveAnim.style} className="py-16 sm:py-24 px-5 sm:px-8">
         <div className="max-w-4xl mx-auto">
           <div
@@ -331,7 +321,6 @@ function KoerperlicheSymptome() {
         </div>
       </section>
 
-      {/* So arbeite ich anders */}
       <section ref={approachAnim.ref} style={approachAnim.style} className="py-16 sm:py-24 px-5 sm:px-8">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-6 tracking-tight">
@@ -346,7 +335,6 @@ function KoerperlicheSymptome() {
         </div>
       </section>
 
-      {/* Themen-Cluster */}
       <SchwerpunkteGrid
         title=""
         therapies={[
@@ -372,7 +360,6 @@ function KoerperlicheSymptome() {
         </a>
       </div>
 
-      {/* Diagnostik */}
       <section ref={diagnostikAnim.ref} style={diagnostikAnim.style} className="py-16 sm:py-24 px-5 sm:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-[10px] font-light tracking-[3px] uppercase text-[#43a9ab]/60 mb-4">
@@ -397,10 +384,6 @@ function KoerperlicheSymptome() {
         </div>
       </section>
 
-      {/* Therapiehebel */}
-      <WunderpillePlan />
-
-      {/* Alles was du brauchst in einem Termin */}
       <section ref={processAnim.ref} style={processAnim.style} className="pt-16 sm:pt-24 pb-20 sm:pb-28 px-5 sm:px-8">
         <div className="max-w-5xl mx-auto">
           <div className="rounded-3xl overflow-hidden" style={{ background: "linear-gradient(135deg, #d4ece1 0%, #e0f4f5 30%, #d9f0e4 60%, #c8e6d8 100%)" }}>
@@ -424,7 +407,6 @@ function KoerperlicheSymptome() {
         </div>
       </section>
 
-      {/* F&uuml;r wen */}
       <section ref={fitAnim.ref} style={fitAnim.style} className="py-16 sm:py-24 px-5 sm:px-8">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-8 tracking-tight">F&uuml;r wen das passt:</h2>
@@ -432,7 +414,7 @@ function KoerperlicheSymptome() {
             {[
               "Du willst verstehen, was wirklich los ist",
               "Du bist bereit, Dinge umzusetzen und in deinen Alltag zu integrieren",
-              "Du suchst eine L\u00F6sung - keine blo\u00DFe Illusion",
+              "Du suchst eine Lösung - keine bloße Illusion",
             ].map((item, i) => (
               <div key={i} className="flex items-center gap-4">
                 <div className="w-5 h-5 rounded-full bg-[#43a9ab]/10 flex items-center justify-center flex-shrink-0">
@@ -447,7 +429,6 @@ function KoerperlicheSymptome() {
         </div>
       </section>
 
-      {/* FAQ */}
       <section ref={faqAnim.ref} style={faqAnim.style} className="py-16 sm:py-24 px-5 sm:px-8">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-10 tracking-tight">H&auml;ufige Fragen</h2>
@@ -466,7 +447,6 @@ function KoerperlicheSymptome() {
         </div>
       </section>
 
-      {/* Final CTA */}
       <section ref={ctaAnim.ref} style={ctaAnim.style} className="py-20 sm:py-28 px-5 sm:px-8">
         <div className="max-w-3xl mx-auto text-center">
           <h2
@@ -495,4 +475,4 @@ function KoerperlicheSymptome() {
   );
 }
 
-export default KoerperlicheSymptome;
+export default KoerperlicheSymptomeV2;

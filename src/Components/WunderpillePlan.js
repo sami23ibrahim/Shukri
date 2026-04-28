@@ -136,13 +136,14 @@ const PLAN_CSS = `
 .plan-detail::before {
   content: '';
   position: absolute;
-  top: -80px;
-  right: -80px;
-  width: 280px;
-  height: 280px;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
   background: radial-gradient(circle, rgba(67, 169, 171, 0.1), transparent 70%);
   border-radius: 50%;
   pointer-events: none;
+  transform: translate(40%, -40%);
 }
 .plan-detail-content {
   animation: detailFade 0.4s ease;
@@ -285,13 +286,14 @@ const PLAN_CSS = `
 .plan-closing::before {
   content: '';
   position: absolute;
-  bottom: -100px;
-  left: -100px;
-  width: 320px;
-  height: 320px;
+  bottom: 0;
+  left: 0;
+  width: 220px;
+  height: 220px;
   background: radial-gradient(circle, rgba(67, 169, 171, 0.06), transparent 70%);
   border-radius: 50%;
   pointer-events: none;
+  transform: translate(-40%, 40%);
 }
 .plan-closing-eyebrow {
   display: inline-block;

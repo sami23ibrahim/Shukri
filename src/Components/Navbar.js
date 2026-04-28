@@ -218,16 +218,16 @@ const Navbar = () => {
 			>
 				<div className="w-full bg-white border-b border-[#515757]/[0.06]">
 					{isMobile ? (
-						<div ref={mobileNavRef} className="relative flex items-center justify-center px-3 py-2 gap-2">
+						<div ref={mobileNavRef} className="relative flex items-center justify-center px-3 py-2 gap-2 overflow-hidden">
 							<Link to="/" className="absolute left-3 flex items-center no-underline focus:outline-none shrink-0">
 								<img src="/Assets/logo6.png" alt="ViveCura" className="h-16 w-auto object-contain" />
 							</Link>
-							<div className="flex items-center gap-4">
+							<div className="flex items-center gap-1.5 min-w-0">
 								<div className="relative">
 									<button
 										type="button"
 										onClick={() => { setMobileServicesOpen((v) => !v); setMobileLeistungenOpen(false); }}
-										className="flex flex-col items-center justify-center gap-0.5 w-[60px] py-1 text-[#515757]/80 hover:text-[#43a9ab]"
+										className="flex flex-col items-center justify-center gap-0.5 min-w-[56px] px-1 py-1 text-[#515757]/80 hover:text-[#43a9ab]"
 									>
 										<span>{navIcons.fokus}</span>
 										<span className="flex items-center gap-0.5 text-[11px] font-semibold">
@@ -276,7 +276,7 @@ const Navbar = () => {
 									<button
 										type="button"
 										onClick={() => { setMobileLeistungenOpen((v) => !v); setMobileServicesOpen(false); }}
-										className="flex flex-col items-center justify-center gap-0.5 w-[60px] py-1 text-[#515757]/80 hover:text-[#43a9ab]"
+										className="flex flex-col items-center justify-center gap-0.5 min-w-[56px] px-1 py-1 text-[#515757]/80 hover:text-[#43a9ab]"
 									>
 										<span>{navIcons.leistungen}</span>
 										<span className="flex items-center gap-0.5 text-[11px] font-semibold">
@@ -334,7 +334,7 @@ const Navbar = () => {
 								<button
 									type="button"
 									onClick={() => setMenuOpen(!menuOpen)}
-									className="flex flex-col items-center justify-center gap-0.5 w-[60px] py-1 text-[#515757]/80 hover:text-[#43a9ab]"
+									className="flex flex-col items-center justify-center gap-0.5 min-w-[56px] px-1 py-1 text-[#515757]/80 hover:text-[#43a9ab]"
 								>
 									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
 										<line x1="4" y1="7" x2="20" y2="7" strokeLinecap="round" />
