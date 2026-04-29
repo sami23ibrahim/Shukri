@@ -55,18 +55,18 @@ function ScrolledLines({ lines = defaultLines, title }) {
 
   return (
     <section ref={sectionRef} className="relative bg-white" style={{ height: sectionHeight }}>
-      <div className="sticky top-0 flex h-screen flex-col items-center px-5 sm:px-10 pt-24 sm:pt-28">
+      <div className="sticky top-0 flex h-screen flex-col items-center px-5 sm:px-10 pt-16 sm:pt-20">
         <div className="w-full max-w-7xl">
           {title && (
             <h1
-              className="text-[#43A9AB] font-black tracking-tighter mb-10 sm:mb-14"
+              className="text-[#43A9AB] font-black tracking-tighter mb-6 sm:mb-10"
               style={{ fontSize: "clamp(2rem, 5.5vw, 4.5rem)", lineHeight: 1.15 }}
             >
               {title}
             </h1>
           )}
         </div>
-        <div className="w-full max-w-5xl text-center space-y-4 md:space-y-6">
+        <div className="w-full max-w-5xl text-center space-y-3 md:space-y-4">
           {lines.map((line, index) => {
             const isActive = index === activeIndex;
             return (

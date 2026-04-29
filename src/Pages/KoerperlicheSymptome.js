@@ -160,7 +160,7 @@ const ZITAT_WUNDERPILLE_CSS = `
 .quote-wrap {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   max-width: 900px;
-  margin: -25vh auto 0;
+  margin: 15vh auto 0;
   padding: 0 24px 24px;
 }
 .quote-box {
@@ -349,12 +349,12 @@ function KoerperlicheSymptome() {
       <SchwerpunkteGrid
         title=""
         therapies={[
-          { title: "Erschöpfung, Brain Fog, Akku ständig leer", desc: "Wenn Energie fehlt, obwohl Blutwerte ok sind", image: "/Assets/Bilder%206%20Kacheln/Ersch%C3%B6pfung.png" },
-          { title: "Darm, Blähbauch, Unverträglichkeiten", desc: "Darm-Systemlogik: Reizung, Barriere, Mikrobiom, Trigger", image: "/Assets/Bilder%206%20Kacheln/Darm.png" },
-          { title: "Schmerzen, Entzündung, diffuse Beschwerden", desc: "Entzündungslogik statt Symptom-Jagen", image: "/Assets/Bilder%206%20Kacheln/Schmerzen.png" },
-          { title: "Schlafstörungen, morgens nicht erholt", image: "/Assets/Bilder%206%20Kacheln/Schlafprobleme.png" },
-          { title: "Kopfschmerz, Haut, Histamin-Muster", image: "/Assets/Bilder%206%20Kacheln/Kopfschmerz.png" },
-          { title: "Infektanfälligkeit, immunassoziierte Muster", image: "/Assets/Bilder%206%20Kacheln/Infektanf%C3%A4lligkeit.png" },
+          { title: "Erschöpfung", desc: "Brain Fog, Akku ständig leer", image: "/Assets/Bilder%206%20Kacheln/Ersch%C3%B6pfung.png" },
+          { title: "Darm", desc: "Blähbauch, Unverträglichkeiten", image: "/Assets/Bilder%206%20Kacheln/Darm.png" },
+          { title: "Schmerzen", desc: "Entzündung, diffuse Beschwerden", image: "/Assets/Bilder%206%20Kacheln/Schmerzen.png" },
+          { title: "Schlafstörungen", desc: "Morgens nicht erholt", image: "/Assets/Bilder%206%20Kacheln/Schlafprobleme.png" },
+          { title: "Kopfschmerz", desc: "Haut, Histamin-Muster", image: "/Assets/Bilder%206%20Kacheln/Kopfschmerz.png" },
+          { title: "Infektanfälligkeit", desc: "Immunassoziierte Muster", image: "/Assets/Bilder%206%20Kacheln/Infektanf%C3%A4lligkeit.png" },
         ]}
       />
       <div className="max-w-7xl mx-auto px-5 sm:px-10 pb-16 sm:pb-20">
@@ -397,7 +397,7 @@ function KoerperlicheSymptome() {
       </section>
 
       {/* Therapiehebel */}
-      <WunderpillePlan />
+      {/* <WunderpillePlan /> */}
 
       {/* Alles was du brauchst in einem Termin */}
       <section ref={processAnim.ref} style={processAnim.style} className="pt-16 sm:pt-24 pb-20 sm:pb-28 px-5 sm:px-8">
@@ -472,7 +472,7 @@ function KoerperlicheSymptome() {
             className="text-[#43A9AB] font-black leading-[0.92] tracking-tighter mb-6"
             style={{ fontSize: "clamp(1.6rem, 4vw, 2.8rem)" }}
           >
-            Lass uns zusammen das fehlende Puzzlest&uuml;ck finden.
+            Lass uns zusammen das fehlende Puzzlest&uuml;ck suchen.
           </h2>
           <p className="text-[#515757]/60 text-base sm:text-lg leading-relaxed mb-10 max-w-xl mx-auto">
             Und daraus einen Plan erstellen, der wirklich f&uuml;r dich und dein Leben funktioniert.
