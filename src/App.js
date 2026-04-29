@@ -14,7 +14,6 @@ import Infusions from "./Pages/Infusions";
 import UeberMich from "./Pages/UeberMich";
 import Extras from "./Pages/Extras";
 import KoerperlicheSymptome from "./Pages/KoerperlicheSymptome";
-import KoerperlicheSymptomeV2 from "./Pages/KoerperlicheSymptomeV2";
 import PraeventionLongevity from "./Pages/PraeventionLongevity";
 import Psychotherapie from "./Pages/Psychotherapie";
 import Beratung from "./Pages/Beratung";
@@ -51,8 +50,7 @@ function App() {
         <Route path="/ueber-mich" element={<UeberMich />} />
         <Route path="/ketamin" element={<Extras />} />
         <Route path="/experience" element={<Experience />} />
-        <Route path="/koerperliche-symptome" element={<KoerperlicheSymptomeV2 />} />
-        <Route path="/koerperliche-symptome-old" element={<KoerperlicheSymptome />} />
+        <Route path="/koerperliche-symptome" element={<KoerperlicheSymptome />} />
         <Route path="/praevention-longevity" element={<PraeventionLongevity />} />
         <Route path="/psychotherapie" element={<Psychotherapie />} />
         <Route path="/beratung" element={<Beratung />} />

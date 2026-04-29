@@ -187,14 +187,13 @@ const ZITAT_WUNDERPILLE_CSS = `
 .quote-box::after {
   content: '';
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 280px;
-  height: 280px;
+  top: -120px;
+  right: -120px;
+  width: 400px;
+  height: 400px;
   background: radial-gradient(circle, rgba(67,169,171,0.06), transparent 70%);
   border-radius: 50%;
   pointer-events: none;
-  transform: translate(40%, -40%);
 }
 .quote-mark {
   font-size: 140px;
