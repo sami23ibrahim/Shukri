@@ -11,12 +11,16 @@ function Blog() {
     const fetchPosts = async () => {
       const { data, error } = await supabase
         .from("blog_posts")
-        .select("id, title, slug, description, thumbnail_url, created_at")
+        .select("id, title, slug, description, thumbnail_url, created_at, pinned")
         .eq("published", true)
         .order("created_at", { ascending: false });
 
       if (!error && data) {
-        setPosts(data);
+        const newest = data.slice(0, 2);
+        const newestIds = new Set(newest.map((p) => p.id));
+        const pinned = data.filter((p) => p.pinned && !newestIds.has(p.id));
+        const rest = data.filter((p) => !p.pinned && !newestIds.has(p.id));
+        setPosts([...newest, ...pinned, ...rest]);
       }
       setLoading(false);
     };

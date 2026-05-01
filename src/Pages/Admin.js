@@ -36,10 +36,14 @@ function Admin() {
   const fetchPosts = async () => {
     const { data, error } = await supabase
       .from("blog_posts")
-      .select("id, title, slug, description, thumbnail_url, published, language, created_at, updated_at")
+      .select("id, title, slug, description, thumbnail_url, published, featured_on_home, pinned, language, created_at, updated_at")
       .order("created_at", { ascending: false });
 
-    if (!error && data) setPosts(data);
+    if (error) {
+      console.error("[Admin] fetchPosts error:", error);
+      return;
+    }
+    if (data) setPosts(data);
   };
 
   const handleLogin = async (e) => {
@@ -62,6 +66,28 @@ function Admin() {
 
     if (!error) {
       setPosts(posts.map((p) => (p.id === post.id ? { ...p, published: !p.published } : p)));
+    }
+  };
+
+  const toggleFeatured = async (post) => {
+    const { error } = await supabase
+      .from("blog_posts")
+      .update({ featured_on_home: !post.featured_on_home, updated_at: new Date().toISOString() })
+      .eq("id", post.id);
+
+    if (!error) {
+      setPosts(posts.map((p) => (p.id === post.id ? { ...p, featured_on_home: !p.featured_on_home } : p)));
+    }
+  };
+
+  const togglePinned = async (post) => {
+    const { error } = await supabase
+      .from("blog_posts")
+      .update({ pinned: !post.pinned, updated_at: new Date().toISOString() })
+      .eq("id", post.id);
+
+    if (!error) {
+      setPosts(posts.map((p) => (p.id === post.id ? { ...p, pinned: !p.pinned } : p)));
     }
   };
 
@@ -384,6 +410,38 @@ function Admin() {
 
                     {/* Actions */}
                     <div className="flex items-center gap-1 flex-shrink-0">
+                      {/* Featured on home checkbox */}
+                      <label
+                        className="flex items-center gap-1.5 mr-2 cursor-pointer select-none"
+                        title="Auf Startseite im 'Tiefer eintauchen' Bereich anzeigen"
+                      >
+                        <input
+                          type="checkbox"
+                          checked={!!post.featured_on_home}
+                          onChange={() => toggleFeatured(post)}
+                          className="w-3.5 h-3.5 rounded border-gray-300 text-[#43a9ab] focus:ring-[#43a9ab] focus:ring-1 cursor-pointer accent-[#43a9ab]"
+                        />
+                        <span className="text-[10px] text-[#515757]/50 tracking-wider uppercase">
+                          Auf Startseite
+                        </span>
+                      </label>
+
+                      {/* Pinned checkbox */}
+                      <label
+                        className="flex items-center gap-1.5 mr-2 cursor-pointer select-none"
+                        title="Im Blog nach den 2 neuesten Artikeln oben anpinnen"
+                      >
+                        <input
+                          type="checkbox"
+                          checked={!!post.pinned}
+                          onChange={() => togglePinned(post)}
+                          className="w-3.5 h-3.5 rounded border-gray-300 text-[#43a9ab] focus:ring-[#43a9ab] focus:ring-1 cursor-pointer accent-[#43a9ab]"
+                        />
+                        <span className="text-[10px] text-[#515757]/50 tracking-wider uppercase">
+                          Anpinnen
+                        </span>
+                      </label>
+
                       {/* Preview / Edit content */}
                       <Link
                         to={`/admin/edit/${post.id}`}

@@ -15,6 +15,7 @@ export default function ScrollingCards({ speedSeconds = 36, title = "Tiefer eint
         .from("blog_posts")
         .select("id, title, slug, description, thumbnail_url")
         .eq("published", true)
+        .eq("featured_on_home", true)
         .order("created_at", { ascending: false });
       if (!error && data) setPosts(data);
     };
