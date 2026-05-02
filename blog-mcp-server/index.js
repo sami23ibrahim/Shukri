@@ -73,9 +73,23 @@ HTML RULES:
         .enum(["de", "en"])
         .optional()
         .describe("Language of the post. Defaults to 'de' (German)."),
+      translation_of: z
+        .string()
+        .optional()
+        .describe(
+          "UUID of the original-language post this is a translation of. Required when publishing an EN translation of an existing DE post — pass the DE post's id (returned by publish_blog_post or list_posts_missing_translation)."
+        ),
     },
-    async ({ title, description, html_content, thumbnail_url, slug, language }) => {
+    async ({ title, description, html_content, thumbnail_url, slug, language, translation_of }) => {
       const finalSlug = slug || toSlug(title);
+      const finalLang = language || "de";
+
+      // Guardrail: EN posts should normally have a translation_of pointer.
+      // We don't hard-block (allows EN-original posts), just warn.
+      const warning =
+        finalLang === "en" && !translation_of
+          ? "\n\n⚠️ Warning: EN post published without translation_of. If this is meant to be a translation of a DE post, re-publish with translation_of set."
+          : "";
 
       const { data, error } = await supabase
         .from("blog_posts")
@@ -85,7 +99,8 @@ HTML RULES:
           description: description || "",
           html_content,
           thumbnail_url: thumbnail_url || null,
-          language: language || "de",
+          language: finalLang,
+          translation_of: translation_of || null,
           published: false,
         })
         .select()
@@ -97,11 +112,13 @@ HTML RULES:
         };
       }
 
+      const urlPrefix = finalLang === "en" ? "/en/blog" : "/blog";
+
       return {
         content: [
           {
             type: "text",
-            text: `Blog post saved as draft!\n\nTitle: ${data.title}\nSlug: ${data.slug}\nURL: /blog/${data.slug}\nStatus: Draft (unpublished)\n\nThe admin can preview, edit, and publish it from the admin dashboard.`,
+            text: `Blog post saved as draft!\n\nID: ${data.id}\nTitle: ${data.title}\nSlug: ${data.slug}\nLanguage: ${data.language}\nURL: ${urlPrefix}/${data.slug}\nStatus: Draft (unpublished)${data.translation_of ? `\nTranslation of: ${data.translation_of}` : ""}\n\nThe admin can preview, edit, and publish it from the admin dashboard.${warning}`,
           },
         ],
       };
@@ -149,16 +166,36 @@ HTML RULES:
   // ══════════════════════════════════════════════
   server.tool(
     "read_blog_post",
-    "Read the full content of a specific blog post by its slug. Use this to understand what has already been written.",
+    "Read the full content of a specific blog post by its id or by (slug, language). Use this to read a DE post you're about to translate, or to check what was already published.",
     {
-      slug: z.string().describe("The slug of the post to read"),
+      id: z
+        .string()
+        .optional()
+        .describe("UUID of the post to read. Either id OR slug must be provided."),
+      slug: z
+        .string()
+        .optional()
+        .describe("Slug of the post to read. Combine with language since slugs are shared across DE/EN."),
+      language: z
+        .enum(["de", "en"])
+        .optional()
+        .describe("Language to filter by when reading by slug. Defaults to 'de'."),
     },
-    async ({ slug }) => {
-      const { data, error } = await supabase
-        .from("blog_posts")
-        .select("*")
-        .eq("slug", slug)
-        .single();
+    async ({ id, slug, language }) => {
+      if (!id && !slug) {
+        return {
+          content: [{ type: "text", text: "Error: provide either id or slug." }],
+        };
+      }
+
+      let query = supabase.from("blog_posts").select("*");
+      if (id) {
+        query = query.eq("id", id);
+      } else {
+        query = query.eq("slug", slug).eq("language", language || "de");
+      }
+
+      const { data, error } = await query.single();
 
       if (error) {
         return { content: [{ type: "text", text: `Error: ${error.message}` }] };
@@ -168,7 +205,82 @@ HTML RULES:
         content: [
           {
             type: "text",
-            text: `Title: ${data.title}\nSlug: ${data.slug}\nStatus: ${data.published ? "Published" : "Draft"}\nLanguage: ${data.language}\nDescription: ${data.description || "(none)"}\nCreated: ${new Date(data.created_at).toLocaleDateString("de-DE")}\n\nHTML Content:\n${data.html_content}`,
+            text: `ID: ${data.id}\nTitle: ${data.title}\nSlug: ${data.slug}\nStatus: ${data.published ? "Published" : "Draft"}\nLanguage: ${data.language}${data.translation_of ? `\nTranslation of: ${data.translation_of}` : ""}\nDescription: ${data.description || "(none)"}\nCreated: ${new Date(data.created_at).toLocaleDateString("de-DE")}\n\nHTML Content:\n${data.html_content}`,
+          },
+        ],
+      };
+    }
+  );
+
+  // ══════════════════════════════════════════════
+  //  TOOL: list_posts_missing_translation
+  // ══════════════════════════════════════════════
+  server.tool(
+    "list_posts_missing_translation",
+    "List blog posts in one language that don't yet have a translation in the other language. Use this for backfill: find DE posts without an EN translation, then for each one read it, translate it, and call publish_blog_post(language='en', translation_of=<id>).",
+    {
+      target_language: z
+        .enum(["en", "de"])
+        .optional()
+        .describe(
+          "The language whose translations are missing. Defaults to 'en' (find DE posts that have no EN translation yet)."
+        ),
+    },
+    async ({ target_language }) => {
+      const target = target_language || "en";
+      const source = target === "en" ? "de" : "en";
+
+      const { data: sourcePosts, error: sourceErr } = await supabase
+        .from("blog_posts")
+        .select("id, title, slug, published, created_at")
+        .eq("language", source)
+        .order("created_at", { ascending: true });
+
+      if (sourceErr) {
+        return {
+          content: [{ type: "text", text: `Error fetching ${source} posts: ${sourceErr.message}` }],
+        };
+      }
+
+      const { data: targetPosts, error: targetErr } = await supabase
+        .from("blog_posts")
+        .select("translation_of")
+        .eq("language", target);
+
+      if (targetErr) {
+        return {
+          content: [{ type: "text", text: `Error fetching ${target} posts: ${targetErr.message}` }],
+        };
+      }
+
+      const translatedIds = new Set(
+        (targetPosts || []).map((p) => p.translation_of).filter(Boolean)
+      );
+      const missing = (sourcePosts || []).filter((p) => !translatedIds.has(p.id));
+
+      if (missing.length === 0) {
+        return {
+          content: [
+            {
+              type: "text",
+              text: `All ${source.toUpperCase()} posts already have a ${target.toUpperCase()} translation. Nothing to backfill.`,
+            },
+          ],
+        };
+      }
+
+      const list = missing
+        .map(
+          (p, i) =>
+            `${i + 1}. "${p.title}"\n   id: ${p.id}\n   slug: ${p.slug}\n   ${p.published ? "Published" : "Draft"} · ${new Date(p.created_at).toLocaleDateString("de-DE")}`
+        )
+        .join("\n\n");
+
+      return {
+        content: [
+          {
+            type: "text",
+            text: `Found ${missing.length} ${source.toUpperCase()} post(s) without a ${target.toUpperCase()} translation:\n\n${list}\n\nTo translate one: call read_blog_post(id=<id>) to read it, translate the title/description/HTML to ${target.toUpperCase()}, then call publish_blog_post(language="${target}", translation_of=<id>, slug=<same slug>, title=<translated>, html_content=<translated>, description=<translated>).`,
           },
         ],
       };
