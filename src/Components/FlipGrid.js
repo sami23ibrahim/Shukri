@@ -1,32 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import useIsMobile from "../hooks/useIsMobile";
-
-const defaultCards = [
-  {
-    number: "1",
-    front: "Ern\u00E4hrungsplan & Sportmuster",
-    image: "/Assets/\u00C4rztliches Mentoring/ernaehrung-sport.png",
-    back: "Dein individueller Plan auf Basis deiner Laborwerte und K\u00F6rperkomposition. Nachhaltige Muster statt starrer Di\u00E4ten: f\u00FCr Energie, Leistung und Regeneration.",
-  },
-  {
-    number: "2",
-    front: "Schlafoptimierung",
-    image: "/Assets/\u00C4rztliches Mentoring/schlafoptimierung.png",
-    back: "Wir analysieren deine Schlafarchitektur und St\u00F6rfaktoren wie Licht, Cortisol und Mikron\u00E4hrstoffe. Ziel: tieferer Schlaf und bessere Regeneration.",
-  },
-  {
-    number: "3",
-    front: "Stressmanagement",
-    image: "/Assets/\u00C4rztliches Mentoring/stressmanagement.png",
-    back: "Messbare Marker wie HRV und Cortisol-Tagesprofil zeigen deine Belastungslage. Daraus folgen gezielte Tools: Atemtechniken, Nervensystem-Regulation und Coaching.",
-  },
-  {
-    number: "4",
-    front: "Supplementplan & Infusionen",
-    image: "/Assets/\u00C4rztliches Mentoring/supplements-infusionen.png",
-    back: "Gezielte Mikron\u00E4hrstoffe und Wirkstoffe, abgestimmt auf Labor und Anamnese. Oral oder per IV-Infusion f\u00FCr schnelle, sp\u00FCrbare Effekte.",
-  },
-];
 
 function CardGrid({ cards, visible, flipped, setFlipped, slideDirections }) {
   return cards.map((card, i) => {
@@ -84,13 +58,47 @@ function CardGrid({ cards, visible, flipped, setFlipped, slideDirections }) {
 }
 
 function FlipGrid({
-  title = "Ärztliches Mentoring",
-  subtitle = "Mein Mentoring Ansatz unterteilt sich in vier verschiedene Teilbereiche, die dir umfangreich dabei helfen, deine individuellen Ziele zu erreichen.",
+  title,
+  subtitle,
   textLayout = "offset",
-  cards = defaultCards,
+  cards,
   showBottomButton = true,
   stackedSubtitleMarginLeft = "12%",
 }) {
+  const { t } = useTranslation();
+  const defaultCardsTranslated = t("flipGrid.cards", { returnObjects: true });
+  const defaultCards = [
+    {
+      number: "1",
+      front: defaultCardsTranslated[0].front,
+      image: "/Assets/Ärztliches Mentoring/ernaehrung-sport.png",
+      back: defaultCardsTranslated[0].back,
+    },
+    {
+      number: "2",
+      front: defaultCardsTranslated[1].front,
+      image: "/Assets/Ärztliches Mentoring/schlafoptimierung.png",
+      back: defaultCardsTranslated[1].back,
+    },
+    {
+      number: "3",
+      front: defaultCardsTranslated[2].front,
+      image: "/Assets/Ärztliches Mentoring/stressmanagement.png",
+      back: defaultCardsTranslated[2].back,
+    },
+    {
+      number: "4",
+      front: defaultCardsTranslated[3].front,
+      image: "/Assets/Ärztliches Mentoring/supplements-infusionen.png",
+      back: defaultCardsTranslated[3].back,
+    },
+  ];
+
+  const resolvedTitle = title === undefined ? t("flipGrid.title") : title;
+  const resolvedSubtitle = subtitle === undefined ? t("flipGrid.subtitle") : subtitle;
+  const resolvedCards = cards || defaultCards;
+  const ctaLabel = t("flipGrid.cta");
+
   const [visible, setVisible] = useState(false);
   const [flipped, setFlipped] = useState(null);
   const sectionRef = useRef(null);
@@ -123,11 +131,11 @@ function FlipGrid({
           className="text-[#43A9AB] font-black leading-[0.85] tracking-tighter mb-6"
           style={{ fontSize: "clamp(1.8rem, 10vw, 3.5rem)" }}
         >
-          {title}
+          {resolvedTitle}
         </h2>
 
         <p className="text-[#515757] text-base font-semibold leading-snug mb-8 whitespace-pre-line" style={{ maxWidth: "280px" }}>
-          {subtitle}
+          {resolvedSubtitle}
         </p>
 
         <div
@@ -135,7 +143,7 @@ function FlipGrid({
           style={{ perspective: "1000px" }}
         >
           <CardGrid
-            cards={cards}
+            cards={resolvedCards}
             visible={visible}
             flipped={flipped}
             setFlipped={setFlipped}
@@ -151,7 +159,7 @@ function FlipGrid({
               rel="noopener noreferrer"
               className="inline-block px-8 py-3 text-base font-semibold bg-[#43A9AB] text-white rounded-full hover:bg-[#378f91] transition-colors"
             >
-              Termin vereinbaren
+              {ctaLabel}
             </a>
           </div>
         )}
@@ -173,7 +181,7 @@ function FlipGrid({
             marginLeft: textLayout === "stacked" ? "12%" : "15%",
           }}
         >
-          {title}
+          {resolvedTitle}
         </h2>
 
         <p
@@ -184,7 +192,7 @@ function FlipGrid({
               : { maxWidth: "320px", marginLeft: "55%", marginBottom: "5%" }
           }
         >
-          {subtitle}
+          {resolvedSubtitle}
         </p>
       </div>
 
@@ -197,7 +205,7 @@ function FlipGrid({
           style={{ perspective: "1000px" }}
         >
           <CardGrid
-            cards={cards}
+            cards={resolvedCards}
             visible={visible}
             flipped={flipped}
             setFlipped={setFlipped}
@@ -213,7 +221,7 @@ function FlipGrid({
               rel="noopener noreferrer"
               className="inline-block px-8 py-3 text-base md:text-lg font-semibold bg-[#43A9AB] text-white rounded-full hover:bg-[#378f91] transition-colors"
             >
-              Termin vereinbaren
+              {ctaLabel}
             </a>
           </div>
         )}

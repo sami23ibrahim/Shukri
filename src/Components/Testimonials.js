@@ -82,7 +82,7 @@ export default function Testimonials() {
                 Google
               </span>
               <span className="text-[14px] text-[#515757] font-semibold group-hover:text-[#43A9AB] transition-colors">
-                Bewertung schreiben
+                {t("testimonials.writeReview")}
               </span>
             </span>
             <span className="w-6 h-6 rounded-full bg-gray-50 group-hover:bg-[#43A9AB] flex items-center justify-center transition-colors duration-300">

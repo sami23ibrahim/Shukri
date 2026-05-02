@@ -131,43 +131,43 @@ function FocusCarousel({ t }) {
 
   const slides = [
     {
-      label: "Fokus",
+      label: t("spezielleTherapien.focus.label"),
       title: t("spezielleTherapien.focus.s1.title"),
       description: t("spezielleTherapien.focus.s1.desc"),
       activeIcon: 0,
     },
     {
-      label: "Fokus",
+      label: t("spezielleTherapien.focus.label"),
       title: t("spezielleTherapien.focus.s2.title"),
       description: t("spezielleTherapien.focus.s2.desc"),
       activeIcon: 1,
     },
     {
-      label: "Fokus",
+      label: t("spezielleTherapien.focus.label"),
       title: t("spezielleTherapien.focus.s3.title"),
       description: t("spezielleTherapien.focus.s3.desc"),
       activeIcon: 2,
     },
     {
-      label: "Fokus",
+      label: t("spezielleTherapien.focus.label"),
       title: t("spezielleTherapien.focus.s4.title"),
       description: t("spezielleTherapien.focus.s4.desc"),
       activeIcon: 3,
     },
     {
-      label: "Fokus",
+      label: t("spezielleTherapien.focus.label"),
       title: t("spezielleTherapien.focus.s5.title"),
       description: t("spezielleTherapien.focus.s5.desc"),
       activeIcon: 4,
     },
     {
-      label: "Fokus",
+      label: t("spezielleTherapien.focus.label"),
       title: t("spezielleTherapien.focus.s6.title"),
       description: t("spezielleTherapien.focus.s6.desc"),
       activeIcon: 5,
     },
     {
-      label: "Fokus",
+      label: t("spezielleTherapien.focus.label"),
       title: t("spezielleTherapien.focus.s7.title"),
       description: t("spezielleTherapien.focus.s7.desc"),
       activeIcon: 6,
@@ -298,8 +298,8 @@ function SpezielleTherapien() {
     <div className="bg-white min-h-screen">
       <Seo
         path="/spezielle-therapien"
-        title="Spezielle Therapien – Funktionelle Medizin Berlin"
-        description="Erweiterte Therapien aus der funktionellen Medizin in Berlin: Infusionen, Chelattherapie, Schwermetallausleitung, Schimmelbelastung, Darmaufbau und mehr."
+        title={t("spezielleTherapien.seoTitle")}
+        description={t("spezielleTherapien.seoDescription")}
       />
       {/* Hero Section — two-column layout */}
       <section className="pt-24 sm:pt-28 pb-12 sm:pb-16 px-5 sm:px-8">
@@ -311,7 +311,7 @@ function SpezielleTherapien() {
                 className="w-full aspect-[4/4.5] rounded-2xl overflow-hidden"
                 style={{ backgroundColor: "#c4b8a8" }}
               >
-                <img src="/Assets/special.avif" alt="Beratung" className="w-full h-full object-cover" />
+                <img src="/Assets/special.avif" alt={t("spezielleTherapien.hero.imageAlt")} className="w-full h-full object-cover" />
               </div>
             </div>
 
@@ -319,7 +319,7 @@ function SpezielleTherapien() {
             <div className="lg:w-[45%] lg:-mr-[5%] flex flex-col justify-start">
               {/* Badge */}
               <span className="inline-block self-start text-xs font-semibold text-[#43a9ab] bg-[#e0f4f5] px-3 py-1 rounded-full mb-5">
-                45 Minuten
+                {t("spezielleTherapien.hero.badge")}
               </span>
 
               {/* Title */}
@@ -407,7 +407,7 @@ function SpezielleTherapien() {
           <button
             onClick={() => scrollTestimonials("left")}
             className="w-9 h-9 flex items-center justify-center rounded-full bg-white border border-gray-200 shadow-sm hover:bg-gray-50 transition-colors"
-            aria-label="Scroll left"
+            aria-label={t("spezielleTherapien.testimonials.scrollLeft")}
           >
             <svg className="w-4 h-4 text-[#515757]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -416,7 +416,7 @@ function SpezielleTherapien() {
           <button
             onClick={() => scrollTestimonials("right")}
             className="w-9 h-9 flex items-center justify-center rounded-full bg-white border border-gray-200 shadow-sm hover:bg-gray-50 transition-colors"
-            aria-label="Scroll right"
+            aria-label={t("spezielleTherapien.testimonials.scrollRight")}
           >
             <svg className="w-4 h-4 text-[#515757]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

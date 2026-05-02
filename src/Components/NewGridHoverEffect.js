@@ -12,35 +12,37 @@ const NewGridHoverEffect = () => {
   const sectionRef = useRef(null);
   const [visibleCards, setVisibleCards] = useState([false, false, false, false]);
 
+  const isEn = i18n.language === "en";
+
   // Define the data inside the component
   const data2 = [
     {
       title: "grid1",
-      label: "Beratung",
-      subtitle: "Umfassende Anamnese und individueller Behandlungsplan, abgestimmt auf K\u00F6rper, Lebensstil und pers\u00F6nliche Bed\u00FCrfnisse.",
+      label: t("homeGrid.items.beratung.label"),
+      subtitle: t("homeGrid.items.beratung.subtitle"),
       image: "/Assets/Beratungen.jpeg",
-      route: "/beratung",
+      route: isEn ? "/en/consultations" : "/beratung",
     },
     {
       title: "grid2",
-      label: "Diagnostik",
-      subtitle: "Pr\u00E4zise Diagnostik, die \u00FCber Standardlabore hinausgeht und tiefere Einblicke in pers\u00F6nliche Gesundheitswerte erm\u00F6glicht.",
+      label: t("homeGrid.items.diagnostik.label"),
+      subtitle: t("homeGrid.items.diagnostik.subtitle"),
       image: "/Assets/Diagnostik.png",
-      route: "/diagnostik",
+      route: isEn ? "/en/diagnostics" : "/diagnostik",
     },
     {
       title: "grid3",
-      label: "Infusion",
-      subtitle: "Individuelle Infusionskonzepte - inklusive spezialisierter Anwendungen wie Ketamin- und Schimmeltherapie.",
+      label: t("homeGrid.items.infusion.label"),
+      subtitle: t("homeGrid.items.infusion.subtitle"),
       image: "/Assets/Infusionen.jpeg",
-      route: "/infusions",
+      route: isEn ? "/en/infusions" : "/infusions",
     },
     {
       title: "grid4",
-      label: "Mentoring",
-      subtitle: "Behandlungspl\u00E4ne verstehen und nachhaltig in den Alltag integrieren, mit Fokus auf Ern\u00E4hrung, Bewegung, Mindset und Stressbalance.",
+      label: t("homeGrid.items.mentoring.label"),
+      subtitle: t("homeGrid.items.mentoring.subtitle"),
       image: "/Assets/Mentoring.png",
-      route: "/mentoring",
+      route: isEn ? "/en/mentoring" : "/mentoring",
     },
   ];
 
@@ -112,7 +114,7 @@ const NewGridHoverEffect = () => {
     >
       <div className="w-full max-w-7xl mx-auto">
         <h2 className="text-[#43A9AB] font-black leading-[0.85] tracking-tighter text-left mb-12 sm:mb-16 max-w-[50%]" style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}>
-          Unsere Leistungen
+          {t("homeGrid.title")}
         </h2>
       </div>
       {rows.map((row, rowIndex) => (
@@ -165,7 +167,7 @@ const NewGridHoverEffect = () => {
                     to={item.route}
                     className="inline-block bg-white text-[#43A9AB] font-bold text-base px-7 py-3 rounded-full shadow-lg hover:bg-[#43A9AB] hover:text-white transition-colors no-underline"
                   >
-                    Mehr erfahren &rarr;
+                    {t("homeGrid.learnMore")} &rarr;
                   </Link>
                 </div>
                 {item.location && (

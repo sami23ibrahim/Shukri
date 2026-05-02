@@ -1,48 +1,48 @@
 import FlipGrid from "../Components/FlipGrid";
 import UnifiedBottomCta from "../Components/UnifiedBottomCta";
 import Seo from "../Components/Seo";
-
-const beratungCards = [
-  {
-    number: "1",
-    front: "Aktives Zuhören",
-    image: "/Assets/Images_Beratung/Aktives Zuhören.png",
-    back: "30 Min Gespräch mit Raum für deine Beschwerden, Geschichte & Biografie. Deine subjektive Empfindung wird immer ernst genommen.",
-  },
-  {
-    number: "2",
-    front: "Mehrblick statt Tunnelblick",
-    image: "/Assets/Images_Beratung/Mehrblick statt Tunnelblick.png",
-    back: "Mehrere Disziplinen in der Medizin. Ein roter Faden.",
-  },
-  {
-    number: "3",
-    front: "Sinnvolle Diagnostik-Empfehlungen",
-    image: "/Assets/Images_Beratung/Diagnostik.png",
-    back: "Nur Tests, die deine nächsten Schritte ändern.",
-  },
-  {
-    number: "4",
-    front: "Erste Roadmap",
-    image: "/Assets/Images_Beratung/Roadmap.png",
-    back: "Lebensstilveränderungen (Ernährung, Schlaf, Stress, Bewegung, Entgiftung) mit pflanzlichen Heilmitteln & Nährstoff-Therapie (ggf. Infusion).",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 function Beratung() {
+  const { t } = useTranslation();
+  const cardsTranslated = t("beratung.cards", { returnObjects: true });
+
+  const beratungCards = [
+    {
+      number: "1",
+      front: cardsTranslated[0].front,
+      image: "/Assets/Images_Beratung/Aktives Zuhören.png",
+      back: cardsTranslated[0].back,
+    },
+    {
+      number: "2",
+      front: cardsTranslated[1].front,
+      image: "/Assets/Images_Beratung/Mehrblick statt Tunnelblick.png",
+      back: cardsTranslated[1].back,
+    },
+    {
+      number: "3",
+      front: cardsTranslated[2].front,
+      image: "/Assets/Images_Beratung/Diagnostik.png",
+      back: cardsTranslated[2].back,
+    },
+    {
+      number: "4",
+      front: cardsTranslated[3].front,
+      image: "/Assets/Images_Beratung/Roadmap.png",
+      back: cardsTranslated[3].back,
+    },
+  ];
+
   return (
     <div className="bg-white min-h-screen pt-20">
       <Seo
-        path="/beratung"
-        title="Ärztliche Beratung Berlin – Funktionelle Medizin"
-        description="Persönliche ärztliche Beratung in Berlin: Erstgespräch, Zweitmeinung und individuelle Therapieplanung in der funktionellen Medizin."
+        title={t("beratung.seoTitle")}
+        description={t("beratung.seoDescription")}
       />
       <FlipGrid
-        title="Deine ärztliche Beratung"
-        subtitle={`Ich höre zu, sortiere Komplexität und denke interdisziplinär.
-(Schulmedizin × Lebensstilmedizin × Anthroposophische & funktionelle Medizin × Toxikologie × Genetik).
-Du gehst mit klaren Empfehlungen für Diagnostik & Handlungsplan nach dem VIVECURA-Konzept raus.
-Also mit einem Plan für Lebensstil, pflanzliche Heilmittel und Nährstofftherapie.`}
+        title={t("beratung.title")}
+        subtitle={t("beratung.subtitle")}
         textLayout="stacked"
         stackedSubtitleMarginLeft="18%"
         showBottomButton={false}

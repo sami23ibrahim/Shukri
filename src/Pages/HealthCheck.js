@@ -419,8 +419,8 @@ function HealthCheck() {
     <div className="bg-white min-h-screen">
       <Seo
         path="/diagnostik"
-        title="Diagnostik & Health Check Berlin – Funktionelle Medizin"
-        description="Erweiterte Diagnostik in Berlin: Genetik, Vollblutanalyse, BIA, HRV, Mikrobiom, Schwermetalle. Ganzheitlicher Health Check als Grundlage für gezielte Therapie."
+        title={t("healthCheck.seoTitle")}
+        description={t("healthCheck.seoDescription")}
       />
 
       {/* ── HERO — Sticky image left + scrolling sidebar right ── */}
@@ -432,7 +432,7 @@ function HealthCheck() {
             <div className="lg:w-[55%]">
               <div className="lg:sticky lg:top-28">
                 <div className="w-full aspect-[10/9] rounded-2xl overflow-hidden bg-[#c4b8a8]">
-                  <img src="/Assets/Diagnostik2.png" alt="Diagnostik" className="w-full h-full object-cover" />
+                  <img src="/Assets/Diagnostik2.png" alt={t("healthCheck.heroImageAlt")} className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
@@ -452,7 +452,7 @@ function HealthCheck() {
                   {t("healthCheck.hero.subtitle")}
                 </p>
                 <div className="flex flex-wrap items-center gap-4">
-                  <span className="text-sm font-semibold text-[#43a9ab]">Alles f&uuml;r nur 300 &euro;</span>
+                  <span className="text-sm font-semibold text-[#43a9ab]">{t("healthCheck.hero.price")}</span>
                   <a
                     href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
                     target="_blank"
@@ -469,7 +469,7 @@ function HealthCheck() {
 
               {/* Block 2: At a Glance */}
               <div className="border-t border-gray-200 py-8 sm:py-10">
-                <h2 className="text-lg font-bold text-[#515757] mb-5">Auf einen Blick</h2>
+                <h2 className="text-lg font-bold text-[#515757] mb-5">{t("healthCheck.glanceSection.title")}</h2>
                 <div className="space-y-4">
                   {[
                     { icon: focusIcons.scan, label: t("healthCheck.glance.g1.title") },
@@ -559,48 +559,48 @@ function HealthCheck() {
       <SchwerpunkteGrid
         therapies={[
           {
-            title: "Stoffwechsel-Analyse (BIA)",
-            desc: "Erhalte einen klaren Überblick über deinen Körper. Von Muskel- und Fettanteil bis zur Zellgesundheit. Wir analysieren Energie, Hydration und Balance. So lassen sich Ernährung, Training und Regeneration gezielt optimieren.",
+            title: t("healthCheck.therapies.bia.title"),
+            desc: t("healthCheck.therapies.bia.desc"),
             image: "/Assets/spezielle%20therapien/BIA.png",
           },
           {
-            title: "Stress-Analyse (HRV)",
-            desc: "Verstehe, wie dein Körper mit Stress und Erholung umgeht. Wir machen sichtbar, was im Alltag oft verborgen bleibt. Für mehr Balance, besseren Schlaf und nachhaltige Regeneration.",
+            title: t("healthCheck.therapies.hrv.title"),
+            desc: t("healthCheck.therapies.hrv.desc"),
             image: "/Assets/spezielle%20therapien/Stressanalyse%20HRV.png",
           },
           {
-            title: "Genetik & Epigenetik",
-            desc: "Deine Gene zeigen dein Potenzial, dein Lebensstil entscheidet über die Umsetzung. Wir analysieren, wie dein Körper arbeitet und reagiert. Für personalisierte Strategien, die wirklich zu dir passen.",
+            title: t("healthCheck.therapies.genetik.title"),
+            desc: t("healthCheck.therapies.genetik.desc"),
             image: "/Assets/spezielle%20therapien/GenetikandEpigenetik.png",
           },
           {
-            title: "Nährstoff-Analyse",
-            desc: "Schnell, unkompliziert und ohne Blutabnahme. Wir erkennen mögliche Defizite und Belastungen frühzeitig. Die ideale Grundlage für gezielte nächste Schritte.",
+            title: t("healthCheck.therapies.naehrstoff.title"),
+            desc: t("healthCheck.therapies.naehrstoff.desc"),
             image: "/Assets/spezielle%20therapien/Naehrstoffanalyse.png",
           },
           {
-            title: "Labor (Vollblut & Urin)",
-            desc: "Tiefergehende Einblicke in Nährstoffe, Hormone und Entzündungsprozesse. Präzise Diagnostik auf Zellebene statt oberflächlicher Werte. Für eine fundierte und individuelle Therapieplanung.",
+            title: t("healthCheck.therapies.labor.title"),
+            desc: t("healthCheck.therapies.labor.desc"),
             image: "/Assets/spezielle%20therapien/Labor.png",
           },
           {
-            title: "Darm-Funktion",
-            desc: "Der Darm ist die Basis deiner Gesundheit. Wir analysieren Mikrobiom, Verdauung und Immunfunktion. Für mehr Wohlbefinden, Energie und innere Balance.",
+            title: t("healthCheck.therapies.darm.title"),
+            desc: t("healthCheck.therapies.darm.desc"),
             image: "/Assets/spezielle%20therapien/Darmfunktion.png",
           },
           {
-            title: "Schimmel & Mykotoxine",
-            desc: "Belastungen erkennen, die oft lange unentdeckt bleiben. Wir prüfen Zusammenhänge zwischen Umwelt und Symptomen. Für gezielte Klarheit und passende Therapieansätze.",
+            title: t("healthCheck.therapies.schimmel.title"),
+            desc: t("healthCheck.therapies.schimmel.desc"),
             image: "/Assets/spezielle%20therapien/SchimmelanaMykotoxine.png",
           },
           {
-            title: "Schwermetalle & Chelattherapie",
-            desc: "Verborgene Belastungen sichtbar machen. Diagnostik und Therapie erfolgen ärztlich begleitet. Für sichere und strukturierte Ausleitungskonzepte.",
+            title: t("healthCheck.therapies.schwermetalle.title"),
+            desc: t("healthCheck.therapies.schwermetalle.desc"),
             image: "/Assets/spezielle%20therapien/Schwermetall%20Ausleitung.png",
           },
           {
-            title: "Schlaf-Analyse",
-            desc: "Schlaf verstehen statt nur bewerten. Wir analysieren deine nächtliche Regeneration und Erholungsfähigkeit. Für einen individuellen Plan zu besserem, tieferem Schlaf.",
+            title: t("healthCheck.therapies.schlaf.title"),
+            desc: t("healthCheck.therapies.schlaf.desc"),
             image: "/Assets/spezielle%20therapien/Schlafanalyse.png",
           },
         ]}

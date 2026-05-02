@@ -1,32 +1,39 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-const defaultCardData = [
-  {
-    image: "/Assets/KoerperlicheBeschwerden.png",
-    label: "K\u00F6rperliche Symptome",
-    title: "K\u00F6rperliche Symptome",
-    desc: "Analyse von Ursachen und Zusammenh\u00E4ngen als Grundlage f\u00FCr gezielte Diagnostik und Therapie.",
-    path: "/koerperliche-symptome",
-  },
-  {
-    image: "/Assets/PraeventionLongevity.png",
-    label: "Pr\u00E4vention & Longevity",
-    title: "Pr\u00E4vention & Longevity",
-    desc: "Fr\u00FCherkennung und gezielte Ma\u00DFnahmen zur langfristigen Stabilisierung von Gesundheit und Leistungsf\u00E4higkeit.",
-    path: "/praevention-longevity",
-  },
-  {
-    image: "/Assets/Psychotherapie.png",
-    label: "Psychische Beschwerden",
-    title: "Psychische Beschwerden",
-    desc: "Ganzheitliche Therapieans\u00E4tze zur Stabilisierung der mentalen Gesundheit und F\u00F6rderung innerer Balance.",
-    path: "/psychotherapie",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 const SWIPE_THRESHOLD = 50;
 
-function FanCardsMobile({ cards: cardData = defaultCardData, title = "Deine Themen im Fokus" }) {
+function FanCardsMobile({ cards: cardsProp, title: titleProp }) {
+  const { t, i18n } = useTranslation();
+  const isEn = i18n.language === "en";
+
+  const defaultCardData = [
+    {
+      image: "/Assets/KoerperlicheBeschwerden.png",
+      label: t("fanCards.items.koerperlich.label"),
+      title: t("fanCards.items.koerperlich.title"),
+      desc: t("fanCards.items.koerperlich.desc"),
+      path: isEn ? "/en/physical-symptoms" : "/koerperliche-symptome",
+    },
+    {
+      image: "/Assets/PraeventionLongevity.png",
+      label: t("fanCards.items.praevention.label"),
+      title: t("fanCards.items.praevention.title"),
+      desc: t("fanCards.items.praevention.desc"),
+      path: isEn ? "/en/prevention-longevity" : "/praevention-longevity",
+    },
+    {
+      image: "/Assets/Psychotherapie.png",
+      label: t("fanCards.items.psychisch.label"),
+      title: t("fanCards.items.psychisch.title"),
+      desc: t("fanCards.items.psychisch.desc"),
+      path: isEn ? "/en/psychotherapy" : "/psychotherapie",
+    },
+  ];
+
+  const cardData = cardsProp || defaultCardData;
+  const title = titleProp === undefined ? t("fanCards.title") : titleProp;
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(1);
   const sectionRef = useRef(null);

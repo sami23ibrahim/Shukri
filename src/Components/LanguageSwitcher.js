@@ -1,9 +1,12 @@
-
 import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { translatePath, detectLang } from "../lib/routeMap";
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const languages = [
@@ -11,13 +14,34 @@ const LanguageSwitcher = () => {
     { code: "de", label: "DE", flag: "/Assets/de.png" },
   ];
 
+  const currentLangCode = detectLang(pathname);
+
   const changeLanguage = (lang) => {
+    if (lang === currentLangCode) {
+      setMenuOpen(false);
+      return;
+    }
+
+    // Static page: look up the paired URL.
+    const paired = translatePath(pathname, lang);
+    if (paired) {
+      i18n.changeLanguage(lang);
+      try { localStorage.setItem("lang", lang); } catch (_) {}
+      navigate(paired);
+      setMenuOpen(false);
+      return;
+    }
+
+    // Blog post page (no entry in routeMap): handled by Phase 4.
+    // For now, navigate to the language's blog index instead.
+    const fallback = lang === "en" ? "/en/blog" : "/blog";
     i18n.changeLanguage(lang);
-    localStorage.setItem("lang", lang);
+    try { localStorage.setItem("lang", lang); } catch (_) {}
+    navigate(fallback);
     setMenuOpen(false);
   };
 
-  const currentLang = languages.find((l) => l.code === i18n.language) || languages[0];
+  const currentLang = languages.find((l) => l.code === currentLangCode) || languages[1];
 
   return (
     <div className="fixed bottom-6 right-6 z-50">

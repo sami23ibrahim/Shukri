@@ -4,35 +4,36 @@ import { Link } from "react-router-dom";
 import Shukr from "../Assets/Shukr.jpg";
 
 const NewGridHoverEffectMobile = () => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isEn = i18n.language === "en";
   const [expandedIndex, setExpandedIndex] = useState(null);
   const [visible, setVisible] = useState([false, false, false, false]);
   const containerRef = useRef(null);
 
   const data = [
     {
-      label: "Beratung",
-      subtitle: "Umfassende Anamnese und individueller Behandlungsplan, abgestimmt auf K\u00F6rper, Lebensstil und pers\u00F6nliche Bed\u00FCrfnisse.",
+      label: t("homeGrid.items.beratung.label"),
+      subtitle: t("homeGrid.items.beratung.subtitle"),
       image: "/Assets/Beratungen.jpeg",
-      route: "/beratung",
+      route: isEn ? "/en/consultations" : "/beratung",
     },
     {
-      label: "Diagnostik",
-      subtitle: "Pr\u00E4zise Diagnostik, die \u00FCber Standardlabore hinausgeht und tiefere Einblicke in pers\u00F6nliche Gesundheitswerte erm\u00F6glicht.",
+      label: t("homeGrid.items.diagnostik.label"),
+      subtitle: t("homeGrid.items.diagnostik.subtitle"),
       image: "/Assets/Diagnostik.png",
-      route: "/diagnostik",
+      route: isEn ? "/en/diagnostics" : "/diagnostik",
     },
     {
-      label: "Infusion",
-      subtitle: "Individuelle Infusionskonzepte - inklusive spezialisierter Anwendungen wie Ketamin- und Schimmeltherapie.",
+      label: t("homeGrid.items.infusion.label"),
+      subtitle: t("homeGrid.items.infusion.subtitle"),
       image: "/Assets/Infusionen.jpeg",
-      route: "/infusions",
+      route: isEn ? "/en/infusions" : "/infusions",
     },
     {
-      label: "Mentoring",
-      subtitle: "Behandlungspl\u00E4ne verstehen und nachhaltig in den Alltag integrieren, mit Fokus auf Ern\u00E4hrung, Bewegung, Mindset und Stressbalance.",
+      label: t("homeGrid.items.mentoring.label"),
+      subtitle: t("homeGrid.items.mentoring.subtitle"),
       image: "/Assets/Mentoring.png",
-      route: "/mentoring",
+      route: isEn ? "/en/mentoring" : "/mentoring",
     },
   ];
 
@@ -74,7 +75,7 @@ const NewGridHoverEffectMobile = () => {
       style={{ backgroundColor: "#ffffff" }}
     >
       <h2 className="text-[#43A9AB] font-black leading-[0.85] tracking-tighter text-left mb-10 max-w-[50%] ml-4" style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}>
-        Unsere Leistungen
+        {t("homeGrid.title")}
       </h2>
       {data.map((item, index) => {
         const isExpanded = expandedIndex === index;
@@ -120,7 +121,7 @@ const NewGridHoverEffectMobile = () => {
                     onClick={(e) => e.stopPropagation()}
                     className="inline-block bg-white text-[#43A9AB] font-bold text-sm px-5 py-2.5 rounded-full shadow-lg no-underline"
                   >
-                    Mehr erfahren &rarr;
+                    {t("homeGrid.learnMore")} &rarr;
                   </Link>
                 </div>
                 {item.location && (

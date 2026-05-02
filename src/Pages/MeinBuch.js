@@ -1,14 +1,15 @@
 import Seo from "../Components/Seo";
+import { useTranslation } from "react-i18next";
 
 function MeinBuch() {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen pt-24 px-4">
       <Seo
-        path="/mein-buch"
-        title="Mein Buch – Dr. Shukri Jarmoukli"
-        description="Das Buch von Dr. Shukri Jarmoukli zu funktioneller Medizin, Prävention und Longevity – ein Wegweiser für nachhaltige Gesundheit."
+        title={t("meinBuch.seoTitle")}
+        description={t("meinBuch.seoDescription")}
       />
-      <h1 className="text-2xl font-bold">Mein Buch</h1>
+      <h1 className="text-2xl font-bold">{t("meinBuch.title")}</h1>
     </div>
   );
 }
