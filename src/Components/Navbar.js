@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import LanguageSwitcher from "./LanguageSwitcher";
+import useLanguage from "../hooks/useLanguage";
+import { translatePath } from "../lib/routeMap";
 
 const navIcons = {
 	home: (
@@ -91,6 +93,12 @@ const navIcons = {
 const Navbar = () => {
 	const { t } = useTranslation();
 	const location = useLocation();
+	const lang = useLanguage();
+	const localized = (dePath) => {
+		if (lang !== "en") return dePath;
+		const mapped = translatePath(dePath, "en");
+		return mapped || dePath;
+	};
 	const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
 	const [menuOpen, setMenuOpen] = useState(false);
 	const [isScrolled, setIsScrolled] = useState(false);
@@ -219,7 +227,7 @@ const Navbar = () => {
 				<div className="w-full bg-white border-b border-[#515757]/[0.06]">
 					{isMobile ? (
 						<div ref={mobileNavRef} className="relative flex items-center justify-center px-3 py-2 gap-2">
-							<Link to="/" className="absolute left-3 flex items-center no-underline focus:outline-none shrink-0">
+							<Link to={localized("/")} className="absolute left-3 flex items-center no-underline focus:outline-none shrink-0">
 								<img src="/Assets/logo6.png" alt="ViveCura" className="h-16 w-auto object-contain" />
 							</Link>
 							<div className="flex items-center gap-4">
@@ -239,7 +247,7 @@ const Navbar = () => {
 										<div className="fixed left-3 right-3 top-[88px] z-[120]">
 											<div className="bg-white border border-[#515757]/10 rounded-2xl shadow-xl px-4 py-3 grid grid-cols-2 gap-x-3 gap-y-2">
 												<Link
-													to="/koerperliche-symptome"
+													to={localized("/koerperliche-symptome")}
 													onClick={() => setMobileServicesOpen(false)}
 													className="flex items-center gap-2.5 px-2 py-2 rounded-lg hover:bg-[#43a9ab]/5 no-underline"
 												>
@@ -249,7 +257,7 @@ const Navbar = () => {
 													<span className="text-[11px] font-semibold text-[#515757] leading-tight">{t("navbar.koerperlicheBeschwerden")}</span>
 												</Link>
 												<Link
-													to="/praevention-longevity"
+													to={localized("/praevention-longevity")}
 													onClick={() => setMobileServicesOpen(false)}
 													className="flex items-center gap-2.5 px-2 py-2 rounded-lg hover:bg-[#43a9ab]/5 no-underline"
 												>
@@ -259,7 +267,7 @@ const Navbar = () => {
 													<span className="text-[11px] font-semibold text-[#515757] leading-tight">{t("navbar.praeventionLongevity")}</span>
 												</Link>
 												<Link
-													to="/psychotherapie"
+													to={localized("/psychotherapie")}
 													onClick={() => setMobileServicesOpen(false)}
 													className="flex items-center gap-2.5 px-2 py-2 rounded-lg hover:bg-[#43a9ab]/5 no-underline"
 												>
@@ -288,7 +296,7 @@ const Navbar = () => {
 										<div className="fixed left-3 right-3 top-[88px] z-[120]">
 											<div className="bg-white border border-[#515757]/10 rounded-2xl shadow-xl px-4 py-3 grid grid-cols-2 gap-x-3 gap-y-2">
 												<Link
-													to="/beratung"
+													to={localized("/beratung")}
 													onClick={() => setMobileLeistungenOpen(false)}
 													className="flex items-center gap-2.5 px-2 py-2 rounded-lg hover:bg-[#43a9ab]/5 no-underline"
 												>
@@ -298,7 +306,7 @@ const Navbar = () => {
 													<span className="text-[11px] font-semibold text-[#515757] leading-tight">{t("navbar.beratung")}</span>
 												</Link>
 												<Link
-													to="/infusions"
+													to={localized("/infusions")}
 													onClick={() => setMobileLeistungenOpen(false)}
 													className="flex items-center gap-2.5 px-2 py-2 rounded-lg hover:bg-[#43a9ab]/5 no-underline"
 												>
@@ -308,7 +316,7 @@ const Navbar = () => {
 													<span className="text-[11px] font-semibold text-[#515757] leading-tight">{t("navbar.infusions")}</span>
 												</Link>
 												<Link
-													to="/mentoring"
+													to={localized("/mentoring")}
 													onClick={() => setMobileLeistungenOpen(false)}
 													className="flex items-center gap-2.5 px-2 py-2 rounded-lg hover:bg-[#43a9ab]/5 no-underline"
 												>
@@ -318,7 +326,7 @@ const Navbar = () => {
 													<span className="text-[11px] font-semibold text-[#515757] leading-tight">{t("navbar.mentoring")}</span>
 												</Link>
 												<Link
-													to="/diagnostik"
+													to={localized("/diagnostik")}
 													onClick={() => setMobileLeistungenOpen(false)}
 													className="flex items-center gap-2.5 px-2 py-2 rounded-lg hover:bg-[#43a9ab]/5 no-underline"
 												>
@@ -356,11 +364,11 @@ const Navbar = () => {
 						</div>
 					) : (
 						<div className="relative flex items-center justify-center py-1.5 px-6">
-							<Link to="/" className="absolute left-6 flex items-center no-underline focus:outline-none shrink-0">
+							<Link to={localized("/")} className="absolute left-6 flex items-center no-underline focus:outline-none shrink-0">
 								<img src="/Assets/logo6.png" alt="ViveCura" className="h-20 w-auto object-contain" />
 							</Link>
 							<div className="flex items-center">
-								<NavItem isLink to="/" icon={navIcons.home} label={t("navbar.home")} />
+								<NavItem isLink to={localized("/")} icon={navIcons.home} label={t("navbar.home")} />
 								<div
 									className="relative"
 									onMouseEnter={() => setServicesOpen(true)}
@@ -388,7 +396,7 @@ const Navbar = () => {
 										<div className="bg-white border border-[#515757]/10 rounded-2xl shadow-xl px-6 py-5">
 											<div className="flex items-center gap-4">
 												<Link
-													to="/koerperliche-symptome"
+													to={localized("/koerperliche-symptome")}
 													className="group flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-[#43a9ab]/5 no-underline transition-colors"
 												>
 													<div className="w-14 h-14 rounded-full overflow-hidden ring-1 ring-[#515757]/10 group-hover:ring-[#43a9ab] transition-all duration-200 shrink-0">
@@ -399,7 +407,7 @@ const Navbar = () => {
 													</span>
 												</Link>
 												<Link
-													to="/praevention-longevity"
+													to={localized("/praevention-longevity")}
 													className="group flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-[#43a9ab]/5 no-underline transition-colors"
 												>
 													<div className="w-14 h-14 rounded-full overflow-hidden ring-1 ring-[#515757]/10 group-hover:ring-[#43a9ab] transition-all duration-200 shrink-0">
@@ -410,7 +418,7 @@ const Navbar = () => {
 													</span>
 												</Link>
 												<Link
-													to="/psychotherapie"
+													to={localized("/psychotherapie")}
 													className="group flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-[#43a9ab]/5 no-underline transition-colors"
 												>
 													<div className="w-14 h-14 rounded-full overflow-hidden ring-1 ring-[#515757]/10 group-hover:ring-[#43a9ab] transition-all duration-200 shrink-0">
@@ -424,13 +432,13 @@ const Navbar = () => {
 										</div>
 									</div>
 								</div>
-								<NavItem isLink to="/beratung" icon={navIcons.beratung} label={t("navbar.beratung")} />
-								<NavItem isLink to="/diagnostik" icon={navIcons.diagnostik} label={t("navbar.diagnostik")} />
-								<NavItem isLink to="/infusions" icon={navIcons.infusions} label={t("navbar.infusions")} />
-								<NavItem isLink to="/mentoring" icon={navIcons.mentoring} label={t("navbar.mentoring")} />
-								<NavItem isLink to="/ketamin" icon={navIcons.extras} label="Ketamin" />
-								<NavItem isLink to="/ueber-mich" icon={navIcons.ueberMich} label={t("navbar.ueberMich")} />
-								<NavItem isLink to="/blog" icon={navIcons.blog} label={t("navbar.blog")} />
+								<NavItem isLink to={localized("/beratung")} icon={navIcons.beratung} label={t("navbar.beratung")} />
+								<NavItem isLink to={localized("/diagnostik")} icon={navIcons.diagnostik} label={t("navbar.diagnostik")} />
+								<NavItem isLink to={localized("/infusions")} icon={navIcons.infusions} label={t("navbar.infusions")} />
+								<NavItem isLink to={localized("/mentoring")} icon={navIcons.mentoring} label={t("navbar.mentoring")} />
+								<NavItem isLink to={localized("/ketamin")} icon={navIcons.extras} label="Ketamin" />
+								<NavItem isLink to={localized("/ueber-mich")} icon={navIcons.ueberMich} label={t("navbar.ueberMich")} />
+								<NavItem isLink to={localized("/blog")} icon={navIcons.blog} label={t("navbar.blog")} />
 								<a
 									href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
 									target="_blank"
@@ -450,7 +458,7 @@ const Navbar = () => {
 			{menuOpen && (
 				<div className="fixed inset-0 bg-white z-[110] overflow-y-auto">
 					<div className="flex items-center justify-between px-5 py-4 border-b border-[#515757]/10">
-						<Link to="/" onClick={() => setMenuOpen(false)} className="flex items-center no-underline">
+						<Link to={localized("/")} onClick={() => setMenuOpen(false)} className="flex items-center no-underline">
 							<img src="/Assets/logo6.png" alt="ViveCura" className="h-20 w-auto object-contain" />
 						</Link>
 						<button
