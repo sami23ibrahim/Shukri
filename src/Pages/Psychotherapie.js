@@ -4,29 +4,12 @@ import FanCardsMobile from "../Components/FanCardsMobile";
 import useIsMobile from "../hooks/useIsMobile";
 import Seo from "../Components/Seo";
 import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 
-const soArbeiteIchCards = [
-  {
-    image: "/Assets/so arbeit ich/%C3%9CberdenKopfhinaus.png",
-    label: "Über den Kopf hinaus",
-    title: "Über den Kopf hinaus",
-    desc: "Empfindung und Gefühl kommen wieder ins Zentrum",
-    path: "",
-  },
-  {
-    image: "/Assets/so arbeit ich/Verstehen mit Erleben Verbinden.png",
-    label: "Verstehen mit Erleben verbinden",
-    title: "Verstehen mit Erleben verbinden",
-    desc: "Veränderung wird nicht nur gedacht, sondern gespürt",
-    path: "",
-  },
-  {
-    image: "/Assets/so arbeit ich/Integration In den Alltag.png",
-    label: "Integration in den Alltag",
-    title: "Integration in den Alltag",
-    desc: "Damit es nicht Theorie bleibt",
-    path: "",
-  },
+const SO_ARBEITE_ICH_IMAGES = [
+  "/Assets/so arbeit ich/%C3%9CberdenKopfhinaus.png",
+  "/Assets/so arbeit ich/Verstehen mit Erleben Verbinden.png",
+  "/Assets/so arbeit ich/Integration In den Alltag.png",
 ];
 
 const psyStartIcons = {
@@ -149,18 +132,6 @@ function HeroBanner({ image, badge, title, subtitle, children, ctaHref, trustIte
   );
 }
 
-const noTherapyYet = [
-  "Du hast bisher noch keine Psychotherapie gemacht, sp\u00FCrst aber, dass du tiefer gehen m\u00F6chtest als reine Selbstreflexion.",
-  "Du erlebst k\u00F6rperliche Symptome wie Unruhe, Enge, Schwindel oder ein diffuses Gef\u00FChl im K\u00F6rper. Woher dies kommt, kannst du dir nicht erkl\u00E4ren.",
-  "Du f\u00FChlst dich deinen Gedanken oder Emotionen teilweise ausgeliefert und w\u00FCnschst dir mehr Stabilit\u00E4t und Kontrolle.",
-];
-
-const hadTherapy = [
-  "Du verstehst deine Muster, aber kriegst es nicht richtig hin, dein Verhalten wirklich zu \u00E4ndern.",
-  "Du kannst Dinge einordnen, aber nicht richtig f\u00FChlen.",
-  "Du bist stabiler, also du funktionierst, aber nicht lebendig.",
-  "Du wei\u00DFt, was du tun solltest, aber es passiert nicht wirklich.",
-];
 
 const RECOGNIZE_TABLE_CSS = `
 .vk-table {
@@ -495,6 +466,7 @@ function RecognizeRow({ id, index, text, marked, onToggle }) {
 }
 
 function RecognizeTable() {
+  const { t } = useTranslation();
   const [marked, setMarked] = useState(() => new Set());
   const toggle = (id) => {
     setMarked((prev) => {
@@ -505,13 +477,16 @@ function RecognizeTable() {
   };
   const count = marked.size;
 
+  const noTherapyYet = t("psychotherapie.recognize.noTherapyYet", { returnObjects: true });
+  const hadTherapy = t("psychotherapie.recognize.hadTherapy", { returnObjects: true });
+
   return (
     <section className="vk-table">
       <style>{RECOGNIZE_TABLE_CSS}</style>
-      <span className="vk-badge"><span className="vk-badge-dot" />Gegenüberstellung</span>
-      <h2>Vielleicht erkennst du dich hier wieder</h2>
+      <span className="vk-badge"><span className="vk-badge-dot" />{t("psychotherapie.recognize.badge")}</span>
+      <h2>{t("psychotherapie.recognize.title")}</h2>
       <p className="vk-intro">
-        Zwei Ausgangspunkte, ein gemeinsamer Wunsch. Klick die Punkte an, in denen du dich wiederfindest.
+        {t("psychotherapie.recognize.intro")}
       </p>
 
       <div className="vk-container">
@@ -519,18 +494,18 @@ function RecognizeTable() {
           <div className="vk-head-col col-a">
             <div className="vk-head-tag">
               <span className="vk-head-letter">A</span>
-              <span className="vk-head-eyebrow">Ausgangspunkt</span>
+              <span className="vk-head-eyebrow">{t("psychotherapie.recognize.startpointEyebrow")}</span>
             </div>
-            <h3 className="vk-head-title">Noch keine Therapie gemacht</h3>
-            <p className="vk-head-sub">Du spürst, dass da etwas ist, aber du weißt nicht so genau, wo anfangen.</p>
+            <h3 className="vk-head-title">{t("psychotherapie.recognize.colATitle")}</h3>
+            <p className="vk-head-sub">{t("psychotherapie.recognize.colASub")}</p>
           </div>
           <div className="vk-head-col col-b">
             <div className="vk-head-tag">
               <span className="vk-head-letter">B</span>
-              <span className="vk-head-eyebrow">Ausgangspunkt</span>
+              <span className="vk-head-eyebrow">{t("psychotherapie.recognize.startpointEyebrow")}</span>
             </div>
-            <h3 className="vk-head-title">Schon eine Therapie gemacht</h3>
-            <p className="vk-head-sub">Du hast schon vieles verstanden, aber es hat sich noch nicht ganz gesetzt.</p>
+            <h3 className="vk-head-title">{t("psychotherapie.recognize.colBTitle")}</h3>
+            <p className="vk-head-sub">{t("psychotherapie.recognize.colBSub")}</p>
           </div>
         </div>
 
@@ -570,14 +545,14 @@ function RecognizeTable() {
         <div className="vk-footer">
           <div className="vk-footer-tag">
             <span className="vk-footer-line" />
-            <span className="vk-footer-label">In beiden Fällen</span>
+            <span className="vk-footer-label">{t("psychotherapie.recognize.bothCases")}</span>
             <span className="vk-footer-line" />
           </div>
           <p className="vk-footer-quote">
-            Du fühlst noch nicht ganz, dass du bei dir angekommen bist.
+            {t("psychotherapie.recognize.footerQuote")}
           </p>
           <p className="vk-footer-sub">
-            Das ist kein Versagen und kein Zufall. Es zeigt nur, dass der bisherige Zugang an seine Grenze kommt, und dass ein anderer Weg möglich ist.
+            {t("psychotherapie.recognize.footerSub")}
           </p>
         </div>
       </div>
@@ -587,8 +562,8 @@ function RecognizeTable() {
           <span className="vk-counter-num">{count}</span>
           <span>
             {count === 1
-              ? "Punkt erkannt, du bist nicht allein damit"
-              : "Punkte erkannt, du bist nicht allein damit"}
+              ? t("psychotherapie.recognize.counterSingular")
+              : t("psychotherapie.recognize.counterPlural")}
           </span>
         </div>
       </div>
@@ -778,14 +753,16 @@ const WAVE_CONFIGS = [
   { freq: 0.026, amp: 20, phase: 5.1, chaosFreq: 0.014, chaosAmp: 26, color: "rgba(67,169,171,0.32)" },
 ];
 
-const WAVE_LABELS = [
-  { num: "01", name: "Empfindungen", sub: "Körper · Spüren" },
-  { num: "02", name: "Gefühle", sub: "Emotion · Erleben" },
-  { num: "03", name: "Gedanken", sub: "Kognition · Bedeutung" },
-  { num: "04", name: "Handlungen", sub: "Verhalten · Ausdruck" },
-];
+const WAVE_NUMS = ["01", "02", "03", "04"];
 
 function MissingWaves() {
+  const { t } = useTranslation();
+  const waveLabelsT = t("psychotherapie.missing.waveLabels", { returnObjects: true });
+  const WAVE_LABELS = WAVE_NUMS.map((num, i) => ({
+    num,
+    name: waveLabelsT[i]?.name,
+    sub: waveLabelsT[i]?.sub,
+  }));
   const [mode, setMode] = useState("dissoz");
   const [synced, setSynced] = useState(false);
   const canvasRef = useRef(null);
@@ -885,9 +862,9 @@ function MissingWaves() {
   return (
     <section className="wof2">
       <style>{MISSING_WAVES_CSS}</style>
-      <h2>Was oft fehlt</h2>
+      <h2>{t("psychotherapie.missing.title")}</h2>
       <p className="wof2-intro">
-        Viele Ansätze arbeiten nur auf einer Bewusstseinsebene. Echte Veränderung entsteht, wenn alle vier gleichzeitig in Kontakt sind.
+        {t("psychotherapie.missing.intro")}
       </p>
 
       <div className="wof2-toggle" role="group">
@@ -896,14 +873,14 @@ function MissingWaves() {
           className={`wof2-btn btn-dissoz ${!isAssoz ? "is-active" : ""}`}
           onClick={() => setMode("dissoz")}
         >
-          Dissoziation
+          {t("psychotherapie.missing.dissociation")}
         </button>
         <button
           type="button"
           className={`wof2-btn btn-assoz ${isAssoz ? "is-active" : ""}`}
           onClick={() => setMode("assoz")}
         >
-          Assoziation
+          {t("psychotherapie.missing.association")}
         </button>
       </div>
 
@@ -927,8 +904,8 @@ function MissingWaves() {
           <span className="wof2-status-dot" />
           <span className="wof2-status-text">
             {isAssoz
-              ? "Ebenen synchronisiert — alle fließen im selben Rhythmus"
-              : "Ebenen isoliert — jede folgt ihrem eigenen Rhythmus"}
+              ? t("psychotherapie.missing.statusAssoz")
+              : t("psychotherapie.missing.statusDissoz")}
           </span>
         </div>
       </div>
@@ -936,19 +913,19 @@ function MissingWaves() {
       <div className="wof2-body">
         <div>
           <p>
-            Viele Ansätze beschäftigen sich nur mit einer Bewusstseinsebene. Zum Beispiel beim Denken (Gesprächstherapie) oder beim Verhalten (Verhaltenstherapie). Andere arbeiten stärker mit dem Körper oder mit Gefühlen.
+            {t("psychotherapie.missing.bodyP1")}
           </p>
           <p>
-            Jede dieser Methoden kann wirksam sein. Für viele Menschen reicht es jedoch nicht aus, sich nur auf eine Ebene zu beschränken.
+            {t("psychotherapie.missing.bodyP2")}
           </p>
         </div>
         <div>
           <div className="wof2-pullquote">
             <strong>
-              Veränderung gelingt oft schneller, wenn alle Formen miteinander in Einklang gebracht werden. Denken, Fühlen, Körper und Handeln wirken zusammen.
+              {t("psychotherapie.missing.pullquote")}
             </strong>
             <p className="wof2-closing">
-              Du veränderst dich nicht, weil du dich zwingst, sondern weil du innerlich an einem anderen Punkt angekommen bist.
+              {t("psychotherapie.missing.closing")}
             </p>
           </div>
         </div>
@@ -1197,74 +1174,52 @@ const METHODEN_CSS = `
 .methode-text:last-of-type { margin-bottom: 0; }
 `;
 
-const methodenData = [
-  {
-    num: 1,
-    eyebrow: "Methode 01",
-    label: "Biodynamische Psychotherapie",
-    title: "Biodynamische Psychotherapie",
-    lead: "Der Körper erinnert sich, auch wenn der Kopf schon weitergezogen ist.",
-    paragraphs: [
-      "In der biodynamischen Arbeit wird dein Körper zum Mitsprecher. Wir arbeiten mit Atem, Spürbewegung und feinen Impulsen, um dort anzusetzen, wo Worte allein nicht mehr weiterkommen. Alte Spannungsmuster dürfen sich lösen, ohne dass du sie erst verstehen oder erklären musst.",
-      "Besonders geeignet, wenn du dich kopflastig fühlst, körperliche Symptome hast oder spürst, dass klassische Gesprächsarbeit an ihre Grenze kommt.",
-    ],
-    icon: (
-      <svg className="methode-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M 32 14 C 22 14 18 22 20 30 C 22 36 18 40 18 46 C 18 52 24 54 32 54 C 40 54 46 52 46 46 C 46 40 42 36 44 30 C 46 22 42 14 32 14 Z" />
-        <circle cx="32" cy="26" r="3" />
-        <path d="M 26 38 Q 32 44 38 38" />
-      </svg>
-    ),
-  },
-  {
-    num: 2,
-    eyebrow: "Methode 02",
-    label: "Verhaltenstherapeutische Tools",
-    title: "Verhaltenstherapeutische Tools",
-    lead: "Konkrete Werkzeuge für konkrete Alltagssituationen.",
-    paragraphs: [
-      "Wenn du wissen willst, was du morgen früh anders machen kannst, helfen klar strukturierte Methoden der Verhaltenstherapie. Kognitive Neubewertung, Expositionsarbeit, Verankerung neuer Muster und praktische Strategien für akute Situationen.",
-      "Diese Werkzeuge sind besonders wertvoll, wenn du bereits verstanden hast, was dich belastet, aber noch nicht weißt, wie du es im Alltag anders machst.",
-    ],
-    icon: (
-      <svg className="methode-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="14" y="22" width="36" height="26" rx="3" />
-        <path d="M 24 22 L 24 16 L 40 16 L 40 22" />
-        <line x1="14" y1="32" x2="50" y2="32" />
-        <circle cx="22" cy="40" r="1.5" fill="currentColor" />
-        <circle cx="32" cy="40" r="1.5" fill="currentColor" />
-        <circle cx="42" cy="40" r="1.5" fill="currentColor" />
-      </svg>
-    ),
-  },
-  {
-    num: 3,
-    eyebrow: "Methode 03",
-    label: "Ketamin-gestützte Arbeit",
-    title: "Ketamin-gestützte Arbeit",
-    lead: "Ein Fenster, durch das neue Sichtweisen spürbar werden können.",
-    paragraphs: [
-      "Ketamin kann festgefahrene Denk- und Gefühlsmuster vorübergehend lockern und einen Raum öffnen, in dem Themen nicht nur verstanden, sondern wirklich erlebt werden. Die eigentliche Arbeit passiert dann in der therapeutischen Begleitung davor und danach.",
-      "Indiziert besonders bei therapieresistenten Depressionen, schweren Blockaden oder wenn das Gefühl bleibt, an der eigenen Oberfläche zu stehen und nicht weiter zu kommen.",
-    ],
-    icon: (
-      <svg className="methode-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="32" cy="32" r="6" />
-        <path d="M 32 14 L 32 20" />
-        <path d="M 32 44 L 32 50" />
-        <path d="M 14 32 L 20 32" />
-        <path d="M 44 32 L 50 32" />
-        <path d="M 19 19 L 23 23" />
-        <path d="M 41 41 L 45 45" />
-        <path d="M 45 19 L 41 23" />
-        <path d="M 23 41 L 19 45" />
-      </svg>
-    ),
-  },
+const METHODEN_ICONS = [
+  (
+    <svg className="methode-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M 32 14 C 22 14 18 22 20 30 C 22 36 18 40 18 46 C 18 52 24 54 32 54 C 40 54 46 52 46 46 C 46 40 42 36 44 30 C 46 22 42 14 32 14 Z" />
+      <circle cx="32" cy="26" r="3" />
+      <path d="M 26 38 Q 32 44 38 38" />
+    </svg>
+  ),
+  (
+    <svg className="methode-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="14" y="22" width="36" height="26" rx="3" />
+      <path d="M 24 22 L 24 16 L 40 16 L 40 22" />
+      <line x1="14" y1="32" x2="50" y2="32" />
+      <circle cx="22" cy="40" r="1.5" fill="currentColor" />
+      <circle cx="32" cy="40" r="1.5" fill="currentColor" />
+      <circle cx="42" cy="40" r="1.5" fill="currentColor" />
+    </svg>
+  ),
+  (
+    <svg className="methode-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="32" cy="32" r="6" />
+      <path d="M 32 14 L 32 20" />
+      <path d="M 32 44 L 32 50" />
+      <path d="M 14 32 L 20 32" />
+      <path d="M 44 32 L 50 32" />
+      <path d="M 19 19 L 23 23" />
+      <path d="M 41 41 L 45 45" />
+      <path d="M 45 19 L 41 23" />
+      <path d="M 23 41 L 19 45" />
+    </svg>
+  ),
 ];
 
 function MethodenKreise() {
+  const { t } = useTranslation();
   const [activeNum, setActiveNum] = useState(1);
+  const methodenT = t("psychotherapie.methods.items", { returnObjects: true });
+  const methodenData = methodenT.map((m, i) => ({
+    num: i + 1,
+    eyebrow: m.eyebrow,
+    label: m.label,
+    title: m.title,
+    lead: m.lead,
+    paragraphs: m.paragraphs,
+    icon: METHODEN_ICONS[i],
+  }));
 
   const renderCircle = (m) => (
     <button
@@ -1276,16 +1231,16 @@ function MethodenKreise() {
     >
       <span className="methode-ring">{m.icon}</span>
       <span className="methode-label">{m.label}</span>
-      <span className="methode-hint">Ansehen</span>
+      <span className="methode-hint">{t("psychotherapie.methods.viewHint")}</span>
     </button>
   );
 
   return (
     <section className="methoden">
       <style>{METHODEN_CSS}</style>
-      <h2>Methoden</h2>
+      <h2>{t("psychotherapie.methods.title")}</h2>
       <p className="methoden-intro">
-        Drei Zug&auml;nge, die ineinandergreifen. Klick einen Kreis an, um mehr dar&uuml;ber zu erfahren.
+        {t("psychotherapie.methods.intro")}
       </p>
 
       <div className="methoden-stage">
@@ -1324,16 +1279,8 @@ function MethodenKreise() {
   );
 }
 
-const faqData = [
-  { q: "Was unterscheidet deinen Ansatz von klassischer Psychotherapie?", a: "Wir arbeiten nicht nur \u00FCber Gespr\u00E4che, sondern beziehen deinen K\u00F6rper und das direkte Erleben mit ein." },
-  { q: "Ich habe schon mal eine Therapie gemacht. Wieso sollte ich nochmal anfangen?", a: "Viele Therapien arbeiten nur auf einzelnen Ebenen. Bei mir geht es darum, Empfindung, Gef\u00FChl und Denken miteinander zu verbinden. Denn genau dort entsteht oft die Ver\u00E4nderung, die vorher gefehlt hat." },
-  { q: "Muss ich mich bei dir mit Ketamin behandeln lassen?", a: "Nein. Ketamin ist eine Option, aber nicht der Kern meiner Arbeit. Entscheidend ist der Gesamtansatz und was f\u00FCr dich individuell sinnvoll ist." },
-  { q: "Wie l\u00E4uft eine Sitzung ab?", a: "Es gibt keinen starren Ablauf. Wir arbeiten situativ miteinander. Gespr\u00E4che, K\u00F6rperwahrnehmung und Integration greifen dabei ineinander." },
-  { q: "Was bedeutet Integration?", a: "Erlebnisse aus der Sitzung werden in konkrete Schritte \u00FCbersetzt. Damit deine Ver\u00E4nderung nicht nur im Raum bleibt, sondern auch in deinem Alltag wirkt." },
-  { q: "Wie lange dauert das?", a: "Das ist ganz individuell. Viele Patient:innen sp\u00FCren relativ fr\u00FCh Verbesserungen in ihrem Erleben, ihrer Regulation oder Klarheit. Entscheidend ist, dass sich etwas langfristig und nachhaltig verschiebt. Nicht nur kurzfristig." },
-];
-
 function Psychotherapie() {
+  const { t } = useTranslation();
   const [openFaq, setOpenFaq] = useState(null);
   const isMobile = useIsMobile();
   const recognizeAnim = useScrollFadeIn();
@@ -1345,12 +1292,33 @@ function Psychotherapie() {
   const faqAnim = useScrollFadeIn();
   const ctaAnim = useScrollFadeIn();
 
+  const faqData = t("psychotherapie.faq.items", { returnObjects: true });
+
+  const soArbeiteIchT = t("psychotherapie.approach.cards", { returnObjects: true });
+  const soArbeiteIchCards = soArbeiteIchT.map((c, i) => ({
+    image: SO_ARBEITE_ICH_IMAGES[i],
+    label: c.label,
+    title: c.title,
+    desc: c.desc,
+    path: "",
+  }));
+
+  const startStepsT = t("psychotherapie.start.steps", { returnObjects: true });
+  const startIconsList = [psyStartIcons.heart, psyStartIcons.scan, psyStartIcons.leaf, psyStartIcons.sparkle];
+  const startSteps = startStepsT.map((s, i) => ({
+    icon: startIconsList[i],
+    title: s.title,
+    desc: s.desc,
+  }));
+
+  const fitItems = t("psychotherapie.fit.items", { returnObjects: true });
+  const heroMethods = t("psychotherapie.hero.methods", { returnObjects: true });
+
   return (
     <div className="bg-white min-h-screen">
       <Seo
-        path="/psychotherapie"
-        title="Psychotherapie & Ketamin-assistierte Therapie Berlin"
-        description="Psychotherapeutische Begleitung und Ketamin-assistierte Verfahren in Berlin – integrativer Ansatz für Depression, Trauma und chronischen Stress."
+        title={t("psychotherapie.seoTitle")}
+        description={t("psychotherapie.seoDescription")}
       />
       <Helmet>
         <script type="application/ld+json">
@@ -1369,12 +1337,12 @@ function Psychotherapie() {
       {/* Hero Image Banner */}
       <HeroBanner
         image="/Assets/Psychotherapie.png"
-        badge="Psychotherapie"
-        title={<>Ganzheitliche <em className="italic">Psychotherapie</em></>}
-        subtitle={"Mein Ansatz ist, Empfindungen, Gef\u00FChle, Gedanken und Handlungen mit dir zu synchronisieren. Mit dem Ziel, dich schnellstm\u00F6glich auf dem Weg zu deinem besseren Selbst zu begleiten."}
+        badge={t("psychotherapie.hero.badge")}
+        title={<>{t("psychotherapie.hero.titlePrefix")} <em className="italic">{t("psychotherapie.hero.titleEm")}</em></>}
+        subtitle={t("psychotherapie.hero.subtitle")}
       >
         <div className="flex flex-wrap gap-3 mb-6">
-          {["Ketamin-assistierte Therapie", "Somatic Experiencing", "Verhaltenstherapie"].map((method) => (
+          {heroMethods.map((method) => (
             <span key={method} className="text-xs sm:text-sm text-[#43a9ab] border border-[#43a9ab]/20 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full">
               {method}
             </span>
@@ -1385,7 +1353,7 @@ function Psychotherapie() {
             href="/ketamin"
             className="inline-flex items-center bg-[#43a9ab] text-white px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-lg shadow-[#43a9ab]/25"
           >
-            Mehr &uuml;ber Ketamin erfahren
+            {t("psychotherapie.hero.ketaminCta")}
           </a>
         </div>
       </HeroBanner>
@@ -1403,9 +1371,9 @@ function Psychotherapie() {
       {/* So arbeite ich */}
       <section ref={approachAnim.ref} style={approachAnim.style}>
         {isMobile ? (
-          <FanCardsMobile cards={soArbeiteIchCards} title="So arbeite ich" />
+          <FanCardsMobile cards={soArbeiteIchCards} title={t("psychotherapie.approach.title")} />
         ) : (
-          <FanCards cards={soArbeiteIchCards} title="So arbeite ich" />
+          <FanCards cards={soArbeiteIchCards} title={t("psychotherapie.approach.title")} />
         )}
       </section>
 
@@ -1419,14 +1387,9 @@ function Psychotherapie() {
         <div className="max-w-5xl mx-auto">
           <div className="rounded-3xl overflow-hidden" style={{ background: "linear-gradient(135deg, #d4ece1 0%, #e0f4f5 30%, #d9f0e4 60%, #c8e6d8 100%)" }}>
             <div className="px-8 sm:px-14 py-12 sm:py-16">
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-10 text-center">So starten wir</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-10 text-center">{t("psychotherapie.start.title")}</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                {[
-                  { icon: psyStartIcons.heart, title: "Orientierungsgespräch (15 Minuten)", desc: "Ein erstes Kennenlernen, um zu klären, ob und wie ich dich unterstützen kann." },
-                  { icon: psyStartIcons.scan, title: "Anamnese", desc: "Wir erfassen deine Ausgangssituation, deine Ziele und deinen bisherigen Verlauf." },
-                  { icon: psyStartIcons.leaf, title: "Entscheidung", desc: "Gemeinsam definieren wir, welche Ansätze und Therapien für dich sinnvoll sind." },
-                  { icon: psyStartIcons.sparkle, title: "Umsetzung", desc: "Die Therapie erfolgt strukturiert und begleitet - mit regelmäßigen Sitzungen und Anpassungen." },
-                ].map((item, i) => (
+                {startSteps.map((item, i) => (
                   <div key={i} className="text-center">
                     <div className="w-12 h-12 rounded-xl bg-white/80 text-[#43a9ab] flex items-center justify-center mx-auto mb-4 shadow-sm">
                       {item.icon}
@@ -1445,7 +1408,7 @@ function Psychotherapie() {
               rel="noopener noreferrer"
               className="inline-flex items-center bg-[#43a9ab] text-white px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-sm"
             >
-              Kostenloses Orientierungsgespräch (15 Min)
+              {t("psychotherapie.cta.orientation")}
             </a>
             <a
               href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
@@ -1453,7 +1416,7 @@ function Psychotherapie() {
               rel="noopener noreferrer"
               className="inline-flex items-center border border-[#43a9ab]/30 text-[#43a9ab] px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#43a9ab]/5 transition-colors duration-200 no-underline"
             >
-              Therapie anfragen
+              {t("psychotherapie.cta.request")}
             </a>
           </div>
         </div>
@@ -1462,13 +1425,9 @@ function Psychotherapie() {
       {/* Fuer wen */}
       <section ref={fitAnim.ref} style={fitAnim.style} className="py-16 sm:py-24 px-5 sm:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-8 tracking-tight">F&uuml;r wen das passt:</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-8 tracking-tight">{t("psychotherapie.fit.title")}</h2>
           <div className="space-y-4 mb-8">
-            {[
-              "Du hast schon viel verstanden",
-              "Dir fehlt die Tiefe im Erleben",
-              "Du willst echte Ver\u00E4nderung",
-            ].map((item, i) => (
+            {fitItems.map((item, i) => (
               <div key={i} className="flex items-center gap-4">
                 <div className="w-5 h-5 rounded-full bg-[#43a9ab]/10 flex items-center justify-center flex-shrink-0">
                   <svg className="w-3 h-3 text-[#43a9ab]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1484,7 +1443,7 @@ function Psychotherapie() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
             </svg>
             <p className="text-amber-800/70 text-sm leading-relaxed">
-              Bei akuten Krisen bitte die lokalen Notfallstellen nutzen.
+              {t("psychotherapie.fit.crisisNote")}
             </p>
           </div>
         </div>
@@ -1493,7 +1452,7 @@ function Psychotherapie() {
       {/* FAQ */}
       <section ref={faqAnim.ref} style={faqAnim.style} className="py-16 sm:py-24 px-5 sm:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-10 tracking-tight">H&auml;ufige Fragen</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-10 tracking-tight">{t("psychotherapie.faq.title")}</h2>
           <div className="border-t border-[#43a9ab]/10">
             {faqData.map((faq, i) => (
               <AccordionItem
@@ -1516,7 +1475,7 @@ function Psychotherapie() {
             className="text-[#43A9AB] font-black leading-[0.92] tracking-tighter mb-6"
             style={{ fontSize: "clamp(1.6rem, 4vw, 2.8rem)" }}
           >
-            Vielleicht ist das DEIN MISSING PIECE.
+            {t("psychotherapie.finalCta.headline")}
           </h2>
           <div className="flex flex-wrap gap-4 justify-center mt-10">
             <a
@@ -1525,7 +1484,7 @@ function Psychotherapie() {
               rel="noopener noreferrer"
               className="inline-flex items-center bg-[#43a9ab] text-white px-8 py-4 rounded-xl text-base font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-lg shadow-[#43a9ab]/20"
             >
-              Kostenloses Orientierungsgespr&auml;ch (15 Min)
+              {t("psychotherapie.cta.orientation")}
             </a>
             <a
               href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
@@ -1533,7 +1492,7 @@ function Psychotherapie() {
               rel="noopener noreferrer"
               className="inline-flex items-center border border-[#43a9ab]/30 text-[#43a9ab] px-8 py-4 rounded-xl text-base font-semibold hover:bg-[#43a9ab]/5 transition-colors duration-200 no-underline"
             >
-              Therapie anfragen
+              {t("psychotherapie.cta.request")}
             </a>
           </div>
         </div>

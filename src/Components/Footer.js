@@ -1,23 +1,7 @@
 import { Link } from "react-router-dom";
-
-const footerLinks = {
-  Praxis: [
-    { label: "K\u00F6rperliche Symptome", to: "/koerperliche-symptome" },
-    { label: "Pr\u00E4vention & Longevity", to: "/praevention-longevity" },
-    { label: "Psychotherapie", to: "/psychotherapie" },
-  ],
-  Angebot: [
-    { label: "Infusionen", to: "/infusions" },
-    { label: "Diagnostik", to: "/diagnostik" },
-    { label: "Beratungen", to: "/beratung" },
-    { label: "Ketamin-Therapie", to: "/ketamin" },
-    { label: "Mentoring", to: "/mentoring" },
-  ],
-  Kontakt: [
-    { label: "030 200060860", to: null, href: "tel:030200060860" },
-    { label: "praxis@vivecura.com", to: null, href: "mailto:praxis@vivecura.com" },
-  ],
-};
+import { useTranslation } from "react-i18next";
+import useLanguage from "../hooks/useLanguage";
+import { translatePath } from "../lib/routeMap";
 
 const socialLinks = [
   {
@@ -63,6 +47,41 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const { t } = useTranslation();
+  const lang = useLanguage();
+
+  const localized = (dePath) => {
+    if (lang !== "en") return dePath;
+    const mapped = translatePath(dePath, "en");
+    return mapped || dePath;
+  };
+
+  // Anchor-aware localizer for paths like "/rechtliches#impressum"
+  const localizedAnchor = (dePathWithHash) => {
+    const [base, hash] = dePathWithHash.split("#");
+    const localizedBase = localized(base);
+    return hash ? `${localizedBase}#${hash}` : localizedBase;
+  };
+
+  const footerLinks = {
+    praxis: [
+      { label: t("footer.links.koerperlicheSymptome"), to: localized("/koerperliche-symptome") },
+      { label: t("footer.links.praeventionLongevity"), to: localized("/praevention-longevity") },
+      { label: t("footer.links.psychotherapie"), to: localized("/psychotherapie") },
+    ],
+    angebot: [
+      { label: t("footer.links.infusionen"), to: localized("/infusions") },
+      { label: t("footer.links.diagnostik"), to: localized("/diagnostik") },
+      { label: t("footer.links.beratungen"), to: localized("/beratung") },
+      { label: t("footer.links.ketaminTherapie"), to: localized("/ketamin") },
+      { label: t("footer.links.mentoring"), to: localized("/mentoring") },
+    ],
+    kontakt: [
+      { label: "030 200060860", to: null, href: "tel:030200060860" },
+      { label: "praxis@vivecura.com", to: null, href: "mailto:praxis@vivecura.com" },
+    ],
+  };
+
   return (
     <footer className="bg-white border-t border-gray-100">
       <div className="max-w-6xl mx-auto px-5 sm:px-8 pt-14 pb-10">
@@ -74,7 +93,7 @@ export default function Footer() {
               ViveCura
             </span>
             <p className="text-[#515757]/50 text-sm leading-relaxed mt-4 max-w-xs">
-              Medizin, die den ganzen Menschen sieht. Funktionelle Medizin, Pr&auml;vention &amp; Psychotherapie in Berlin.
+              {t("footer.tagline")}
             </p>
 
             <div className="flex items-center gap-4 mt-6">
@@ -95,10 +114,10 @@ export default function Footer() {
 
           {/* Link columns */}
           <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-8">
-            {Object.entries(footerLinks).map(([heading, links]) => (
-              <div key={heading}>
+            {Object.entries(footerLinks).map(([headingKey, links]) => (
+              <div key={headingKey}>
                 <h4 className="text-[#43a9ab] text-xs font-semibold tracking-[2px] uppercase mb-4">
-                  {heading}
+                  {t(`footer.headings.${headingKey}`)}
                 </h4>
                 <ul className="space-y-3">
                   {links.map((link) => (
@@ -133,14 +152,14 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-14 pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[#515757]/30 text-xs">
-            &copy; {new Date().getFullYear()} ViveCura. Alle Rechte vorbehalten.
+            &copy; {new Date().getFullYear()} ViveCura. {t("footer.rights")}
           </p>
           <div className="flex items-center gap-6">
-            <Link to="/rechtliches#impressum" className="text-[#515757]/30 text-xs hover:text-[#515757]/60 transition-colors no-underline">
-              Impressum
+            <Link to={localizedAnchor("/rechtliches#impressum")} className="text-[#515757]/30 text-xs hover:text-[#515757]/60 transition-colors no-underline">
+              {t("footer.impressum")}
             </Link>
-            <Link to="/rechtliches#datenschutz" className="text-[#515757]/30 text-xs hover:text-[#515757]/60 transition-colors no-underline">
-              Datenschutz
+            <Link to={localizedAnchor("/rechtliches#datenschutz")} className="text-[#515757]/30 text-xs hover:text-[#515757]/60 transition-colors no-underline">
+              {t("footer.datenschutz")}
             </Link>
           </div>
         </div>

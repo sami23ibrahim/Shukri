@@ -4,33 +4,7 @@ import FanCardsMobile from "../Components/FanCardsMobile";
 import useIsMobile from "../hooks/useIsMobile";
 import Seo from "../Components/Seo";
 import { Helmet } from "react-helmet-async";
-
-const mentoringCards = [
-  {
-    image: "/Assets/Images%20Umsetzung%2011%20Mentoring/Stoffwechsel%20stabilisieren.png",
-    label: "Stoffwechsel stabilisieren",
-    title: "Stoffwechsel stabilisieren",
-    desc: "Der Stoffwechsel ist das Fundament deiner Energie. Wenn er im Gleichgewicht arbeitet, kann dein Körper Nährstoffe optimal verwerten, Blutzucker halten und Zellen erneuern.",
-    path: "",
-    textAlign: "top",
-  },
-  {
-    image: "/Assets/Images%20Umsetzung%2011%20Mentoring/Nervensystem%20regulieren.png",
-    label: "Nervensystem regulieren",
-    title: "Nervensystem regulieren",
-    desc: "Dein Nervensystem entscheidet, ob du im Dauerstress lebst oder wirklich regenerieren kannst. Wir stärken deinen Vagustonus, lösen alte Stressmuster und bringen Sicherheit zurück in deinen Körper.",
-    path: "",
-    textAlign: "top",
-  },
-  {
-    image: "/Assets/Images%20Umsetzung%2011%20Mentoring/Immunsystem%20entlasten.png",
-    label: "Immunsystem entlasten",
-    title: "Immunsystem entlasten",
-    desc: "Ein überfordertes Immunsystem ist oft die stille Ursache chronischer Beschwerden. Durch das Auflösen stiller Entzündungen, Umweltbelastungen und Darmthemen kann dein Immunsystem wieder das tun, wofür es gemacht ist.",
-    path: "",
-    textAlign: "top",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 function useScrollFadeIn(threshold = 0.1) {
   const ref = useRef(null);
@@ -139,14 +113,6 @@ function HeroBanner({ image, badge, title, subtitle, ctaText, ctaHref, trustItem
     </section>
   );
 }
-
-const processSteps = [
-  { title: "Genetik", description: "Wie du geboren bist: Deine genetische Grundlage wird getestet und \u00E4rztlich eingeordnet." },
-  { title: "Ist-Zustand", description: "Wir erfassen deinen aktuellen Zustand umfassend, \u00FCber erweiterte Blutanalysen, Bio-Impedanz und fortgeschrittene Herzuntersuchungen." },
-  { title: "Umsetzung", description: "Gezielter Einsatz von Biohacking-Tools und Methoden, ganz individuell auf dich abgestimmt." },
-  { title: "Reaktion des K\u00F6rpers", description: "Wir messen wie dein K\u00F6rper auf Ver\u00E4nderungen reagiert, z.B. \u00FCber Biofeedback wie HRV oder CGM." },
-  { title: "Therapeutische Unterst\u00FCtzung", description: "Bei Bedarf erg\u00E4nzen wir mit Infusionen und modernen Longevity-Substanzen wie NAD+ oder Spermidin." },
-];
 
 const longevityChapters = [
   {
@@ -320,103 +286,9 @@ function ScrollVideoExperience({ steps, chapters, isMobile }) {
   );
 }
 
-const _ignore_below_DELETE_ZZZ = "X";
-const _block_to_delete = ["\u00E4hrung mit Feedback",
-  "Training & Regeneration",
-  "Stressregulation",
-  "Gezielter Einsatz von Supplementen",
-  "Sinnvolle Infusionen (individuell f\u00FCr dich bestimmt)",
-];
-
-const faqData = [
-  { q: "Was bedeutet Longevity in deinem Ansatz?", a: "Longevity ist kein einzelnes Tool oder ein Trend, sondern ein umfangreiches System. Es geht darum, deinen K\u00F6rper so zu verstehen und steuern zu k\u00F6nnen, dass Gesundheit, Energie und Leistungsf\u00E4higkeit langfristig stabil bleiben." },
-  { q: "Ist das nicht einfach Biohacking?", a: "Nein. Biohacking arbeitet oft mit einzelnen Tools. Der Unterschied ist also, dass Longevity diese Tools einordnet und in ein funktionierendes Gesamtsystem integriert." },
-  { q: "Was bringt mir das konkret im Alltag?", a: 'Mehr stabile Energie, besserer Schlaf, klareres Denken und ein K\u00F6rper, der sich nicht permanent "gegen dich" anf\u00FChlt.' },
-  { q: "Brauche ich daf\u00FCr viele Supplemente?", a: "Nein. Supplements sind nur ein Teil und werden bei mir sehr gezielt eingesetzt. Nicht nach Trend, sondern nach Bedarf." },
-  { q: "Sind Infusionen wie NAD+ entscheidend?", a: "Nein. Sie k\u00F6nnen zwar unterst\u00FCtzen, ersetzen aber keine ganzheitliche Struktur. Ohne ein funktionierendes Gesamtkonzept funktionieren auch die besten Substanzen nicht." },
-  { q: "Muss ich mein Leben komplett umstellen?", a: "Es geht darum, die richtigen Stellschrauben zu identifizieren, nicht alles zu ver\u00E4ndern. Sich einfach gesund zu ern\u00E4hren und Sport zu machen reicht nicht aus, da jeder K\u00F6rper anders funktioniert. Zwei Menschen k\u00F6nnen das Gleiche tun, aber komplett unterschiedlich darauf reagieren." },
-  { q: "Wie werden meine Fortschritte gemessen?", a: "Durch Feedback aus deinem K\u00F6rper und gezielte Daten: Blutwerte, Biofeedback (z.B. HRV, CGM) und deine tats\u00E4chliche Entwicklung im Alltag." },
-  { q: "Wie schnell werde ich Ergebnisse bemerken?", a: "Oft zeigen sich erste Ver\u00E4nderungen bei Fokus, Schlaf und deinem Energielevel innerhalb nur weniger Wochen. Der eigentliche Effekt ist jedoch langfristig." },
-];
-
-const hebelData = [
-  {
-    num: 1,
-    label: "Schlaf & Rhythmus",
-    short: "Schlaf & Rhythmus",
-    title: "Schlaf & Rhythmus",
-    lead: "Alles beginnt mit dem Takt, in dem dein Körper regeneriert.",
-    paragraphs: [
-      "Im Tiefschlaf repariert sich dein Nervensystem, im REM-Schlaf verarbeitest du Emotionen, und dein zirkadianer Rhythmus steuert Hormone, Stoffwechsel und Zellalterung.",
-      "Wir schauen auf deine Schlafqualität, dein Licht- und Bewegungsmuster und bringen deinen Tagesrhythmus wieder in den Takt, in dem dein Körper wirklich altern kann wie er soll.",
-    ],
-    related: [2, 3, 4],
-  },
-  {
-    num: 2,
-    label: "Ernährung mit Feedback",
-    short: "Ernährung",
-    title: "Ernährung mit Feedback",
-    lead: "Was gesund ist, zeigt dir dein eigener Körper.",
-    paragraphs: [
-      "Statt allgemeiner Empfehlungen arbeiten wir mit echten Daten aus deinem Körper: Blutzuckerverläufe über ein CGM, Labormarker, Mikronährstoffstatus und deine subjektiven Signale.",
-      "So wird aus Ernährung kein Dogma, sondern ein Werkzeug, das du verstehst und das messbar zu dir passt.",
-    ],
-    related: [1, 3, 5, 6],
-  },
-  {
-    num: 3,
-    label: "Training & Regeneration",
-    short: "Training",
-    title: "Training & Regeneration",
-    lead: "Muskeln sind das Organ des Alterns.",
-    paragraphs: [
-      "Wer Muskelmasse, Kraft und mitochondriale Kapazität erhält, bleibt länger gesund, belastbar und mental klar.",
-      "Genauso wichtig ist die Regeneration dazwischen. Wir bringen Training und Erholung so in Balance, dass dein Körper stärker wird, statt sich weiter zu erschöpfen.",
-    ],
-    related: [1, 2, 4],
-  },
-  {
-    num: 4,
-    label: "Stressregulation",
-    short: "Stressregulation",
-    title: "Stressregulation",
-    lead: "Im Alarm kann dein Körper nicht heilen.",
-    paragraphs: [
-      "Chronischer Stress ist einer der stärksten Beschleuniger biologischer Alterung. Er hält dein Nervensystem im Alarmzustand, stört Schlaf, Hormone und Verdauung und zehrt still an deinen Reserven.",
-      "Über HRV-Messung, Atemarbeit, somatische Methoden und gezielte Regulation lernt dein System wieder, zwischen Anspannung und echter Erholung zu wechseln.",
-    ],
-    related: [1, 3],
-  },
-  {
-    num: 5,
-    label: "Supplemente",
-    short: "Supplemente",
-    title: "Gezielter Einsatz von Supplementen",
-    lead: "Nur was dein Labor zeigt und dein Alltag braucht.",
-    paragraphs: [
-      "Nahrungsergänzung ersetzt keinen Lebensstil, kann aber gezielte Lücken schließen, die sonst bremsen. Nur was sich im Labor zeigt und in deinem Alltag Sinn ergibt, wird auch eingesetzt.",
-      "Das Ziel ist nicht möglichst viel, sondern genau das, was dein Körper gerade braucht, in passender Form und Dosierung.",
-    ],
-    related: [2, 6],
-  },
-  {
-    num: 6,
-    label: "Infusionen",
-    short: "Infusionen",
-    title: "Sinnvolle Infusionen",
-    lead: "Direkt ins Blut, dorthin wo sie wirken.",
-    paragraphs: [
-      "Wenn dein Körper über den Darm nicht mehr gut aufnehmen kann oder schnell spürbare Effekte entscheidend sind, sind Infusionen ein starkes Werkzeug. Nährstoffe, Aminosäuren oder Moleküle wie NAD+ gehen direkt ins Blut und damit dorthin, wo sie wirken.",
-      "Wir setzen Infusionen nur dort ein, wo sie zu deinem Bild passen, zielgerichtet, dosiert und eingebettet in dein Gesamtkonzept.",
-    ],
-    related: [2, 5],
-  },
-];
-
-function HebelFlow() {
+function HebelFlow({ data, heading, intro, relatedLabel }) {
   const [activeNum, setActiveNum] = useState(1);
-  const active = hebelData.find((h) => h.num === activeNum) || hebelData[0];
+  const active = data.find((h) => h.num === activeNum) || data[0];
   const connectedSet = new Set(active.related);
 
   return (
@@ -481,14 +353,14 @@ function HebelFlow() {
         .flow-related-item:hover .flow-related-num { background: rgba(255,255,255,0.25); color: #ffffff; }
       `}</style>
 
-      <h2>Die Hebel</h2>
+      <h2>{heading}</h2>
       <p className="intro">
-        Die einzelnen Methoden sind kein Geheimnis. Entscheidend ist das Gesamtkonzept dahinter, also wie alle Schritte sinnvoll miteinander verbunden werden.
+        {intro}
       </p>
 
       <div className="hebel-split">
         <aside className="flow-list" role="tablist">
-          {hebelData.map((h) => {
+          {data.map((h) => {
             const classes = [
               "flow-item",
               h.num === activeNum ? "is-active" : "",
@@ -521,10 +393,10 @@ function HebelFlow() {
               <p key={idx} className="flow-text">{p}</p>
             ))}
             <div className="flow-related">
-              <span className="flow-related-label">Verbunden mit</span>
+              <span className="flow-related-label">{relatedLabel}</span>
               <div className="flow-related-list">
                 {active.related.map((r) => {
-                  const rel = hebelData.find((h) => h.num === r);
+                  const rel = data.find((h) => h.num === r);
                   if (!rel) return null;
                   return (
                     <button
@@ -548,6 +420,7 @@ function HebelFlow() {
 }
 
 function PraeventionLongevity() {
+  const { t } = useTranslation();
   const [openFaq, setOpenFaq] = useState(null);
   const [openDiagnostik, setOpenDiagnostik] = useState(null);
   const isMobile = useIsMobile();
@@ -562,12 +435,47 @@ function PraeventionLongevity() {
   const faqAnim = useScrollFadeIn();
   const ctaAnim = useScrollFadeIn();
 
+  const mentoringCardsTranslated = t("praeventionLongevity.mentoringCards", { returnObjects: true });
+  const mentoringCards = [
+    {
+      image: "/Assets/Images%20Umsetzung%2011%20Mentoring/Stoffwechsel%20stabilisieren.png",
+      label: mentoringCardsTranslated[0].label,
+      title: mentoringCardsTranslated[0].title,
+      desc: mentoringCardsTranslated[0].desc,
+      path: "",
+      textAlign: "top",
+    },
+    {
+      image: "/Assets/Images%20Umsetzung%2011%20Mentoring/Nervensystem%20regulieren.png",
+      label: mentoringCardsTranslated[1].label,
+      title: mentoringCardsTranslated[1].title,
+      desc: mentoringCardsTranslated[1].desc,
+      path: "",
+      textAlign: "top",
+    },
+    {
+      image: "/Assets/Images%20Umsetzung%2011%20Mentoring/Immunsystem%20entlasten.png",
+      label: mentoringCardsTranslated[2].label,
+      title: mentoringCardsTranslated[2].title,
+      desc: mentoringCardsTranslated[2].desc,
+      path: "",
+      textAlign: "top",
+    },
+  ];
+
+  const processSteps = t("praeventionLongevity.processSteps", { returnObjects: true });
+  const faqData = t("praeventionLongevity.faq", { returnObjects: true });
+  const hebelData = t("praeventionLongevity.hebel", { returnObjects: true });
+  const diagnostikItems = t("praeventionLongevity.diagnostikItems", { returnObjects: true });
+  const startSteps = t("praeventionLongevity.startSteps", { returnObjects: true });
+  const fitItems = t("praeventionLongevity.fitItems", { returnObjects: true });
+  const trustItems = t("praeventionLongevity.heroTrustItems", { returnObjects: true });
+
   return (
     <div className="bg-white min-h-screen">
       <Seo
-        path="/praevention-longevity"
-        title="Prävention & Longevity Berlin – Personalisierte Strategien"
-        description="Longevity- und Präventionsmedizin in Berlin: Genetik, Biofeedback, CGM, HRV, Mentoring. Individuelle Strategien für mehr Energie, Klarheit und gesunde Jahre."
+        title={t("praeventionLongevity.seoTitle")}
+        description={t("praeventionLongevity.seoDescription")}
       />
       <Helmet>
         <script type="application/ld+json">
@@ -586,22 +494,22 @@ function PraeventionLongevity() {
       {/* Hero Image Banner */}
       <HeroBanner
         image="/Assets/PraeventionLongevity.png"
-        badge={"Pr\u00E4vention & Longevity"}
-        title={<>Raus aus dem Funktionieren-Modus. Rein in die <em className="italic">Lebendigkeit.</em></>}
-        subtitle="Mehr Energie. Mehr Klarheit. Mehr Lebendigkeit. Durch Strategien, die individuell zu dir passen."
-        ctaText="Termin vereinbaren"
+        badge={t("praeventionLongevity.heroBadge")}
+        title={<>{t("praeventionLongevity.heroTitlePart1")} <em className="italic">{t("praeventionLongevity.heroTitleEm")}</em></>}
+        subtitle={t("praeventionLongevity.heroSubtitle")}
+        ctaText={t("praeventionLongevity.heroCta")}
         ctaHref="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
-        trustItems={["Klare Schritte", "Diagnostik & Biofeedback", "Transparente Entscheidungen"]}
+        trustItems={trustItems}
       />
 
       {/* Das Longevity-Chaos */}
       <section ref={chaosAnim.ref} style={chaosAnim.style} className="py-16 sm:py-24 px-5 sm:px-8">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-6 tracking-tight">
-            Das Longevity-Chaos
+            {t("praeventionLongevity.chaosTitle")}
           </h2>
           <p className="text-[#515757]/70 text-base sm:text-lg leading-relaxed mb-4">
-            Du probierst Dinge aus; Supplemente, Di&auml;ten, Routinen. Kurzfristig wirkt etwas - aber dann auf einmal nicht mehr. Du suchst nach neuen Ans&auml;tzen.
+            {t("praeventionLongevity.chaosBody")}
           </p>
         </div>
       </section>
@@ -610,13 +518,13 @@ function PraeventionLongevity() {
       <section ref={biofeedbackAnim.ref} style={biofeedbackAnim.style} className="py-16 sm:py-24 px-5 sm:px-8">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-6 tracking-tight">
-            Was oft &uuml;bersehen wird
+            {t("praeventionLongevity.overlookedTitle")}
           </h2>
           <p className="text-[#515757]/70 text-base sm:text-lg leading-relaxed mb-4">
-            Ich will nicht der n&auml;chste Experte sein, der dir sagt was {'"'}richtig{'"'} oder {'"'}falsch{'"'} ist. Ich will, dass du verstehst, was f&uuml;r dich funktioniert.
+            {t("praeventionLongevity.overlookedBody1")}
           </p>
           <p className="text-[#515757]/70 text-base sm:text-lg leading-relaxed mb-8">
-            Deshalb arbeite ich nicht mit Vermutungen, sondern mit Feedback aus deinem K&ouml;rper.
+            {t("praeventionLongevity.overlookedBody2")}
           </p>
 
           <div className="grid sm:grid-cols-2 gap-4">
@@ -626,8 +534,8 @@ function PraeventionLongevity() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M22 12h-4l-3 9L9 3l-3 9H2" />
                 </svg>
               </div>
-              <h4 className="text-[#515757] text-lg font-semibold mb-2">HRV</h4>
-              <p className="text-[#515757]/60 text-sm leading-relaxed">Zeigt dir, wie dein Nervensystem reagiert</p>
+              <h4 className="text-[#515757] text-lg font-semibold mb-2">{t("praeventionLongevity.hrvTitle")}</h4>
+              <p className="text-[#515757]/60 text-sm leading-relaxed">{t("praeventionLongevity.hrvDesc")}</p>
             </div>
             <div className="rounded-2xl border border-[#43a9ab]/15 p-6 sm:p-8" style={{ background: "rgba(67,169,171,0.03)" }}>
               <div className="w-12 h-12 rounded-full bg-[#43a9ab]/10 flex items-center justify-center mb-4">
@@ -635,13 +543,13 @@ function PraeventionLongevity() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
                 </svg>
               </div>
-              <h4 className="text-[#515757] text-lg font-semibold mb-2">CGM</h4>
-              <p className="text-[#515757]/60 text-sm leading-relaxed">Zeigt dir, wie dein Stoffwechsel auf deine Lebensumst&auml;nde reagiert</p>
+              <h4 className="text-[#515757] text-lg font-semibold mb-2">{t("praeventionLongevity.cgmTitle")}</h4>
+              <p className="text-[#515757]/60 text-sm leading-relaxed">{t("praeventionLongevity.cgmDesc")}</p>
             </div>
           </div>
 
           <p className="text-[#43a9ab] text-base sm:text-lg font-medium mt-8">
-            Du musst nicht mehr raten. Du kannst sehen, was wirkt.
+            {t("praeventionLongevity.overlookedClosing")}
           </p>
         </div>
       </section>
@@ -650,10 +558,10 @@ function PraeventionLongevity() {
       <section ref={processAnim.ref} style={processAnim.style} className="py-16 sm:py-24 px-5 sm:px-8">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-6 tracking-tight">
-            All das mit Systemlogik dahinter
+            {t("praeventionLongevity.systemLogicTitle")}
           </h2>
           <p className="text-[#515757]/70 text-base sm:text-lg leading-relaxed">
-            Ich arbeite mit umfassender Genom- bzw. genetischer Testung, um deine Individualit&auml;t zu verstehen. Nicht oberfl&auml;chlich, sondern fundiert und medizinisch eingeordnet. Im Gegensatz zu vielen Coaching-Ans&auml;tzen basiert meine Arbeit nicht nur auf Theorie. Ich habe vieles selbst durchlaufen und bringe diese Erfahrung bewusst mit ein.
+            {t("praeventionLongevity.systemLogicBody")}
           </p>
         </div>
       </section>
@@ -671,10 +579,10 @@ function PraeventionLongevity() {
       <section ref={systemAnim.ref} style={systemAnim.style} className="pt-16 sm:pt-24 px-5 sm:px-10">
         <div className="w-full max-w-7xl mx-auto">
           <h2 className="text-[#43A9AB] font-black leading-[0.85] tracking-tighter text-left mb-6" style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}>
-            Umsetzung durch 1:1 Mentoring
+            {t("praeventionLongevity.mentoringTitle")}
           </h2>
           <p className="text-[#515757]/70 text-base sm:text-lg leading-relaxed max-w-3xl">
-            Wichtig dabei ist zu verstehen: Nicht jeder kann so arbeiten. Es geht nicht nur um Wissen, sondern um die F&auml;higkeit, Zusammenh&auml;nge zu erkennen und im System zu denken. Daf&uuml;r braucht es weitaus mehr als einzelne Informationen. N&auml;mlich eine fundierte Ausbildung, Erfahrung und die konsequente Umsetzung in der Praxis.
+            {t("praeventionLongevity.mentoringBody")}
           </p>
         </div>
         {isMobile ? (
@@ -688,30 +596,14 @@ function PraeventionLongevity() {
       <section ref={diagnostikAnim.ref} style={diagnostikAnim.style} className="py-16 sm:py-24 px-5 sm:px-8">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-3 tracking-tight">
-            Diagnostik mit Sinn
+            {t("praeventionLongevity.diagnostikTitle")}
           </h2>
           <p className="text-[#515757]/60 text-base sm:text-lg leading-relaxed mb-8">
-            Du brauchst keine 20 Tests. Du brauchst die richtigen.
+            {t("praeventionLongevity.diagnostikSubtitle")}
           </p>
 
           <div className="grid sm:grid-cols-3 gap-4 mb-10">
-            {[
-              {
-                trigger: "Dauerstress",
-                tool: "HRV als Orientierung",
-                detail: "Dein System läuft ständig auf Hochtouren, auch wenn du längst zur Ruhe kommen willst. Deine HRV zeigt uns, wie tief du wirklich unter Strom stehst und wo Regeneration wieder möglich wird.",
-              },
-              {
-                trigger: "Energie-Crash",
-                tool: "CGM als Feedback",
-                detail: "Morgens motiviert, nachmittags leer, abends wieder wach. Ein CGM macht sichtbar, wie dein Blutzucker deine Energie steuert und wo kleine Anpassungen den größten Unterschied machen.",
-              },
-              {
-                trigger: 'Stillstand trotz "alles richtig"',
-                tool: "Gezielte Labordiagnostik",
-                detail: "Du isst clean, bewegst dich, schläfst und trotzdem bleibt das Ergebnis aus. Eine gezielte Labordiagnostik zeigt, was sich unter der Oberfläche wirklich abspielt und wo dein Körper gerade blockiert ist.",
-              },
-            ].map((item, i) => {
+            {diagnostikItems.map((item, i) => {
               const isOpen = openDiagnostik === i;
               return (
                 <button
@@ -748,29 +640,30 @@ function PraeventionLongevity() {
           </div>
 
           <p className="text-[#515757]/70 text-base leading-relaxed mb-4">
-            Diagnostik ist kein Selbstzweck. Sie dient einer Entscheidung. Wir sammeln so viele relevante Informationen, dass wir dich ganzheitlich verstehen k&ouml;nnen. Du bekommst ein klares Bild davon, wo du herkommst (Genetik), wo du aktuell stehst (Ist-Zustand) und welche konkreten M&ouml;glichkeiten es gibt, dich zu verbessern.
+            {t("praeventionLongevity.diagnostikBody1")}
           </p>
           <p className="text-[#515757]/70 text-base leading-relaxed">
-            Alle Ergebnisse werden verst&auml;ndlich erkl&auml;rt, von der Genetik-Testung &uuml;ber Blutwerte bis hin zu allen weiteren Untersuchungen. Auf dieser Grundlage erarbeiten wir einen strukturierten, individuellen Plan.
+            {t("praeventionLongevity.diagnostikBody2")}
           </p>
         </div>
       </section>
 
       {/* Die Hebel */}
       <section ref={leversAnim.ref} style={leversAnim.style}>
-        <HebelFlow />
+        <HebelFlow
+          data={hebelData}
+          heading={t("praeventionLongevity.hebelHeading")}
+          intro={t("praeventionLongevity.hebelIntro")}
+          relatedLabel={t("praeventionLongevity.hebelRelatedLabel")}
+        />
       </section>
 
       {/* So starten wir */}
       <section ref={startAnim.ref} style={startAnim.style} className="py-16 sm:py-24 px-5 sm:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-12 tracking-tight">So starten wir</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-12 tracking-tight">{t("praeventionLongevity.startTitle")}</h2>
           <div className="grid sm:grid-cols-3 gap-6">
-            {[
-              { num: "01", title: "Erstgespr\u00E4ch", desc: "Ziele, Kontext, Ausgangspunkt" },
-              { num: "02", title: "Entscheidung", desc: "Was messen wir - und was nicht in deinem Fall individuell?" },
-              { num: "03", title: "Umsetzung", desc: "Klare Schritte, Feedback und Anpassung" },
-            ].map((step) => (
+            {startSteps.map((step) => (
               <div key={step.num} className="relative">
                 <div className="text-5xl font-black text-[#43a9ab]/10 mb-3">{step.num}</div>
                 <h4 className="text-[#515757] text-lg font-semibold mb-2">{step.title}</h4>
@@ -785,7 +678,7 @@ function PraeventionLongevity() {
               rel="noopener noreferrer"
               className="inline-flex items-center bg-[#43a9ab] text-white px-8 py-4 rounded-xl text-base font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-sm"
             >
-              Termin vereinbaren
+              {t("praeventionLongevity.bookCta")}
               <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
@@ -797,13 +690,9 @@ function PraeventionLongevity() {
       {/* Fuer wen */}
       <section ref={fitAnim.ref} style={fitAnim.style} className="py-16 sm:py-24 px-5 sm:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-8 tracking-tight">F&uuml;r wen das passt:</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-8 tracking-tight">{t("praeventionLongevity.fitTitle")}</h2>
           <div className="space-y-4">
-            {[
-              "Du willst echte Ver\u00E4nderung",
-              "Du bist bereit umzusetzen",
-              "Du suchst Klarheit statt Trends",
-            ].map((item, i) => (
+            {fitItems.map((item, i) => (
               <div key={i} className="flex items-center gap-4">
                 <div className="w-5 h-5 rounded-full bg-[#43a9ab]/10 flex items-center justify-center flex-shrink-0">
                   <svg className="w-3 h-3 text-[#43a9ab]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -820,7 +709,7 @@ function PraeventionLongevity() {
       {/* FAQ */}
       <section ref={faqAnim.ref} style={faqAnim.style} className="py-16 sm:py-24 px-5 sm:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-10 tracking-tight">H&auml;ufige Fragen</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-10 tracking-tight">{t("praeventionLongevity.faqTitle")}</h2>
           <div className="border-t border-[#43a9ab]/10">
             {faqData.map((faq, i) => (
               <AccordionItem
@@ -843,10 +732,10 @@ function PraeventionLongevity() {
             className="text-[#43A9AB] font-black leading-[0.92] tracking-tighter mb-6"
             style={{ fontSize: "clamp(1.6rem, 4vw, 2.8rem)" }}
           >
-            READY F&Uuml;R NEXT LEVEL GESUND-SEIN?
+            {t("praeventionLongevity.finalCtaTitle")}
           </h2>
           <p className="text-[#515757]/60 text-base sm:text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-            Dann buche jetzt deinen Termin oder erhalte deinen kostenlosen Start Guide.
+            {t("praeventionLongevity.finalCtaBody")}
           </p>
           <a
             href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
@@ -854,7 +743,7 @@ function PraeventionLongevity() {
             rel="noopener noreferrer"
             className="inline-flex items-center bg-[#43a9ab] text-white px-10 py-4 rounded-xl text-base font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-lg shadow-[#43a9ab]/20"
           >
-            Termin vereinbaren
+            {t("praeventionLongevity.bookCta")}
             <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>

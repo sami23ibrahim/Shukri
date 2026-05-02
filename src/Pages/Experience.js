@@ -1,42 +1,38 @@
 import { useRef, useEffect, useState, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import Seo from "../Components/Seo";
 
-const chapters = [
-  {
-    title: "Willkommen bei\nDie Drei Zahnärzte",
-    subtitle: "",
-    video: "/Assets/1.mp4",
-    videoMob: "/Assets/1mob.mp4",
-  },
-  {
-    title: "Umfassende Diagnostik",
-    subtitle:
-      "Digitales Röntgen, intraorale Kamera und klinische Befundung — damit wir von Anfang an ein vollständiges Bild Ihrer Zahngesundheit haben.",
-    video: "/Assets/2.mp4",
-    videoMob: "/Assets/2mob.mp4",
-  },
-  {
-    title: "Persönliche Beratung",
-    subtitle:
-      "45 Minuten nehmen wir uns Zeit, um Ihre Befunde im Kontext zu besprechen — Symptome, Lebensstil und Ihre individuellen Ziele.",
-    video: "/Assets/3.mp4",
-    videoMob: "/Assets/3mob.mp4",
-  },
-  {
-    title: "Ihr Gesundheitsplan",
-    subtitle:
-      "Sie erhalten eine klare Zusammenfassung der wichtigsten Befunde, priorisierte Empfehlungen und konkrete nächste Schritte.",
-    video: "/Assets/4.mp4",
-    videoMob: "/Assets/4mob.mp4",
-  },
-];
-
 function Experience() {
+  const { t } = useTranslation();
   const sectionRef = useRef(null);
   const videoRefs = useRef([]);
   const [progress, setProgress] = useState(0);
   const [activeChapter, setActiveChapter] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+
+  const translatedChapters = t("experience.chapters", { returnObjects: true });
+  const chapters = [
+    {
+      ...translatedChapters[0],
+      video: "/Assets/1.mp4",
+      videoMob: "/Assets/1mob.mp4",
+    },
+    {
+      ...translatedChapters[1],
+      video: "/Assets/2.mp4",
+      videoMob: "/Assets/2mob.mp4",
+    },
+    {
+      ...translatedChapters[2],
+      video: "/Assets/3.mp4",
+      videoMob: "/Assets/3mob.mp4",
+    },
+    {
+      ...translatedChapters[3],
+      video: "/Assets/4.mp4",
+      videoMob: "/Assets/4mob.mp4",
+    },
+  ];
 
   // Detect mobile
   useEffect(() => {
@@ -71,7 +67,7 @@ function Experience() {
     if (chapterIndex !== activeChapter) {
       setActiveChapter(chapterIndex);
     }
-  }, [activeChapter]);
+  }, [activeChapter, chapters.length]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -142,9 +138,8 @@ function Experience() {
   return (
     <div className="bg-white">
       <Seo
-        path="/experience"
-        title="Vivecura Experience – Longevity Erlebnis Berlin"
-        description="Das Vivecura Experience – ein strukturierter Tag rund um Diagnostik, Beratung und Longevity-Methoden in Berlin."
+        title={t("experience.seoTitle")}
+        description={t("experience.seoDescription")}
       />
       {/* Spacer so user scrolls into the section */}
       <div style={{ height: "50vh" }} />

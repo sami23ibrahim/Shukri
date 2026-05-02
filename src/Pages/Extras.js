@@ -5,30 +5,13 @@ import { Link } from "react-router-dom";
 import useIsMobile from "../hooks/useIsMobile";
 import Seo from "../Components/Seo";
 import { Helmet } from "react-helmet-async";
-
-const ketaminLines = [
-  "So hat es einer meiner Patienten formuliert:",
-  "Gesprächstherapie ist, als gehe man zu Fuß.",
-  "Verhaltenstherapie ist, als fahre man Fahrrad.",
-  "Ketamin assistierte Therapie ist, als fährt man Ferrari.\u201C",
-];
-
-const sublines = [
-  "Wenn klassische Wege nicht reichen.",
-  "Kann ein anderer Weg in die Tiefe sein.",
-  "Nicht nur durch Verstehen, sondern durch inneres Erleben.",
-  "Dann kann Veränderung kinderleicht sein.",
-];
-
-const whyUs = [
-  "MEDIZINISCH GEPRÜFT",
-  "ÄRZTLICH 1:1 BEGLEITET",
-  "PSYCHOTHERAPEUTISCH INTEGRIERT",
-  "Mit einem ganzheitlichen Behandlungsplan ergänzt.",
-];
+import { useTranslation } from "react-i18next";
 
 function KetaminHero() {
+  const { t } = useTranslation();
   const isMobile = useIsMobile();
+  const sublines = t("extras.sublines", { returnObjects: true });
+  const whyUs = t("extras.whyUs", { returnObjects: true });
   const heroImage = isMobile
     ? "/Assets/Ketamin%20Bild%20Jonas%20Hochkant%20AI.png"
     : "/Assets/Ketamin%20Infusion%20Bild%20Jonas%20AI%20.png";
@@ -41,7 +24,7 @@ function KetaminHero() {
               <div className={`w-full ${isMobile ? "aspect-[3/4]" : "aspect-[10/9]"} rounded-2xl overflow-hidden bg-[#c4b8a8]`}>
                 <img
                   src={heroImage}
-                  alt="Ketamin-Therapie"
+                  alt={t("extras.heroImageAlt")}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -51,10 +34,10 @@ function KetaminHero() {
           <div className="lg:w-[40%] flex flex-col">
             <div className="pb-10 sm:pb-14">
               <span className="inline-block text-xs font-semibold text-[#43a9ab] bg-[#e0f4f5] px-3 py-1 rounded-full mb-5 tracking-wide">
-                Therapie
+                {t("extras.heroBadge")}
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#43A9AB] mb-5 tracking-tight leading-[1.1]">
-                Ketamin-assistierte Therapie
+                {t("extras.heroTitle")}
               </h2>
               <ul className="space-y-2.5 mb-8">
                 {sublines.map((line, i) => (
@@ -70,7 +53,7 @@ function KetaminHero() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center bg-[#43a9ab] text-white px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-sm"
               >
-                Jetzt buchen
+                {t("extras.heroBookNow")}
                 <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
@@ -78,7 +61,7 @@ function KetaminHero() {
             </div>
 
             <div className="border-t border-gray-200 py-8 sm:py-10">
-              <h3 className="text-lg font-bold text-[#515757] mb-5">Warum VIVECURA?</h3>
+              <h3 className="text-lg font-bold text-[#515757] mb-5">{t("extras.whyUsTitle")}</h3>
               <div className="space-y-4">
                 {whyUs.map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
@@ -97,41 +80,19 @@ function KetaminHero() {
   );
 }
 
-const faqItems = [
-  {
-    q: "Ist Ketamin-Therapie in Deutschland legal?",
-    a: "Ja. Ketamin ist als Medikament seit Jahrzehnten in Deutschland zugelassen, bisher vor allem für die Narkose und Schmerztherapie. Die Anwendung bei Depression, Trauma und verwandten Indikationen erfolgt off label. Das bedeutet, ein zugelassenes Medikament wird außerhalb seiner ursprünglichen Zulassung eingesetzt, auf ärztliche Verantwortung und nach sorgfältiger individueller Abwägung. Dieses Vorgehen ist in der Fachwelt etabliert, wissenschaftlich gut untersucht und in spezialisierten Zentren weltweit Standard.",
-  },
-  {
-    q: "Wird das von der Krankenkasse übernommen?",
-    a: "Nein, nicht regelhaft. Ketamin-assistierte Therapie ist eine Selbstzahlerleistung. Kosten besprechen wir transparent im Erstgespräch.",
-  },
-  {
-    q: "Werde ich süchtig?",
-    a: "Nein, nicht im therapeutischen Setting. Ein Abhängigkeitsrisiko entsteht bei unkontrolliertem, häufigem Konsum, nicht bei ärztlich begleiteten Sitzungen in definierten Abständen.",
-  },
-  {
-    q: "Was, wenn es mir während der Sitzung schlecht geht?",
-    a: "Sie sind durchgehend 1:1 ärztlich begleitet. Monitoring, Sicherheitstools und sofortige Intervention sind jederzeit verfügbar. Ein wichtiger Vorteil der intravenösen Gabe: Ketamin flutet in Minuten an und wird ebenso schnell wieder abgebaut. Die Wirkung lässt sich im Verlauf der Sitzung präzise steuern, sanft ausleiten oder bei Bedarf vertiefen. Jederzeit, unter ärztlicher Kontrolle.",
-  },
-  {
-    q: "Für wen kann dieser Weg nicht geeignet sein?",
-    a: "Bei aktiver Psychose, unkontrollierter Herzerkrankung, Schizophrenie, Schwangerschaft oder akuter Suchterkrankung ist Ketamin nicht die richtige Wahl. Das klären wir im Vorgespräch.",
-  },
-];
-
 function KetaminCTA() {
+  const { t } = useTranslation();
   return (
     <section className="py-16 sm:py-24 px-5 sm:px-8">
       <div className="max-w-3xl mx-auto text-center">
         <span className="inline-block text-xs font-semibold text-[#43a9ab] bg-[#e0f4f5] px-3 py-1 rounded-full mb-5 tracking-[0.2em] uppercase">
-          Nächster Schritt
+          {t("extras.ctaBadge")}
         </span>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#43A9AB] tracking-tight mb-5">
-          Bereit für ein erstes Gespräch?
+          {t("extras.ctaTitle")}
         </h2>
         <p className="text-[#515757]/70 text-base sm:text-lg leading-relaxed max-w-xl mx-auto mb-10">
-          Kein Druck. Keine Vorentscheidung. Ein offenes Gespräch darüber, was bisher versucht wurde, und ob dieser Weg für Sie passen könnte.
+          {t("extras.ctaSubtitle")}
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
@@ -140,7 +101,7 @@ function KetaminCTA() {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 bg-[#43a9ab] text-white px-7 py-3.5 rounded-xl text-sm sm:text-base font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-sm"
           >
-            Termin buchen
+            {t("extras.ctaBookButton")}
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
@@ -149,14 +110,14 @@ function KetaminCTA() {
             to="/blog/ketamin-therapie"
             className="inline-flex items-center justify-center gap-2 border border-[#43a9ab] text-[#43a9ab] px-7 py-3.5 rounded-xl text-sm sm:text-base font-semibold hover:bg-[#43a9ab]/5 transition-colors duration-200 no-underline"
           >
-            Zum Blog-Artikel
+            {t("extras.ctaBlogButton")}
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </Link>
         </div>
         <p className="text-[#515757]/50 text-sm mt-8 max-w-lg mx-auto leading-relaxed">
-          Tiefer einsteigen, alle Details, Studien und Mechanismen — mehr über Ketamin und die Wissenschaft dahinter im Blog.
+          {t("extras.ctaFootnote")}
         </p>
       </div>
     </section>
@@ -164,12 +125,14 @@ function KetaminCTA() {
 }
 
 function KetaminFAQ() {
+  const { t } = useTranslation();
   const [openIdx, setOpenIdx] = useState(null);
+  const faqItems = t("extras.faqItems", { returnObjects: true });
   return (
     <section className="py-16 sm:py-20 px-5 sm:px-8">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#43A9AB] tracking-tight mb-10 sm:mb-12">
-          Häufige Fragen
+          {t("extras.faqTitle")}
         </h2>
         <div className="border-t border-gray-200">
           {faqItems.map((item, i) => {
@@ -211,34 +174,6 @@ function KetaminFAQ() {
   );
 }
 
-const warumChapters = [
-  {
-    title: "1:1 ärztliche Begleitung",
-    description: "Während der gesamten Sitzung persönlich begleitet.",
-    video: "/Assets/videos/aerztliche-beratung.mp4",
-  },
-  {
-    title: "Klare Struktur",
-    description: "Vorbereitung, Sitzung, Integration. Nichts dem Zufall überlassen.",
-    video: "/Assets/videos/stoffwechselanalyse.mp4",
-  },
-  {
-    title: "Sicherer medizinischer Rahmen",
-    description: "Mit Monitoring, Aufklärung und Nachbegleitung.",
-    video: "/Assets/videos/hrv-stressanalyse.mp4",
-  },
-  {
-    title: "Kuratiertes Programm",
-    description: "Individuell geplant und mit Psychotherapie verzahnt.",
-    video: "/Assets/videos/naehrstoffanalyse.mp4",
-  },
-  {
-    title: "Ganzheitlich behandelt",
-    description: "Psyche und Körper zusammen. Ernährung, Mikronährstoffe, Bewegung und Schlaf fließen in den Behandlungsplan ein. Weil nachhaltige Veränderung selten auf einer Ebene allein gelingt.",
-    video: "/Assets/videos/blutproben.mp4",
-  },
-];
-
 function IframeSection({ mobileSrc, desktopSrc, title }) {
   const isMobile = useIsMobile();
   const iframeRef = useRef(null);
@@ -275,82 +210,86 @@ function IframeSection({ mobileSrc, desktopSrc, title }) {
 }
 
 function Extras() {
+  const { t } = useTranslation();
   const isMobile = useIsMobile();
+  const ketaminLines = t("extras.ketaminLines", { returnObjects: true });
+  const warumChaptersTranslated = t("extras.warumChapters", { returnObjects: true });
+  const warumChapters = [
+    {
+      title: warumChaptersTranslated[0].title,
+      description: warumChaptersTranslated[0].description,
+      video: "/Assets/videos/aerztliche-beratung.mp4",
+    },
+    {
+      title: warumChaptersTranslated[1].title,
+      description: warumChaptersTranslated[1].description,
+      video: "/Assets/videos/stoffwechselanalyse.mp4",
+    },
+    {
+      title: warumChaptersTranslated[2].title,
+      description: warumChaptersTranslated[2].description,
+      video: "/Assets/videos/hrv-stressanalyse.mp4",
+    },
+    {
+      title: warumChaptersTranslated[3].title,
+      description: warumChaptersTranslated[3].description,
+      video: "/Assets/videos/naehrstoffanalyse.mp4",
+    },
+    {
+      title: warumChaptersTranslated[4].title,
+      description: warumChaptersTranslated[4].description,
+      video: "/Assets/videos/blutproben.mp4",
+    },
+  ];
+  const schemaFaq = t("extras.schemaFaq", { returnObjects: true });
   return (
     <div className="bg-white min-h-screen pt-20">
       <Seo
-        path="/ketamin"
-        title="Ketamin-Therapie Berlin – Ketamin-Infusionen ärztlich begleitet"
-        description="Ketamin-assistierte Therapie in Berlin – ärztlich begleitete Infusionen und Shots zur Behandlung von Depression, Trauma und therapieresistenten Symptomen."
+        title={t("extras.seoTitle")}
+        description={t("extras.seoDescription")}
       />
       <Helmet>
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: [
-              {
-                "@type": "Question",
-                name: "Was ist Ketamin-assistierte Therapie?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Ketamin-assistierte Therapie kombiniert ärztlich begleitete Ketamin-Infusionen oder -Shots mit psychotherapeutischer Vor- und Nachbereitung zur Behandlung von Depression, Trauma und therapieresistenten Symptomen.",
-                },
+            mainEntity: schemaFaq.map((item) => ({
+              "@type": "Question",
+              name: item.name,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: item.text,
               },
-              {
-                "@type": "Question",
-                name: "Für wen eignet sich Ketamin-Therapie?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Sie kann eine Option sein bei therapieresistenter Depression, posttraumatischen Belastungsstörungen oder chronischem Stress, wenn klassische Verfahren nicht ausreichend gewirkt haben. Die Indikation wird in einem ärztlichen Erstgespräch geklärt.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "Wie läuft eine Ketamin-Infusion in Berlin ab?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Nach ärztlichem Erstgespräch und Indikationsstellung erfolgt die Infusion in der Praxis unter ärztlicher Aufsicht. Die Behandlung dauert ca. 60–90 Minuten inklusive Vor- und Nachbereitung.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "Übernimmt die Krankenkasse die Kosten?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Ketamin-Therapie ist in Deutschland in der Regel keine Kassenleistung und wird privat abgerechnet. Eine genaue Kostenübersicht erhalten Sie im Erstgespräch.",
-                },
-              },
-            ],
+            })),
           })}
         </script>
       </Helmet>
-      <ScrolledLines lines={ketaminLines} title="Ketamin-Erfahrung" />
+      <ScrolledLines lines={ketaminLines} title={t("extras.scrolledLinesTitle")} />
       <KetaminHero />
       <IframeSection
-        title="Drei Räume, in denen Ketamin wirkt"
+        title={t("extras.iframeTitleDreiRaeume")}
         mobileSrc="/html/drei_raeume_mobile.html"
         desktopSrc="/html/drei_raeume_desktop.html"
       />
       <IframeSection
-        title="Verstehen vs. Erleben"
+        title={t("extras.iframeTitleVerstehenErleben")}
         mobileSrc="/html/verstehen_vs_erleben_mobile.html"
         desktopSrc="/html/verstehen_vs_erleben_desktop.html"
       />
       <IframeSection
-        title="Typische Indikationen für Ketamin im Off-Label-Use"
+        title={t("extras.iframeTitleIndikationen")}
         mobileSrc="/html/indikationen_mobile.html"
         desktopSrc="/html/indikationen_desktop.html"
       />
       <IframeSection
-        title="Ablauf der Ketamin-assistierten Therapie"
+        title={t("extras.iframeTitleAblauf")}
         mobileSrc="/html/ablauf_mobile.html"
         desktopSrc="/html/ablauf_desktop.html"
       />
       <section className="pt-20 sm:pt-28">
         <div className="max-w-5xl mx-auto px-5 sm:px-8 text-center mb-8">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#43A9AB]">
-            Warum Vivecura
+            {t("extras.warumTitle")}
           </h2>
         </div>
         <ScrollVideoExperience chapters={warumChapters} isMobile={isMobile} />

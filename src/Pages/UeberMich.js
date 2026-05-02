@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import Shukr from "../Assets/Shukr.jpg";
 import Seo from "../Components/Seo";
 import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 
 function useScrollFadeIn(delay = 0) {
   const ref = useRef(null);
@@ -32,6 +33,7 @@ function useScrollFadeIn(delay = 0) {
 }
 
 function UeberMich() {
+  const { t } = useTranslation();
   const heroText = useScrollFadeIn(0.1);
   const section1 = useScrollFadeIn(0);
   const pullQuote1 = useScrollFadeIn(0);
@@ -45,9 +47,8 @@ function UeberMich() {
   return (
     <div className="bg-white min-h-screen">
       <Seo
-        path="/ueber-mich"
-        title="Über mich – Dr. Shukri Jarmoukli"
-        description="Internist, funktionelle Medizin und Longevity-Spezialist in Berlin. Erfahrung, Ausbildung und der ganzheitliche Behandlungsansatz von Dr. Shukri Jarmoukli."
+        title={t("ueberMich.seoTitle")}
+        description={t("ueberMich.seoDescription")}
       />
       <Helmet>
         <script type="application/ld+json">
@@ -75,14 +76,14 @@ function UeberMich() {
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 lg:items-center">
             <div className="lg:w-[55%]">
               <span className="inline-block text-xs font-semibold text-white bg-[#43A9AB] px-3 py-1 rounded-full mb-6 tracking-wide">
-                Über mich
+                {t("ueberMich.heroBadge")}
               </span>
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#43A9AB] tracking-tight leading-[1.08] mb-8">
-                Shukri Jarmoukli
+                {t("ueberMich.heroTitle")}
               </h1>
               <div ref={heroText.ref} style={heroText.style}>
                 <p className="text-xl sm:text-2xl font-medium text-[#515757] leading-relaxed">
-                  Ich bin Arzt. Aber ich arbeite nicht so, wie Du es vielleicht gewohnt bist.
+                  {t("ueberMich.heroLead")}
                 </p>
               </div>
             </div>
@@ -104,7 +105,7 @@ function UeberMich() {
       <section ref={section1.ref} style={section1.style} className="py-16 sm:py-24 px-5 sm:px-8">
         <div className="max-w-3xl mx-auto space-y-6">
           <p className="text-base sm:text-lg text-[#515757]/80 leading-relaxed">
-            Ich sehe den Menschen nicht als Summe einzelner Symptome, sondern als ein lebendiges System, in dem alles miteinander verbunden ist: Körper, Gedanken, Biochemie, Lebensstil. Mich interessiert nicht nur, was nicht funktioniert, sondern warum es aus dem Gleichgewicht geraten ist. Denn genau dort kann eine nachhaltige Veränderung beginnen. Indem man an den Ursachen arbeitet, nicht nur an einzelnen Symptomen.
+            {t("ueberMich.section1Para")}
           </p>
         </div>
       </section>
@@ -114,7 +115,7 @@ function UeberMich() {
         <div className="max-w-3xl mx-auto">
           <div className="border-l-4 border-[#43a9ab] pl-6 sm:pl-8 py-4">
             <p className="text-xl sm:text-2xl font-medium text-[#515757] leading-relaxed italic">
-              Was mich antreibt, ist nicht nur Wissen — sondern meine eigene Erfahrung.
+              {t("ueberMich.pullQuote1")}
             </p>
           </div>
         </div>
@@ -124,7 +125,7 @@ function UeberMich() {
       <section ref={section2.ref} style={section2.style} className="py-16 sm:py-24 px-5 sm:px-8">
         <div className="max-w-3xl mx-auto space-y-6">
           <p className="text-base sm:text-lg text-[#515757]/80 leading-relaxed">
-            Getrieben von meiner eigenen Leidensgeschichte und der meiner liebsten Personen, habe ich zahlreiche Methoden ausprobiert. Vieles hat funktioniert, vieles aber eben auch nicht. Das was funktionierte, war nicht Teil meines Humanmedizin-Studiums. Ich konnte nicht verstehen, wieso dies nie thematisiert wurde. Aus diesem Grund habe ich viele Weiterbildungen gemacht, viel recherchiert und viel wertvolles Wissen gefunden, das im klassischen Studium nicht vorkommt, aber dennoch mein Leben und das Leben vieler anderer Menschen verändert hat.
+            {t("ueberMich.section2Para")}
           </p>
         </div>
       </section>
@@ -133,7 +134,7 @@ function UeberMich() {
       <section ref={section3.ref} style={section3.style} className="pb-16 sm:pb-24 px-5 sm:px-8">
         <div className="max-w-3xl mx-auto space-y-6">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] tracking-tight mb-2">
-            Der größte Wendepunkt für mich war die Kälte.
+            {t("ueberMich.section3Heading")}
           </h2>
         </div>
       </section>
@@ -143,10 +144,10 @@ function UeberMich() {
         <div className="max-w-3xl mx-auto">
           <div className="rounded-2xl px-8 sm:px-12 py-10 sm:py-14" style={{ backgroundColor: "#43A9AB" }}>
             <p className="text-lg sm:text-xl text-white leading-relaxed">
-              <strong>Eisbaden</strong> hat nicht nur meinen Körper verändert, sondern auch meinen Kopf. Meine Resilienz. Meine Fähigkeit, mit Stress umzugehen. Ich habe mich von meinen depressiven Beschwerden befreit.
+              <strong>{t("ueberMich.coldQuoteBold")}</strong> {t("ueberMich.coldQuoteRest")}
             </p>
             <p className="text-base sm:text-lg text-white/70 leading-relaxed mt-4">
-              Gleichzeitig wurde mir bewusst, wie wenig auch dies Teil der klassischen medizinischen Ausbildung ist, obwohl es dazu über 1.300 Studien gibt und dennoch null Lehrinhalt.
+              {t("ueberMich.coldQuoteSecondary")}
             </p>
           </div>
         </div>
@@ -156,22 +157,22 @@ function UeberMich() {
       <section ref={section4.ref} style={section4.style} className="py-16 sm:py-24 px-5 sm:px-8">
         <div className="max-w-3xl mx-auto space-y-6">
           <p className="text-base sm:text-lg text-[#515757]/80 leading-relaxed">
-            Meine Auseinandersetzung mit alternativen Ansätzen begann also nicht aus einer esoterischen Motivation heraus, sondern aus dem Wunsch, wissenschaftliche Erkenntnisse in eine tatsächlich umsetzbare Praxis zu übersetzen. Oft wird angenommen, dass alles außerhalb der klassischen Schulmedizin per se unwissenschaftlich sei. Diese Sicht greift jedoch zu kurz. Viele Ansätze sind wissenschaftlich fundiert, finden jedoch bislang keinen festen Platz in etablierten Therapiekonzepten.
+            {t("ueberMich.section4Para1")}
           </p>
           <p className="text-base sm:text-lg text-[#515757]/80 leading-relaxed">
-            Durch meine kontinuierliche Weiterbildung sowie die praktische Arbeit mit Patient:innen in unterschiedlichen medizinischen Disziplinen, darunter Lebensstilmedizin, funktionelle und anthroposophische Medizin, orthomolekulare Medizin, Genetik und Epigenetik, Toxikologie und Umweltmedizin sowie psychotherapeutische und biodynamische Verfahren, einschließlich ketaminassistierter Therapie, habe ich ein integratives Behandlungssystem entwickelt.
+            {t("ueberMich.section4Para2")}
           </p>
           <p className="text-base sm:text-lg text-[#515757]/80 leading-relaxed">
-            Dieses System verbindet die jeweiligen Stärken der einzelnen Ansätze zu einem klar strukturierten Gesamtkonzept. Ziel ist es nicht, Methoden isoliert nebeneinander anzuwenden, sondern sie so aufeinander abzustimmen, dass sinnvolle Synergien entstehen und sich die einzelnen Maßnahmen gegenseitig verstärken, anstatt sich zu widersprechen.
+            {t("ueberMich.section4Para3")}
           </p>
           <p className="text-base sm:text-lg text-[#515757]/80 leading-relaxed">
-            Ein derart breit aufgestellter und zugleich systematisch integrierter Ansatz ist selten. Er ermöglicht es, Patient:innen nicht eindimensional, sondern in ihrer gesamten Komplexität zu betrachten und individuell abgestimmte, ganzheitliche Therapien anzubieten.
+            {t("ueberMich.section4Para4")}
           </p>
           <p className="text-base sm:text-lg text-[#515757]/80 leading-relaxed">
-            Nicht, um möglichst viel zu machen, sondern um Zusammenhänge zu verstehen, die oft übersehen werden. Nicht als willkürliche Kombination verschiedener Medizinformen, sondern als strukturiertes Konzept, in dem jeder Ansatz seinen klaren Platz hat, mit dem Ziel, einen wirklich ganzheitlichen Blick und eine integrierte Behandlung zu ermöglichen. Meine Arbeit beginnt dort, wo Standardlösungen aufhören.
+            {t("ueberMich.section4Para5")}
           </p>
           <p className="text-base sm:text-lg text-[#515757]/80 leading-relaxed">
-            Dabei begleite ich Dich als Mentor. Denn Lebensstiloptimierung ist häufig die Basis jeder nachhaltigen Verbesserung und genau hier scheitern viele nicht am Wissen, sondern an der Umsetzung. Die beste Therapie kann nichts bewirken, wenn sie nicht gelebt wird. Deshalb braucht es mehr als einen Behandlungsplan: Es braucht Begleitung, Feintuning und echte Unterstützung durch den gesamten Prozess der Veränderung.
+            {t("ueberMich.section4Para6")}
           </p>
         </div>
       </section>
@@ -180,7 +181,7 @@ function UeberMich() {
       <section ref={section5.ref} style={section5.style} className="pb-16 sm:pb-24 px-5 sm:px-8">
         <div className="max-w-3xl mx-auto space-y-6">
           <p className="text-base sm:text-lg text-[#515757]/80 leading-relaxed">
-            Ich habe mich selbst von gesundheitlichen Problemen befreit und vielen weiteren Menschen geholfen. Nicht durch ein einzelnes Wundermittel, sondern durch konsequente Veränderung mit einem klaren Plan und Struktur. Genau diese Erfahrung gebe ich nun weiter.
+            {t("ueberMich.section5Para")}
           </p>
         </div>
       </section>
@@ -190,10 +191,10 @@ function UeberMich() {
         <div className="max-w-3xl mx-auto">
           <div className="border-t border-[#515757]/10 pt-12 space-y-6">
             <p className="text-xl sm:text-2xl font-medium text-[#515757] leading-relaxed">
-              Mein Ziel ist nicht nur, dass es Dir besser geht. Mein Ziel ist, dass Du verstehst, <em>warum</em> — und Deinen Körper so gut kennenlernst, dass Du langfristig unabhängig wirst. Ich weiß, dass ich meine Arbeit gut gemacht habe, wenn meine Patienten mich irgendwann weniger brauchen.
+              {t("ueberMich.closingPart1")}<em>{t("ueberMich.closingEmphasis")}</em>{t("ueberMich.closingPart2")}
             </p>
             <p className="text-base sm:text-lg text-[#515757]/80 leading-relaxed">
-              Du möchtest mehr über meine persönliche Story erfahren? Dann klick einfach auf den Button unten oder schau auf meinen Socials vorbei!
+              {t("ueberMich.closingSocialsLead")}
             </p>
             <div className="pt-2">
               <a
@@ -202,7 +203,7 @@ function UeberMich() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center bg-[#43a9ab] text-white px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-sm"
               >
-                Mehr erfahren
+                {t("ueberMich.moreButton")}
                 <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
@@ -210,7 +211,7 @@ function UeberMich() {
             </div>
             <div className="pt-6">
               <p className="text-sm font-semibold tracking-[2px] uppercase text-[#43a9ab] mb-4">
-                Folge mir auf
+                {t("ueberMich.followMe")}
               </p>
               <div className="flex items-center gap-6">
                 <a

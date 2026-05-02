@@ -1,56 +1,14 @@
 import { useState, useRef, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
-const items = [
-  {
-    badge: "Der Kern von allem",
-    title: "Der Mensch",
-    text: "Du stehst im Mittelpunkt – nicht deine Diagnose, nicht deine Laborwerte. Alles, was ich tue, hat ein einziges Ziel: dass du dich wirklich besser fühlst. Mehr Energie, mehr Klarheit, mehr Lebensqualität. Dein Wohlbefinden ist der Maßstab für alles. Die verschiedenen Methoden rund um diesen Kreis sind Wege dorthin – individuell, ganzheitlich und auf dich abgestimmt.",
-  },
-  {
-    badge: "Das Fundament",
-    title: "Funktionelle Medizin",
-    text: "Die Funktionelle Medizin bildet das Fundament meines Ansatzes. Sie betrachtet den Körper nicht isoliert, sondern als vernetztes System, in dem Symptome Ausdruck tieferliegender Zusammenhänge sind. Ich möchte nicht nur behandeln, sondern die Ursachen verstehen und gezielt beeinflussen. Dadurch entsteht eine individuelle und nachhaltige Form der Therapie. Alle weiteren Methoden bauen auf diesem Verständnis auf.",
-  },
-  {
-    badge: "Den ganzen Menschen sehen",
-    title: "Anthroposophische Medizin",
-    text: "Die anthroposophische Medizin betrachtet den Menschen nicht nur als Körper, sondern als Ganzes: mit seinen inneren Prozessen, seiner Biografie und seinem individuellen Ausdruck. Sie ergänzt die klassische Medizin um eine Ebene, die oft übersehen wird. Das Zusammenspiel von Körper, Psyche und Lebensführung.",
-  },
-  {
-    badge: "Umwelt & Belastungen",
-    title: "Toxikologie",
-    text: "Unser Körper ist täglich mit Einflüssen konfrontiert, die wir oft nicht sehen. Schadstoffe aus Ernährung, Luft oder alltäglichen Produkten können das innere Gleichgewicht beeinflussen, häufig über lange Zeit unbemerkt. Die Toxikologie macht diese Zusammenhänge sichtbar. Durch gezielte Analyse und gezielte Entlastung schaffen wir die Voraussetzung für echte, spürbare Veränderung.",
-  },
-  {
-    badge: "Gesundheit im Alltag",
-    title: "Lebensstilmedizin",
-    text: "Schlaf, Ernährung, Bewegung und Stressbewältigung. Diese vier Bereiche beeinflussen deine Gesundheit jeden Tag, ob du es wahrnimmst oder nicht. Wenn sie nicht im Gleichgewicht sind, greifen auch andere Therapien nur begrenzt. Die Lebensstilmedizin setzt genau hier an. Ich helfe dir dabei, diese Bereiche zu analysieren, zu verstehen und schrittweise anzupassen.",
-  },
-  {
-    badge: "Deine individuelle Ausgangsbasis",
-    title: "Genetik & Epigenetik",
-    text: "Deine Genetik ist deine Ausgangsbasis. Sie bestimmt, wie dein Körper grundsätzlich funktioniert. Doch dein Lifestyle und deine Umwelt haben mehr Einfluss auf diese Gene, als die meisten wissen. Genau das zeigt die Epigenetik: Vieles, was genetisch angelegt scheint, ist veränderbar. Dieses Wissen nutzen wir, um gezielt dort anzusetzen, wo du und dein Körper wirklich Unterstützung brauchen.",
-  },
-  {
-    badge: "Den Körper aktiv gestalten",
-    title: "Biohacking",
-    text: "Biohacking bedeutet, deinen Körper besser zu verstehen und dieses Wissen gezielt einzusetzen. Es geht darum, mit den richtigen Werkzeugen und Routinen deine Energie, Leistungsfähigkeit und Gesundheit aktiv zu gestalten. Das können gezielte Ernährungsstrategien sein, Licht- und Schlafoptimierung, Kältereize oder die Nutzung von Messdaten aus deinem Alltag. Nicht als Selbstzweck, sondern als Weg, deinen Körper wirklich kennenzulernen und das Beste aus dir herauszuholen.",
-  },
-  {
-    badge: "Wissen in Handlung verwandeln",
-    title: "Coaching & Umsetzung im Alltag",
-    text: "Positive Veränderung entsteht nicht nur durch Wissen allein, sondern auch durch richtige Umsetzung. Deshalb begleite ich dich dabei, die Erkenntnisse in deinen Alltag zu integrieren. Schritt für Schritt. In einem Tempo, das für dich optimal ist. Es geht nicht um Perfektion, sondern darum, die richtigen Dinge nachhaltig in dein Leben zu bringen.",
-  },
-];
-
-const outerCircles = [
-  { id: 0, left: 204, top: 26, label: "Funktionelle\nMedizin", lineId: "l1" },
-  { id: 1, left: 343, top: 93, label: "Anthropo-\nsophische\nMedizin", lineId: "l2" },
-  { id: 2, left: 378, top: 244, label: "Toxiko-\nlogie", lineId: "l3" },
-  { id: 3, left: 281, top: 364, label: "Lebensstil-\nmedizin", lineId: "l4" },
-  { id: 4, left: 127, top: 364, label: "Genetik &\nEpigenetik", lineId: "l5" },
-  { id: 5, left: 31, top: 244, label: "Bio-\nhacking", lineId: "l6" },
-  { id: 6, left: 65, top: 93, label: "Coaching &\nUmsetzung", lineId: "l7" },
+const outerCirclePositions = [
+  { id: 0, left: 204, top: 26, lineId: "l1" },
+  { id: 1, left: 343, top: 93, lineId: "l2" },
+  { id: 2, left: 378, top: 244, lineId: "l3" },
+  { id: 3, left: 281, top: 364, lineId: "l4" },
+  { id: 4, left: 127, top: 364, lineId: "l5" },
+  { id: 5, left: 31, top: 244, lineId: "l6" },
+  { id: 6, left: 65, top: 93, lineId: "l7" },
 ];
 
 const lines = [
@@ -114,6 +72,11 @@ const icons = [
 ];
 
 export default function MeinAnsatz() {
+  const { t, i18n } = useTranslation();
+  const items = t("meinAnsatz.items", { returnObjects: true });
+  const circleLabels = t("meinAnsatz.circleLabels", { returnObjects: true });
+  const headerSuffix = t("meinAnsatz.headerTitleSuffix", { defaultValue: "" });
+
   const [active, setActive] = useState(null);
   const [showPanel, setShowPanel] = useState(false);
   const [panelData, setPanelData] = useState(null);
@@ -153,8 +116,10 @@ export default function MeinAnsatz() {
   }
 
   const activeLineId = active !== null && active !== 7
-    ? outerCircles.find((c) => c.id === active)?.lineId
+    ? outerCirclePositions.find((c) => c.id === active)?.lineId
     : null;
+
+  const isEn = i18n.language === "en";
 
   return (
     <section
@@ -180,7 +145,16 @@ export default function MeinAnsatz() {
             className="text-[#43A9AB] font-black leading-[0.85] tracking-tighter"
             style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}
           >
-            Medizin, die den ganzen Menschen <em className="italic">sieht</em>
+            {isEn ? (
+              <>
+                {t("meinAnsatz.headerTitle")} <em className="italic">{t("meinAnsatz.headerEmphasis")}</em>
+                {headerSuffix ? ` ${headerSuffix}` : ""}
+              </>
+            ) : (
+              <>
+                {t("meinAnsatz.headerTitle")} <em className="italic">{t("meinAnsatz.headerEmphasis")}</em>
+              </>
+            )}
           </h2>
         </div>
 
@@ -252,12 +226,12 @@ export default function MeinAnsatz() {
                 className="text-white text-[11.5px] font-medium tracking-[0.5px]"
                 style={{ marginTop: 6 }}
               >
-                Der Mensch
+                {t("meinAnsatz.centerLabel")}
               </div>
             </div>
 
             {/* Outer circles */}
-            {outerCircles.map((circle, i) => {
+            {outerCirclePositions.map((circle, i) => {
               const isActive = active === circle.id;
               return (
                 <div
@@ -303,7 +277,7 @@ export default function MeinAnsatz() {
                     className="text-[10px] font-medium tracking-[0.3px] leading-[1.38]"
                     style={{ color: "#43a9ab", padding: "0 10px", whiteSpace: "pre-line" }}
                   >
-                    {circle.label}
+                    {circleLabels[i]}
                   </div>
                 </div>
               );
@@ -386,7 +360,7 @@ export default function MeinAnsatz() {
             pointerEvents: active !== null ? "none" : "auto",
           }}
         >
-          Bereiche antippen zum Entdecken
+          {t("meinAnsatz.hint")}
         </div>
       </div>
 

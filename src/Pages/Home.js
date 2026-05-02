@@ -25,7 +25,9 @@ import ScrollingCards from "../Components/ScrollingCards";
 import UnifiedBottomCta from "../Components/UnifiedBottomCta";
 import Seo from "../Components/Seo";
 import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 function Home() {
+  const { t } = useTranslation();
   const isMobile = useIsMobile();
   console.log("isMobile:", isMobile, "innerWidth:", window.innerWidth, "innerHeight:", window.innerHeight);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -48,9 +50,8 @@ function Home() {
 
     <div className="bg-white min-h-screen">
       <Seo
-        path="/"
-        title="Funktionelle Medizin, Prävention & Longevity in Berlin"
-        description="Praxis für funktionelle Medizin, Prävention, Longevity und Psychotherapie in Berlin. Ganzheitliche Diagnostik und personalisierte Therapien."
+        title={t("home.seoTitle")}
+        description={t("home.seoDescription")}
       />
       <Helmet>
         <script type="application/ld+json">

@@ -1,21 +1,14 @@
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import useIsMobile from "../hooks/useIsMobile";
 
-const defaultLines = [
-  "Wir begleiten dich auf deiner Reise: von chronischen Beschwerden hin zu chronischer Gesundheit!",
-  "Bekämpfe nicht nur Symptome. ",
-  "Suche die Ursachen. ",
-  "Keine weiteren Eigenversuche.",
-  "Erhalte einen klaren Plan. ",
-];
-
-const RED_WORDS = ["Beschwerden", "Symptome", "eigenen Versuche"];
-const GREEN_WORDS = ["Ursachen", "klaren Plan"];
-
-function renderWithColors(line, isActive) {
+function renderWithColors(line, isActive, redWords, greenWords) {
   const parts = [];
   let remaining = line;
-  const all = [...RED_WORDS.map((w) => ({ word: w, color: "red" })), ...GREEN_WORDS.map((w) => ({ word: w, color: "green" }))];
+  const all = [
+    ...redWords.map((w) => ({ word: w, color: "red" })),
+    ...greenWords.map((w) => ({ word: w, color: "green" })),
+  ];
   for (const { word, color } of all) {
     const idx = remaining.indexOf(word);
     if (idx === -1) continue;
@@ -34,7 +27,12 @@ function renderWithColors(line, isActive) {
   return parts.length ? parts : line;
 }
 
-function ScrolledLinesV2({ lines = defaultLines }) {
+function ScrolledLinesV3({ lines: linesProp }) {
+  const { t } = useTranslation();
+  const lines = linesProp || t("scrolledLinesV3.lines", { returnObjects: true });
+  const redWords = t("scrolledLinesV3.redWords", { returnObjects: true });
+  const greenWords = t("scrolledLinesV3.greenWords", { returnObjects: true });
+
   const sectionRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const isMobile = useIsMobile();
@@ -117,4 +115,4 @@ function ScrolledLinesV2({ lines = defaultLines }) {
   );
 }
 
-export default ScrolledLinesV2;
+export default ScrolledLinesV3;

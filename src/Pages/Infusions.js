@@ -3,49 +3,48 @@ import { useTranslation } from "react-i18next";
 import ServicesCardssmaller2 from "../Components/ServicesCardssmaller2";
 import Seo from "../Components/Seo";
 
-const shots = [
-  {
-    title: "Vitamin D Shot",
-    img: "/Assets/infusions-pics/Vitamin D Shot.png",
-    duration: "15 min.",
-    oldPrice: "40 €",
-    price: "25 €",
-    desc: "Eine einzige Spritze kann monatelange tägliche Einnahme ersetzen.",
-    tags: ["Immunsystem", "Knochen", "Hormonbalance"],
-    popupDesc: "Die meisten Menschen nehmen Vitamin D täglich als Tablette und hoffen, dass es ankommt. Tut es oft aber nicht. Denn D3 ist fettlöslich: ohne optimalen Gallenfluss, gesunden Darm und gleichzeitige Fettzufuhr kann ein Großteil einfach durchrauschen. Dieser Shot kann das Problem ein für alle Mal lösen: 100.000 IU direkt in den Muskel, sofort ins Depot, kann für Monate wirken.",
-    ingredients: "Vitamin D3 100.000 IU (Cholecalciferol)",
-    whyTitle: "Warum dieser Shot?",
-    whyText: "Vitamin D ist kein normales Vitamin. Es kann als Hormon wirken und kann an über 200 Genprozessen beteiligt sein: Immunabwehr, Knochenaufbau, Muskelkraft, Stimmung, Schlaf, Testosteron, Schilddrüse. Studien zeigen, dass über 80% der Deutschen einen suboptimalen Spiegel haben, viele ohne es zu wissen.\n\nIm Vergleich: Eine 1.000 IU Tablette täglich, 3 Monate lang – 90 Tabletten, täglich daran denken, und davon kommt je nach Darmgesundheit nur ein Bruchteil wirklich an. Dieser Shot? Eine Ampulle, fünf Minuten, direkt in den Muskel – kann 100.000 IU sofort ins Körperdepot liefern, zu 100% verfügbar, ohne Umweg über Darm oder Galle. Was Tabletten in einem Vierteljahr versuchen zu erreichen, kann dieser Shot in einem einzigen Termin schaffen.",
-  },
-  {
-    title: "Magnesium Shot",
-    img: "/Assets/infusions-pics/Magnesium Shot.png",
-    duration: "15 min.",
-    price: "ca. 39 €",
-    desc: "Eine einzige Infusion kann das erreichen, was Tabletten in Wochen kaum schaffen.",
-    tags: ["Entspannung", "Durchblutung", "Fatigue"],
-    popupDesc: "Wer Magnesium kennt, kennt es als Tablette. Wer es einmal intravenös bekommen hat, nimmt nie wieder nur Tabletten!",
-    ingredients: "Magnesium 6mmol (i.v.)",
-    whyTitle: "Warum dieser Shot – und warum als Serie?",
-    whyText: "Es geht nicht darum, Speicher aufzufüllen. Es geht darum, was in dem Moment passiert, wenn Magnesium direkt ins Blut geht und was passiert, wenn man diesen Moment wiederholt.\n\nMagnesium i.v. kann die glatte Muskulatur der Blutgefäße sofort entspannen, den Blutdruck senken und die Durchblutung schlagartig steigern. Viele Patienten spüren es live: eine intensive Wärme breitet sich vom Arm über den ganzen Körper aus. Das ist echte Vasodilatation, der Körper öffnet sich buchstäblich! Muskeln können loslassen, das Nervensystem kann runterfahren, der Herzrhythmus kann sich stabilisieren.\n\nBei chronischer Erschöpfung und Fatigue kann genau dieser kurzfristige Reset entscheidend sein. Nicht weil der Körper danach dauerhaft verändert ist, sondern weil jede Wiederholung das Nervensystem trainiert, wieder in diesen Zustand zu kommen. Wie ein Reset-Knopf, der mit jeder Sitzung leichter zu drücken ist. Als Serie angewendet, kann sich diese kurze, tiefe Entspannung in nachhaltige Erholung verwandeln; messbar an HRV, Schlafqualität und Energielevel.",
-  },
-  {
-    title: "Glutathion Shot",
-    img: "/Assets/infusions-pics/Glutathion Shot.png",
-    duration: "15 min.",
-    price: "45 €",
-    desc: "Direkt intravenös für sofortige Bioverfügbarkeit auf Zellniveau.",
-    tags: ["Entgiftung", "Zellschutz", "Skin Glow-Up"],
-    popupDesc:
-      "Der Körper produziert Glutathion selbst, aber Stress, Toxine, Alter und Nährstoffmängel leeren die Speicher schnell. Oral aufgenommen wird es kaum resorbiert: Magensäure und Darmenzyme bauen es ab, bevor es ankommt. Dieser Shot liefert reduziertes Glutathion direkt in die Vene: sofort bioverfügbar, sofort wirksam. Die Zellen bekommen das, was sie wirklich brauchen.",
-    ingredients: "Reduziertes Glutathion 1.800 mg (L-Glutathion)",
-    whyTitle: "Warum dieser Shot?",
-    whyText:
-      "Glutathion ist das mächtigste körpereigene Antioxidans. Es neutralisiert freie Radikale, regeneriert andere Antioxidantien wie Vitamin C und E, und ist zentraler Bestandteil der Leberdetoxifikation. Gleichzeitig schützt es Mitochondrien, unterstützt das Immunsystem und kann die Haut von innen aufhellen. Wer chronisch erschöpft ist, viele Toxine ausgesetzt war oder einfach auf Zellniveau regenerieren will, für den ist das der direkteste Weg.",
-  },
-];
-
 function ShotsSection() {
+  const { t } = useTranslation();
+  const shots = [
+    {
+      title: "Vitamin D Shot",
+      img: "/Assets/infusions-pics/Vitamin D Shot.png",
+      duration: "15 min.",
+      oldPrice: "40 €",
+      price: "25 €",
+      desc: t("infusions.shots.vitaminD.desc"),
+      tags: t("infusions.shots.vitaminD.tags", { returnObjects: true }),
+      popupDesc: t("infusions.shots.vitaminD.popupDesc"),
+      ingredients: "Vitamin D3 100.000 IU (Cholecalciferol)",
+      whyTitle: t("infusions.shots.vitaminD.whyTitle"),
+      whyText: t("infusions.shots.vitaminD.whyText"),
+    },
+    {
+      title: "Magnesium Shot",
+      img: "/Assets/infusions-pics/Magnesium Shot.png",
+      duration: "15 min.",
+      price: "ca. 39 €",
+      desc: t("infusions.shots.magnesium.desc"),
+      tags: t("infusions.shots.magnesium.tags", { returnObjects: true }),
+      popupDesc: t("infusions.shots.magnesium.popupDesc"),
+      ingredients: "Magnesium 6mmol (i.v.)",
+      whyTitle: t("infusions.shots.magnesium.whyTitle"),
+      whyText: t("infusions.shots.magnesium.whyText"),
+    },
+    {
+      title: "Glutathion Shot",
+      img: "/Assets/infusions-pics/Glutathion Shot.png",
+      duration: "15 min.",
+      price: "45 €",
+      desc: t("infusions.shots.glutathion.desc"),
+      tags: t("infusions.shots.glutathion.tags", { returnObjects: true }),
+      popupDesc: t("infusions.shots.glutathion.popupDesc"),
+      ingredients: "Reduziertes Glutathion 1.800 mg (L-Glutathion)",
+      whyTitle: t("infusions.shots.glutathion.whyTitle"),
+      whyText: t("infusions.shots.glutathion.whyText"),
+    },
+  ];
+
   const sectionRef = useRef(null);
   const [visible, setVisible] = useState(false);
   const [expandedShot, setExpandedShot] = useState(null);
@@ -81,10 +80,10 @@ function ShotsSection() {
     <section ref={sectionRef} className="px-4 pt-24 pb-20 bg-white">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#43A9AB] tracking-tighter mb-4">
-          Shots
+          {t("infusions.shotsTitle")}
         </h2>
         <p className="text-[#515757]/60 text-base sm:text-lg mb-12 max-w-xl">
-          Gezielte Wirkstoffe als schnelle Injektion — ohne lange Sitzung.
+          {t("infusions.shotsSubtitle")}
         </p>
         <div className="grid grid-cols-2 gap-6 max-w-2xl">
           {shots.map((shot, i) => (
@@ -156,7 +155,7 @@ function ShotsSection() {
                 <div className="h-px bg-[#515757]/10 mt-6 mb-5" />
 
                 <div className="mb-5">
-                  <h3 className="text-sm font-bold text-[#515757] mb-1">Inhaltsstoffe</h3>
+                  <h3 className="text-sm font-bold text-[#515757] mb-1">{t("infusions.ingredients")}</h3>
                   <p className="text-sm text-[#515757]/60 leading-relaxed">{shots[expandedShot].ingredients}</p>
                 </div>
 
@@ -182,7 +181,7 @@ function ShotsSection() {
                   onClick={(e) => e.stopPropagation()}
                   className="inline-flex items-center px-5 py-2.5 rounded-full bg-[#43a9ab] text-sm font-medium text-white hover:bg-[#389193] transition-colors no-underline"
                 >
-                  Jetzt buchen
+                  {t("infusions.bookNow")}
                 </a>
               </div>
             </div>
@@ -209,13 +208,13 @@ function Infusions() {
     <div className="bg-white min-h-screen">
       <Seo
         path="/infusions"
-        title="Infusionstherapie Berlin – NAD+, Vitamin C, Aminosäuren"
-        description="Hochdosierte Infusionstherapien in Berlin: NAD+, Vitamin C, Glutathion, Aminosäuren, Mikronährstoffe. Ärztlich indiziert und individuell zusammengestellt."
+        title={t("infusions.seoTitle")}
+        description={t("infusions.seoDescription")}
       />
       {/* Hero section to give scroll room for card animation */}
       <section className="relative z-40 flex flex-col items-center justify-center text-center px-6 pt-28 pb-20 bg-white">
         <span className="inline-block text-[#43a9ab] text-sm tracking-[0.2em] uppercase font-medium mb-6">
-          Infusionstherapie
+          {t("infusions.eyebrow")}
         </span>
         <h1 className="text-5xl md:text-7xl font-bold text-[#43A9AB] tracking-tighter leading-tight max-w-3xl">
           {t("Infusions.title")}

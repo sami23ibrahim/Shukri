@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import ScrolledLines from "../Components/ScrolledLines";
 import SchwerpunkteGrid from "../Components/SchwerpunkteGrid";
 import WunderpillePlan from "../Components/WunderpillePlan";
@@ -112,19 +113,6 @@ function HeroBanner({ image, badge, title, subtitle, ctaText, ctaHref, trustItem
   );
 }
 
-const recognizeItems = [
-  'Deine Werte sind "ok" - aber du fühlst dich nicht ok',
-  "Du warst bei mehreren Spezialisten, aber niemand kann dir helfen",
-  "Du hast vieles ausprobiert mit kurzfristigem Effekt, aber ohne Stabilität",
-  "Die Ursache bleibt unklar oder wird vorschnell erklärt",
-];
-
-const processSteps = [
-  { num: "01", title: "Erstgespr\u00E4ch", desc: "Struktur, Verlauf und Priorit\u00E4ten verstehen" },
-  { num: "02", title: "Entscheidung", desc: "Welche Diagnostik ist wirklich sinnvoll f\u00FCr dich?" },
-  { num: "03", title: "Dein individueller Plan", desc: "Klare Schritte und begleitete Handlungsumsetzung" },
-];
-
 const includesIcons = {
   heart: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6">
@@ -149,12 +137,7 @@ const includesIcons = {
   ),
 };
 
-const includesItems = [
-  { icon: "heart", title: "Beratung", desc: "Bevor wir dir irgendetwas empfehlen, verstehen wir deinen Körper, deine Geschichte und deine Ziele." },
-  { icon: "scan", title: "Diagnostik", desc: "Gezielte Laboranalysen, funktionelle Tests und klinische Befundung. Individuell abgestimmt auf deine Beschwerden." },
-  { icon: "leaf", title: "Gesundheitsplan", desc: "Du bekommst keinen allgemeinen Rat, sondern einen konkreten Plan. Genau auf dich abgestimmt, mit klaren nächsten Schritten." },
-  { icon: "sparkle", title: "Mentoring", desc: "Wir begleiten dich langfristig, passen deinen Plan an und bleiben an deiner Seite, bis du wirklich dort ankommst, wo du hinwillst." },
-];
+const includesIconKeys = ["heart", "scan", "leaf", "sparkle"];
 
 const ZITAT_WUNDERPILLE_CSS = `
 .quote-wrap {
@@ -251,29 +234,24 @@ const ZITAT_WUNDERPILLE_CSS = `
 `;
 
 function ZitatWunderpille() {
+  const { t } = useTranslation();
   return (
     <div className="quote-wrap">
       <style>{ZITAT_WUNDERPILLE_CSS}</style>
       <figure className="quote-box">
         <span className="quote-mark">&ldquo;</span>
         <blockquote className="quote-text">
-          Du suchst eine L&ouml;sung, aber keine Wunderpille. Die habe ich auch nicht. Was ich f&uuml;r dich habe: <em>Struktur. Systemlogik.</em> Und einen Weg, der dich und deine Beschwerden ernst nimmt.
+          {t("koerperlicheSymptome.quotePrefix")}
+          <em>{t("koerperlicheSymptome.quoteEmphasis")}</em>
+          {t("koerperlicheSymptome.quoteSuffix")}
         </blockquote>
       </figure>
     </div>
   );
 }
 
-const faqData = [
-  { q: "Warum wurde bei mir bisher nichts gefunden?", a: "Weil oft nur nach Standardursachen gesucht wird und nicht nach funktionellen Zusammenh\u00E4ngen." },
-  { q: "Machst du viele Tests?", a: "Ja. Ich arbeite mit Diagnostik, aber sehr gezielt. Mir geht es nicht darum, endlos viele Tests zu machen, sondern nur genau das, was wirklich f\u00FCr dich sinnvoll ist. So vermeiden wir unn\u00F6tige Kosten und bekommen trotzdem die Informationen, die wir brauchen." },
-  { q: "Bekomme ich einfach Supplemente?", a: "Supplemente bekommst du bei deinem Coach oder AI-Coach. Bei mir werden sie gezielt im Rahmen der orthomolekularen Medizin eingesetzt, also medizinisch und individuell auf dich abgestimmt. Das kann auch h\u00F6here Dosierungen beinhalten, um einen therapeutischen Effekt zu erreichen. Supplements sind bei mir Teil einer Therapie und weitaus mehr als nur klassische Nahrungserg\u00E4nzung." },
-  { q: "Kannst du mir garantieren, dass sich meine Beschwerden verbessern werden?", a: "Nein. Aber wir gehen strukturiert vor und geben nicht vorschnell auf. Mir ist wichtig, dich aktiv im Prozess zu begleiten und dich auch mental zu st\u00E4rken. Denn echte Ver\u00E4nderung braucht oft beides: einen klaren Plan und die Motivation, ihn umzusetzen." },
-  { q: "Wie schnell merke ich eine Ver\u00E4nderung?", a: "Das ist sehr individuell. Erfahrungsgem\u00E4\u00DF sp\u00FCren viele Patient:innen bereits nach 2-4 Wochen erste Ver\u00E4nderungen. Wenn der gew\u00FCnschte Effekt ausbleibt, passen wir die Therapie gezielt an und justieren nach." },
-  { q: 'Was ist, wenn alles "psychosomatisch" genannt wird?', a: 'Wir betrachten das differenziert. Psyche und K\u00F6rper sind miteinander verbunden, das stimmt. Aber "psychisch" ist nicht automatisch die Erkl\u00E4rung f\u00FCr unauff\u00E4llige Standardwerte. Deshalb untersuchen wir immer beides. Und wir beziehen auch beides in die Behandlung ein. Du wirst bei mir nicht einfach weitergeschickt. Stattdessen schauen wir gemeinsam, welche Faktoren bei dir wirklich eine Rolle spielen und wie sie zusammenwirken.' },
-];
-
 function KoerperlicheSymptome() {
+  const { t } = useTranslation();
   const [openFaq, setOpenFaq] = useState(null);
   const perspectiveAnim = useScrollFadeIn();
   const approachAnim = useScrollFadeIn();
@@ -283,27 +261,46 @@ function KoerperlicheSymptome() {
   const faqAnim = useScrollFadeIn();
   const ctaAnim = useScrollFadeIn();
 
+  const recognizeItems = t("koerperlicheSymptome.recognizeItems", { returnObjects: true });
+  const includesItems = t("koerperlicheSymptome.includesItems", { returnObjects: true });
+  const therapies = t("koerperlicheSymptome.therapies", { returnObjects: true });
+  const therapyImages = [
+    "/Assets/Bilder%206%20Kacheln/Ersch%C3%B6pfung.png",
+    "/Assets/Bilder%206%20Kacheln/Darm.png",
+    "/Assets/Bilder%206%20Kacheln/Schmerzen.png",
+    "/Assets/Bilder%206%20Kacheln/Schlafprobleme.png",
+    "/Assets/Bilder%206%20Kacheln/Kopfschmerz.png",
+    "/Assets/Bilder%206%20Kacheln/Infektanf%C3%A4lligkeit.png",
+  ];
+  const fitItems = t("koerperlicheSymptome.fitItems", { returnObjects: true });
+  const faqData = t("koerperlicheSymptome.faq", { returnObjects: true });
+  const trustItems = t("koerperlicheSymptome.trustItems", { returnObjects: true });
+
   return (
     <div className="bg-white min-h-screen">
       <Seo
-        path="/koerperliche-symptome"
-        title="Körperliche Symptome verstehen – Ursachenmedizin Berlin"
-        description="Wenn Standardmedizin keine Antworten findet: ursachenorientierte Diagnostik in Berlin für unspezifische und chronische körperliche Symptome."
+        title={t("koerperlicheSymptome.seoTitle")}
+        description={t("koerperlicheSymptome.seoDescription")}
       />
 
       {/* Hero Image Banner */}
       <HeroBanner
         image="/Assets/KoerperlicheBeschwerden.png"
-        badge={"K\u00F6rperliche Symptome"}
-        title={<>Du hast Beschwerden - aber keine klare <em className="italic">Ursache?</em></>}
-        subtitle={"Unauff\u00E4llige Befunde bedeuten nicht, dass alles in Ordnung ist. Oft fehlt nur das Verst\u00E4ndnis f\u00FCr die Zusammenh\u00E4nge im System."}
-        ctaText="Termin vereinbaren"
+        badge={t("koerperlicheSymptome.heroBadge")}
+        title={
+          <>
+            {t("koerperlicheSymptome.heroTitlePrefix")}
+            <em className="italic">{t("koerperlicheSymptome.heroTitleEmphasis")}</em>
+          </>
+        }
+        subtitle={t("koerperlicheSymptome.heroSubtitle")}
+        ctaText={t("koerperlicheSymptome.heroCta")}
         ctaHref="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
-        trustItems={["Systematisches Denken", "Diagnostik nach Bedarf", "Umsetzbare individuelle Therapie"]}
+        trustItems={trustItems}
       />
 
       {/* Vielleicht kennst du das */}
-      <ScrolledLines lines={recognizeItems} title="Vielleicht kennst du das:" />
+      <ScrolledLines lines={recognizeItems} title={t("koerperlicheSymptome.recognizeTitle")} />
       <ZitatWunderpille />
 
       {/* Perspektivwechsel */}
@@ -314,17 +311,17 @@ function KoerperlicheSymptome() {
             style={{ background: "linear-gradient(135deg, rgba(67,169,171,0.06) 0%, rgba(67,169,171,0.02) 100%)" }}
           >
             <div className="text-[10px] font-light tracking-[3px] uppercase text-[#43a9ab]/60 mb-4">
-              Perspektivwechsel
+              {t("koerperlicheSymptome.perspectiveLabel")}
             </div>
-            <h3 className="text-xl sm:text-2xl font-bold text-[#43A9AB] mb-6">Was oft &uuml;bersehen wird</h3>
+            <h3 className="text-xl sm:text-2xl font-bold text-[#43A9AB] mb-6">{t("koerperlicheSymptome.perspectiveTitle")}</h3>
             <p className="text-[#515757]/70 text-base sm:text-lg leading-relaxed mb-4">
-              {'"'}Unauff&auml;llige Befunde{'"'} bedeuten nicht unbedingt, dass nichts da ist.
+              {t("koerperlicheSymptome.perspectiveP1")}
             </p>
             <p className="text-[#515757]/70 text-base sm:text-lg leading-relaxed mb-4">
-              Oft wird nur nach Dingen gesucht, die nur im Standard sichtbar sind.
+              {t("koerperlicheSymptome.perspectiveP2")}
             </p>
             <p className="text-[#515757] text-base sm:text-lg leading-relaxed font-medium">
-              Manchmal fehlt einfach ein entscheidendes Puzzlest&uuml;ck.
+              {t("koerperlicheSymptome.perspectiveP3")}
             </p>
           </div>
         </div>
@@ -334,13 +331,13 @@ function KoerperlicheSymptome() {
       <section ref={approachAnim.ref} style={approachAnim.style} className="py-16 sm:py-24 px-5 sm:px-8">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-6 tracking-tight">
-            So arbeite ich anders
+            {t("koerperlicheSymptome.approachTitle")}
           </h2>
           <p className="text-[#515757]/70 text-base sm:text-lg leading-relaxed mb-4">
-            Ich betrachte dich als Ganzes - nicht als einzelne Diagnose. Durch die Brille der klinischen Psychoneuroimmunologie, anthroposophischen Medizin, funktionellen Medizin, Genetik und Toxikologie.
+            {t("koerperlicheSymptome.approachP1")}
           </p>
           <p className="text-[#515757]/70 text-base sm:text-lg leading-relaxed">
-            Und ich bleibe dran. Denn ich bin der Arzt, der nicht abhaut, wenn etwas noch unklar ist. Ich gehe mit dir weiter, bis wir immer mehr Erkenntnisse gewinnen.
+            {t("koerperlicheSymptome.approachP2")}
           </p>
         </div>
       </section>
@@ -348,14 +345,7 @@ function KoerperlicheSymptome() {
       {/* Themen-Cluster */}
       <SchwerpunkteGrid
         title=""
-        therapies={[
-          { title: "Erschöpfung", desc: "Brain Fog, Akku ständig leer", image: "/Assets/Bilder%206%20Kacheln/Ersch%C3%B6pfung.png" },
-          { title: "Darm", desc: "Blähbauch, Unverträglichkeiten", image: "/Assets/Bilder%206%20Kacheln/Darm.png" },
-          { title: "Schmerzen", desc: "Entzündung, diffuse Beschwerden", image: "/Assets/Bilder%206%20Kacheln/Schmerzen.png" },
-          { title: "Schlafstörungen", desc: "Morgens nicht erholt", image: "/Assets/Bilder%206%20Kacheln/Schlafprobleme.png" },
-          { title: "Kopfschmerz", desc: "Haut, Histamin-Muster", image: "/Assets/Bilder%206%20Kacheln/Kopfschmerz.png" },
-          { title: "Infektanfälligkeit", desc: "Immunassoziierte Muster", image: "/Assets/Bilder%206%20Kacheln/Infektanf%C3%A4lligkeit.png" },
-        ]}
+        therapies={therapies.map((th, i) => ({ ...th, image: therapyImages[i] }))}
       />
       <div className="max-w-7xl mx-auto px-5 sm:px-10 pb-16 sm:pb-20">
         <a
@@ -364,7 +354,7 @@ function KoerperlicheSymptome() {
           rel="noopener noreferrer"
           className="inline-flex items-center bg-[#43a9ab] text-white px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-sm"
         >
-          Hier zur Verbesserung der Beschwerden
+          {t("koerperlicheSymptome.improvementCta")}
           <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
@@ -375,22 +365,26 @@ function KoerperlicheSymptome() {
       <section ref={diagnostikAnim.ref} style={diagnostikAnim.style} className="py-16 sm:py-24 px-5 sm:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-[10px] font-light tracking-[3px] uppercase text-[#43a9ab]/60 mb-4">
-            Diagnostik nach Bedarf
+            {t("koerperlicheSymptome.diagnostikLabel")}
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-6 tracking-tight">
-            Passend zu deiner Geschichte, nicht {'"'}viel hilft viel{'"'}
+            {t("koerperlicheSymptome.diagnostikTitle")}
           </h2>
           <p className="text-[#515757]/70 text-base sm:text-lg leading-relaxed mb-6">
-            Du willst verstanden und geh&ouml;rt werden, nicht einfach mehr Tests. Deshalb gilt bei mir: Zusammenh&auml;nge verstehen steht im Mittelpunkt. Ich arbeite mit einem der gr&ouml;&szlig;ten Labore Deutschlands und nutze gezielte Blutanalysen, um genau die Informationen zu gewinnen, die wirklich f&uuml;r dich relevant sind. Nicht im Sinne von {'"'}viel hilft viel{'"'}, sondern als Grundlage f&uuml;r klare, fundierte Entscheidungen.
+            {t("koerperlicheSymptome.diagnostikP1")}
           </p>
 
           <div className="rounded-2xl border border-[#43a9ab]/15 p-6 sm:p-8 mt-8" style={{ background: "rgba(67,169,171,0.03)" }}>
-            <div className="text-[10px] font-light tracking-[3px] uppercase text-[#43a9ab]/60 mb-3">Beispiel</div>
+            <div className="text-[10px] font-light tracking-[3px] uppercase text-[#43a9ab]/60 mb-3">{t("koerperlicheSymptome.exampleLabel")}</div>
             <p className="text-[#515757]/70 text-base leading-relaxed mb-3">
-              Ein Mangel ist selten die eigentliche Ursache.
+              {t("koerperlicheSymptome.exampleP1")}
             </p>
             <p className="text-[#515757]/70 text-base leading-relaxed">
-              Wenn dir z.B. Omega-3 fehlt, frage ich nicht nur <em>was</em> fehlt, sondern <em>warum</em> es fehlt. Und was das genau f&uuml;r dich bedeutet. Entz&uuml;ndung, Stress, Regeneration, Darm, Stoffwechsel? So wird Supplementierung logisch.
+              {t("koerperlicheSymptome.exampleP2Prefix")}
+              <em>{t("koerperlicheSymptome.exampleP2Em1")}</em>
+              {t("koerperlicheSymptome.exampleP2Mid")}
+              <em>{t("koerperlicheSymptome.exampleP2Em2")}</em>
+              {t("koerperlicheSymptome.exampleP2Suffix")}
             </p>
           </div>
         </div>
@@ -405,13 +399,13 @@ function KoerperlicheSymptome() {
           <div className="rounded-3xl overflow-hidden" style={{ background: "linear-gradient(135deg, #d4ece1 0%, #e0f4f5 30%, #d9f0e4 60%, #c8e6d8 100%)" }}>
             <div className="px-8 sm:px-14 py-12 sm:py-16">
               <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-10 text-center">
-                Alles was du brauchst in einem Termin!
+                {t("koerperlicheSymptome.includesTitle")}
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {includesItems.map((item, i) => (
                   <div key={i} className="text-center">
                     <div className="w-12 h-12 rounded-xl bg-white/80 text-[#43a9ab] flex items-center justify-center mx-auto mb-4 shadow-sm">
-                      {includesIcons[item.icon]}
+                      {includesIcons[includesIconKeys[i]]}
                     </div>
                     <h3 className="text-base font-bold text-[#515757] mb-2">{item.title}</h3>
                     <p className="text-sm text-[#515757]/60 leading-relaxed">{item.desc}</p>
@@ -426,13 +420,9 @@ function KoerperlicheSymptome() {
       {/* F&uuml;r wen */}
       <section ref={fitAnim.ref} style={fitAnim.style} className="py-16 sm:py-24 px-5 sm:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-8 tracking-tight">F&uuml;r wen das passt:</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-8 tracking-tight">{t("koerperlicheSymptome.fitTitle")}</h2>
           <div className="space-y-4">
-            {[
-              "Du willst verstehen, was wirklich los ist",
-              "Du bist bereit, Dinge umzusetzen und in deinen Alltag zu integrieren",
-              "Du suchst eine L\u00F6sung - keine blo\u00DFe Illusion",
-            ].map((item, i) => (
+            {fitItems.map((item, i) => (
               <div key={i} className="flex items-center gap-4">
                 <div className="w-5 h-5 rounded-full bg-[#43a9ab]/10 flex items-center justify-center flex-shrink-0">
                   <svg className="w-3 h-3 text-[#43a9ab]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -449,7 +439,7 @@ function KoerperlicheSymptome() {
       {/* FAQ */}
       <section ref={faqAnim.ref} style={faqAnim.style} className="py-16 sm:py-24 px-5 sm:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-10 tracking-tight">H&auml;ufige Fragen</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#43A9AB] mb-10 tracking-tight">{t("koerperlicheSymptome.faqTitle")}</h2>
           <div className="border-t border-[#43a9ab]/10">
             {faqData.map((faq, i) => (
               <AccordionItem
@@ -472,10 +462,10 @@ function KoerperlicheSymptome() {
             className="text-[#43A9AB] font-black leading-[0.92] tracking-tighter mb-6"
             style={{ fontSize: "clamp(1.6rem, 4vw, 2.8rem)" }}
           >
-            Lass uns zusammen das fehlende Puzzlest&uuml;ck suchen.
+            {t("koerperlicheSymptome.ctaTitle")}
           </h2>
           <p className="text-[#515757]/60 text-base sm:text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-            Und daraus einen Plan erstellen, der wirklich f&uuml;r dich und dein Leben funktioniert.
+            {t("koerperlicheSymptome.ctaSubtitle")}
           </p>
           <a
             href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
@@ -483,7 +473,7 @@ function KoerperlicheSymptome() {
             rel="noopener noreferrer"
             className="inline-flex items-center bg-[#43a9ab] text-white px-10 py-4 rounded-xl text-base font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-lg shadow-[#43a9ab]/20"
           >
-            Termin vereinbaren
+            {t("koerperlicheSymptome.ctaButton")}
             <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
