@@ -91,6 +91,21 @@ HTML RULES:
           ? "\n\n⚠️ Warning: EN post published without translation_of. If this is meant to be a translation of a DE post, re-publish with translation_of set."
           : "";
 
+      // If this is a translation and no thumbnail was provided, inherit the
+      // original post's thumbnail. Same image works for both languages and
+      // saves Claude from having to re-upload.
+      let finalThumbnail = thumbnail_url || null;
+      if (!finalThumbnail && translation_of) {
+        const { data: original } = await supabase
+          .from("blog_posts")
+          .select("thumbnail_url")
+          .eq("id", translation_of)
+          .maybeSingle();
+        if (original?.thumbnail_url) {
+          finalThumbnail = original.thumbnail_url;
+        }
+      }
+
       const { data, error } = await supabase
         .from("blog_posts")
         .insert({
@@ -98,7 +113,7 @@ HTML RULES:
           slug: finalSlug,
           description: description || "",
           html_content,
-          thumbnail_url: thumbnail_url || null,
+          thumbnail_url: finalThumbnail,
           language: finalLang,
           translation_of: translation_of || null,
           published: false,
