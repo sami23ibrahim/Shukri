@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { translatePath, detectLang } from "../lib/routeMap";
+import { findPairedBlogSlug } from "../lib/blogQueries";
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
@@ -16,13 +17,13 @@ const LanguageSwitcher = () => {
 
   const currentLangCode = detectLang(pathname);
 
-  const changeLanguage = (lang) => {
+  const changeLanguage = async (lang) => {
     if (lang === currentLangCode) {
       setMenuOpen(false);
       return;
     }
 
-    // Static page: look up the paired URL.
+    // 1) Static page: routeMap has it.
     const paired = translatePath(pathname, lang);
     if (paired) {
       i18n.changeLanguage(lang);
@@ -32,8 +33,22 @@ const LanguageSwitcher = () => {
       return;
     }
 
-    // Blog post page (no entry in routeMap): handled by Phase 4.
-    // For now, navigate to the language's blog index instead.
+    // 2) Blog post URL: extract slug, look up paired translation.
+    const blogPostMatch = pathname.match(/^\/(?:en\/)?blog\/(.+)$/);
+    if (blogPostMatch) {
+      const currentSlug = blogPostMatch[1];
+      const pairedSlug = await findPairedBlogSlug(currentSlug, currentLangCode, lang);
+      if (pairedSlug) {
+        i18n.changeLanguage(lang);
+        try { localStorage.setItem("lang", lang); } catch (_) {}
+        navigate(lang === "en" ? `/en/blog/${pairedSlug}` : `/blog/${pairedSlug}`);
+        setMenuOpen(false);
+        return;
+      }
+      // No translation exists — fall through to fallback.
+    }
+
+    // 3) Fallback (unknown URL or no translation): blog index in target lang.
     const fallback = lang === "en" ? "/en/blog" : "/blog";
     i18n.changeLanguage(lang);
     try { localStorage.setItem("lang", lang); } catch (_) {}

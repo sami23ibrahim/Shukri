@@ -1146,5 +1146,26 @@
       "title": "Ready for Your Health Check?",
       "desc": "Book an appointment now and gain clarity about your dental health."
     }
+  },
+  "blog": {
+    "title": "Knowledge",
+    "subtitle": "simple & clear",
+    "intro": "Here you get my holistic perspective on different topics, always scientifically grounded and simply explained.",
+    "empty": "No posts yet.",
+    "seoTitle": "Blog – Functional Medicine, Longevity & Prevention",
+    "seoDescription": "Current articles on functional medicine, prevention, longevity and integrative therapy from the ViveCura practice in Berlin."
+  },
+  "blogPost": {
+    "notFound": "Article not found",
+    "backToBlog": "Back to blog",
+    "ctaTitle": "Have questions or want to book an appointment?",
+    "ctaSubtitle": "We'd be happy to advise you personally at our practice.",
+    "ctaButton": "Book appointment"
+  },
+  "scrollingCards": {
+    "title": "Dive deeper.",
+    "readArticle": "Read article",
+    "viewAll": "Discover all blog articles",
+    "articleAriaLabel": "Article"
   }
 }

@@ -1,29 +1,33 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { supabase } from "../supabaseClient";
+import { useTranslation } from "react-i18next";
 import ShadowHtml from "../Components/ShadowHtml";
 import Seo from "../Components/Seo";
+import useLanguage from "../hooks/useLanguage";
+import { fetchPostBySlugAndLang, findPairedBlogSlug } from "../lib/blogQueries";
 
 function BlogPost() {
   const { slug } = useParams();
+  const { t } = useTranslation();
+  const lang = useLanguage();
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [pairedSlug, setPairedSlug] = useState(null);
 
   useEffect(() => {
-    const fetchPost = async () => {
-      const { data, error } = await supabase
-        .from("blog_posts")
-        .select("*")
-        .eq("slug", slug)
-        .eq("published", true)
-        .single();
-
-      if (!error && data) setPost(data);
+    const load = async () => {
+      const data = await fetchPostBySlugAndLang(slug, lang);
+      setPost(data);
       setLoading(false);
+      if (data) {
+        const targetLang = lang === "en" ? "de" : "en";
+        const paired = await findPairedBlogSlug(slug, lang, targetLang);
+        setPairedSlug(paired);
+      }
     };
-    fetchPost();
-  }, [slug]);
+    load();
+  }, [slug, lang]);
 
   if (loading) {
     return (
@@ -37,13 +41,13 @@ function BlogPost() {
     return (
       <div className="min-h-screen pt-24 px-4 text-center">
         <h1 className="text-2xl font-light text-[#515757] mb-4">
-          Beitrag nicht gefunden
+          {t("blogPost.notFound")}
         </h1>
         <Link
-          to="/blog"
+          to={lang === "en" ? "/en/blog" : "/blog"}
           className="text-[#43a9ab] hover:underline text-sm no-underline"
         >
-          &larr; Zurück zum Blog
+          &larr; {t("blogPost.backToBlog")}
         </Link>
       </div>
     );
@@ -76,15 +80,21 @@ function BlogPost() {
             },
             mainEntityOfPage: {
               "@type": "WebPage",
-              "@id": `https://vivecura.com/blog/${post.slug}`,
+              "@id": `https://vivecura.com${lang === "en" ? "/en" : ""}/blog/${post.slug}`,
             },
           })}
         </script>
+        {pairedSlug && (
+          <>
+            <link rel="alternate" hrefLang={lang === "en" ? "de" : "en"} href={`https://vivecura.com${lang === "en" ? "" : "/en"}/blog/${pairedSlug}`} />
+            <link rel="alternate" hrefLang={lang} href={`https://vivecura.com${lang === "en" ? "/en" : ""}/blog/${slug}`} />
+          </>
+        )}
       </Helmet>
 
       <div className="max-w-5xl mx-auto px-4 py-4">
         <Link
-          to="/blog"
+          to={lang === "en" ? "/en/blog" : "/blog"}
           className="inline-flex items-center gap-2 text-sm text-[#515757]/50 hover:text-[#43a9ab] transition-colors duration-300 no-underline"
         >
           <svg
@@ -96,7 +106,7 @@ function BlogPost() {
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
           </svg>
-          Zurück zum Blog
+          {t("blogPost.backToBlog")}
         </Link>
       </div>
 
@@ -105,10 +115,10 @@ function BlogPost() {
       <div className="bg-[#f7f9f9] py-16 px-4 text-center">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-light text-[#515757] mb-4">
-            Haben Sie Fragen oder möchten einen Termin?
+            {t("blogPost.ctaTitle")}
           </h2>
           <p className="text-[#515757]/70 mb-8 text-base">
-            Wir beraten Sie gerne persönlich in unserer Praxis.
+            {t("blogPost.ctaSubtitle")}
           </p>
           <a
             href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
@@ -116,7 +126,7 @@ function BlogPost() {
             rel="noopener noreferrer"
             className="inline-block bg-[#43a9ab] hover:bg-[#3a9496] text-white px-8 py-3 rounded-lg text-base font-medium transition-colors duration-300 no-underline"
           >
-            Termin vereinbaren
+            {t("blogPost.ctaButton")}
           </a>
         </div>
       </div>

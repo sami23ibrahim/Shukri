@@ -1146,5 +1146,26 @@
       "title": "Bereit für Ihren Health Check?",
       "desc": "Vereinbaren Sie jetzt einen Termin und erhalten Sie Klarheit über Ihre Zahngesundheit."
     }
+  },
+  "blog": {
+    "title": "Wissen",
+    "subtitle": "einfach & verständlich",
+    "intro": "Hier bekommst du meine ganzheitliche Perspektive über unterschiedliche Themen, immer wissenschaftlich gestützt und einfach erklärt.",
+    "empty": "Noch keine Beiträge vorhanden.",
+    "seoTitle": "Blog – Funktionelle Medizin, Longevity & Prävention",
+    "seoDescription": "Aktuelle Beiträge zu funktioneller Medizin, Prävention, Longevity und integrativer Therapie aus der ViveCura Praxis in Berlin."
+  },
+  "blogPost": {
+    "notFound": "Beitrag nicht gefunden",
+    "backToBlog": "Zurück zum Blog",
+    "ctaTitle": "Haben Sie Fragen oder möchten einen Termin?",
+    "ctaSubtitle": "Wir beraten Sie gerne persönlich in unserer Praxis.",
+    "ctaButton": "Termin vereinbaren"
+  },
+  "scrollingCards": {
+    "title": "Tiefer eintauchen.",
+    "readArticle": "Artikel lesen",
+    "viewAll": "Alle Blogartikel entdecken",
+    "articleAriaLabel": "Artikel"
   }
 }
