@@ -1,51 +1,44 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { supabase } from "../supabaseClient";
+import { useTranslation } from "react-i18next";
+import useLanguage from "../hooks/useLanguage";
+import { fetchPublishedPostsForLanguage, orderForListing } from "../lib/blogQueries";
 import Seo from "../Components/Seo";
 
 function Blog() {
+  const { t } = useTranslation();
+  const lang = useLanguage();
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      const { data, error } = await supabase
-        .from("blog_posts")
-        .select("id, title, slug, description, thumbnail_url, created_at, pinned")
-        .eq("published", true)
-        .order("created_at", { ascending: false });
-
-      if (!error && data) {
-        const newest = data.slice(0, 2);
-        const newestIds = new Set(newest.map((p) => p.id));
-        const pinned = data.filter((p) => p.pinned && !newestIds.has(p.id));
-        const rest = data.filter((p) => !p.pinned && !newestIds.has(p.id));
-        setPosts([...newest, ...pinned, ...rest]);
-      }
+    const load = async () => {
+      const data = await fetchPublishedPostsForLanguage(lang);
+      setPosts(orderForListing(data));
       setLoading(false);
     };
-    fetchPosts();
-  }, []);
+    load();
+  }, [lang]);
 
   return (
     <div className="min-h-screen pt-24 pb-16 px-4">
       <Seo
         path="/blog"
-        title="Blog – Funktionelle Medizin, Longevity & Prävention"
-        description="Aktuelle Beiträge zu funktioneller Medizin, Prävention, Longevity und integrativer Therapie aus der ViveCura Praxis in Berlin."
+        title={t("blog.seoTitle")}
+        description={t("blog.seoDescription")}
       />
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="mb-12">
           <h1 className="text-3xl font-light tracking-wide text-[#515757] mb-1">
-            Wissen
+            {t("blog.title")}
           </h1>
           <p className="text-lg text-[#43a9ab] font-light mb-3">
-            einfach &amp; verständlich
+            {t("blog.subtitle")}
           </p>
           <div className="w-12 h-[2px] bg-[#43a9ab]/40 mb-4" />
           <p className="text-[#515757]/50 text-sm max-w-lg leading-relaxed">
-            Hier bekommst du meine ganzheitliche Perspektive über unterschiedliche Themen, immer wissenschaftlich gestützt und einfach erklärt.
+            {t("blog.intro")}
           </p>
         </div>
 
@@ -56,7 +49,7 @@ function Blog() {
           </div>
         ) : posts.length === 0 ? (
           <p className="text-center text-[#515757]/40 py-20 text-sm">
-            Noch keine Beiträge vorhanden.
+            {t("blog.empty")}
           </p>
         ) : (
           /* Blog cards grid */
@@ -64,7 +57,7 @@ function Blog() {
             {posts.map((post, i) => (
               <Link
                 key={post.id}
-                to={`/blog/${post.slug}`}
+                to={lang === "en" ? `/en/blog/${post.slug}` : `/blog/${post.slug}`}
                 className="group block no-underline opacity-0 animate-fade-in-up"
                 style={{
                   animationDelay: `${i * 80}ms`,
@@ -92,7 +85,7 @@ function Blog() {
                   {/* Card body */}
                   <div className="p-3">
                     <p className="text-[10px] text-[#43a9ab] font-medium tracking-wider uppercase mb-1">
-                      {new Date(post.created_at).toLocaleDateString("de-DE", {
+                      {new Date(post.created_at).toLocaleDateString(lang === "en" ? "en-US" : "de-DE", {
                         day: "numeric",
                         month: "short",
                         year: "numeric",

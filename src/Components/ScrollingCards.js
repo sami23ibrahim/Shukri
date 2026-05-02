@@ -1,26 +1,26 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { supabase } from "../supabaseClient";
+import { useTranslation } from "react-i18next";
 import useIsMobile from "../hooks/useIsMobile";
+import useLanguage from "../hooks/useLanguage";
+import { fetchFeaturedPostsForLanguage } from "../lib/blogQueries";
 
-export default function ScrollingCards({ speedSeconds = 36, title = "Tiefer eintauchen." }) {
+export default function ScrollingCards({ speedSeconds = 36, title }) {
+  const { t } = useTranslation();
+  const lang = useLanguage();
+  const resolvedTitle = title === undefined ? t("scrollingCards.title") : title;
   const [posts, setPosts] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const isMobile = useIsMobile();
   const scrollerRef = useRef(null);
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      const { data, error } = await supabase
-        .from("blog_posts")
-        .select("id, title, slug, description, thumbnail_url")
-        .eq("published", true)
-        .eq("featured_on_home", true)
-        .order("created_at", { ascending: false });
-      if (!error && data) setPosts(data);
+    const load = async () => {
+      const data = await fetchFeaturedPostsForLanguage(lang);
+      setPosts(data);
     };
-    fetchPosts();
-  }, []);
+    load();
+  }, [lang]);
 
   useEffect(() => {
     if (!isMobile) return;
@@ -56,7 +56,7 @@ export default function ScrollingCards({ speedSeconds = 36, title = "Tiefer eint
   const renderCard = (post, key, extraClass = "") => (
     <Link
       key={key}
-      to={`/blog/${post.slug}`}
+      to={lang === "en" ? `/en/blog/${post.slug}` : `/blog/${post.slug}`}
       className={`shrink-0 rounded-2xl overflow-hidden shadow-md border border-[#515757]/10 bg-white flex flex-col no-underline transition-all duration-300 ${extraClass}`}
     >
       <div className="w-full h-44 sm:h-48 bg-[#e0f4f5] overflow-hidden">
@@ -80,7 +80,7 @@ export default function ScrollingCards({ speedSeconds = 36, title = "Tiefer eint
           </p>
         )}
         <span className="inline-flex items-center gap-1 text-[#43a9ab] font-semibold text-sm mt-3">
-          Artikel lesen
+          {t("scrollingCards.readArticle")}
           <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
             <path d="M5 12h14M13 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
@@ -91,13 +91,13 @@ export default function ScrollingCards({ speedSeconds = 36, title = "Tiefer eint
 
   return (
     <section className="py-24 sm:py-32 bg-white overflow-hidden">
-      {title && (
+      {resolvedTitle && (
         <div className="max-w-7xl mx-auto px-5 sm:px-10 mb-16 sm:mb-20">
           <h2
             className="text-[#43A9AB] font-black leading-[0.95] tracking-tighter"
             style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)" }}
           >
-            {title}
+            {resolvedTitle}
           </h2>
         </div>
       )}
@@ -127,7 +127,7 @@ export default function ScrollingCards({ speedSeconds = 36, title = "Tiefer eint
               <button
                 key={i}
                 onClick={() => scrollToIndex(i)}
-                aria-label={`Artikel ${i + 1}`}
+                aria-label={`${t("scrollingCards.articleAriaLabel")} ${i + 1}`}
                 className="h-2 rounded-full transition-all duration-300"
                 style={{
                   width: i === activeIndex ? 20 : 8,
@@ -156,10 +156,10 @@ export default function ScrollingCards({ speedSeconds = 36, title = "Tiefer eint
 
       <div className="max-w-7xl mx-auto px-5 sm:px-10 mt-10 sm:mt-14 text-center">
         <Link
-          to="/blog"
+          to={lang === "en" ? "/en/blog" : "/blog"}
           className="inline-flex items-center gap-2 text-[#43A9AB] font-semibold text-sm sm:text-base hover:gap-3 transition-all no-underline"
         >
-          Alle Blogartikel entdecken
+          {t("scrollingCards.viewAll")}
           <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
             <path d="M5 12h14M13 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
