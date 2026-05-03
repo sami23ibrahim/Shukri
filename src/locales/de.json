@@ -74,103 +74,103 @@
     "seoTitle": "Ketamin-Therapie Berlin – Ketamin-Infusionen ärztlich begleitet",
     "seoDescription": "Ketamin-assistierte Therapie in Berlin – ärztlich begleitete Infusionen und Shots zur Behandlung von Depression, Trauma und therapieresistenten Symptomen.",
     "scrolledLinesTitle": "Ketamin-Erfahrung",
-    "ketaminLines": {
-      "0": "So hat es einer meiner Patienten formuliert:",
-      "1": "Gesprächstherapie ist, als gehe man zu Fuß.",
-      "2": "Verhaltenstherapie ist, als fahre man Fahrrad.",
-      "3": "Ketamin assistierte Therapie ist, als fährt man Ferrari.“"
-    },
+    "ketaminLines": [
+      "So hat es einer meiner Patienten formuliert:",
+      "Gesprächstherapie ist, als gehe man zu Fuß.",
+      "Verhaltenstherapie ist, als fahre man Fahrrad.",
+      "Ketamin assistierte Therapie ist, als fährt man Ferrari.“"
+    ],
     "heroImageAlt": "Ketamin-Therapie",
     "heroBadge": "Therapie",
     "heroTitle": "Ketamin-assistierte Therapie",
-    "sublines": {
-      "0": "Wenn klassische Wege nicht reichen.",
-      "1": "Kann ein anderer Weg in die Tiefe sein.",
-      "2": "Nicht nur durch Verstehen, sondern durch inneres Erleben.",
-      "3": "Dann kann Veränderung kinderleicht sein."
-    },
+    "sublines": [
+      "Wenn klassische Wege nicht reichen.",
+      "Kann ein anderer Weg in die Tiefe sein.",
+      "Nicht nur durch Verstehen, sondern durch inneres Erleben.",
+      "Dann kann Veränderung kinderleicht sein."
+    ],
     "heroBookNow": "Jetzt buchen",
     "whyUsTitle": "Warum VIVECURA?",
-    "whyUs": {
-      "0": "MEDIZINISCH GEPRÜFT",
-      "1": "ÄRZTLICH 1:1 BEGLEITET",
-      "2": "PSYCHOTHERAPEUTISCH INTEGRIERT",
-      "3": "Mit einem ganzheitlichen Behandlungsplan ergänzt."
-    },
+    "whyUs": [
+      "MEDIZINISCH GEPRÜFT",
+      "ÄRZTLICH 1:1 BEGLEITET",
+      "PSYCHOTHERAPEUTISCH INTEGRIERT",
+      "Mit einem ganzheitlichen Behandlungsplan ergänzt."
+    ],
     "iframeTitleDreiRaeume": "Drei Räume, in denen Ketamin wirkt",
     "iframeTitleVerstehenErleben": "Verstehen vs. Erleben",
     "iframeTitleIndikationen": "Typische Indikationen für Ketamin im Off-Label-Use",
     "iframeTitleAblauf": "Ablauf der Ketamin-assistierten Therapie",
     "warumTitle": "Warum Vivecura",
-    "warumChapters": {
-      "0": {
+    "warumChapters": [
+      {
         "title": "1:1 ärztliche Begleitung",
         "description": "Während der gesamten Sitzung persönlich begleitet."
       },
-      "1": {
+      {
         "title": "Klare Struktur",
         "description": "Vorbereitung, Sitzung, Integration. Nichts dem Zufall überlassen."
       },
-      "2": {
+      {
         "title": "Sicherer medizinischer Rahmen",
         "description": "Mit Monitoring, Aufklärung und Nachbegleitung."
       },
-      "3": {
+      {
         "title": "Kuratiertes Programm",
         "description": "Individuell geplant und mit Psychotherapie verzahnt."
       },
-      "4": {
+      {
         "title": "Ganzheitlich behandelt",
         "description": "Psyche und Körper zusammen. Ernährung, Mikronährstoffe, Bewegung und Schlaf fließen in den Behandlungsplan ein. Weil nachhaltige Veränderung selten auf einer Ebene allein gelingt."
       }
-    },
+    ],
     "faqTitle": "Häufige Fragen",
-    "faqItems": {
-      "0": {
+    "faqItems": [
+      {
         "q": "Ist Ketamin-Therapie in Deutschland legal?",
         "a": "Ja. Ketamin ist als Medikament seit Jahrzehnten in Deutschland zugelassen, bisher vor allem für die Narkose und Schmerztherapie. Die Anwendung bei Depression, Trauma und verwandten Indikationen erfolgt off label. Das bedeutet, ein zugelassenes Medikament wird außerhalb seiner ursprünglichen Zulassung eingesetzt, auf ärztliche Verantwortung und nach sorgfältiger individueller Abwägung. Dieses Vorgehen ist in der Fachwelt etabliert, wissenschaftlich gut untersucht und in spezialisierten Zentren weltweit Standard."
       },
-      "1": {
+      {
         "q": "Wird das von der Krankenkasse übernommen?",
         "a": "Nein, nicht regelhaft. Ketamin-assistierte Therapie ist eine Selbstzahlerleistung. Kosten besprechen wir transparent im Erstgespräch."
       },
-      "2": {
+      {
         "q": "Werde ich süchtig?",
         "a": "Nein, nicht im therapeutischen Setting. Ein Abhängigkeitsrisiko entsteht bei unkontrolliertem, häufigem Konsum, nicht bei ärztlich begleiteten Sitzungen in definierten Abständen."
       },
-      "3": {
+      {
         "q": "Was, wenn es mir während der Sitzung schlecht geht?",
         "a": "Sie sind durchgehend 1:1 ärztlich begleitet. Monitoring, Sicherheitstools und sofortige Intervention sind jederzeit verfügbar. Ein wichtiger Vorteil der intravenösen Gabe: Ketamin flutet in Minuten an und wird ebenso schnell wieder abgebaut. Die Wirkung lässt sich im Verlauf der Sitzung präzise steuern, sanft ausleiten oder bei Bedarf vertiefen. Jederzeit, unter ärztlicher Kontrolle."
       },
-      "4": {
+      {
         "q": "Für wen kann dieser Weg nicht geeignet sein?",
         "a": "Bei aktiver Psychose, unkontrollierter Herzerkrankung, Schizophrenie, Schwangerschaft oder akuter Suchterkrankung ist Ketamin nicht die richtige Wahl. Das klären wir im Vorgespräch."
       }
-    },
+    ],
     "ctaBadge": "Nächster Schritt",
     "ctaTitle": "Bereit für ein erstes Gespräch?",
     "ctaSubtitle": "Kein Druck. Keine Vorentscheidung. Ein offenes Gespräch darüber, was bisher versucht wurde, und ob dieser Weg für Sie passen könnte.",
     "ctaBookButton": "Termin buchen",
     "ctaBlogButton": "Zum Blog-Artikel",
     "ctaFootnote": "Tiefer einsteigen, alle Details, Studien und Mechanismen — mehr über Ketamin und die Wissenschaft dahinter im Blog.",
-    "schemaFaq": {
-      "0": {
+    "schemaFaq": [
+      {
         "name": "Was ist Ketamin-assistierte Therapie?",
         "text": "Ketamin-assistierte Therapie kombiniert ärztlich begleitete Ketamin-Infusionen oder -Shots mit psychotherapeutischer Vor- und Nachbereitung zur Behandlung von Depression, Trauma und therapieresistenten Symptomen."
       },
-      "1": {
+      {
         "name": "Für wen eignet sich Ketamin-Therapie?",
         "text": "Sie kann eine Option sein bei therapieresistenter Depression, posttraumatischen Belastungsstörungen oder chronischem Stress, wenn klassische Verfahren nicht ausreichend gewirkt haben. Die Indikation wird in einem ärztlichen Erstgespräch geklärt."
       },
-      "2": {
+      {
         "name": "Wie läuft eine Ketamin-Infusion in Berlin ab?",
         "text": "Nach ärztlichem Erstgespräch und Indikationsstellung erfolgt die Infusion in der Praxis unter ärztlicher Aufsicht. Die Behandlung dauert ca. 60–90 Minuten inklusive Vor- und Nachbereitung."
       },
-      "3": {
+      {
         "name": "Übernimmt die Krankenkasse die Kosten?",
         "text": "Ketamin-Therapie ist in Deutschland in der Regel keine Kassenleistung und wird privat abgerechnet. Eine genaue Kostenübersicht erhalten Sie im Erstgespräch."
       }
-    }
+    ]
   },
   "koerperlicheSymptome": {
     "seoTitle": "Körperliche Symptome verstehen – Ursachenmedizin Berlin",
@@ -180,18 +180,18 @@
     "heroTitleEmphasis": "Ursache?",
     "heroSubtitle": "Unauffällige Befunde bedeuten nicht, dass alles in Ordnung ist. Oft fehlt nur das Verständnis für die Zusammenhänge im System.",
     "heroCta": "Termin vereinbaren",
-    "trustItems": {
-      "0": "Systematisches Denken",
-      "1": "Diagnostik nach Bedarf",
-      "2": "Umsetzbare individuelle Therapie"
-    },
+    "trustItems": [
+      "Systematisches Denken",
+      "Diagnostik nach Bedarf",
+      "Umsetzbare individuelle Therapie"
+    ],
     "recognizeTitle": "Vielleicht kennst du das:",
-    "recognizeItems": {
-      "0": "Deine Werte sind \"ok\" - aber du fühlst dich nicht ok",
-      "1": "Du warst bei mehreren Spezialisten, aber niemand kann dir helfen",
-      "2": "Du hast vieles ausprobiert mit kurzfristigem Effekt, aber ohne Stabilität",
-      "3": "Die Ursache bleibt unklar oder wird vorschnell erklärt"
-    },
+    "recognizeItems": [
+      "Deine Werte sind \"ok\" - aber du fühlst dich nicht ok",
+      "Du warst bei mehreren Spezialisten, aber niemand kann dir helfen",
+      "Du hast vieles ausprobiert mit kurzfristigem Effekt, aber ohne Stabilität",
+      "Die Ursache bleibt unklar oder wird vorschnell erklärt"
+    ],
     "quotePrefix": "Du suchst eine Lösung, aber keine Wunderpille. Die habe ich auch nicht. Was ich für dich habe: ",
     "quoteEmphasis": "Struktur. Systemlogik.",
     "quoteSuffix": " Und einen Weg, der dich und deine Beschwerden ernst nimmt.",
@@ -203,32 +203,32 @@
     "approachTitle": "So arbeite ich anders",
     "approachP1": "Ich betrachte dich als Ganzes - nicht als einzelne Diagnose. Durch die Brille der klinischen Psychoneuroimmunologie, anthroposophischen Medizin, funktionellen Medizin, Genetik und Toxikologie.",
     "approachP2": "Und ich bleibe dran. Denn ich bin der Arzt, der nicht abhaut, wenn etwas noch unklar ist. Ich gehe mit dir weiter, bis wir immer mehr Erkenntnisse gewinnen.",
-    "therapies": {
-      "0": {
+    "therapies": [
+      {
         "title": "Erschöpfung",
         "desc": "Brain Fog, Akku ständig leer"
       },
-      "1": {
+      {
         "title": "Darm",
         "desc": "Blähbauch, Unverträglichkeiten"
       },
-      "2": {
+      {
         "title": "Schmerzen",
         "desc": "Entzündung, diffuse Beschwerden"
       },
-      "3": {
+      {
         "title": "Schlafstörungen",
         "desc": "Morgens nicht erholt"
       },
-      "4": {
+      {
         "title": "Kopfschmerz",
         "desc": "Haut, Histamin-Muster"
       },
-      "5": {
+      {
         "title": "Infektanfälligkeit",
         "desc": "Immunassoziierte Muster"
       }
-    },
+    ],
     "improvementCta": "Hier zur Verbesserung der Beschwerden",
     "diagnostikLabel": "Diagnostik nach Bedarf",
     "diagnostikTitle": "Passend zu deiner Geschichte, nicht \"viel hilft viel\"",
@@ -241,57 +241,57 @@
     "exampleP2Em2": "warum",
     "exampleP2Suffix": " es fehlt. Und was das genau für dich bedeutet. Entzündung, Stress, Regeneration, Darm, Stoffwechsel? So wird Supplementierung logisch.",
     "includesTitle": "Alles was du brauchst in einem Termin!",
-    "includesItems": {
-      "0": {
+    "includesItems": [
+      {
         "title": "Beratung",
         "desc": "Bevor wir dir irgendetwas empfehlen, verstehen wir deinen Körper, deine Geschichte und deine Ziele."
       },
-      "1": {
+      {
         "title": "Diagnostik",
         "desc": "Gezielte Laboranalysen, funktionelle Tests und klinische Befundung. Individuell abgestimmt auf deine Beschwerden."
       },
-      "2": {
+      {
         "title": "Gesundheitsplan",
         "desc": "Du bekommst keinen allgemeinen Rat, sondern einen konkreten Plan. Genau auf dich abgestimmt, mit klaren nächsten Schritten."
       },
-      "3": {
+      {
         "title": "Mentoring",
         "desc": "Wir begleiten dich langfristig, passen deinen Plan an und bleiben an deiner Seite, bis du wirklich dort ankommst, wo du hinwillst."
       }
-    },
+    ],
     "fitTitle": "Für wen das passt:",
-    "fitItems": {
-      "0": "Du willst verstehen, was wirklich los ist",
-      "1": "Du bist bereit, Dinge umzusetzen und in deinen Alltag zu integrieren",
-      "2": "Du suchst eine Lösung - keine bloße Illusion"
-    },
+    "fitItems": [
+      "Du willst verstehen, was wirklich los ist",
+      "Du bist bereit, Dinge umzusetzen und in deinen Alltag zu integrieren",
+      "Du suchst eine Lösung - keine bloße Illusion"
+    ],
     "faqTitle": "Häufige Fragen",
-    "faq": {
-      "0": {
+    "faq": [
+      {
         "q": "Warum wurde bei mir bisher nichts gefunden?",
         "a": "Weil oft nur nach Standardursachen gesucht wird und nicht nach funktionellen Zusammenhängen."
       },
-      "1": {
+      {
         "q": "Machst du viele Tests?",
         "a": "Ja. Ich arbeite mit Diagnostik, aber sehr gezielt. Mir geht es nicht darum, endlos viele Tests zu machen, sondern nur genau das, was wirklich für dich sinnvoll ist. So vermeiden wir unnötige Kosten und bekommen trotzdem die Informationen, die wir brauchen."
       },
-      "2": {
+      {
         "q": "Bekomme ich einfach Supplemente?",
         "a": "Supplemente bekommst du bei deinem Coach oder AI-Coach. Bei mir werden sie gezielt im Rahmen der orthomolekularen Medizin eingesetzt, also medizinisch und individuell auf dich abgestimmt. Das kann auch höhere Dosierungen beinhalten, um einen therapeutischen Effekt zu erreichen. Supplements sind bei mir Teil einer Therapie und weitaus mehr als nur klassische Nahrungsergänzung."
       },
-      "3": {
+      {
         "q": "Kannst du mir garantieren, dass sich meine Beschwerden verbessern werden?",
         "a": "Nein. Aber wir gehen strukturiert vor und geben nicht vorschnell auf. Mir ist wichtig, dich aktiv im Prozess zu begleiten und dich auch mental zu stärken. Denn echte Veränderung braucht oft beides: einen klaren Plan und die Motivation, ihn umzusetzen."
       },
-      "4": {
+      {
         "q": "Wie schnell merke ich eine Veränderung?",
         "a": "Das ist sehr individuell. Erfahrungsgemäß spüren viele Patient:innen bereits nach 2-4 Wochen erste Veränderungen. Wenn der gewünschte Effekt ausbleibt, passen wir die Therapie gezielt an und justieren nach."
       },
-      "5": {
+      {
         "q": "Was ist, wenn alles \"psychosomatisch\" genannt wird?",
         "a": "Wir betrachten das differenziert. Psyche und Körper sind miteinander verbunden, das stimmt. Aber \"psychisch\" ist nicht automatisch die Erklärung für unauffällige Standardwerte. Deshalb untersuchen wir immer beides. Und wir beziehen auch beides in die Behandlung ein. Du wirst bei mir nicht einfach weitergeschickt. Stattdessen schauen wir gemeinsam, welche Faktoren bei dir wirklich eine Rolle spielen und wie sie zusammenwirken."
       }
-    },
+    ],
     "ctaTitle": "Lass uns zusammen das fehlende Puzzlestück suchen.",
     "ctaSubtitle": "Und daraus einen Plan erstellen, der wirklich für dich und dein Leben funktioniert.",
     "ctaButton": "Termin vereinbaren"
@@ -331,11 +331,11 @@
       "titlePrefix": "Ganzheitliche",
       "titleEm": "Psychotherapie",
       "subtitle": "Mein Ansatz ist, Empfindungen, Gefühle, Gedanken und Handlungen mit dir zu synchronisieren. Mit dem Ziel, dich schnellstmöglich auf dem Weg zu deinem besseren Selbst zu begleiten.",
-      "methods": {
-        "0": "Ketamin-assistierte Therapie",
-        "1": "Somatic Experiencing",
-        "2": "Verhaltenstherapie"
-      },
+      "methods": [
+        "Ketamin-assistierte Therapie",
+        "Somatic Experiencing",
+        "Verhaltenstherapie"
+      ],
       "ketaminCta": "Mehr über Ketamin erfahren"
     },
     "recognize": {
@@ -347,17 +347,17 @@
       "colASub": "Du spürst, dass da etwas ist, aber du weißt nicht so genau, wo anfangen.",
       "colBTitle": "Schon eine Therapie gemacht",
       "colBSub": "Du hast schon vieles verstanden, aber es hat sich noch nicht ganz gesetzt.",
-      "noTherapyYet": {
-        "0": "Du hast bisher noch keine Psychotherapie gemacht, spürst aber, dass du tiefer gehen möchtest als reine Selbstreflexion.",
-        "1": "Du erlebst körperliche Symptome wie Unruhe, Enge, Schwindel oder ein diffuses Gefühl im Körper. Woher dies kommt, kannst du dir nicht erklären.",
-        "2": "Du fühlst dich deinen Gedanken oder Emotionen teilweise ausgeliefert und wünschst dir mehr Stabilität und Kontrolle."
-      },
-      "hadTherapy": {
-        "0": "Du verstehst deine Muster, aber kriegst es nicht richtig hin, dein Verhalten wirklich zu ändern.",
-        "1": "Du kannst Dinge einordnen, aber nicht richtig fühlen.",
-        "2": "Du bist stabiler, also du funktionierst, aber nicht lebendig.",
-        "3": "Du weißt, was du tun solltest, aber es passiert nicht wirklich."
-      },
+      "noTherapyYet": [
+        "Du hast bisher noch keine Psychotherapie gemacht, spürst aber, dass du tiefer gehen möchtest als reine Selbstreflexion.",
+        "Du erlebst körperliche Symptome wie Unruhe, Enge, Schwindel oder ein diffuses Gefühl im Körper. Woher dies kommt, kannst du dir nicht erklären.",
+        "Du fühlst dich deinen Gedanken oder Emotionen teilweise ausgeliefert und wünschst dir mehr Stabilität und Kontrolle."
+      ],
+      "hadTherapy": [
+        "Du verstehst deine Muster, aber kriegst es nicht richtig hin, dein Verhalten wirklich zu ändern.",
+        "Du kannst Dinge einordnen, aber nicht richtig fühlen.",
+        "Du bist stabiler, also du funktionierst, aber nicht lebendig.",
+        "Du weißt, was du tun solltest, aber es passiert nicht wirklich."
+      ],
       "bothCases": "In beiden Fällen",
       "footerQuote": "Du fühlst noch nicht ganz, dass du bei dir angekommen bist.",
       "footerSub": "Das ist kein Versagen und kein Zufall. Es zeigt nur, dass der bisherige Zugang an seine Grenze kommt, und dass ein anderer Weg möglich ist.",
@@ -369,24 +369,24 @@
       "intro": "Viele Ansätze arbeiten nur auf einer Bewusstseinsebene. Echte Veränderung entsteht, wenn alle vier gleichzeitig in Kontakt sind.",
       "dissociation": "Dissoziation",
       "association": "Assoziation",
-      "waveLabels": {
-        "0": {
+      "waveLabels": [
+        {
           "name": "Empfindungen",
           "sub": "Körper · Spüren"
         },
-        "1": {
+        {
           "name": "Gefühle",
           "sub": "Emotion · Erleben"
         },
-        "2": {
+        {
           "name": "Gedanken",
           "sub": "Kognition · Bedeutung"
         },
-        "3": {
+        {
           "name": "Handlungen",
           "sub": "Verhalten · Ausdruck"
         }
-      },
+      ],
       "statusAssoz": "Ebenen synchronisiert — alle fließen im selben Rhythmus",
       "statusDissoz": "Ebenen isoliert — jede folgt ihrem eigenen Rhythmus",
       "bodyP1": "Viele Ansätze beschäftigen sich nur mit einer Bewusstseinsebene. Zum Beispiel beim Denken (Gesprächstherapie) oder beim Verhalten (Verhaltenstherapie). Andere arbeiten stärker mit dem Körper oder mit Gefühlen.",
@@ -396,81 +396,81 @@
     },
     "approach": {
       "title": "So arbeite ich",
-      "cards": {
-        "0": {
+      "cards": [
+        {
           "label": "Über den Kopf hinaus",
           "title": "Über den Kopf hinaus",
           "desc": "Empfindung und Gefühl kommen wieder ins Zentrum"
         },
-        "1": {
+        {
           "label": "Verstehen mit Erleben verbinden",
           "title": "Verstehen mit Erleben verbinden",
           "desc": "Veränderung wird nicht nur gedacht, sondern gespürt"
         },
-        "2": {
+        {
           "label": "Integration in den Alltag",
           "title": "Integration in den Alltag",
           "desc": "Damit es nicht Theorie bleibt"
         }
-      }
+      ]
     },
     "methods": {
       "title": "Methoden",
       "intro": "Drei Zugänge, die ineinandergreifen. Klick einen Kreis an, um mehr darüber zu erfahren.",
       "viewHint": "Ansehen",
-      "items": {
-        "0": {
+      "items": [
+        {
           "eyebrow": "Methode 01",
           "label": "Biodynamische Psychotherapie",
           "title": "Biodynamische Psychotherapie",
           "lead": "Der Körper erinnert sich, auch wenn der Kopf schon weitergezogen ist.",
-          "paragraphs": {
-            "0": "In der biodynamischen Arbeit wird dein Körper zum Mitsprecher. Wir arbeiten mit Atem, Spürbewegung und feinen Impulsen, um dort anzusetzen, wo Worte allein nicht mehr weiterkommen. Alte Spannungsmuster dürfen sich lösen, ohne dass du sie erst verstehen oder erklären musst.",
-            "1": "Besonders geeignet, wenn du dich kopflastig fühlst, körperliche Symptome hast oder spürst, dass klassische Gesprächsarbeit an ihre Grenze kommt."
-          }
+          "paragraphs": [
+            "In der biodynamischen Arbeit wird dein Körper zum Mitsprecher. Wir arbeiten mit Atem, Spürbewegung und feinen Impulsen, um dort anzusetzen, wo Worte allein nicht mehr weiterkommen. Alte Spannungsmuster dürfen sich lösen, ohne dass du sie erst verstehen oder erklären musst.",
+            "Besonders geeignet, wenn du dich kopflastig fühlst, körperliche Symptome hast oder spürst, dass klassische Gesprächsarbeit an ihre Grenze kommt."
+          ]
         },
-        "1": {
+        {
           "eyebrow": "Methode 02",
           "label": "Verhaltenstherapeutische Tools",
           "title": "Verhaltenstherapeutische Tools",
           "lead": "Konkrete Werkzeuge für konkrete Alltagssituationen.",
-          "paragraphs": {
-            "0": "Wenn du wissen willst, was du morgen früh anders machen kannst, helfen klar strukturierte Methoden der Verhaltenstherapie. Kognitive Neubewertung, Expositionsarbeit, Verankerung neuer Muster und praktische Strategien für akute Situationen.",
-            "1": "Diese Werkzeuge sind besonders wertvoll, wenn du bereits verstanden hast, was dich belastet, aber noch nicht weißt, wie du es im Alltag anders machst."
-          }
+          "paragraphs": [
+            "Wenn du wissen willst, was du morgen früh anders machen kannst, helfen klar strukturierte Methoden der Verhaltenstherapie. Kognitive Neubewertung, Expositionsarbeit, Verankerung neuer Muster und praktische Strategien für akute Situationen.",
+            "Diese Werkzeuge sind besonders wertvoll, wenn du bereits verstanden hast, was dich belastet, aber noch nicht weißt, wie du es im Alltag anders machst."
+          ]
         },
-        "2": {
+        {
           "eyebrow": "Methode 03",
           "label": "Ketamin-gestützte Arbeit",
           "title": "Ketamin-gestützte Arbeit",
           "lead": "Ein Fenster, durch das neue Sichtweisen spürbar werden können.",
-          "paragraphs": {
-            "0": "Ketamin kann festgefahrene Denk- und Gefühlsmuster vorübergehend lockern und einen Raum öffnen, in dem Themen nicht nur verstanden, sondern wirklich erlebt werden. Die eigentliche Arbeit passiert dann in der therapeutischen Begleitung davor und danach.",
-            "1": "Indiziert besonders bei therapieresistenten Depressionen, schweren Blockaden oder wenn das Gefühl bleibt, an der eigenen Oberfläche zu stehen und nicht weiter zu kommen."
-          }
+          "paragraphs": [
+            "Ketamin kann festgefahrene Denk- und Gefühlsmuster vorübergehend lockern und einen Raum öffnen, in dem Themen nicht nur verstanden, sondern wirklich erlebt werden. Die eigentliche Arbeit passiert dann in der therapeutischen Begleitung davor und danach.",
+            "Indiziert besonders bei therapieresistenten Depressionen, schweren Blockaden oder wenn das Gefühl bleibt, an der eigenen Oberfläche zu stehen und nicht weiter zu kommen."
+          ]
         }
-      }
+      ]
     },
     "start": {
       "title": "So starten wir",
-      "steps": {
-        "0": {
+      "steps": [
+        {
           "title": "Orientierungsgespräch (15 Minuten)",
           "desc": "Ein erstes Kennenlernen, um zu klären, ob und wie ich dich unterstützen kann."
         },
-        "1": {
+        {
           "title": "Anamnese",
           "desc": "Wir erfassen deine Ausgangssituation, deine Ziele und deinen bisherigen Verlauf."
         },
-        "2": {
+        {
           "title": "Entscheidung",
           "desc": "Gemeinsam definieren wir, welche Ansätze und Therapien für dich sinnvoll sind."
         },
-        "3": {
+        {
           "title": "Umsetzung",
           "desc": "Die Therapie erfolgt strukturiert und begleitet - mit regelmäßigen Sitzungen und Anpassungen."
         }
-      }
+      ]
     },
     "cta": {
       "orientation": "Kostenloses Orientierungsgespräch (15 Min)",
@@ -478,41 +478,41 @@
     },
     "fit": {
       "title": "Für wen das passt:",
-      "items": {
-        "0": "Du hast schon viel verstanden",
-        "1": "Dir fehlt die Tiefe im Erleben",
-        "2": "Du willst echte Veränderung"
-      },
+      "items": [
+        "Du hast schon viel verstanden",
+        "Dir fehlt die Tiefe im Erleben",
+        "Du willst echte Veränderung"
+      ],
       "crisisNote": "Bei akuten Krisen bitte die lokalen Notfallstellen nutzen."
     },
     "faq": {
       "title": "Häufige Fragen",
-      "items": {
-        "0": {
+      "items": [
+        {
           "q": "Was unterscheidet deinen Ansatz von klassischer Psychotherapie?",
           "a": "Wir arbeiten nicht nur über Gespräche, sondern beziehen deinen Körper und das direkte Erleben mit ein."
         },
-        "1": {
+        {
           "q": "Ich habe schon mal eine Therapie gemacht. Wieso sollte ich nochmal anfangen?",
           "a": "Viele Therapien arbeiten nur auf einzelnen Ebenen. Bei mir geht es darum, Empfindung, Gefühl und Denken miteinander zu verbinden. Denn genau dort entsteht oft die Veränderung, die vorher gefehlt hat."
         },
-        "2": {
+        {
           "q": "Muss ich mich bei dir mit Ketamin behandeln lassen?",
           "a": "Nein. Ketamin ist eine Option, aber nicht der Kern meiner Arbeit. Entscheidend ist der Gesamtansatz und was für dich individuell sinnvoll ist."
         },
-        "3": {
+        {
           "q": "Wie läuft eine Sitzung ab?",
           "a": "Es gibt keinen starren Ablauf. Wir arbeiten situativ miteinander. Gespräche, Körperwahrnehmung und Integration greifen dabei ineinander."
         },
-        "4": {
+        {
           "q": "Was bedeutet Integration?",
           "a": "Erlebnisse aus der Sitzung werden in konkrete Schritte übersetzt. Damit deine Veränderung nicht nur im Raum bleibt, sondern auch in deinem Alltag wirkt."
         },
-        "5": {
+        {
           "q": "Wie lange dauert das?",
           "a": "Das ist ganz individuell. Viele Patient:innen spüren relativ früh Verbesserungen in ihrem Erleben, ihrer Regulation oder Klarheit. Entscheidend ist, dass sich etwas langfristig und nachhaltig verschiebt. Nicht nur kurzfristig."
         }
-      }
+      ]
     },
     "finalCta": {
       "headline": "Vielleicht ist das DEIN MISSING PIECE."
@@ -526,11 +526,11 @@
     "heroTitleEm": "Lebendigkeit.",
     "heroSubtitle": "Mehr Energie. Mehr Klarheit. Mehr Lebendigkeit. Durch Strategien, die individuell zu dir passen.",
     "heroCta": "Termin vereinbaren",
-    "heroTrustItems": {
-      "0": "Klare Schritte",
-      "1": "Diagnostik & Biofeedback",
-      "2": "Transparente Entscheidungen"
-    },
+    "heroTrustItems": [
+      "Klare Schritte",
+      "Diagnostik & Biofeedback",
+      "Transparente Entscheidungen"
+    ],
     "chaosTitle": "Das Longevity-Chaos",
     "chaosBody": "Du probierst Dinge aus; Supplemente, Diäten, Routinen. Kurzfristig wirkt etwas - aber dann auf einmal nicht mehr. Du suchst nach neuen Ansätzen.",
     "overlookedTitle": "Was oft übersehen wird",
@@ -543,371 +543,371 @@
     "overlookedClosing": "Du musst nicht mehr raten. Du kannst sehen, was wirkt.",
     "systemLogicTitle": "All das mit Systemlogik dahinter",
     "systemLogicBody": "Ich arbeite mit umfassender Genom- bzw. genetischer Testung, um deine Individualität zu verstehen. Nicht oberflächlich, sondern fundiert und medizinisch eingeordnet. Im Gegensatz zu vielen Coaching-Ansätzen basiert meine Arbeit nicht nur auf Theorie. Ich habe vieles selbst durchlaufen und bringe diese Erfahrung bewusst mit ein.",
-    "processSteps": {
-      "0": {
+    "processSteps": [
+      {
         "title": "Genetik",
         "description": "Wie du geboren bist: Deine genetische Grundlage wird getestet und ärztlich eingeordnet."
       },
-      "1": {
+      {
         "title": "Ist-Zustand",
         "description": "Wir erfassen deinen aktuellen Zustand umfassend, über erweiterte Blutanalysen, Bio-Impedanz und fortgeschrittene Herzuntersuchungen."
       },
-      "2": {
+      {
         "title": "Umsetzung",
         "description": "Gezielter Einsatz von Biohacking-Tools und Methoden, ganz individuell auf dich abgestimmt."
       },
-      "3": {
+      {
         "title": "Reaktion des Körpers",
         "description": "Wir messen wie dein Körper auf Veränderungen reagiert, z.B. über Biofeedback wie HRV oder CGM."
       },
-      "4": {
+      {
         "title": "Therapeutische Unterstützung",
         "description": "Bei Bedarf ergänzen wir mit Infusionen und modernen Longevity-Substanzen wie NAD+ oder Spermidin."
       }
-    },
+    ],
     "mentoringTitle": "Umsetzung durch 1:1 Mentoring",
     "mentoringBody": "Wichtig dabei ist zu verstehen: Nicht jeder kann so arbeiten. Es geht nicht nur um Wissen, sondern um die Fähigkeit, Zusammenhänge zu erkennen und im System zu denken. Dafür braucht es weitaus mehr als einzelne Informationen. Nämlich eine fundierte Ausbildung, Erfahrung und die konsequente Umsetzung in der Praxis.",
-    "mentoringCards": {
-      "0": {
+    "mentoringCards": [
+      {
         "label": "Stoffwechsel stabilisieren",
         "title": "Stoffwechsel stabilisieren",
         "desc": "Der Stoffwechsel ist das Fundament deiner Energie. Wenn er im Gleichgewicht arbeitet, kann dein Körper Nährstoffe optimal verwerten, Blutzucker halten und Zellen erneuern."
       },
-      "1": {
+      {
         "label": "Nervensystem regulieren",
         "title": "Nervensystem regulieren",
         "desc": "Dein Nervensystem entscheidet, ob du im Dauerstress lebst oder wirklich regenerieren kannst. Wir stärken deinen Vagustonus, lösen alte Stressmuster und bringen Sicherheit zurück in deinen Körper."
       },
-      "2": {
+      {
         "label": "Immunsystem entlasten",
         "title": "Immunsystem entlasten",
         "desc": "Ein überfordertes Immunsystem ist oft die stille Ursache chronischer Beschwerden. Durch das Auflösen stiller Entzündungen, Umweltbelastungen und Darmthemen kann dein Immunsystem wieder das tun, wofür es gemacht ist."
       }
-    },
+    ],
     "diagnostikTitle": "Diagnostik mit Sinn",
     "diagnostikSubtitle": "Du brauchst keine 20 Tests. Du brauchst die richtigen.",
-    "diagnostikItems": {
-      "0": {
+    "diagnostikItems": [
+      {
         "trigger": "Dauerstress",
         "tool": "HRV als Orientierung",
         "detail": "Dein System läuft ständig auf Hochtouren, auch wenn du längst zur Ruhe kommen willst. Deine HRV zeigt uns, wie tief du wirklich unter Strom stehst und wo Regeneration wieder möglich wird."
       },
-      "1": {
+      {
         "trigger": "Energie-Crash",
         "tool": "CGM als Feedback",
         "detail": "Morgens motiviert, nachmittags leer, abends wieder wach. Ein CGM macht sichtbar, wie dein Blutzucker deine Energie steuert und wo kleine Anpassungen den größten Unterschied machen."
       },
-      "2": {
+      {
         "trigger": "Stillstand trotz \"alles richtig\"",
         "tool": "Gezielte Labordiagnostik",
         "detail": "Du isst clean, bewegst dich, schläfst und trotzdem bleibt das Ergebnis aus. Eine gezielte Labordiagnostik zeigt, was sich unter der Oberfläche wirklich abspielt und wo dein Körper gerade blockiert ist."
       }
-    },
+    ],
     "diagnostikBody1": "Diagnostik ist kein Selbstzweck. Sie dient einer Entscheidung. Wir sammeln so viele relevante Informationen, dass wir dich ganzheitlich verstehen können. Du bekommst ein klares Bild davon, wo du herkommst (Genetik), wo du aktuell stehst (Ist-Zustand) und welche konkreten Möglichkeiten es gibt, dich zu verbessern.",
     "diagnostikBody2": "Alle Ergebnisse werden verständlich erklärt, von der Genetik-Testung über Blutwerte bis hin zu allen weiteren Untersuchungen. Auf dieser Grundlage erarbeiten wir einen strukturierten, individuellen Plan.",
     "hebelHeading": "Die Hebel",
     "hebelIntro": "Die einzelnen Methoden sind kein Geheimnis. Entscheidend ist das Gesamtkonzept dahinter, also wie alle Schritte sinnvoll miteinander verbunden werden.",
     "hebelRelatedLabel": "Verbunden mit",
-    "hebel": {
-      "0": {
+    "hebel": [
+      {
         "num": 1,
         "label": "Schlaf & Rhythmus",
         "short": "Schlaf & Rhythmus",
         "title": "Schlaf & Rhythmus",
         "lead": "Alles beginnt mit dem Takt, in dem dein Körper regeneriert.",
-        "paragraphs": {
-          "0": "Im Tiefschlaf repariert sich dein Nervensystem, im REM-Schlaf verarbeitest du Emotionen, und dein zirkadianer Rhythmus steuert Hormone, Stoffwechsel und Zellalterung.",
-          "1": "Wir schauen auf deine Schlafqualität, dein Licht- und Bewegungsmuster und bringen deinen Tagesrhythmus wieder in den Takt, in dem dein Körper wirklich altern kann wie er soll."
-        },
-        "related": {
-          "0": 2,
-          "1": 3,
-          "2": 4
-        }
+        "paragraphs": [
+          "Im Tiefschlaf repariert sich dein Nervensystem, im REM-Schlaf verarbeitest du Emotionen, und dein zirkadianer Rhythmus steuert Hormone, Stoffwechsel und Zellalterung.",
+          "Wir schauen auf deine Schlafqualität, dein Licht- und Bewegungsmuster und bringen deinen Tagesrhythmus wieder in den Takt, in dem dein Körper wirklich altern kann wie er soll."
+        ],
+        "related": [
+          2,
+          3,
+          4
+        ]
       },
-      "1": {
+      {
         "num": 2,
         "label": "Ernährung mit Feedback",
         "short": "Ernährung",
         "title": "Ernährung mit Feedback",
         "lead": "Was gesund ist, zeigt dir dein eigener Körper.",
-        "paragraphs": {
-          "0": "Statt allgemeiner Empfehlungen arbeiten wir mit echten Daten aus deinem Körper: Blutzuckerverläufe über ein CGM, Labormarker, Mikronährstoffstatus und deine subjektiven Signale.",
-          "1": "So wird aus Ernährung kein Dogma, sondern ein Werkzeug, das du verstehst und das messbar zu dir passt."
-        },
-        "related": {
-          "0": 1,
-          "1": 3,
-          "2": 5,
-          "3": 6
-        }
+        "paragraphs": [
+          "Statt allgemeiner Empfehlungen arbeiten wir mit echten Daten aus deinem Körper: Blutzuckerverläufe über ein CGM, Labormarker, Mikronährstoffstatus und deine subjektiven Signale.",
+          "So wird aus Ernährung kein Dogma, sondern ein Werkzeug, das du verstehst und das messbar zu dir passt."
+        ],
+        "related": [
+          1,
+          3,
+          5,
+          6
+        ]
       },
-      "2": {
+      {
         "num": 3,
         "label": "Training & Regeneration",
         "short": "Training",
         "title": "Training & Regeneration",
         "lead": "Muskeln sind das Organ des Alterns.",
-        "paragraphs": {
-          "0": "Wer Muskelmasse, Kraft und mitochondriale Kapazität erhält, bleibt länger gesund, belastbar und mental klar.",
-          "1": "Genauso wichtig ist die Regeneration dazwischen. Wir bringen Training und Erholung so in Balance, dass dein Körper stärker wird, statt sich weiter zu erschöpfen."
-        },
-        "related": {
-          "0": 1,
-          "1": 2,
-          "2": 4
-        }
+        "paragraphs": [
+          "Wer Muskelmasse, Kraft und mitochondriale Kapazität erhält, bleibt länger gesund, belastbar und mental klar.",
+          "Genauso wichtig ist die Regeneration dazwischen. Wir bringen Training und Erholung so in Balance, dass dein Körper stärker wird, statt sich weiter zu erschöpfen."
+        ],
+        "related": [
+          1,
+          2,
+          4
+        ]
       },
-      "3": {
+      {
         "num": 4,
         "label": "Stressregulation",
         "short": "Stressregulation",
         "title": "Stressregulation",
         "lead": "Im Alarm kann dein Körper nicht heilen.",
-        "paragraphs": {
-          "0": "Chronischer Stress ist einer der stärksten Beschleuniger biologischer Alterung. Er hält dein Nervensystem im Alarmzustand, stört Schlaf, Hormone und Verdauung und zehrt still an deinen Reserven.",
-          "1": "Über HRV-Messung, Atemarbeit, somatische Methoden und gezielte Regulation lernt dein System wieder, zwischen Anspannung und echter Erholung zu wechseln."
-        },
-        "related": {
-          "0": 1,
-          "1": 3
-        }
+        "paragraphs": [
+          "Chronischer Stress ist einer der stärksten Beschleuniger biologischer Alterung. Er hält dein Nervensystem im Alarmzustand, stört Schlaf, Hormone und Verdauung und zehrt still an deinen Reserven.",
+          "Über HRV-Messung, Atemarbeit, somatische Methoden und gezielte Regulation lernt dein System wieder, zwischen Anspannung und echter Erholung zu wechseln."
+        ],
+        "related": [
+          1,
+          3
+        ]
       },
-      "4": {
+      {
         "num": 5,
         "label": "Supplemente",
         "short": "Supplemente",
         "title": "Gezielter Einsatz von Supplementen",
         "lead": "Nur was dein Labor zeigt und dein Alltag braucht.",
-        "paragraphs": {
-          "0": "Nahrungsergänzung ersetzt keinen Lebensstil, kann aber gezielte Lücken schließen, die sonst bremsen. Nur was sich im Labor zeigt und in deinem Alltag Sinn ergibt, wird auch eingesetzt.",
-          "1": "Das Ziel ist nicht möglichst viel, sondern genau das, was dein Körper gerade braucht, in passender Form und Dosierung."
-        },
-        "related": {
-          "0": 2,
-          "1": 6
-        }
+        "paragraphs": [
+          "Nahrungsergänzung ersetzt keinen Lebensstil, kann aber gezielte Lücken schließen, die sonst bremsen. Nur was sich im Labor zeigt und in deinem Alltag Sinn ergibt, wird auch eingesetzt.",
+          "Das Ziel ist nicht möglichst viel, sondern genau das, was dein Körper gerade braucht, in passender Form und Dosierung."
+        ],
+        "related": [
+          2,
+          6
+        ]
       },
-      "5": {
+      {
         "num": 6,
         "label": "Infusionen",
         "short": "Infusionen",
         "title": "Sinnvolle Infusionen",
         "lead": "Direkt ins Blut, dorthin wo sie wirken.",
-        "paragraphs": {
-          "0": "Wenn dein Körper über den Darm nicht mehr gut aufnehmen kann oder schnell spürbare Effekte entscheidend sind, sind Infusionen ein starkes Werkzeug. Nährstoffe, Aminosäuren oder Moleküle wie NAD+ gehen direkt ins Blut und damit dorthin, wo sie wirken.",
-          "1": "Wir setzen Infusionen nur dort ein, wo sie zu deinem Bild passen, zielgerichtet, dosiert und eingebettet in dein Gesamtkonzept."
-        },
-        "related": {
-          "0": 2,
-          "1": 5
-        }
+        "paragraphs": [
+          "Wenn dein Körper über den Darm nicht mehr gut aufnehmen kann oder schnell spürbare Effekte entscheidend sind, sind Infusionen ein starkes Werkzeug. Nährstoffe, Aminosäuren oder Moleküle wie NAD+ gehen direkt ins Blut und damit dorthin, wo sie wirken.",
+          "Wir setzen Infusionen nur dort ein, wo sie zu deinem Bild passen, zielgerichtet, dosiert und eingebettet in dein Gesamtkonzept."
+        ],
+        "related": [
+          2,
+          5
+        ]
       }
-    },
+    ],
     "startTitle": "So starten wir",
-    "startSteps": {
-      "0": {
+    "startSteps": [
+      {
         "num": "01",
         "title": "Erstgespräch",
         "desc": "Ziele, Kontext, Ausgangspunkt"
       },
-      "1": {
+      {
         "num": "02",
         "title": "Entscheidung",
         "desc": "Was messen wir - und was nicht in deinem Fall individuell?"
       },
-      "2": {
+      {
         "num": "03",
         "title": "Umsetzung",
         "desc": "Klare Schritte, Feedback und Anpassung"
       }
-    },
+    ],
     "bookCta": "Termin vereinbaren",
     "fitTitle": "Für wen das passt:",
-    "fitItems": {
-      "0": "Du willst echte Veränderung",
-      "1": "Du bist bereit umzusetzen",
-      "2": "Du suchst Klarheit statt Trends"
-    },
+    "fitItems": [
+      "Du willst echte Veränderung",
+      "Du bist bereit umzusetzen",
+      "Du suchst Klarheit statt Trends"
+    ],
     "faqTitle": "Häufige Fragen",
-    "faq": {
-      "0": {
+    "faq": [
+      {
         "q": "Was bedeutet Longevity in deinem Ansatz?",
         "a": "Longevity ist kein einzelnes Tool oder ein Trend, sondern ein umfangreiches System. Es geht darum, deinen Körper so zu verstehen und steuern zu können, dass Gesundheit, Energie und Leistungsfähigkeit langfristig stabil bleiben."
       },
-      "1": {
+      {
         "q": "Ist das nicht einfach Biohacking?",
         "a": "Nein. Biohacking arbeitet oft mit einzelnen Tools. Der Unterschied ist also, dass Longevity diese Tools einordnet und in ein funktionierendes Gesamtsystem integriert."
       },
-      "2": {
+      {
         "q": "Was bringt mir das konkret im Alltag?",
         "a": "Mehr stabile Energie, besserer Schlaf, klareres Denken und ein Körper, der sich nicht permanent \"gegen dich\" anfühlt."
       },
-      "3": {
+      {
         "q": "Brauche ich dafür viele Supplemente?",
         "a": "Nein. Supplements sind nur ein Teil und werden bei mir sehr gezielt eingesetzt. Nicht nach Trend, sondern nach Bedarf."
       },
-      "4": {
+      {
         "q": "Sind Infusionen wie NAD+ entscheidend?",
         "a": "Nein. Sie können zwar unterstützen, ersetzen aber keine ganzheitliche Struktur. Ohne ein funktionierendes Gesamtkonzept funktionieren auch die besten Substanzen nicht."
       },
-      "5": {
+      {
         "q": "Muss ich mein Leben komplett umstellen?",
         "a": "Es geht darum, die richtigen Stellschrauben zu identifizieren, nicht alles zu verändern. Sich einfach gesund zu ernähren und Sport zu machen reicht nicht aus, da jeder Körper anders funktioniert. Zwei Menschen können das Gleiche tun, aber komplett unterschiedlich darauf reagieren."
       },
-      "6": {
+      {
         "q": "Wie werden meine Fortschritte gemessen?",
         "a": "Durch Feedback aus deinem Körper und gezielte Daten: Blutwerte, Biofeedback (z.B. HRV, CGM) und deine tatsächliche Entwicklung im Alltag."
       },
-      "7": {
+      {
         "q": "Wie schnell werde ich Ergebnisse bemerken?",
         "a": "Oft zeigen sich erste Veränderungen bei Fokus, Schlaf und deinem Energielevel innerhalb nur weniger Wochen. Der eigentliche Effekt ist jedoch langfristig."
       }
-    },
+    ],
     "finalCtaTitle": "READY FÜR NEXT LEVEL GESUND-SEIN?",
     "finalCtaBody": "Dann buche jetzt deinen Termin oder erhalte deinen kostenlosen Start Guide."
   },
   "experience": {
     "seoTitle": "Vivecura Experience – Longevity Erlebnis Berlin",
     "seoDescription": "Das Vivecura Experience – ein strukturierter Tag rund um Diagnostik, Beratung und Longevity-Methoden in Berlin.",
-    "chapters": {
-      "0": {
+    "chapters": [
+      {
         "title": "Willkommen bei\nDie Drei Zahnärzte",
         "subtitle": ""
       },
-      "1": {
+      {
         "title": "Umfassende Diagnostik",
         "subtitle": "Digitales Röntgen, intraorale Kamera und klinische Befundung — damit wir von Anfang an ein vollständiges Bild Ihrer Zahngesundheit haben."
       },
-      "2": {
+      {
         "title": "Persönliche Beratung",
         "subtitle": "45 Minuten nehmen wir uns Zeit, um Ihre Befunde im Kontext zu besprechen — Symptome, Lebensstil und Ihre individuellen Ziele."
       },
-      "3": {
+      {
         "title": "Ihr Gesundheitsplan",
         "subtitle": "Sie erhalten eine klare Zusammenfassung der wichtigsten Befunde, priorisierte Empfehlungen und konkrete nächste Schritte."
       }
-    }
+    ]
   },
   "beratung": {
     "seoTitle": "Ärztliche Beratung Berlin – Funktionelle Medizin",
     "seoDescription": "Persönliche ärztliche Beratung in Berlin: Erstgespräch, Zweitmeinung und individuelle Therapieplanung in der funktionellen Medizin.",
     "title": "Deine ärztliche Beratung",
     "subtitle": "Ich höre zu, sortiere Komplexität und denke interdisziplinär.\n(Schulmedizin × Lebensstilmedizin × Anthroposophische & funktionelle Medizin × Toxikologie × Genetik).\nDu gehst mit klaren Empfehlungen für Diagnostik & Handlungsplan nach dem VIVECURA-Konzept raus.\nAlso mit einem Plan für Lebensstil, pflanzliche Heilmittel und Nährstofftherapie.",
-    "cards": {
-      "0": {
+    "cards": [
+      {
         "front": "Aktives Zuhören",
         "back": "30 Min Gespräch mit Raum für deine Beschwerden, Geschichte & Biografie. Deine subjektive Empfindung wird immer ernst genommen."
       },
-      "1": {
+      {
         "front": "Mehrblick statt Tunnelblick",
         "back": "Mehrere Disziplinen in der Medizin. Ein roter Faden."
       },
-      "2": {
+      {
         "front": "Sinnvolle Diagnostik-Empfehlungen",
         "back": "Nur Tests, die deine nächsten Schritte ändern."
       },
-      "3": {
+      {
         "front": "Erste Roadmap",
         "back": "Lebensstilveränderungen (Ernährung, Schlaf, Stress, Bewegung, Entgiftung) mit pflanzlichen Heilmitteln & Nährstoff-Therapie (ggf. Infusion)."
       }
-    }
+    ]
   },
   "mentoring": {
     "seoTitle": "1:1 Mentoring – Longevity & Gesundheit Berlin",
     "seoDescription": "Persönliches 1:1 Mentoring zur Umsetzung individueller Longevity- und Gesundheitsstrategien – ärztlich begleitet, alltagstauglich und messbar.",
     "processTitle": "Individuell statt Schublade!",
     "processSubtitle": "So läuft das Mentoring ab:",
-    "focusCards": {
-      "0": {
+    "focusCards": [
+      {
         "label": "1:1-Mentoring – online oder vor Ort",
         "title": "1:1-Mentoring – online oder vor Ort",
         "desc": "Regelmäßige Sessions, dazwischen kurze Impulse/Check-ins für Momentum."
       },
-      "1": {
+      {
         "label": "Biofeedback als Kompass",
         "title": "Biofeedback als Kompass",
         "desc": "HRV, BIA, CGM & Schlaf/Energie-Signale zeigen, was wirkt: wir kalibrieren Dosis, Timing, Reihenfolge."
       },
-      "2": {
+      {
         "label": "Selbstwirksamkeit als Ziel",
         "title": "Selbstwirksamkeit als Ziel",
         "desc": "Du wirst lernen, deine eigenen Signale zu deuten. Mit zunehmender Zeit, wirst du mich dabei immer weniger brauchen."
       }
-    },
-    "processSteps": {
-      "0": {
+    ],
+    "processSteps": [
+      {
         "title": "Kostenloses Kennenlerngespräch",
-        "lines": {
-          "0": "Wir sprechen persönlich (online), und finden gemeinsam heraus, ob wir zusammenpassen.",
-          "1": "Wenn es stimmig ist, dann erfolgt eine medizinische Beratung."
-        }
+        "lines": [
+          "Wir sprechen persönlich (online), und finden gemeinsam heraus, ob wir zusammenpassen.",
+          "Wenn es stimmig ist, dann erfolgt eine medizinische Beratung."
+        ]
       },
-      "1": {
+      {
         "title": "Ärztlicher Starttermin",
-        "lines": {
-          "0": "Medizinische Beratung mit Anamnese & Empfehlung für Diagnostik ist ein Muss; rote Flaggen ausschließen."
-        }
+        "lines": [
+          "Medizinische Beratung mit Anamnese & Empfehlung für Diagnostik ist ein Muss; rote Flaggen ausschließen."
+        ]
       },
-      "2": {
+      {
         "title": "Präzise Diagnostik – weit über das typische Labor hinaus:",
-        "lines": {
-          "0": "Blut, Urin, Stuhl & Genetik-Analysen für maximale Personalisierung.",
-          "1": "Untersuchung auf Nährstoffmangel, stille Entzündungen, Umweltgifte, Mikrobiom, Parasiten & Schimmel und viel mehr!"
-        }
+        "lines": [
+          "Blut, Urin, Stuhl & Genetik-Analysen für maximale Personalisierung.",
+          "Untersuchung auf Nährstoffmangel, stille Entzündungen, Umweltgifte, Mikrobiom, Parasiten & Schimmel und viel mehr!"
+        ]
       },
-      "3": {
+      {
         "title": "Dein Plan basierend auf deinen Ergebnissen:",
-        "lines": {
-          "0": "Kein 08/15-Plan, sondern passgenaue Strategien für deinen Alltag.",
-          "1": "Optimierung von Ernährung, Schlaf, Bewegung, Entgiftung & Stress nach wissenschaftlichen Daten und Laborergebnissen."
-        }
+        "lines": [
+          "Kein 08/15-Plan, sondern passgenaue Strategien für deinen Alltag.",
+          "Optimierung von Ernährung, Schlaf, Bewegung, Entgiftung & Stress nach wissenschaftlichen Daten und Laborergebnissen."
+        ]
       },
-      "4": {
+      {
         "title": "Wöchentliche 1:1 Calls zur erfolgreichen Umsetzung des Plans:",
-        "lines": {
-          "0": "Du wirst durch Veränderung Schritt für Schritt begleitet.",
-          "1": "Mit Tipps, Tricks und Hilfe wirst du mit Leichtigkeit durch große Veränderungen geführt."
-        }
+        "lines": [
+          "Du wirst durch Veränderung Schritt für Schritt begleitet.",
+          "Mit Tipps, Tricks und Hilfe wirst du mit Leichtigkeit durch große Veränderungen geführt."
+        ]
       },
-      "5": {
+      {
         "title": "Biofeedback-Begleitung:",
-        "lines": {
-          "0": "Wir arbeiten nicht nach Vermutungen, sondern nach Daten.",
-          "1": "Sensoren zur Echtzeit-Analyse deiner Körperreaktionen.",
-          "2": "Sie messen z. B. deine HRV & Blutzucker, um deine Ernährung, Schlafqualität & Stressresistenz zu optimieren."
-        }
+        "lines": [
+          "Wir arbeiten nicht nach Vermutungen, sondern nach Daten.",
+          "Sensoren zur Echtzeit-Analyse deiner Körperreaktionen.",
+          "Sie messen z. B. deine HRV & Blutzucker, um deine Ernährung, Schlafqualität & Stressresistenz zu optimieren."
+        ]
       },
-      "6": {
+      {
         "title": "Ankern bis zur Selbstwirksamkeit",
-        "lines": {
-          "0": "Wir bleiben dran, bis der Plan so umgesetzt wurde, dass er zur Selbstverständlichkeit wird und du so viel gelernt hast, dass du es in der Unabhängigkeit schaffst."
-        }
+        "lines": [
+          "Wir bleiben dran, bis der Plan so umgesetzt wurde, dass er zur Selbstverständlichkeit wird und du so viel gelernt hast, dass du es in der Unabhängigkeit schaffst."
+        ]
       }
-    }
+    ]
   },
   "flipGrid": {
     "title": "Ärztliches Mentoring",
     "subtitle": "Mein Mentoring Ansatz unterteilt sich in vier verschiedene Teilbereiche, die dir umfangreich dabei helfen, deine individuellen Ziele zu erreichen.",
     "cta": "Termin vereinbaren",
-    "cards": {
-      "0": {
+    "cards": [
+      {
         "front": "Ernährungsplan & Sportmuster",
         "back": "Dein individueller Plan auf Basis deiner Laborwerte und Körperkomposition. Nachhaltige Muster statt starrer Diäten: für Energie, Leistung und Regeneration."
       },
-      "1": {
+      {
         "front": "Schlafoptimierung",
         "back": "Wir analysieren deine Schlafarchitektur und Störfaktoren wie Licht, Cortisol und Mikronährstoffe. Ziel: tieferer Schlaf und bessere Regeneration."
       },
-      "2": {
+      {
         "front": "Stressmanagement",
         "back": "Messbare Marker wie HRV und Cortisol-Tagesprofil zeigen deine Belastungslage. Daraus folgen gezielte Tools: Atemtechniken, Nervensystem-Regulation und Coaching."
       },
-      "3": {
+      {
         "front": "Supplementplan & Infusionen",
         "back": "Gezielte Mikronährstoffe und Wirkstoffe, abgestimmt auf Labor und Anamnese. Oral oder per IV-Infusion für schnelle, spürbare Effekte."
       }
-    }
+    ]
   },
   "fanCards": {
     "title": "Deine Themen im Fokus",
@@ -952,22 +952,22 @@
     }
   },
   "scrolledLinesV3": {
-    "lines": {
-      "0": "Wir begleiten dich auf deiner Reise: von chronischen Beschwerden hin zu chronischer Gesundheit!",
-      "1": "Bekämpfe nicht nur Symptome. ",
-      "2": "Suche die Ursachen. ",
-      "3": "Keine weiteren Eigenversuche.",
-      "4": "Erhalte einen klaren Plan. "
-    },
-    "redWords": {
-      "0": "Beschwerden",
-      "1": "Symptome",
-      "2": "eigenen Versuche"
-    },
-    "greenWords": {
-      "0": "Ursachen",
-      "1": "klaren Plan"
-    }
+    "lines": [
+      "Wir begleiten dich auf deiner Reise: von chronischen Beschwerden hin zu chronischer Gesundheit!",
+      "Bekämpfe nicht nur Symptome. ",
+      "Suche die Ursachen. ",
+      "Keine weiteren Eigenversuche.",
+      "Erhalte einen klaren Plan. "
+    ],
+    "redWords": [
+      "Beschwerden",
+      "Symptome",
+      "eigenen Versuche"
+    ],
+    "greenWords": [
+      "Ursachen",
+      "klaren Plan"
+    ]
   },
   "meinAnsatz": {
     "headerTitle": "Medizin, die den ganzen Menschen",
@@ -975,57 +975,57 @@
     "headerTitleSuffix": "",
     "centerLabel": "Der Mensch",
     "hint": "Bereiche antippen zum Entdecken",
-    "circleLabels": {
-      "0": "Funktionelle\nMedizin",
-      "1": "Anthropo-\nsophische\nMedizin",
-      "2": "Toxiko-\nlogie",
-      "3": "Lebensstil-\nmedizin",
-      "4": "Genetik &\nEpigenetik",
-      "5": "Bio-\nhacking",
-      "6": "Coaching &\nUmsetzung"
-    },
-    "items": {
-      "0": {
+    "circleLabels": [
+      "Funktionelle\nMedizin",
+      "Anthropo-\nsophische\nMedizin",
+      "Toxiko-\nlogie",
+      "Lebensstil-\nmedizin",
+      "Genetik &\nEpigenetik",
+      "Bio-\nhacking",
+      "Coaching &\nUmsetzung"
+    ],
+    "items": [
+      {
         "badge": "Der Kern von allem",
         "title": "Der Mensch",
         "text": "Du stehst im Mittelpunkt – nicht deine Diagnose, nicht deine Laborwerte. Alles, was ich tue, hat ein einziges Ziel: dass du dich wirklich besser fühlst. Mehr Energie, mehr Klarheit, mehr Lebensqualität. Dein Wohlbefinden ist der Maßstab für alles. Die verschiedenen Methoden rund um diesen Kreis sind Wege dorthin – individuell, ganzheitlich und auf dich abgestimmt."
       },
-      "1": {
+      {
         "badge": "Das Fundament",
         "title": "Funktionelle Medizin",
         "text": "Die Funktionelle Medizin bildet das Fundament meines Ansatzes. Sie betrachtet den Körper nicht isoliert, sondern als vernetztes System, in dem Symptome Ausdruck tieferliegender Zusammenhänge sind. Ich möchte nicht nur behandeln, sondern die Ursachen verstehen und gezielt beeinflussen. Dadurch entsteht eine individuelle und nachhaltige Form der Therapie. Alle weiteren Methoden bauen auf diesem Verständnis auf."
       },
-      "2": {
+      {
         "badge": "Den ganzen Menschen sehen",
         "title": "Anthroposophische Medizin",
         "text": "Die anthroposophische Medizin betrachtet den Menschen nicht nur als Körper, sondern als Ganzes: mit seinen inneren Prozessen, seiner Biografie und seinem individuellen Ausdruck. Sie ergänzt die klassische Medizin um eine Ebene, die oft übersehen wird. Das Zusammenspiel von Körper, Psyche und Lebensführung."
       },
-      "3": {
+      {
         "badge": "Umwelt & Belastungen",
         "title": "Toxikologie",
         "text": "Unser Körper ist täglich mit Einflüssen konfrontiert, die wir oft nicht sehen. Schadstoffe aus Ernährung, Luft oder alltäglichen Produkten können das innere Gleichgewicht beeinflussen, häufig über lange Zeit unbemerkt. Die Toxikologie macht diese Zusammenhänge sichtbar. Durch gezielte Analyse und gezielte Entlastung schaffen wir die Voraussetzung für echte, spürbare Veränderung."
       },
-      "4": {
+      {
         "badge": "Gesundheit im Alltag",
         "title": "Lebensstilmedizin",
         "text": "Schlaf, Ernährung, Bewegung und Stressbewältigung. Diese vier Bereiche beeinflussen deine Gesundheit jeden Tag, ob du es wahrnimmst oder nicht. Wenn sie nicht im Gleichgewicht sind, greifen auch andere Therapien nur begrenzt. Die Lebensstilmedizin setzt genau hier an. Ich helfe dir dabei, diese Bereiche zu analysieren, zu verstehen und schrittweise anzupassen."
       },
-      "5": {
+      {
         "badge": "Deine individuelle Ausgangsbasis",
         "title": "Genetik & Epigenetik",
         "text": "Deine Genetik ist deine Ausgangsbasis. Sie bestimmt, wie dein Körper grundsätzlich funktioniert. Doch dein Lifestyle und deine Umwelt haben mehr Einfluss auf diese Gene, als die meisten wissen. Genau das zeigt die Epigenetik: Vieles, was genetisch angelegt scheint, ist veränderbar. Dieses Wissen nutzen wir, um gezielt dort anzusetzen, wo du und dein Körper wirklich Unterstützung brauchen."
       },
-      "6": {
+      {
         "badge": "Den Körper aktiv gestalten",
         "title": "Biohacking",
         "text": "Biohacking bedeutet, deinen Körper besser zu verstehen und dieses Wissen gezielt einzusetzen. Es geht darum, mit den richtigen Werkzeugen und Routinen deine Energie, Leistungsfähigkeit und Gesundheit aktiv zu gestalten. Das können gezielte Ernährungsstrategien sein, Licht- und Schlafoptimierung, Kältereize oder die Nutzung von Messdaten aus deinem Alltag. Nicht als Selbstzweck, sondern als Weg, deinen Körper wirklich kennenzulernen und das Beste aus dir herauszuholen."
       },
-      "7": {
+      {
         "badge": "Wissen in Handlung verwandeln",
         "title": "Coaching & Umsetzung im Alltag",
         "text": "Positive Veränderung entsteht nicht nur durch Wissen allein, sondern auch durch richtige Umsetzung. Deshalb begleite ich dich dabei, die Erkenntnisse in deinen Alltag zu integrieren. Schritt für Schritt. In einem Tempo, das für dich optimal ist. Es geht nicht um Perfektion, sondern darum, die richtigen Dinge nachhaltig in dein Leben zu bringen."
       }
-    }
+    ]
   },
   "legal": {
     "seoTitle": "Impressum & Datenschutzerklärung",
@@ -1060,14 +1060,14 @@
         "supervisoryLabel": "Zuständige Aufsichtsbehörde:",
         "supervisoryName": "Landesamt für Gesundheit und Soziales Berlin (LAGeSo)",
         "intro": "Es gelten folgende berufsrechtliche Regelungen:",
-        "list": {
-          "0": "Bundesärzteordnung (BÄO)",
-          "1": "Berufsordnung der Ärztekammer Berlin",
-          "2": "Kammergesetz Berlin (BlnKG)",
-          "3": "Heilberufe-Kammergesetz Berlin",
-          "4": "Gebührenordnung für Ärzte (GOÄ)",
-          "5": "Musterberufsordnung für die in Deutschland tätigen Ärztinnen und Ärzte (MBO-Ä)"
-        },
+        "list": [
+          "Bundesärzteordnung (BÄO)",
+          "Berufsordnung der Ärztekammer Berlin",
+          "Kammergesetz Berlin (BlnKG)",
+          "Heilberufe-Kammergesetz Berlin",
+          "Gebührenordnung für Ärzte (GOÄ)",
+          "Musterberufsordnung für die in Deutschland tätigen Ärztinnen und Ärzte (MBO-Ä)"
+        ],
         "viewableAt": "Einsehbar unter:"
       },
       "insurance": {
@@ -1120,11 +1120,11 @@
       },
       "dataTypes": {
         "heading": "3. Welche Daten wir verarbeiten",
-        "list": {
-          "0": "Technische Daten bei jedem Seitenaufruf (IP-Adresse, Browser- und Geräteinformationen, Referrer, Zeitstempel, angeforderte Inhalte)",
-          "1": "Von Ihnen übermittelte Informationen, wenn Sie mit eingebundenen Diensten interagieren (z. B. Klick auf das Doctolib-Widget oder auf Links zu sozialen Netzwerken)",
-          "2": "Analyse- und Werbe-Identifier, wenn Sie in Cookies und vergleichbare Technologien einwilligen"
-        }
+        "list": [
+          "Technische Daten bei jedem Seitenaufruf (IP-Adresse, Browser- und Geräteinformationen, Referrer, Zeitstempel, angeforderte Inhalte)",
+          "Von Ihnen übermittelte Informationen, wenn Sie mit eingebundenen Diensten interagieren (z. B. Klick auf das Doctolib-Widget oder auf Links zu sozialen Netzwerken)",
+          "Analyse- und Werbe-Identifier, wenn Sie in Cookies und vergleichbare Technologien einwilligen"
+        ]
       },
       "healthData": {
         "heading": "4. Hinweis zu Gesundheitsdaten",
@@ -1157,12 +1157,12 @@
       "socialNetworks": {
         "heading": "9. Verlinkungen zu sozialen Netzwerken",
         "intro": "Auf dieser Website finden Sie Links zu unseren Profilen bei:",
-        "list": {
-          "0": "Instagram (Meta Platforms Ireland Limited, Merrion Road, Dublin 4, Irland)",
-          "1": "TikTok (TikTok Technology Limited, 10 Earlsfort Terrace, Dublin 2, Irland)",
-          "2": "YouTube (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland)",
-          "3": "LinkedIn (LinkedIn Ireland Unlimited Company, Wilton Plaza, Wilton Place, Dublin 2, Irland)"
-        },
+        "list": [
+          "Instagram (Meta Platforms Ireland Limited, Merrion Road, Dublin 4, Irland)",
+          "TikTok (TikTok Technology Limited, 10 Earlsfort Terrace, Dublin 2, Irland)",
+          "YouTube (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland)",
+          "LinkedIn (LinkedIn Ireland Unlimited Company, Wilton Plaza, Wilton Place, Dublin 2, Irland)"
+        ],
         "note": "Dabei handelt es sich um reine Verlinkungen. Es werden keine Inhalte dieser Plattformen direkt in die Website eingebettet. Eine Datenübertragung an diese Dienste erfolgt erst, wenn Sie den jeweiligen Link anklicken und somit aktiv die Plattform aufrufen. Ab diesem Zeitpunkt gelten die Datenschutzbestimmungen des jeweiligen Anbieters."
       },
       "analytics": {
@@ -1195,43 +1195,43 @@
       "recipients": {
         "heading": "13. Empfänger Ihrer Daten",
         "intro": "Ihre Daten können an folgende Empfänger übermittelt werden:",
-        "list": {
-          "0": "Hosting-Dienstleister: Vercel Inc., USA",
-          "1": "Versionsverwaltung des Codes: GitHub, Inc., USA",
-          "2": "Terminbuchung: Doctolib GmbH, Deutschland",
-          "3": "Analyse und Werbung (nur mit Einwilligung): Google Ireland Limited, Irland / Google LLC, USA",
-          "4": "Behörden und öffentliche Stellen, soweit gesetzlich erforderlich"
-        }
+        "list": [
+          "Hosting-Dienstleister: Vercel Inc., USA",
+          "Versionsverwaltung des Codes: GitHub, Inc., USA",
+          "Terminbuchung: Doctolib GmbH, Deutschland",
+          "Analyse und Werbung (nur mit Einwilligung): Google Ireland Limited, Irland / Google LLC, USA",
+          "Behörden und öffentliche Stellen, soweit gesetzlich erforderlich"
+        ]
       },
       "dataTransfer": {
         "heading": "14. Datenübermittlung außerhalb der EU",
         "intro": "Einige der oben genannten Dienstleister sind in den USA ansässig oder übermitteln Daten dorthin. Die Übermittlung erfolgt ausschließlich auf Grundlage zulässiger Übermittlungsmechanismen nach Kapitel V DSGVO:",
-        "list": {
-          "0": "Angemessenheitsbeschluss der EU-Kommission vom 10. Juli 2023 für das EU-U.S. Data Privacy Framework (Art. 45 DSGVO), sofern der jeweilige Anbieter nach diesem Rahmen zertifiziert ist",
-          "1": "Standardvertragsklauseln gemäß Art. 46 Abs. 2 lit. c DSGVO, ergänzt um ergänzende technische und organisatorische Maßnahmen"
-        }
+        "list": [
+          "Angemessenheitsbeschluss der EU-Kommission vom 10. Juli 2023 für das EU-U.S. Data Privacy Framework (Art. 45 DSGVO), sofern der jeweilige Anbieter nach diesem Rahmen zertifiziert ist",
+          "Standardvertragsklauseln gemäß Art. 46 Abs. 2 lit. c DSGVO, ergänzt um ergänzende technische und organisatorische Maßnahmen"
+        ]
       },
       "retention": {
         "heading": "15. Speicherdauer",
         "intro": "Wir speichern personenbezogene Daten nur so lange, wie es für den jeweiligen Zweck erforderlich ist, oder solange gesetzliche Aufbewahrungspflichten bestehen. Anschließend werden die Daten gelöscht oder anonymisiert.",
-        "list": {
-          "0": "Server-Logdaten: in der Regel maximal 14 Tage, danach automatische Löschung",
-          "1": "Google Analytics: maximal 14 Monate",
-          "2": "Einwilligungsbasierte Verarbeitung: bis zum Widerruf der Einwilligung"
-        }
+        "list": [
+          "Server-Logdaten: in der Regel maximal 14 Tage, danach automatische Löschung",
+          "Google Analytics: maximal 14 Monate",
+          "Einwilligungsbasierte Verarbeitung: bis zum Widerruf der Einwilligung"
+        ]
       },
       "rights": {
         "heading": "16. Ihre Rechte als betroffene Person",
         "intro": "Sie haben folgende Rechte nach der DSGVO:",
-        "list": {
-          "0": "Auskunft über die verarbeiteten personenbezogenen Daten (Art. 15 DSGVO)",
-          "1": "Berichtigung unrichtiger oder unvollständiger Daten (Art. 16 DSGVO)",
-          "2": "Löschung Ihrer Daten (Art. 17 DSGVO)",
-          "3": "Einschränkung der Verarbeitung (Art. 18 DSGVO)",
-          "4": "Datenübertragbarkeit (Art. 20 DSGVO)",
-          "5": "Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)",
-          "6": "Widerruf erteilter Einwilligungen mit Wirkung für die Zukunft (Art. 7 Abs. 3 DSGVO)"
-        },
+        "list": [
+          "Auskunft über die verarbeiteten personenbezogenen Daten (Art. 15 DSGVO)",
+          "Berichtigung unrichtiger oder unvollständiger Daten (Art. 16 DSGVO)",
+          "Löschung Ihrer Daten (Art. 17 DSGVO)",
+          "Einschränkung der Verarbeitung (Art. 18 DSGVO)",
+          "Datenübertragbarkeit (Art. 20 DSGVO)",
+          "Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)",
+          "Widerruf erteilter Einwilligungen mit Wirkung für die Zukunft (Art. 7 Abs. 3 DSGVO)"
+        ],
         "exercise": "Zur Ausübung Ihrer Rechte genügt eine formlose Nachricht an",
         "complaint": "Sie haben zudem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Zuständig ist insbesondere die Behörde an Ihrem gewöhnlichen Aufenthaltsort, Arbeitsplatz oder Ort der mutmaßlichen Rechtsverletzung.",
         "authorityLabel": "Zuständige Aufsichtsbehörde am Sitz des Verantwortlichen:",
@@ -1258,33 +1258,33 @@
     "shots": {
       "vitaminD": {
         "desc": "Eine einzige Spritze kann monatelange tägliche Einnahme ersetzen.",
-        "tags": {
-          "0": "Immunsystem",
-          "1": "Knochen",
-          "2": "Hormonbalance"
-        },
+        "tags": [
+          "Immunsystem",
+          "Knochen",
+          "Hormonbalance"
+        ],
         "popupDesc": "Die meisten Menschen nehmen Vitamin D täglich als Tablette und hoffen, dass es ankommt. Tut es oft aber nicht. Denn D3 ist fettlöslich: ohne optimalen Gallenfluss, gesunden Darm und gleichzeitige Fettzufuhr kann ein Großteil einfach durchrauschen. Dieser Shot kann das Problem ein für alle Mal lösen: 100.000 IU direkt in den Muskel, sofort ins Depot, kann für Monate wirken.",
         "whyTitle": "Warum dieser Shot?",
         "whyText": "Vitamin D ist kein normales Vitamin. Es kann als Hormon wirken und kann an über 200 Genprozessen beteiligt sein: Immunabwehr, Knochenaufbau, Muskelkraft, Stimmung, Schlaf, Testosteron, Schilddrüse. Studien zeigen, dass über 80% der Deutschen einen suboptimalen Spiegel haben, viele ohne es zu wissen.\n\nIm Vergleich: Eine 1.000 IU Tablette täglich, 3 Monate lang – 90 Tabletten, täglich daran denken, und davon kommt je nach Darmgesundheit nur ein Bruchteil wirklich an. Dieser Shot? Eine Ampulle, fünf Minuten, direkt in den Muskel – kann 100.000 IU sofort ins Körperdepot liefern, zu 100% verfügbar, ohne Umweg über Darm oder Galle. Was Tabletten in einem Vierteljahr versuchen zu erreichen, kann dieser Shot in einem einzigen Termin schaffen."
       },
       "magnesium": {
         "desc": "Eine einzige Infusion kann das erreichen, was Tabletten in Wochen kaum schaffen.",
-        "tags": {
-          "0": "Entspannung",
-          "1": "Durchblutung",
-          "2": "Fatigue"
-        },
+        "tags": [
+          "Entspannung",
+          "Durchblutung",
+          "Fatigue"
+        ],
         "popupDesc": "Wer Magnesium kennt, kennt es als Tablette. Wer es einmal intravenös bekommen hat, nimmt nie wieder nur Tabletten!",
         "whyTitle": "Warum dieser Shot – und warum als Serie?",
         "whyText": "Es geht nicht darum, Speicher aufzufüllen. Es geht darum, was in dem Moment passiert, wenn Magnesium direkt ins Blut geht und was passiert, wenn man diesen Moment wiederholt.\n\nMagnesium i.v. kann die glatte Muskulatur der Blutgefäße sofort entspannen, den Blutdruck senken und die Durchblutung schlagartig steigern. Viele Patienten spüren es live: eine intensive Wärme breitet sich vom Arm über den ganzen Körper aus. Das ist echte Vasodilatation, der Körper öffnet sich buchstäblich! Muskeln können loslassen, das Nervensystem kann runterfahren, der Herzrhythmus kann sich stabilisieren.\n\nBei chronischer Erschöpfung und Fatigue kann genau dieser kurzfristige Reset entscheidend sein. Nicht weil der Körper danach dauerhaft verändert ist, sondern weil jede Wiederholung das Nervensystem trainiert, wieder in diesen Zustand zu kommen. Wie ein Reset-Knopf, der mit jeder Sitzung leichter zu drücken ist. Als Serie angewendet, kann sich diese kurze, tiefe Entspannung in nachhaltige Erholung verwandeln; messbar an HRV, Schlafqualität und Energielevel."
       },
       "glutathion": {
         "desc": "Direkt intravenös für sofortige Bioverfügbarkeit auf Zellniveau.",
-        "tags": {
-          "0": "Entgiftung",
-          "1": "Zellschutz",
-          "2": "Skin Glow-Up"
-        },
+        "tags": [
+          "Entgiftung",
+          "Zellschutz",
+          "Skin Glow-Up"
+        ],
         "popupDesc": "Der Körper produziert Glutathion selbst, aber Stress, Toxine, Alter und Nährstoffmängel leeren die Speicher schnell. Oral aufgenommen wird es kaum resorbiert: Magensäure und Darmenzyme bauen es ab, bevor es ankommt. Dieser Shot liefert reduziertes Glutathion direkt in die Vene: sofort bioverfügbar, sofort wirksam. Die Zellen bekommen das, was sie wirklich brauchen.",
         "whyTitle": "Warum dieser Shot?",
         "whyText": "Glutathion ist das mächtigste körpereigene Antioxidans. Es neutralisiert freie Radikale, regeneriert andere Antioxidantien wie Vitamin C und E, und ist zentraler Bestandteil der Leberdetoxifikation. Gleichzeitig schützt es Mitochondrien, unterstützt das Immunsystem und kann die Haut von innen aufhellen. Wer chronisch erschöpft ist, viele Toxine ausgesetzt war oder einfach auf Zellniveau regenerieren will, für den ist das der direkteste Weg."
@@ -1744,51 +1744,51 @@
     "focus": {
       "darm": {
         "title": "Darm & Verdauung",
-        "items": {
-          "0": "Mikrobiom-Analyse",
-          "1": "Nahrungsmittelunverträglichkeiten",
-          "2": "Darm-Reset-Programm"
-        }
+        "items": [
+          "Mikrobiom-Analyse",
+          "Nahrungsmittelunverträglichkeiten",
+          "Darm-Reset-Programm"
+        ]
       },
       "psyche": {
         "title": "Psyche & Nervensystem",
-        "items": {
-          "0": "Stress- & Schlafanalyse",
-          "1": "Regulation des Nervensystems",
-          "2": "Ganzheitliche Begleitung"
-        }
+        "items": [
+          "Stress- & Schlafanalyse",
+          "Regulation des Nervensystems",
+          "Ganzheitliche Begleitung"
+        ]
       },
       "stoffwechsel": {
         "title": "Stoffwechsel & Hormone",
-        "items": {
-          "0": "Hormon-Diagnostik",
-          "1": "Schilddrüsen- & Geschlechtshormone",
-          "2": "Individuelles Balance-Konzept"
-        }
+        "items": [
+          "Hormon-Diagnostik",
+          "Schilddrüsen- & Geschlechtshormone",
+          "Individuelles Balance-Konzept"
+        ]
       },
       "leistung": {
         "title": "Leistung & Energie",
-        "items": {
-          "0": "Mitochondrien-Check",
-          "1": "Mikronährstoff-Status",
-          "2": "Energie- & Regenerationsplan"
-        }
+        "items": [
+          "Mitochondrien-Check",
+          "Mikronährstoff-Status",
+          "Energie- & Regenerationsplan"
+        ]
       },
       "immun": {
         "title": "Immunsystem & Infekte",
-        "items": {
-          "0": "Immun-Profil",
-          "1": "Chronische Infekte & Toxine",
-          "2": "Stärkung der Abwehr"
-        }
+        "items": [
+          "Immun-Profil",
+          "Chronische Infekte & Toxine",
+          "Stärkung der Abwehr"
+        ]
       },
       "praevention": {
         "title": "Prävention & Longevity",
-        "items": {
-          "0": "Früherkennungs-Check",
-          "1": "Risikofaktor-Analyse",
-          "2": "Langzeit-Gesundheitsplan"
-        }
+        "items": [
+          "Früherkennungs-Check",
+          "Risikofaktor-Analyse",
+          "Langzeit-Gesundheitsplan"
+        ]
       }
     },
     "stepsSection": {
@@ -1942,26 +1942,50 @@
     "viewAll": "Alle Blogartikel entdecken",
     "articleAriaLabel": "Artikel"
   },
-  "therapieDetail": {
-    "notFound": "Therapie nicht gefunden",
-    "toHome": "Zur Startseite",
-    "placeholder": "Platzhalter — Inhalte zu dieser Therapie folgen in Kürze.",
-    "backToHome": "Zurück zur Startseite",
-    "titles": {
-      "ketamin": "Ketamin-Therapie",
-      "schwermetall": "Schwermetall-Ausleitung",
-      "schimmel": "Schimmel-Therapie",
-      "darmreset": "Darm Reset",
-      "hormone": "Hormone",
-      "burnout": "Burnout Fix"
+  "admin": {
+    "tabs": {
+      "blog": "Blog verwalten",
+      "contacts": "Kontakte"
     },
-    "descriptions": {
-      "ketamin": "Ketamin-assistierte Psychotherapie bei therapieresistenter Depression, Angst und PTBS in Berlin – ärztlich begleitet.",
-      "schwermetall": "Schwermetall-Ausleitung in Berlin: Diagnostik, Chelat-Therapie und ganzheitliche Begleitung bei Belastungen mit Quecksilber, Blei oder Aluminium.",
-      "schimmel": "Schimmelpilz-bedingte Erkrankungen erkennen und behandeln. Mykotoxin-Diagnostik, Bindemittel-Protokolle und Sanierung in Berlin.",
-      "darmreset": "Ganzheitliches Darm-Reset-Programm in Berlin: Diagnostik, Eliminationsdiät und gezielter Wiederaufbau des Mikrobioms.",
-      "hormone": "Bioidentische Hormontherapie in Berlin: Östrogen, Progesteron, Testosteron, Schilddrüse und Cortisol – individuell ausbalanciert.",
-      "burnout": "Burnout-Behandlung in Berlin: HPA-Achse, Mitochondrien, Schlaf und Regeneration – integrativer Weg zurück zur Energie."
+    "contacts": {
+      "title": "Kontaktanfragen",
+      "unread": "Ungelesen",
+      "empty": "Noch keine Anfragen.",
+      "emptyDetail": "Wähl eine Anfrage aus der Liste, um die Details zu sehen.",
+      "filterAll": "Alle",
+      "filterNew": "Neu",
+      "filterInProgress": "In Bearbeitung",
+      "filterDone": "Erledigt",
+      "status": {
+        "new": "Neu",
+        "in_progress": "In Bearbeitung",
+        "done": "Erledigt"
+      },
+      "fields": {
+        "name": "Name",
+        "email": "E-Mail",
+        "telefon": "Telefon",
+        "versicherung": "Versicherung",
+        "anliegen": "Anliegen",
+        "situation": "Anliegen-Details",
+        "dauer": "Dauer",
+        "preferredDays": "Bevorzugte Tage",
+        "preferredTimes": "Bevorzugte Zeit",
+        "language": "Sprache",
+        "receivedAt": "Eingegangen",
+        "consentAt": "DSGVO-Einwilligung",
+        "notes": "Notizen"
+      },
+      "actions": {
+        "markInProgress": "In Bearbeitung",
+        "markDone": "Als erledigt markieren",
+        "reopen": "Wieder öffnen",
+        "saveNotes": "Notizen speichern",
+        "notesSaved": "Gespeichert.",
+        "delete": "Löschen",
+        "deleteConfirm": "Anfrage wirklich löschen?"
+      },
+      "notesPlaceholder": "Notizen zum Anrufverlauf, Folgeschritten …"
     }
   },
   "kontakt": {
@@ -2052,50 +2076,26 @@
       }
     }
   },
-  "admin": {
-    "tabs": {
-      "blog": "Blog verwalten",
-      "contacts": "Kontakte"
+  "therapieDetail": {
+    "notFound": "Therapie nicht gefunden",
+    "toHome": "Zur Startseite",
+    "placeholder": "Platzhalter — Inhalte zu dieser Therapie folgen in Kürze.",
+    "backToHome": "Zurück zur Startseite",
+    "titles": {
+      "ketamin": "Ketamin-Therapie",
+      "schwermetall": "Schwermetall-Ausleitung",
+      "schimmel": "Schimmel-Therapie",
+      "darmreset": "Darm Reset",
+      "hormone": "Hormone",
+      "burnout": "Burnout Fix"
     },
-    "contacts": {
-      "title": "Kontaktanfragen",
-      "unread": "Ungelesen",
-      "empty": "Noch keine Anfragen.",
-      "emptyDetail": "Wähl eine Anfrage aus der Liste, um die Details zu sehen.",
-      "filterAll": "Alle",
-      "filterNew": "Neu",
-      "filterInProgress": "In Bearbeitung",
-      "filterDone": "Erledigt",
-      "status": {
-        "new": "Neu",
-        "in_progress": "In Bearbeitung",
-        "done": "Erledigt"
-      },
-      "fields": {
-        "name": "Name",
-        "email": "E-Mail",
-        "telefon": "Telefon",
-        "versicherung": "Versicherung",
-        "anliegen": "Anliegen",
-        "situation": "Anliegen-Details",
-        "dauer": "Dauer",
-        "preferredDays": "Bevorzugte Tage",
-        "preferredTimes": "Bevorzugte Zeit",
-        "language": "Sprache",
-        "receivedAt": "Eingegangen",
-        "consentAt": "DSGVO-Einwilligung",
-        "notes": "Notizen"
-      },
-      "actions": {
-        "markInProgress": "In Bearbeitung",
-        "markDone": "Als erledigt markieren",
-        "reopen": "Wieder öffnen",
-        "saveNotes": "Notizen speichern",
-        "notesSaved": "Gespeichert.",
-        "delete": "Löschen",
-        "deleteConfirm": "Anfrage wirklich löschen?"
-      },
-      "notesPlaceholder": "Notizen zum Anrufverlauf, Folgeschritten …"
+    "descriptions": {
+      "ketamin": "Ketamin-assistierte Psychotherapie bei therapieresistenter Depression, Angst und PTBS in Berlin – ärztlich begleitet.",
+      "schwermetall": "Schwermetall-Ausleitung in Berlin: Diagnostik, Chelat-Therapie und ganzheitliche Begleitung bei Belastungen mit Quecksilber, Blei oder Aluminium.",
+      "schimmel": "Schimmelpilz-bedingte Erkrankungen erkennen und behandeln. Mykotoxin-Diagnostik, Bindemittel-Protokolle und Sanierung in Berlin.",
+      "darmreset": "Ganzheitliches Darm-Reset-Programm in Berlin: Diagnostik, Eliminationsdiät und gezielter Wiederaufbau des Mikrobioms.",
+      "hormone": "Bioidentische Hormontherapie in Berlin: Östrogen, Progesteron, Testosteron, Schilddrüse und Cortisol – individuell ausbalanciert.",
+      "burnout": "Burnout-Behandlung in Berlin: HPA-Achse, Mitochondrien, Schlaf und Regeneration – integrativer Weg zurück zur Energie."
     }
   }
 }
