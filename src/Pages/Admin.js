@@ -80,6 +80,19 @@ function Admin() {
     }
   };
 
+  // Toggle publish state on both DE and EN halves at once.
+  const togglePublishGroup = async (group) => {
+    const anchor = group.de || group.en;
+    if (!anchor) return;
+    const target = !anchor.published;
+    const ids = [group.de?.id, group.en?.id].filter(Boolean);
+    const { error } = await supabase
+      .from("blog_posts")
+      .update({ published: target, updated_at: new Date().toISOString() })
+      .in("id", ids);
+    if (!error) fetchPosts();
+  };
+
   const toggleFeatured = async (post) => {
     const { error } = await supabase
       .from("blog_posts")
@@ -467,20 +480,6 @@ function Admin() {
               </svg>
             </button>
 
-            {/* Toggle publish — on both DE and EN */}
-            <button
-              onClick={() => togglePublish(post)}
-              className="relative w-9 h-5 rounded-full transition-colors duration-300 focus:outline-none"
-              style={{ backgroundColor: post.published ? "#43a9ab" : "#d1d5db" }}
-              title={post.published ? "Veröffentlicht — klicken zum Verbergen" : "Entwurf — klicken zum Veröffentlichen"}
-            >
-              <span
-                className={`absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full shadow transition-transform duration-300 ${
-                  post.published ? "translate-x-4" : "translate-x-0"
-                }`}
-              />
-            </button>
-
             {/* Delete */}
             {deleteConfirm === post.id ? (
               <div className="flex items-center gap-1 ml-1">
@@ -515,21 +514,42 @@ function Admin() {
   };
 
   // ── Group card (DE | EN paired box) ──
-  const renderGroup = (group) => (
-    <div
-      key={group.canonical_id}
-      className="border border-gray-100 rounded-xl p-5 hover:border-[#43a9ab]/20 transition-all duration-300"
-    >
-      <div className="grid grid-cols-1 md:grid-cols-2 md:divide-x md:divide-gray-100 gap-4 md:gap-0">
-        <div className="md:pr-5">
-          {renderPostHalf(group.de, "de", group)}
+  const renderGroup = (group) => {
+    const anchor = group.de || group.en;
+    return (
+      <div
+        key={group.canonical_id}
+        className="border border-gray-100 rounded-xl p-5 hover:border-[#43a9ab]/20 transition-all duration-300"
+      >
+        {/* Unified publish toggle — controls both DE and EN at once */}
+        <div className="flex items-center justify-end gap-2 mb-3 -mt-1">
+          <span className="text-[10px] text-[#515757]/40 tracking-wider uppercase">
+            {anchor?.published ? "Live" : "Entwurf"}
+          </span>
+          <button
+            onClick={() => togglePublishGroup(group)}
+            className="relative w-9 h-5 rounded-full transition-colors duration-300 focus:outline-none"
+            style={{ backgroundColor: anchor?.published ? "#43a9ab" : "#d1d5db" }}
+            title={anchor?.published ? "Beide veröffentlicht — klicken zum Verbergen" : "Entwurf — klicken zum Veröffentlichen"}
+          >
+            <span
+              className={`absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full shadow transition-transform duration-300 ${
+                anchor?.published ? "translate-x-4" : "translate-x-0"
+              }`}
+            />
+          </button>
         </div>
-        <div className="md:pl-5">
-          {renderPostHalf(group.en, "en", group)}
+        <div className="grid grid-cols-1 md:grid-cols-2 md:divide-x md:divide-gray-100 gap-4 md:gap-0">
+          <div className="md:pr-5">
+            {renderPostHalf(group.de, "de", group)}
+          </div>
+          <div className="md:pl-5">
+            {renderPostHalf(group.en, "en", group)}
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   // Admin dashboard
   return (

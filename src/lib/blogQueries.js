@@ -25,9 +25,11 @@ export function orderForListing(posts) {
   return [...newest, ...pinned, ...rest];
 }
 
-// Hydrate EN posts with their DE pair's pinned + featured_on_home flags.
-// Mutates posts in place. No-op for DE posts (they already hold the canonical flags).
-async function inheritFlagsFromDePair(posts) {
+// Hydrate EN posts from their DE pair: pinned, featured_on_home, and created_at.
+// Mutates posts in place. No-op for DE posts (they already hold canonical values).
+// created_at is overridden so EN list ordering and displayed publication date
+// follow the article's authoring timeline, not the translation date.
+async function inheritFromDePair(posts) {
   const deIdsToFetch = posts
     .filter((p) => p.language === "en" && p.translation_of)
     .map((p) => p.translation_of);
@@ -35,7 +37,7 @@ async function inheritFlagsFromDePair(posts) {
 
   const { data: dePosts, error } = await supabase
     .from("blog_posts")
-    .select("id, pinned, featured_on_home")
+    .select("id, pinned, featured_on_home, created_at")
     .in("id", deIdsToFetch);
   if (error || !dePosts) return;
 
@@ -45,11 +47,12 @@ async function inheritFlagsFromDePair(posts) {
       const de = deMap.get(post.translation_of);
       post.pinned = de.pinned;
       post.featured_on_home = de.featured_on_home;
+      post.created_at = de.created_at;
     }
   }
 }
 
-// Public: all published posts in a given language, with pin/featured inherited from DE pair.
+// Public: all published posts in a given language, with pin/featured/date inherited from DE pair.
 export async function fetchPublishedPostsForLanguage(lang) {
   const { data, error } = await supabase
     .from("blog_posts")
@@ -60,7 +63,9 @@ export async function fetchPublishedPostsForLanguage(lang) {
     .eq("language", lang)
     .order("created_at", { ascending: false });
   if (error || !data) return [];
-  await inheritFlagsFromDePair(data);
+  await inheritFromDePair(data);
+  // Re-sort: EN created_at was just overwritten with the DE pair's date.
+  data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
   return data;
 }
 
