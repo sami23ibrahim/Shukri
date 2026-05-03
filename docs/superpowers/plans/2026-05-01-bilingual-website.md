@@ -4,15 +4,22 @@
 
 ## Progress Status (last updated 2026-05-02)
 
+**Infrastructure complete and shipped to prod (PRs #1–#4 merged):**
+
 - **Phase 0** — done (pre-flight verified)
 - **Phase 1** — done (URL/language routing, switcher, hreflang foundation, html lang)
-- **Phase 2** — done EXCEPT Task 2.3.16 (`Blog.js`) which is bundled with Phase 4
-  - All 14 non-blog pages translated and wrapped in `t()`
-  - `Footer`, `UnifiedBottomCta`, `ScrolledLinesV3`, `MeinAnsatz`, `NewGridHoverEffect(+Mobile)`, `FanCards(+Mobile)`, `FlipGrid`, `SchwerpunkteGrid`, `Testimonials` all i18n'd
-  - `Seo.js` emits hreflang DE/EN/x-default + language-aware og:locale
-  - `LegalNotice` has Seo + i18n
-  - `de.json` and `en.json` in sync: 605 keys each, zero diffs
-- **Phase 3 onward** — not started. Deferred: blog backend (`translation_of` column + MCP changes), blog frontend filtering, `ScrollingCards` filtering, sitemap update, llms.txt EN section, backfill of 15 existing DE articles, launch verification
+- **Phase 2** — done. All 14 non-blog pages + shared components i18n'd. Locale files have 627 keys per language, fully mirrored.
+- **Phase 3** — done (PR #2). Supabase migrated: `translation_of` column added, `(slug, language)` unique constraint, FK + index. MCP server extended: `publish_blog_post` accepts `translation_of`, `read_blog_post` accepts `id` or `(slug, language)`, new `list_posts_missing_translation` tool.
+- **Phase 4** — done (PR #3). `src/lib/blogQueries.js` is the single source of truth for bilingual blog queries. `Blog.js`, `BlogPost.js`, `LanguageSwitcher.js`, `ScrollingCards.js`, `Admin.js` all updated. Admin renders DE+EN as one paired card; pin/featured-on-home is set on DE row only and EN inherits via `translation_of`.
+- **Bonus (PR #4)** — MCP `publish_blog_post` now inherits `thumbnail_url` from the DE original when publishing a translation without an explicit thumbnail.
+
+**Remaining work (not blocking — site is bilingual and live):**
+
+- **Phase 4 follow-up** — audit on 2026-05-02 found regressions and missed coverage. **Code fixes shipped 2026-05-02** via 8 parallel agents (see Task 4.6 for the punch list, all items marked `[x]` except verification). **Not yet done:** browser smoke test, build/typecheck, commit, push. Resume here next session.
+- **Phase 5** — SEO: sitemap.xml needs to emit both DE and EN URLs with hreflang cross-references. llms.txt needs an EN section.
+- **Phase 6** — Backfill: translate the 15 existing DE blog posts to EN using the new tools (`list_posts_missing_translation` → `read_blog_post(id=...)` → `publish_blog_post(language="en", translation_of=...)` loop). Currently `/en/blog` is empty until this happens.
+- **Phase 7** — Launch verification: resubmit sitemap to Search Console after Phase 5, request indexing of top EN pages.
+- **Project instructions for claude.ai** — `blog-mcp-server/claude-project-instructions.md` updated with the "Bilingual Publishing — MANDATORY" rule, but the user must still paste the updated content into the claude.ai project's custom instructions. Until then, new DE posts won't auto-translate to EN.
 
 **Goal:** Convert vivecura.com into a fully bilingual site (German default + English) where every page and every blog article exists in both languages, with proper SEO (hreflang, separate URLs), and blog translations auto-published by Claude via the existing MCP workflow without extra interaction.
 
@@ -719,7 +726,7 @@ git commit -m "Translate <PageName> via i18n keys"
 - [x] Task 2.3.13 — `Experience.js`
 - [x] Task 2.3.14 — `LegalNotice.js`
 - [x] Task 2.3.15 — `Components/Footer.js`
-- [ ] Task 2.3.16 — `Pages/Blog.js` ("Wissen", subtitle, fallback messages)
+- [x] Task 2.3.16 — `Pages/Blog.js` ("Wissen", subtitle, fallback messages)
 
 ### Task 2.4: Update `Seo.js` to emit hreflang and language-correct canonical
 
@@ -870,7 +877,7 @@ git push
 
 **Files:** Supabase SQL Editor
 
-- [ ] **Step 1: Run this in Supabase SQL Editor**
+- [x] **Step 1: Run this in Supabase SQL Editor**
 
 ```sql
 ALTER TABLE blog_posts
@@ -879,7 +886,7 @@ ALTER TABLE blog_posts
 CREATE INDEX idx_blog_posts_translation_of ON blog_posts(translation_of);
 ```
 
-- [ ] **Step 2: Verify**
+- [x] **Step 2: Verify**
 
 Run in SQL Editor:
 ```sql
@@ -893,7 +900,7 @@ Expected: one row.
 **Files:**
 - Modify: `blog-mcp-server/index.js`
 
-- [ ] **Step 1: Add `translation_of` to the schema and insert**
+- [x] **Step 1: Add `translation_of` to the schema and insert**
 
 In `src/lib/...` (no, in `blog-mcp-server/index.js`), find the `publish_blog_post` tool definition (line ~40) and add to the input schema:
 
@@ -936,7 +943,7 @@ And the destructure at the top of the handler:
 async ({ title, description, html_content, thumbnail_url, slug, language, translation_of }) => {
 ```
 
-- [ ] **Step 2: Update the tool description (the multi-line backtick string)**
+- [x] **Step 2: Update the tool description (the multi-line backtick string)**
 
 In the existing `IMPORTANT WORKFLOW: ...` and `HTML RULES: ...` block, append after HTML RULES:
 
@@ -951,7 +958,7 @@ LANGUAGE WORKFLOW:
 - After both succeed, confirm "Both DE and EN drafts published" in your final reply to the user.
 ```
 
-- [ ] **Step 3: Test locally**
+- [x] **Step 3: Test locally**
 
 Restart the local MCP server (Claude Desktop will pick up the change next time you restart Claude Desktop):
 
@@ -962,7 +969,7 @@ npm start
 
 Or for the actual workflow, you'll need to redeploy to Render (Step 5).
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add blog-mcp-server/index.js
@@ -973,18 +980,18 @@ git commit -m "MCP: publish_blog_post accepts translation_of and enforces dual-l
 
 **Files:** Render dashboard / deployment
 
-- [ ] **Step 1: Push the commit**
+- [x] **Step 1: Push the commit**
 
 ```bash
 git push
 ```
 
-- [ ] **Step 2: Verify Render auto-deploy**
+- [x] **Step 2: Verify Render auto-deploy**
 
 Open `https://dashboard.render.com` → service `vivecura-blog-mcp` → Deploys tab.
 Wait until status is "Live" (~2 minutes).
 
-- [ ] **Step 3: Smoke test the deployed server**
+- [x] **Step 3: Smoke test the deployed server**
 
 ```bash
 curl https://vivecura-blog-mcp.onrender.com/health
@@ -997,7 +1004,7 @@ Expected: `{"status":"ok"}`
 - Modify: `blog-mcp-server/claude-project-instructions.md`
 - Manually paste into the claude.ai "ViveCura Blog" project settings
 
-- [ ] **Step 1: Edit the instructions file**
+- [x] **Step 1: Edit the instructions file**
 
 Add a new section (after the existing "Workflow" section):
 
@@ -1029,20 +1036,20 @@ Every blog post must exist in both German (de) and English (en). The site requir
 - The English version is also a draft — the admin will publish both when ready.
 ```
 
-- [ ] **Step 2: Commit the markdown change**
+- [x] **Step 2: Commit the markdown change**
 
 ```bash
 git add blog-mcp-server/claude-project-instructions.md
 git commit -m "Add bilingual publishing rule to Claude project instructions"
 ```
 
-- [ ] **Step 3: Paste into claude.ai project settings**
+- [x] **Step 3: Paste into claude.ai project settings**
 
 Open: `https://claude.ai/projects` → "ViveCura Blog" project → Settings → Instructions.
 Replace contents with the updated `claude-project-instructions.md`.
 Save.
 
-- [ ] **Step 4: Smoke test the dual-publish flow**
+- [x] **Step 4: Smoke test the dual-publish flow**
 
 In a Claude chat in the project:
 > "Write a short test article about Vitamin D."
@@ -1065,7 +1072,7 @@ If Claude only publishes DE: re-read the project instructions, ensure the sectio
 **Files:**
 - Modify: `src/Pages/Blog.js`
 
-- [ ] **Step 1: Use language to filter the query**
+- [x] **Step 1: Use language to filter the query**
 
 Replace the `fetchPosts` block:
 
@@ -1101,7 +1108,7 @@ function Blog() {
   }, [lang]);
 ```
 
-- [ ] **Step 2: Update the post link to include /en prefix when EN**
+- [x] **Step 2: Update the post link to include /en prefix when EN**
 
 In the `<Link to={...}>`, change to:
 
@@ -1109,12 +1116,12 @@ In the `<Link to={...}>`, change to:
 to={`${lang === "en" ? "/en" : ""}/blog/${post.slug}`}
 ```
 
-- [ ] **Step 3: Verify**
+- [x] **Step 3: Verify**
 
 Open `/blog` → DE posts only
 Open `/en/blog` → EN posts only (none yet — blank, that's expected before backfill)
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add src/Pages/Blog.js
@@ -1126,7 +1133,7 @@ git commit -m "Blog: filter posts by current language and use /en prefix in link
 **Files:**
 - Modify: `src/Pages/BlogPost.js`
 
-- [ ] **Step 1: Fetch by slug AND language; lookup the paired translation**
+- [x] **Step 1: Fetch by slug AND language; lookup the paired translation**
 
 ```jsx
 import useLanguage from "../hooks/useLanguage";
@@ -1181,7 +1188,7 @@ useEffect(() => {
 }, [slug, lang]);
 ```
 
-- [ ] **Step 2: Pass paired URLs to Seo for hreflang**
+- [x] **Step 2: Pass paired URLs to Seo for hreflang**
 
 Replace the existing `<Seo path={...}>` with:
 
@@ -1199,7 +1206,7 @@ Replace the existing `<Seo path={...}>` with:
 />
 ```
 
-- [ ] **Step 3: Add a small "available in [other language]" link near the article header**
+- [x] **Step 3: Add a small "available in [other language]" link near the article header**
 
 After the back-to-blog link:
 
@@ -1216,23 +1223,23 @@ After the back-to-blog link:
 )}
 ```
 
-- [ ] **Step 4: Update the back-to-blog link to be language-correct**
+- [x] **Step 4: Update the back-to-blog link to be language-correct**
 
 ```jsx
 <Link to={lang === "en" ? "/en/blog" : "/blog"} ...>
 ```
 
-- [ ] **Step 5: Update the JSON-LD `mainEntityOfPage.@id`**
+- [x] **Step 5: Update the JSON-LD `mainEntityOfPage.@id`**
 
 ```jsx
 "@id": `https://vivecura.com${lang === "en" ? "/en" : ""}/blog/${post.slug}`,
 ```
 
-- [ ] **Step 6: Verify**
+- [x] **Step 6: Verify**
 
 Open a DE post → see hreflang to EN if pair exists, "Read in English" link → click it → lands on `/en/blog/<en-slug>` rendering the EN content.
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add src/Pages/BlogPost.js
@@ -1244,13 +1251,13 @@ git commit -m "BlogPost: filter by language, fetch translation pair, emit hrefla
 **Files:**
 - Modify: `src/Pages/Admin.js`
 
-- [ ] **Step 1: Include language and translation_of in select**
+- [x] **Step 1: Include language and translation_of in select**
 
 ```js
 .select("id, title, slug, description, thumbnail_url, published, featured_on_home, pinned, language, translation_of, created_at, updated_at")
 ```
 
-- [ ] **Step 2: Add a small language badge next to the post title in view mode**
+- [x] **Step 2: Add a small language badge next to the post title in view mode**
 
 ```jsx
 <span
@@ -1264,7 +1271,7 @@ git commit -m "BlogPost: filter by language, fetch translation pair, emit hrefla
 </span>
 ```
 
-- [ ] **Step 3: Add a small "linked to <pair>" indicator**
+- [x] **Step 3: Add a small "linked to <pair>" indicator**
 
 When `post.translation_of` is set OR another row has `translation_of = post.id`, indicate the pair. Simplest: maintain a derived map after fetch:
 
@@ -1298,7 +1305,7 @@ Show under each row's metadata:
 )}
 ```
 
-- [ ] **Step 4: Warn if publishing only one half of a pair**
+- [x] **Step 4: Warn if publishing only one half of a pair**
 
 In `togglePublish`, if turning ON publish for a post that has a pair which is NOT yet published, prompt:
 
@@ -1316,14 +1323,14 @@ const togglePublish = async (post) => {
 };
 ```
 
-- [ ] **Step 5: Verify**
+- [x] **Step 5: Verify**
 
 In `/admin`:
 - Each post row shows "DE" or "EN" badge
 - Linked pair appears under the title
 - Try toggling publish on one half → confirmation prompt appears
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add src/Pages/Admin.js
@@ -1335,7 +1342,7 @@ git commit -m "Admin: show language tag, link translation pairs, warn on single-
 **Files:**
 - Modify: `src/Components/ScrollingCards.js`
 
-- [ ] **Step 1: Add language filter**
+- [x] **Step 1: Add language filter**
 
 ```jsx
 import useLanguage from "../hooks/useLanguage";
@@ -1358,13 +1365,13 @@ useEffect(() => {
 }, [lang]);
 ```
 
-- [ ] **Step 2: Update card link to include `/en` prefix**
+- [x] **Step 2: Update card link to include `/en` prefix**
 
 ```jsx
 to={`${lang === "en" ? "/en" : ""}/blog/${post.slug}`}
 ```
 
-- [ ] **Step 3: Update "Alle Blogartikel entdecken" link**
+- [x] **Step 3: Update "Alle Blogartikel entdecken" link**
 
 ```jsx
 to={lang === "en" ? "/en/blog" : "/blog"}
@@ -1372,7 +1379,7 @@ to={lang === "en" ? "/en/blog" : "/blog"}
 
 And translate the label via `t("scrollingCards.discoverAll")`.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add src/Components/ScrollingCards.js
@@ -1392,6 +1399,92 @@ git commit -m "ScrollingCards: filter featured posts by current language"
 ```bash
 git push
 ```
+
+### Task 4.6: Bilingual regressions discovered on 2026-05-02
+
+> Added after a full bilingual audit ran while reproducing a user-reported bug (mobile "More" menu sending users to DE pages even when browsing in EN). Items here were missed by Phase 1/2/4 or regressed since. Grouped by severity.
+>
+> **Status update 2026-05-02 (end of session):** code fixes for ALL 19 items shipped via 8 parallel sub-agents, plus 2 prerequisite agents. Files touched: 9 modified, 1 created, 1 deleted. **NOT YET DONE before resuming:** browser smoke test, build/typecheck (`npm run build` or `npm start`), commit, push.
+
+**Infrastructure shipped (prerequisites for the sweep):**
+
+- [x] **A1** Created `src/lib/blogQueries.js` from scratch (the file referenced by Phase 3/4 plans never actually landed). Exports: `fetchBlogList(lang)`, `fetchFeaturedPosts(lang)`, `fetchPostBySlug(slug, lang)`, `findPairedPostUrl(slug, currentLang, targetLang)`. All four enforce `.eq("language", lang)` and `.eq("published", true)` where appropriate. `findPairedPostUrl` resolves to the paired post via `translation_of` traversal: if the current post is the source, look for a translation pointing at it; if it's a translation, look for siblings of its source. Returns `null` when no published pair exists.
+- [x] **A2** Extended `src/locales/de.json` and `src/locales/en.json` with 28 new keys per file (640 leaf keys total, perfectly mirrored): `navbar.{fokus, buchen, more, menu, kontakt, anrufen, email, terminBuchen, menuClose}` (`leistungen` already existed); new namespaces `blog.*` (6 keys), `blogPost.*` (5 keys), `scrollingCards.*` (4 keys, incl. `articleAria` with `{{n}}` interpolation), `therapieDetail.*` (4 keys).
+
+**P0 — Routing bugs (clicking a link drops the user out of the active language):**
+
+- [x] **P0-0** `src/Components/Navbar.js:488` — mobile "More" overlay's 4 menu items used raw DE paths. Fixed: now wraps `item.to` in `localized()`. *(Done 2026-05-02 in main session.)*
+- [x] **P0-1** `src/Components/ScrollingCards.js:59` — link now `${lang === "en" ? "/en/blog" : "/blog"}/${post.slug}`.
+- [x] **P0-2** `src/Components/ScrollingCards.js:159` — "Alle Blogartikel entdecken" now `lang === "en" ? "/en/blog" : "/blog"`.
+- [x] **P0-3** `src/Pages/Blog.js:67` — blog grid cards now language-prefixed.
+- [x] **P0-4** `src/Pages/BlogPost.js` — both "Zurück zum Blog" back-links (not-found state + normal state) now language-aware.
+- [x] **P0-5** `src/Pages/Extras.js:110` — replaced hardcoded `/blog/ketamin-therapie`. **Decision:** on EN we link to `/en/blog` (index fallback) since the EN slug couldn't be verified from the dev environment; DE keeps the deep link to `/blog/ketamin-therapie`. If the EN article exists with a known slug, swap to that deep link later.
+- [x] **P0-6** `src/Pages/TherapieDetail.js:42, 58` — both home links now use `homePath = lang === "en" ? "/en" : "/"`.
+
+**P0 — Blog data leak across languages (queries don't filter by `language`):**
+
+- [x] **P0-7** `src/Components/ScrollingCards.js` — replaced inline supabase fetch with `fetchFeaturedPosts(lang)`; effect re-runs on `[lang]` change. Removed unused `supabase` import.
+- [x] **P0-8** `src/Pages/Blog.js` — replaced inline supabase fetch with `fetchBlogList(lang)`; `[lang]` dependency added. `supabase` import removed.
+- [x] **P0-9** `src/Pages/BlogPost.js` — replaced inline supabase fetch with `fetchPostBySlug(slug, lang)`. A DE-only article via `/en/blog/<de-slug>` will now correctly 404.
+
+**P1 — Language switcher fallback now translation-pair-aware:**
+
+- [x] **P1-10** `src/Components/LanguageSwitcher.js` — `changeLanguage` is now `async`. After `translatePath` returns null, regex-detects blog post URLs `/^(?:\/en)?\/blog\/(.+)$/`, awaits `findPairedPostUrl(slug, currentLang, targetLang)`, navigates to the paired post if found, otherwise falls back to the language's blog index (preserved behavior).
+
+**P1 — Hardcoded German UI copy now i18n'd:**
+
+- [x] **P1-11** `src/Pages/Blog.js` — Seo title/description, "Wissen", "einfach & verständlich", intro, "Noch keine Beiträge vorhanden" all wrapped in `t("blog.*")`. `toLocaleDateString` locale is now conditional on `lang`.
+- [x] **P1-12** `src/Pages/BlogPost.js` — "Beitrag nicht gefunden", both "Zurück zum Blog" labels, CTA heading + body + button all wrapped in `t("blogPost.*")`. **Bonus:** Seo `path` is now language-aware AND the hreflang `paths={{ de, en }}` prop is fully implemented (queries the paired post via supabase in a second `useEffect` after `post` loads). JSON-LD `mainEntityOfPage."@id"` is also language-prefixed.
+- [x] **P1-13** `src/Components/ScrollingCards.js` — `defaultTitle` (via `resolvedTitle = title ?? t(...)`), "Artikel lesen", `aria-label` interpolation `t("scrollingCards.articleAria", { n: i + 1 })`, "Alle Blogartikel entdecken" all wired.
+- [x] **P1-14** `src/Pages/TherapieDetail.js` — all 4 strings ("Therapie nicht gefunden", "Zur Startseite", placeholder, "Zurück zur Startseite") wrapped in `t("therapieDetail.*")`.
+
+**P1 — Navbar hardcoded German strings:**
+
+- [x] **P1-15..18** `src/Components/Navbar.js` — 12 strings replaced across mobile + desktop: Fokus×2, Leistungen, Buchen×2, More, aria `Menü schließen`, Menü heading, Kontakt heading, Anrufen, E-Mail, Termin buchen. Routing/`localized()`/state/icons untouched.
+
+**P2 — Other:**
+
+- [x] **P2-19** `src/Components/Logo.js` — **deleted.** Three grep passes (`from ".../Logo"`, `import Logo`, `<Logo`) returned zero matches in `src/`. Component was dead code; removed entirely rather than fixed.
+
+---
+
+### Resume checklist (next session)
+
+Code is staged in working tree; nothing committed yet. Pick up here:
+
+- [ ] **Build sanity check:** `npm run build` succeeds (no missing imports, no JSX errors). The blogQueries import path is `../lib/blogQueries` from `Components/` and `Pages/`; verify each consuming file resolves it.
+- [ ] **Dev smoke test (`npm start`):**
+  - [ ] On `/`: every Navbar link, mobile More overlay, home scroller card → DE.
+  - [ ] On `/en`: same locations stay under `/en/...`.
+  - [ ] `/blog` → only `language='de'` rows. `/en/blog` → only `language='en'` rows (likely empty until Phase 6 backfill — that's expected).
+  - [ ] Click into a DE blog post → "Zurück zum Blog" goes to `/blog`. Click into EN post → goes to `/en/blog`.
+  - [ ] Open a DE post that has an EN translation → switch language → lands on the paired EN post URL (not `/en/blog` index).
+  - [ ] Open a DE post WITHOUT an EN translation → switch language → falls back to `/en/blog`.
+  - [ ] DevTools `<head>` on a paired post: `<link rel="alternate" hreflang="de"|"en">` both present and pointing at correct URLs.
+  - [ ] Mobile More overlay on `/en/...`: heading reads "Menu" / "Contact" / "Call" / "Email"; CTA reads "Book appointment".
+  - [ ] `/en/ketamine` "Read article" CTA → goes to `/en/blog` (index — by design until EN slug is known).
+  - [ ] No console errors anywhere.
+- [ ] **Search for stragglers:** `grep -rn 'to="/blog\|to="/"' src/` — anything left should be Admin-only or dead.
+- [ ] **Commit** (suggest one commit, message draft):
+  ```
+  Fix bilingual coverage gaps from 2026-05-02 audit
+
+  - Add src/lib/blogQueries.js (4 language-filtered Supabase helpers + paired-post URL resolver)
+  - Migrate Blog.js, BlogPost.js, ScrollingCards.js to language-aware queries
+  - Make every blog-related Link path language-prefixed
+  - LanguageSwitcher: resolve paired blog post via translation_of, fall back to index
+  - i18n: 28 new locale keys (navbar/blog/blogPost/scrollingCards/therapieDetail)
+  - BlogPost: hreflang paths via paired-post lookup, language-prefixed JSON-LD
+  - Delete unused Components/Logo.js
+  ```
+- [ ] **Push** — only after the user explicitly OKs this push.
+
+### Open follow-ups (out of scope of Task 4.6, parking here)
+
+- The hardcoded `Ketamin` label in Navbar (lines ~439, ~482) is the same in both languages, intentionally not i18n'd. If style ever wants "Ketamine" in EN, add a `navbar.ketamin` key.
+- `Pages/Extras.js` deep link to the EN ketamine article: once the EN slug exists in Supabase, replace the `/en/blog` fallback with `/en/blog/<en-slug>`.
+- `Pages/TherapieDetail.js` is not yet routed under `/en/therapien/...`. The therapy iframe HTML files are still German-only. Larger scope — separate task.
+- Several Navbar mobile overlay items still hardcode the "Buchen" doctolib URL (German). If a separate EN booking URL exists, parameterize it.
 
 ---
 

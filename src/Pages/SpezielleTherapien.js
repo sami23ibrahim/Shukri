@@ -297,7 +297,6 @@ function SpezielleTherapien() {
   return (
     <div className="bg-white min-h-screen">
       <Seo
-        path="/spezielle-therapien"
         title={t("spezielleTherapien.seoTitle")}
         description={t("spezielleTherapien.seoDescription")}
       />

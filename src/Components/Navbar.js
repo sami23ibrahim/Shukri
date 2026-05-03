@@ -175,10 +175,11 @@ const Navbar = () => {
 	};
 
 	const handleNavigation = (sectionId) => {
-		if (location.pathname === '/') {
+		const homePath = lang === "en" ? "/en" : "/";
+		if (location.pathname === homePath) {
 			scrollToSection(sectionId);
 		} else {
-			window.location.href = `/#${sectionId}`;
+			window.location.href = `${homePath}#${sectionId}`;
 		}
 		setMenuOpen(false);
 	};
@@ -239,7 +240,7 @@ const Navbar = () => {
 									>
 										<span>{navIcons.fokus}</span>
 										<span className="flex items-center gap-0.5 text-[11px] font-semibold">
-											Fokus
+											{t("navbar.fokus")}
 											<span className={`transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`}>{navIcons.chevron}</span>
 										</span>
 									</button>
@@ -288,7 +289,7 @@ const Navbar = () => {
 									>
 										<span>{navIcons.leistungen}</span>
 										<span className="flex items-center gap-0.5 text-[11px] font-semibold">
-											Leistungen
+											{t("navbar.leistungen")}
 											<span className={`transition-transform duration-200 ${mobileLeistungenOpen ? "rotate-180" : ""}`}>{navIcons.chevron}</span>
 										</span>
 									</button>
@@ -349,7 +350,7 @@ const Navbar = () => {
 										<line x1="4" y1="12" x2="20" y2="12" strokeLinecap="round" />
 										<line x1="4" y1="17" x2="20" y2="17" strokeLinecap="round" />
 									</svg>
-									<span className="text-[11px] font-semibold">More</span>
+									<span className="text-[11px] font-semibold">{t("navbar.more")}</span>
 								</button>
 								</div>
 								<a
@@ -359,7 +360,7 @@ const Navbar = () => {
 									className="absolute right-3 flex flex-col items-center justify-center gap-0.5 w-[60px] py-1.5 rounded-lg bg-[#43a9ab] text-white no-underline hover:bg-[#378f91]"
 								>
 									<span>{navIcons.appointment}</span>
-									<span className="text-[11px] font-bold">Buchen</span>
+									<span className="text-[11px] font-bold">{t("navbar.buchen")}</span>
 								</a>
 						</div>
 					) : (
@@ -382,7 +383,7 @@ const Navbar = () => {
 											{navIcons.fokus}
 										</span>
 										<span className={`flex items-center gap-1 ${servicesOpen ? "text-[12px] text-[#43a9ab] font-bold" : "text-[11px] text-[#515757]/90 font-semibold"} group-hover:text-[#43a9ab] transition-all duration-300`}>
-											Fokus
+											{t("navbar.fokus")}
 											<span className={`transition-transform duration-300 ${servicesOpen ? "rotate-180" : ""}`}>
 												{navIcons.chevron}
 											</span>
@@ -436,9 +437,10 @@ const Navbar = () => {
 								<NavItem isLink to={localized("/diagnostik")} icon={navIcons.diagnostik} label={t("navbar.diagnostik")} />
 								<NavItem isLink to={localized("/infusions")} icon={navIcons.infusions} label={t("navbar.infusions")} />
 								<NavItem isLink to={localized("/mentoring")} icon={navIcons.mentoring} label={t("navbar.mentoring")} />
-								<NavItem isLink to={localized("/ketamin")} icon={navIcons.extras} label="Ketamin" />
+								<NavItem isLink to={localized("/ketamin")} icon={navIcons.extras} label={t("navbar.ketamin")} />
 								<NavItem isLink to={localized("/ueber-mich")} icon={navIcons.ueberMich} label={t("navbar.ueberMich")} />
 								<NavItem isLink to={localized("/blog")} icon={navIcons.blog} label={t("navbar.blog")} />
+								<NavItem isLink to={localized("/kontakt")} icon={navIcons.beratung} label={t("kontakt.navbarLabel")} />
 								<a
 									href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
 									target="_blank"
@@ -446,7 +448,7 @@ const Navbar = () => {
 									className="group flex items-center px-3 py-2 ml-2 rounded-xl bg-[#43a9ab] hover:bg-[#378f91] transition-colors duration-300 no-underline focus:outline-none"
 								>
 									<span className="text-[12px] text-white font-bold transition-colors duration-300">
-										Buchen
+										{t("navbar.buchen")}
 									</span>
 								</a>
 							</div>
@@ -464,7 +466,7 @@ const Navbar = () => {
 						<button
 							onClick={() => setMenuOpen(false)}
 							className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-[#515757]/5"
-							aria-label="Menü schließen"
+							aria-label={t("navbar.menuClose")}
 						>
 							<svg className="w-5 h-5 text-[#515757]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -474,18 +476,19 @@ const Navbar = () => {
 
 					<div className="px-5 pt-6 pb-10 max-w-md mx-auto">
 						<h2 className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#43a9ab] mb-4">
-							Menü
+							{t("navbar.menu")}
 						</h2>
 						<div className="flex flex-col gap-2">
 							{[
 								{ to: "/", icon: navIcons.home, label: t("navbar.home") },
-								{ to: "/ketamin", icon: navIcons.extras, label: "Ketamin" },
+								{ to: "/ketamin", icon: navIcons.extras, label: t("navbar.ketamin") },
 								{ to: "/ueber-mich", icon: navIcons.ueberMich, label: t("navbar.ueberMich") },
 								{ to: "/blog", icon: navIcons.blog, label: t("navbar.blog") },
+								{ to: "/kontakt", icon: navIcons.beratung, label: t("kontakt.navbarLabel") },
 							].map((item) => (
 								<Link
 									key={item.to}
-									to={item.to}
+									to={localized(item.to)}
 									onClick={() => setMenuOpen(false)}
 									className="group flex items-center gap-4 px-4 py-3 rounded-2xl border border-[#515757]/10 hover:border-[#43a9ab] hover:bg-[#43a9ab]/5 no-underline transition-all"
 								>
@@ -503,7 +506,7 @@ const Navbar = () => {
 						</div>
 
 						<h2 className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#43a9ab] mt-10 mb-4">
-							Kontakt
+							{t("navbar.kontakt")}
 						</h2>
 						<div className="flex flex-col gap-3">
 							<a
@@ -516,7 +519,7 @@ const Navbar = () => {
 									</svg>
 								</span>
 								<div className="flex-1">
-									<div className="text-[11px] font-semibold tracking-wider uppercase text-[#515757]/50">Anrufen</div>
+									<div className="text-[11px] font-semibold tracking-wider uppercase text-[#515757]/50">{t("navbar.anrufen")}</div>
 									<div className="text-[15px] font-semibold text-[#515757]">030 200060860</div>
 								</div>
 							</a>
@@ -531,7 +534,7 @@ const Navbar = () => {
 									</svg>
 								</span>
 								<div className="flex-1">
-									<div className="text-[11px] font-semibold tracking-wider uppercase text-[#515757]/50">E-Mail</div>
+									<div className="text-[11px] font-semibold tracking-wider uppercase text-[#515757]/50">{t("navbar.email")}</div>
 									<div className="text-[15px] font-semibold text-[#515757]">praxis@vivecura.com</div>
 								</div>
 							</a>
@@ -544,7 +547,7 @@ const Navbar = () => {
 							className="mt-8 flex items-center justify-center gap-2 w-full py-4 rounded-2xl bg-[#43a9ab] text-white font-bold tracking-wide hover:bg-[#378f91] transition-colors no-underline"
 						>
 							{navIcons.appointment}
-							<span>Termin buchen</span>
+							<span>{t("navbar.terminBuchen")}</span>
 						</a>
 					</div>
 				</div>

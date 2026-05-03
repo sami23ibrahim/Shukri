@@ -418,7 +418,6 @@ function HealthCheck() {
   return (
     <div className="bg-white min-h-screen">
       <Seo
-        path="/diagnostik"
         title={t("healthCheck.seoTitle")}
         description={t("healthCheck.seoDescription")}
       />

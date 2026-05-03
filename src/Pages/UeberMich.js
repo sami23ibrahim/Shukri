@@ -3,6 +3,7 @@ import Shukr from "../Assets/Shukr.jpg";
 import Seo from "../Components/Seo";
 import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
+import useLanguage from "../hooks/useLanguage";
 
 function useScrollFadeIn(delay = 0) {
   const ref = useRef(null);
@@ -34,6 +35,7 @@ function useScrollFadeIn(delay = 0) {
 
 function UeberMich() {
   const { t } = useTranslation();
+  const lang = useLanguage();
   const heroText = useScrollFadeIn(0.1);
   const section1 = useScrollFadeIn(0);
   const pullQuote1 = useScrollFadeIn(0);
@@ -198,7 +200,7 @@ function UeberMich() {
             </p>
             <div className="pt-2">
               <a
-                href="/ueber-mich_Vivecura_v4.html"
+                href={lang === "en" ? "/ueber-mich_Vivecura_v4-en.html" : "/ueber-mich_Vivecura_v4.html"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center bg-[#43a9ab] text-white px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-sm"

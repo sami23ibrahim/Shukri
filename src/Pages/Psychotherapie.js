@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import FanCards from "../Components/FanCards";
 import FanCardsMobile from "../Components/FanCardsMobile";
 import useIsMobile from "../hooks/useIsMobile";
+import useLanguage from "../hooks/useLanguage";
 import Seo from "../Components/Seo";
 import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
@@ -1281,6 +1282,7 @@ function MethodenKreise() {
 
 function Psychotherapie() {
   const { t } = useTranslation();
+  const lang = useLanguage();
   const [openFaq, setOpenFaq] = useState(null);
   const isMobile = useIsMobile();
   const recognizeAnim = useScrollFadeIn();
@@ -1350,7 +1352,7 @@ function Psychotherapie() {
         </div>
         <div className="flex flex-wrap gap-4">
           <a
-            href="/ketamin"
+            href={lang === "en" ? "/en/ketamine" : "/ketamin"}
             className="inline-flex items-center bg-[#43a9ab] text-white px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-lg shadow-[#43a9ab]/25"
           >
             {t("psychotherapie.hero.ketaminCta")}

@@ -21,6 +21,14 @@ export const ROUTE_MAP = [
   { de: "/experience",            en: "/en/experience" },
   { de: "/blog",                  en: "/en/blog" },
   { de: "/rechtliches",           en: "/en/legal-notice" },
+  { de: "/kontakt",               en: "/en/contact" },
+  // Therapy detail pages (iframe-based static HTML pages)
+  { de: "/therapien/ketamin",                 en: "/en/therapies/ketamine" },
+  { de: "/therapien/schwermetall-ausleitung", en: "/en/therapies/heavy-metal-detox" },
+  { de: "/therapien/schimmel-therapie",       en: "/en/therapies/mold-therapy" },
+  { de: "/therapien/darm-reset",              en: "/en/therapies/gut-reset" },
+  { de: "/therapien/hormone",                 en: "/en/therapies/hormones" },
+  { de: "/therapien/burnout-fix",             en: "/en/therapies/burnout-fix" },
 ];
 
 // Returns the language for a given pathname. EN if it starts with /en, otherwise DE.

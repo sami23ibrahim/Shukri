@@ -4,11 +4,9 @@ import useIsMobile from "../hooks/useIsMobile";
 import NewServicesCardsMobile from "../Components/NewServicesCardsMobile";
 import NewServicesCardsMobile2 from "../Components/NewServicesCardsMobile2";
 
-import HeroLine from "../Components/text";
 import NewGridHoverEffect from '../Components/NewGridHoverEffect.js';
 import NewGridHoverEffectMobile from '../Components/NewGridHoverEffectMobile.js';
 import ScrolledLines from "../Components/ScrolledLines";
-import ScrolledLinesV2 from "../Components/ScrolledLinesV2";
 import ScrolledLinesV3 from "../Components/ScrolledLinesV3";
 
 import ScrollCards from "../Components/ScrollCards";
@@ -116,17 +114,7 @@ function Home() {
      <Testimonials />
      <UnifiedBottomCta />
 
-     {/* <HeroLine /> */}
-
-
      {/* MobileImageSlider moved to Extras */}
-
-
-
- 
-
-{/*      
-     <ScrolledLinesV2 /> */}
   
 
 

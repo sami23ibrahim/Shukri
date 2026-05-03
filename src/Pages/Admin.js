@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { supabase } from "../supabaseClient";
 import { fetchAllPostsGrouped } from "../lib/blogQueries";
+import AdminContactsPanel from "../Components/AdminContactsPanel";
 
 function Admin() {
+  const { t } = useTranslation();
   const [session, setSession] = useState(null);
   const [loading, setLoading] = useState(true);
   const [groups, setGroups] = useState([]);
@@ -16,6 +19,8 @@ function Admin() {
   const [editThumbnail, setEditThumbnail] = useState("");
   const [uploading, setUploading] = useState(false);
   const [deleteConfirm, setDeleteConfirm] = useState(null);
+  const [activeTab, setActiveTab] = useState("blog");
+  const [newContactsCount, setNewContactsCount] = useState(0);
 
   // Check session on mount
   useEffect(() => {
@@ -33,6 +38,19 @@ function Admin() {
   useEffect(() => {
     if (session) fetchPosts();
   }, [session]);
+
+  // Fetch new contacts count when logged in (for tab badge)
+  useEffect(() => {
+    if (!session) return;
+    const fetchCount = async () => {
+      const { count } = await supabase
+        .from("contact_requests")
+        .select("*", { count: "exact", head: true })
+        .eq("status", "new");
+      setNewContactsCount(count || 0);
+    };
+    fetchCount();
+  }, [session, activeTab]);
 
   const fetchPosts = async () => {
     const data = await fetchAllPostsGrouped();
@@ -518,9 +536,11 @@ function Admin() {
     <div className="min-h-screen pt-24 pb-16 px-4">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <div className="flex items-center justify-between mb-10">
+        <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-2xl font-light text-[#515757]">Blog verwalten</h1>
+            <h1 className="text-2xl font-light text-[#515757]">
+              {activeTab === "contacts" ? t("admin.contacts.title") : "Blog verwalten"}
+            </h1>
             <div className="w-10 h-[2px] bg-[#43a9ab]/40 mt-2" />
           </div>
           <button
@@ -531,6 +551,41 @@ function Admin() {
           </button>
         </div>
 
+        {/* Tab nav */}
+        <div className="flex gap-2 mb-8 border-b border-gray-100">
+          <button
+            onClick={() => setActiveTab("blog")}
+            className={`relative px-4 py-2 text-sm font-medium transition-colors ${
+              activeTab === "blog"
+                ? "text-[#43a9ab] border-b-2 border-[#43a9ab] -mb-px"
+                : "text-[#515757]/50 hover:text-[#515757]"
+            }`}
+          >
+            Blog verwalten
+          </button>
+          <button
+            onClick={() => setActiveTab("contacts")}
+            className={`relative px-4 py-2 text-sm font-medium transition-colors ${
+              activeTab === "contacts"
+                ? "text-[#43a9ab] border-b-2 border-[#43a9ab] -mb-px"
+                : "text-[#515757]/50 hover:text-[#515757]"
+            }`}
+          >
+            Kontakte
+            {newContactsCount > 0 && (
+              <span className="ml-2 inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 text-[10px] font-bold text-white bg-red-500 rounded-full">
+                {newContactsCount}
+              </span>
+            )}
+          </button>
+        </div>
+
+        {activeTab === "contacts" && (
+          <AdminContactsPanel onCountChange={setNewContactsCount} />
+        )}
+
+        {activeTab === "blog" && (
+          <>
         {/* Stats */}
         <div className="flex gap-4 mb-8">
           <div className="bg-[#43a9ab]/5 rounded-xl px-5 py-3">
@@ -572,6 +627,8 @@ function Admin() {
 
             {unpinnedGroups.map(renderGroup)}
           </div>
+        )}
+          </>
         )}
       </div>
     </div>

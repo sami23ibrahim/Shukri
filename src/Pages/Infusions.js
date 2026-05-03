@@ -207,7 +207,6 @@ function Infusions() {
   return (
     <div className="bg-white min-h-screen">
       <Seo
-        path="/infusions"
         title={t("infusions.seoTitle")}
         description={t("infusions.seoDescription")}
       />
@@ -217,10 +216,10 @@ function Infusions() {
           {t("infusions.eyebrow")}
         </span>
         <h1 className="text-5xl md:text-7xl font-bold text-[#43A9AB] tracking-tighter leading-tight max-w-3xl">
-          {t("Infusions.title")}
+          {t("infusions.title")}
         </h1>
         <p className="mt-6 text-lg md:text-xl text-[#515757]/60 max-w-xl leading-relaxed">
-          {t("services.vitaminC_desc")}
+          {t("infusions.heroDescription")}
         </p>
         <div className="mt-12 flex items-center gap-2 text-[#515757]/30 animate-bounce">
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

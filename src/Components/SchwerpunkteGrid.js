@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import useLanguage from "../hooks/useLanguage";
 
 function useScrollFadeIn() {
   const ref = useRef(null);
@@ -166,44 +167,54 @@ function FlipCard({ title, image, desc, bgColor, href, flipped, onFlip, onUnflip
 
 export default function SchwerpunkteGrid({ therapies: therapiesProp, title: titleProp }) {
   const { t } = useTranslation();
+  const lang = useLanguage();
   const gridAnim = useScrollFadeIn();
+
+  const therapyHrefs = {
+    ketamin:      lang === "en" ? "/en/ketamine"                       : "/ketamin",
+    schwermetall: lang === "en" ? "/en/therapies/heavy-metal-detox"    : "/therapien/schwermetall-ausleitung",
+    schimmel:     lang === "en" ? "/en/therapies/mold-therapy"         : "/therapien/schimmel-therapie",
+    darmreset:    lang === "en" ? "/en/therapies/gut-reset"            : "/therapien/darm-reset",
+    hormone:      lang === "en" ? "/en/therapies/hormones"             : "/therapien/hormone",
+    burnout:      lang === "en" ? "/en/therapies/burnout-fix"          : "/therapien/burnout-fix",
+  };
 
   const defaultTherapies = [
     {
       title: t("spezielleTherapien.therapies.ketamin.title"),
       desc: t("spezielleTherapien.therapies.ketamin.desc"),
       image: "/Assets/Spezielle%20Therapien2/Ketamin%20Therapie.png",
-      href: "/ketamin",
+      href: therapyHrefs.ketamin,
     },
     {
       title: t("spezielleTherapien.therapies.schwermetall.title"),
       desc: t("spezielleTherapien.therapies.schwermetall.desc"),
       image: "/Assets/Spezielle%20Therapien2/Schwermetall%20Ausleitung.png",
-      href: "/therapien/schwermetall-ausleitung",
+      href: therapyHrefs.schwermetall,
     },
     {
       title: t("spezielleTherapien.therapies.schimmel.title"),
       desc: t("spezielleTherapien.therapies.schimmel.desc"),
       image: "/Assets/Spezielle%20Therapien2/Schimmel%20Therapie.png",
-      href: "/therapien/schimmel-therapie",
+      href: therapyHrefs.schimmel,
     },
     {
       title: t("spezielleTherapien.therapies.darmreset.title"),
       desc: t("spezielleTherapien.therapies.darmreset.desc"),
       image: "/Assets/Spezielle%20Therapien2/Darm%20Reset.png",
-      href: "/therapien/darm-reset",
+      href: therapyHrefs.darmreset,
     },
     {
       title: t("spezielleTherapien.therapies.hormone.title"),
       desc: t("spezielleTherapien.therapies.hormone.desc"),
       image: "/Assets/Spezielle%20Therapien2/Hormone.png",
-      href: "/therapien/hormone",
+      href: therapyHrefs.hormone,
     },
     {
       title: t("spezielleTherapien.therapies.burnout.title"),
       desc: t("spezielleTherapien.therapies.burnout.desc"),
       image: "/Assets/Spezielle%20Therapien2/Burnout_Fix_.png",
-      href: "/therapien/burnout-fix",
+      href: therapyHrefs.burnout,
     },
   ];
 

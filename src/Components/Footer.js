@@ -77,6 +77,7 @@ export default function Footer() {
       { label: t("footer.links.mentoring"), to: localized("/mentoring") },
     ],
     kontakt: [
+      { label: t("kontakt.footerLabel"), to: localized("/kontakt") },
       { label: "030 200060860", to: null, href: "tel:030200060860" },
       { label: "praxis@vivecura.com", to: null, href: "mailto:praxis@vivecura.com" },
     ],

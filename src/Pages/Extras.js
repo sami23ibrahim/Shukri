@@ -3,6 +3,7 @@ import ScrolledLines from "../Components/ScrolledLines";
 import ScrollVideoExperience from "../Components/ScrollVideoExperience";
 import { Link } from "react-router-dom";
 import useIsMobile from "../hooks/useIsMobile";
+import useLanguage from "../hooks/useLanguage";
 import Seo from "../Components/Seo";
 import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
@@ -82,6 +83,8 @@ function KetaminHero() {
 
 function KetaminCTA() {
   const { t } = useTranslation();
+  const lang = useLanguage();
+  const blogLink = lang === "en" ? "/en/blog/ketamin-therapie" : "/blog/ketamin-therapie";
   return (
     <section className="py-16 sm:py-24 px-5 sm:px-8">
       <div className="max-w-3xl mx-auto text-center">
@@ -107,7 +110,7 @@ function KetaminCTA() {
             </svg>
           </a>
           <Link
-            to="/blog/ketamin-therapie"
+            to={blogLink}
             className="inline-flex items-center justify-center gap-2 border border-[#43a9ab] text-[#43a9ab] px-7 py-3.5 rounded-xl text-sm sm:text-base font-semibold hover:bg-[#43a9ab]/5 transition-colors duration-200 no-underline"
           >
             {t("extras.ctaBlogButton")}
@@ -211,7 +214,9 @@ function IframeSection({ mobileSrc, desktopSrc, title }) {
 
 function Extras() {
   const { t } = useTranslation();
+  const lang = useLanguage();
   const isMobile = useIsMobile();
+  const iframeSuffix = lang === "en" ? "-en" : "";
   const ketaminLines = t("extras.ketaminLines", { returnObjects: true });
   const warumChaptersTranslated = t("extras.warumChapters", { returnObjects: true });
   const warumChapters = [
@@ -268,23 +273,23 @@ function Extras() {
       <KetaminHero />
       <IframeSection
         title={t("extras.iframeTitleDreiRaeume")}
-        mobileSrc="/html/drei_raeume_mobile.html"
-        desktopSrc="/html/drei_raeume_desktop.html"
+        mobileSrc={`/html/drei_raeume_mobile${iframeSuffix}.html`}
+        desktopSrc={`/html/drei_raeume_desktop${iframeSuffix}.html`}
       />
       <IframeSection
         title={t("extras.iframeTitleVerstehenErleben")}
-        mobileSrc="/html/verstehen_vs_erleben_mobile.html"
-        desktopSrc="/html/verstehen_vs_erleben_desktop.html"
+        mobileSrc={`/html/verstehen_vs_erleben_mobile${iframeSuffix}.html`}
+        desktopSrc={`/html/verstehen_vs_erleben_desktop${iframeSuffix}.html`}
       />
       <IframeSection
         title={t("extras.iframeTitleIndikationen")}
-        mobileSrc="/html/indikationen_mobile.html"
-        desktopSrc="/html/indikationen_desktop.html"
+        mobileSrc={`/html/indikationen_mobile${iframeSuffix}.html`}
+        desktopSrc={`/html/indikationen_desktop${iframeSuffix}.html`}
       />
       <IframeSection
         title={t("extras.iframeTitleAblauf")}
-        mobileSrc="/html/ablauf_mobile.html"
-        desktopSrc="/html/ablauf_desktop.html"
+        mobileSrc={`/html/ablauf_mobile${iframeSuffix}.html`}
+        desktopSrc={`/html/ablauf_desktop${iframeSuffix}.html`}
       />
       <section className="pt-20 sm:pt-28">
         <div className="max-w-5xl mx-auto px-5 sm:px-8 text-center mb-8">

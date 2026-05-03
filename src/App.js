@@ -20,6 +20,7 @@ import Beratung from "./Pages/Beratung";
 import Mentoring from "./Pages/Mentoring";
 import TherapieDetail from "./Pages/TherapieDetail";
 import LegalNotice from "./Pages/LegalNotice";
+import Kontakt from "./Pages/Kontakt";
 import Footer from "./Components/Footer";
 import LanguageSwitcher from "./Components/LanguageSwitcher";
 import HtmlLang from "./Components/HtmlLang";
@@ -72,6 +73,7 @@ function App() {
         <Route path="/psychotherapie" element={<Psychotherapie />} />
         <Route path="/beratung" element={<Beratung />} />
         <Route path="/mentoring" element={<Mentoring />} />
+        <Route path="/kontakt" element={<Kontakt />} />
 
         {/* EN (mirrored, /en prefix) */}
         <Route path="/en" element={<Home />} />
@@ -90,6 +92,8 @@ function App() {
         <Route path="/en/psychotherapy" element={<Psychotherapie />} />
         <Route path="/en/consultations" element={<Beratung />} />
         <Route path="/en/mentoring" element={<Mentoring />} />
+        <Route path="/en/therapies/:slug" element={<TherapieDetail />} />
+        <Route path="/en/contact" element={<Kontakt />} />
       </Routes>
       <Footer />
       <ConditionalSwitcher />

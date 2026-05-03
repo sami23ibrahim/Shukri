@@ -2,7 +2,6 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import ScrolledLines from "../Components/ScrolledLines";
 import SchwerpunkteGrid from "../Components/SchwerpunkteGrid";
-import WunderpillePlan from "../Components/WunderpillePlan";
 import Seo from "../Components/Seo";
 
 function useScrollFadeIn(threshold = 0.1) {
@@ -389,9 +388,6 @@ function KoerperlicheSymptome() {
           </div>
         </div>
       </section>
-
-      {/* Therapiehebel */}
-      {/* <WunderpillePlan /> */}
 
       {/* Alles was du brauchst in einem Termin */}
       <section ref={processAnim.ref} style={processAnim.style} className="pt-16 sm:pt-24 pb-20 sm:pb-28 px-5 sm:px-8">
