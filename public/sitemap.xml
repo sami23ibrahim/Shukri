@@ -49,6 +49,102 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/spezielle-therapien" />
   </url>
   <url>
+    <loc>https://vivecura.com/therapien/ketamin</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/therapien/ketamin" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/therapies/ketamine" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/therapien/ketamin" />
+  </url>
+  <url>
+    <loc>https://vivecura.com/en/therapies/ketamine</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/therapien/ketamin" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/therapies/ketamine" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/therapien/ketamin" />
+  </url>
+  <url>
+    <loc>https://vivecura.com/therapien/schwermetall-ausleitung</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/therapien/schwermetall-ausleitung" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/therapies/heavy-metal-detox" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/therapien/schwermetall-ausleitung" />
+  </url>
+  <url>
+    <loc>https://vivecura.com/en/therapies/heavy-metal-detox</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/therapien/schwermetall-ausleitung" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/therapies/heavy-metal-detox" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/therapien/schwermetall-ausleitung" />
+  </url>
+  <url>
+    <loc>https://vivecura.com/therapien/schimmel-therapie</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/therapien/schimmel-therapie" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/therapies/mold-therapy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/therapien/schimmel-therapie" />
+  </url>
+  <url>
+    <loc>https://vivecura.com/en/therapies/mold-therapy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/therapien/schimmel-therapie" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/therapies/mold-therapy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/therapien/schimmel-therapie" />
+  </url>
+  <url>
+    <loc>https://vivecura.com/therapien/darm-reset</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/therapien/darm-reset" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/therapies/gut-reset" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/therapien/darm-reset" />
+  </url>
+  <url>
+    <loc>https://vivecura.com/en/therapies/gut-reset</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/therapien/darm-reset" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/therapies/gut-reset" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/therapien/darm-reset" />
+  </url>
+  <url>
+    <loc>https://vivecura.com/therapien/hormone</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/therapien/hormone" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/therapies/hormones" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/therapien/hormone" />
+  </url>
+  <url>
+    <loc>https://vivecura.com/en/therapies/hormones</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/therapien/hormone" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/therapies/hormones" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/therapien/hormone" />
+  </url>
+  <url>
+    <loc>https://vivecura.com/therapien/burnout-fix</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/therapien/burnout-fix" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/therapies/burnout-fix" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/therapien/burnout-fix" />
+  </url>
+  <url>
+    <loc>https://vivecura.com/en/therapies/burnout-fix</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/therapien/burnout-fix" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/therapies/burnout-fix" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/therapien/burnout-fix" />
+  </url>
+  <url>
     <loc>https://vivecura.com/diagnostik</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -277,6 +373,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/blog/anthroposophische-medizin-wer-heilt-hat-recht" />
   </url>
   <url>
+    <loc>https://vivecura.com/blog/eisenmangel-und-eiseninfusionen</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/blog/eisenmangel-und-eiseninfusionen" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/blog/eisenmangel-und-eiseninfusionen" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/blog/eisenmangel-und-eiseninfusionen" />
+  </url>
+  <url>
     <loc>https://vivecura.com/blog/intervallfasten-frauen-ab-40</loc>
     <lastmod>2026-04-22</lastmod>
     <changefreq>monthly</changefreq>
@@ -311,15 +416,6 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/blog/schlaf-und-schlafstoerungen-ganzheitlich" />
     <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/blog/schlaf-und-schlafstoerungen-ganzheitlich" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/blog/schlaf-und-schlafstoerungen-ganzheitlich" />
-  </url>
-  <url>
-    <loc>https://vivecura.com/blog/eisenmangel-und-eiseninfusionen</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/blog/eisenmangel-und-eiseninfusionen" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/blog/eisenmangel-und-eiseninfusionen" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/blog/eisenmangel-und-eiseninfusionen" />
   </url>
   <url>
     <loc>https://vivecura.com/blog/darm-reset</loc>
@@ -381,7 +477,26 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/blog/heilpflanzen-infusion" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/blog/heilpflanzen-infusion" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/blog/heilpflanzen-infusion" />
+  </url>
+  <url>
+    <loc>https://vivecura.com/en/blog/schimmel-schulmedizin</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/blog/schimmel-schulmedizin" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/blog/schimmel-schulmedizin" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/blog/schimmel-schulmedizin" />
+  </url>
+  <url>
+    <loc>https://vivecura.com/blog/schimmel-schulmedizin</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/blog/schimmel-schulmedizin" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/blog/schimmel-schulmedizin" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/blog/schimmel-schulmedizin" />
   </url>
   <url>
     <loc>https://vivecura.com/blog/oestrogen-dominanz</loc>
@@ -389,7 +504,17 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/blog/oestrogen-dominanz" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/blog/oestrogen-dominanz" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/blog/oestrogen-dominanz" />
+  </url>
+  <url>
+    <loc>https://vivecura.com/blog/burnout</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/blog/burnout" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/blog/burnout" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/blog/burnout" />
   </url>
   <url>
     <loc>https://vivecura.com/blog/anthroposophische-medizin-wer-heilt-hat-recht</loc>
@@ -399,15 +524,6 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/blog/anthroposophische-medizin-wer-heilt-hat-recht" />
     <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/blog/anthroposophische-medizin-wer-heilt-hat-recht" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/blog/anthroposophische-medizin-wer-heilt-hat-recht" />
-  </url>
-  <url>
-    <loc>https://vivecura.com/blog/schimmel-schulmedizin</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/blog/schimmel-schulmedizin" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/blog/schimmel-schulmedizin" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/blog/schimmel-schulmedizin" />
   </url>
   <url>
     <loc>https://vivecura.com/blog/funktionelle-schilddruesenunterfunktion</loc>
@@ -455,24 +571,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/blog/cholesterin-mythos-wissenschaft" />
   </url>
   <url>
-    <loc>https://vivecura.com/blog/burnout</loc>
-    <lastmod>2026-05-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/blog/burnout" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/blog/burnout" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/blog/burnout" />
-  </url>
-  <url>
-    <loc>https://vivecura.com/en/blog/schimmel-schulmedizin</loc>
-    <lastmod>2026-05-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/blog/schimmel-schulmedizin" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/blog/schimmel-schulmedizin" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/blog/schimmel-schulmedizin" />
-  </url>
-  <url>
     <loc>https://vivecura.com/en/blog/darm-reset</loc>
     <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
@@ -510,7 +608,7 @@
   </url>
   <url>
     <loc>https://vivecura.com/en/blog/eisenmangel-und-eiseninfusionen</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-05-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/blog/eisenmangel-und-eiseninfusionen" />
@@ -525,5 +623,77 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/blog/testosteron-mangel" />
     <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/blog/testosteron-mangel" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/blog/testosteron-mangel" />
+  </url>
+  <url>
+    <loc>https://vivecura.com/en/blog/oestrogen-dominanz</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/blog/oestrogen-dominanz" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/blog/oestrogen-dominanz" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/blog/oestrogen-dominanz" />
+  </url>
+  <url>
+    <loc>https://vivecura.com/en/blog/heilpflanzen-infusion</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/blog/heilpflanzen-infusion" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/blog/heilpflanzen-infusion" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/blog/heilpflanzen-infusion" />
+  </url>
+  <url>
+    <loc>https://vivecura.com/blog/statine-junge-menschen-indikation</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/blog/statine-junge-menschen-indikation" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/blog/statins-young-people-indication" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/blog/statine-junge-menschen-indikation" />
+  </url>
+  <url>
+    <loc>https://vivecura.com/en/blog/statins-young-people-indication</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/blog/statine-junge-menschen-indikation" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/blog/statins-young-people-indication" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/blog/statine-junge-menschen-indikation" />
+  </url>
+  <url>
+    <loc>https://vivecura.com/blog/chronische-rueckenschmerzen-nackenschmerzen-ganzheitlich</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/blog/chronische-rueckenschmerzen-nackenschmerzen-ganzheitlich" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/blog/chronic-back-neck-pain-holistic-approach" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/blog/chronische-rueckenschmerzen-nackenschmerzen-ganzheitlich" />
+  </url>
+  <url>
+    <loc>https://vivecura.com/en/blog/chronic-back-neck-pain-holistic-approach</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/blog/chronische-rueckenschmerzen-nackenschmerzen-ganzheitlich" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/blog/chronic-back-neck-pain-holistic-approach" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/blog/chronische-rueckenschmerzen-nackenschmerzen-ganzheitlich" />
+  </url>
+  <url>
+    <loc>https://vivecura.com/blog/cannabis-therapie-und-suchtrisiko</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/blog/cannabis-therapie-und-suchtrisiko" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/blog/cannabis-therapy-and-addiction-risk" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/blog/cannabis-therapie-und-suchtrisiko" />
+  </url>
+  <url>
+    <loc>https://vivecura.com/en/blog/cannabis-therapy-and-addiction-risk</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://vivecura.com/blog/cannabis-therapie-und-suchtrisiko" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vivecura.com/en/blog/cannabis-therapy-and-addiction-risk" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vivecura.com/blog/cannabis-therapie-und-suchtrisiko" />
   </url>
 </urlset>
