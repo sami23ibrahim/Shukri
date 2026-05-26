@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { translatePath, detectLang } from "../lib/routeMap";
 import { findPairedBlogSlug } from "../lib/blogQueries";
+import { getTopicBySlug, getTopicByEnSlug, buildTopicUrl } from "../lib/topics";
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
@@ -33,7 +34,26 @@ const LanguageSwitcher = () => {
       return;
     }
 
-    // 2) Blog post URL: extract slug, look up paired translation.
+    // 2) Topic page URL: /blog/thema/:slug (DE) or /en/blog/topic/:slug (EN).
+    // Resolve via the topics module to find the paired-language URL.
+    const topicMatch = pathname.match(/^\/(?:en\/)?blog\/(?:thema|topic)\/(.+)$/);
+    if (topicMatch) {
+      const currentSlug = topicMatch[1];
+      const topic =
+        currentLangCode === "en"
+          ? getTopicByEnSlug(currentSlug)
+          : getTopicBySlug(currentSlug);
+      if (topic) {
+        i18n.changeLanguage(lang);
+        try { localStorage.setItem("lang", lang); } catch (_) {}
+        navigate(buildTopicUrl(topic, lang));
+        setMenuOpen(false);
+        return;
+      }
+      // Unknown topic slug — fall through to fallback.
+    }
+
+    // 3) Blog post URL: extract slug, look up paired translation.
     const blogPostMatch = pathname.match(/^\/(?:en\/)?blog\/(.+)$/);
     if (blogPostMatch) {
       const currentSlug = blogPostMatch[1];
@@ -48,7 +68,7 @@ const LanguageSwitcher = () => {
       // No translation exists — fall through to fallback.
     }
 
-    // 3) Fallback (unknown URL or no translation): blog index in target lang.
+    // 4) Fallback (unknown URL or no translation): blog index in target lang.
     const fallback = lang === "en" ? "/en/blog" : "/blog";
     i18n.changeLanguage(lang);
     try { localStorage.setItem("lang", lang); } catch (_) {}

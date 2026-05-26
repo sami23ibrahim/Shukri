@@ -4,6 +4,7 @@ import Navbar from "./Components/Navbar";
 import Home from "./Pages/Home";
 import Blog from "./Pages/Blog";
 import BlogPost from "./Pages/BlogPost";
+import BlogTopic from "./Pages/BlogTopic";
 import Admin from "./Pages/Admin";
 import BlogEditor from "./Pages/BlogEditor";
 import MeinBuch from "./Pages/MeinBuch";
@@ -57,6 +58,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/infusions" element={<Infusions />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/thema/:slug" element={<BlogTopic />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/edit/:id" element={<BlogEditor />} />
@@ -79,6 +81,7 @@ function App() {
         <Route path="/en" element={<Home />} />
         <Route path="/en/infusions" element={<Infusions />} />
         <Route path="/en/blog" element={<Blog />} />
+        <Route path="/en/blog/topic/:slug" element={<BlogTopic />} />
         <Route path="/en/blog/:slug" element={<BlogPost />} />
         <Route path="/en/my-book" element={<MeinBuch />} />
         <Route path="/en/special-therapies" element={<SpezielleTherapien />} />

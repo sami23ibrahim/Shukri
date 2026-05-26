@@ -269,7 +269,7 @@ function Extras() {
           })}
         </script>
       </Helmet>
-      <ScrolledLines lines={ketaminLines} title={t("extras.scrolledLinesTitle")} />
+      {/* <ScrolledLines lines={ketaminLines} title={t("extras.scrolledLinesTitle")} /> */}
       <KetaminHero />
       <IframeSection
         title={t("extras.iframeTitleDreiRaeume")}

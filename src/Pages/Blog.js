@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import useLanguage from "../hooks/useLanguage";
 import { fetchPublishedPostsForLanguage, orderForListing } from "../lib/blogQueries";
 import Seo from "../Components/Seo";
+import TopicChips from "../Components/TopicChips";
+import ArticleCard from "../Components/ArticleCard";
 
 function Blog() {
   const { t } = useTranslation();
@@ -28,11 +29,19 @@ function Blog() {
         description={t("blog.seoDescription")}
       />
       <div className="max-w-5xl mx-auto">
-        {/* Header */}
-        <div className="mb-12">
-          <h1 className="text-3xl font-light tracking-wide text-[#515757] mb-1">
+        {/* Page title */}
+        <h1 className="text-3xl font-light tracking-wide text-[#515757] mb-8">
+          {t("blog.pageTitle")}
+        </h1>
+
+        {/* Topic chips */}
+        <TopicChips />
+
+        {/* Section header */}
+        <div className="mb-12 mt-8">
+          <h2 className="text-3xl font-light tracking-wide text-[#515757] mb-1">
             {t("blog.title")}
-          </h1>
+          </h2>
           <p className="text-lg text-[#43a9ab] font-light mb-3">
             {t("blog.subtitle")}
           </p>
@@ -55,48 +64,7 @@ function Blog() {
           /* Blog cards grid */
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {posts.map((post, i) => (
-              <Link
-                key={post.id}
-                to={lang === "en" ? `/en/blog/${post.slug}` : `/blog/${post.slug}`}
-                className="group block no-underline opacity-0 animate-fade-in-up"
-                style={{
-                  animationDelay: `${i * 80}ms`,
-                  animationFillMode: "forwards",
-                }}
-              >
-                <div className="overflow-hidden rounded-lg border border-gray-100 hover:border-[#43a9ab]/20 transition-all duration-500 hover:shadow-md hover:shadow-[#43a9ab]/5">
-                  {/* Thumbnail */}
-                  {post.thumbnail_url ? (
-                    <div className="aspect-[4/3] overflow-hidden">
-                      <img
-                        src={post.thumbnail_url}
-                        alt={post.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                      />
-                    </div>
-                  ) : (
-                    <div className="aspect-[4/3] bg-gradient-to-br from-[#43a9ab]/10 to-[#43a9ab]/5 flex items-center justify-center">
-                      <span className="text-[#43a9ab]/30 text-3xl font-light">
-                        {post.title?.[0] || "B"}
-                      </span>
-                    </div>
-                  )}
-
-                  {/* Card body */}
-                  <div className="p-3">
-                    <p className="text-[10px] text-[#43a9ab] font-medium tracking-wider uppercase mb-1">
-                      {new Date(post.created_at).toLocaleDateString(lang === "en" ? "en-US" : "de-DE", {
-                        day: "numeric",
-                        month: "short",
-                        year: "numeric",
-                      })}
-                    </p>
-                    <h2 className="text-sm font-medium text-[#515757] group-hover:text-[#43a9ab] transition-colors duration-300 line-clamp-2">
-                      {post.title}
-                    </h2>
-                  </div>
-                </div>
-              </Link>
+              <ArticleCard key={post.id} post={post} lang={lang} index={i} />
             ))}
           </div>
         )}

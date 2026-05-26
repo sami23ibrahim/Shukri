@@ -37,7 +37,7 @@ async function inheritFromDePair(posts) {
 
   const { data: dePosts, error } = await supabase
     .from("blog_posts")
-    .select("id, pinned, featured_on_home, created_at")
+    .select("id, pinned, featured_on_home, created_at, topics")
     .in("id", deIdsToFetch);
   if (error || !dePosts) return;
 
@@ -48,6 +48,7 @@ async function inheritFromDePair(posts) {
       post.pinned = de.pinned;
       post.featured_on_home = de.featured_on_home;
       post.created_at = de.created_at;
+      post.topics = de.topics;
     }
   }
 }
@@ -57,7 +58,7 @@ export async function fetchPublishedPostsForLanguage(lang) {
   const { data, error } = await supabase
     .from("blog_posts")
     .select(
-      "id, title, slug, description, thumbnail_url, language, translation_of, pinned, featured_on_home, created_at"
+      "id, title, slug, description, thumbnail_url, language, translation_of, pinned, featured_on_home, created_at, topics"
     )
     .eq("published", true)
     .eq("language", lang)
@@ -65,6 +66,41 @@ export async function fetchPublishedPostsForLanguage(lang) {
   if (error || !data) return [];
   await inheritFromDePair(data);
   // Re-sort: EN created_at was just overwritten with the DE pair's date.
+  data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+  return data;
+}
+
+// Public: published posts in a language that are tagged with a given topic (DE slug).
+// Filters by the DE row's topics, then returns the requested language's rows
+// (EN rows inherit topics from their DE pair).
+export async function fetchPublishedPostsByTopicAndLanguage(topicSlug, lang) {
+  // 1. Find DE rows tagged with this topic.
+  const { data: deMatches, error: deErr } = await supabase
+    .from("blog_posts")
+    .select("id")
+    .eq("language", "de")
+    .eq("published", true)
+    .contains("topics", [topicSlug]);
+  if (deErr || !deMatches || deMatches.length === 0) return [];
+
+  const deIds = deMatches.map((r) => r.id);
+
+  // 2. Return the requested language's rows for those articles.
+  let query = supabase
+    .from("blog_posts")
+    .select(
+      "id, title, slug, description, thumbnail_url, language, translation_of, pinned, featured_on_home, created_at, topics"
+    )
+    .eq("published", true)
+    .eq("language", lang);
+
+  query = lang === "de"
+    ? query.in("id", deIds)
+    : query.in("translation_of", deIds);
+
+  const { data, error } = await query.order("created_at", { ascending: false });
+  if (error || !data) return [];
+  await inheritFromDePair(data);
   data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
   return data;
 }
@@ -131,7 +167,7 @@ export async function fetchAllPostsGrouped() {
   const { data, error } = await supabase
     .from("blog_posts")
     .select(
-      "id, title, slug, description, thumbnail_url, published, featured_on_home, pinned, language, translation_of, created_at, updated_at"
+      "id, title, slug, description, thumbnail_url, published, featured_on_home, pinned, language, translation_of, created_at, updated_at, topics"
     )
     .order("created_at", { ascending: false });
   if (error || !data) return [];

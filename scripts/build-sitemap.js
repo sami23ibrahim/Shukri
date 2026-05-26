@@ -32,6 +32,17 @@ const STATIC_ROUTES = [
   { de: "/rechtliches",           en: "/en/legal-notice",         changefreq: "yearly",  priority: "0.3" },
 ];
 
+// Blog topic pages. Keep slugs in sync with src/lib/topics.js (CommonJS script
+// can't import the ES module). When adding a topic in topics.js, add it here too.
+const TOPIC_ROUTES = [
+  { de_slug: "ketamin",                en_slug: "ketamine"          },
+  { de_slug: "schwermetallentgiftung", en_slug: "heavy-metal-detox" },
+  { de_slug: "schimmel",               en_slug: "mold"              },
+  { de_slug: "darmsanierung",          en_slug: "gut-reset"         },
+  { de_slug: "hormone",                en_slug: "hormones"          },
+  { de_slug: "burnout",                en_slug: "burnout"           },
+];
+
 function urlEntry({ loc, changefreq, priority, lastmod, alternates }) {
   const lines = [
     "  <url>",
@@ -103,6 +114,19 @@ function urlEntry({ loc, changefreq, priority, lastmod, alternates }) {
       ];
       staticEntries.push({ loc: r.de, changefreq: r.changefreq, priority: r.priority, alternates });
       staticEntries.push({ loc: r.en, changefreq: r.changefreq, priority: r.priority, alternates });
+    }
+
+    // Topic pages (6 DE + 6 EN).
+    for (const t of TOPIC_ROUTES) {
+      const dePath = `/blog/thema/${t.de_slug}`;
+      const enPath = `/en/blog/topic/${t.en_slug}`;
+      const alternates = [
+        { hreflang: "de", href: dePath },
+        { hreflang: "en", href: enPath },
+        { hreflang: "x-default", href: dePath },
+      ];
+      staticEntries.push({ loc: dePath, changefreq: "weekly", priority: "0.7", alternates });
+      staticEntries.push({ loc: enPath, changefreq: "weekly", priority: "0.7", alternates });
     }
 
     const xml =

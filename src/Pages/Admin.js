@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { supabase } from "../supabaseClient";
 import { fetchAllPostsGrouped } from "../lib/blogQueries";
+import { TOPICS, getTopicLabel } from "../lib/topics";
 import AdminContactsPanel from "../Components/AdminContactsPanel";
 
 function Admin() {
@@ -21,6 +22,7 @@ function Admin() {
   const [deleteConfirm, setDeleteConfirm] = useState(null);
   const [activeTab, setActiveTab] = useState("blog");
   const [newContactsCount, setNewContactsCount] = useState(0);
+  const [openTopicsFor, setOpenTopicsFor] = useState(null);
 
   // Check session on mount
   useEffect(() => {
@@ -114,6 +116,40 @@ function Admin() {
       fetchPosts();
     }
   };
+
+  const toggleTopic = async (post, topicSlug) => {
+    const current = Array.isArray(post.topics) ? post.topics : [];
+    const next = current.includes(topicSlug)
+      ? current.filter((s) => s !== topicSlug)
+      : [...current, topicSlug];
+    const { error } = await supabase
+      .from("blog_posts")
+      .update({ topics: next, updated_at: new Date().toISOString() })
+      .eq("id", post.id);
+    if (!error) fetchPosts();
+  };
+
+  // Close the topics dropdown when clicking outside or pressing Esc.
+  useEffect(() => {
+    if (!openTopicsFor) return;
+    const handleClickOutside = (e) => {
+      if (
+        !e.target.closest("[data-topics-popover]") &&
+        !e.target.closest("[data-topics-button]")
+      ) {
+        setOpenTopicsFor(null);
+      }
+    };
+    const handleEsc = (e) => {
+      if (e.key === "Escape") setOpenTopicsFor(null);
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEsc);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEsc);
+    };
+  }, [openTopicsFor]);
 
   const handleDelete = async (post) => {
     const { error } = await supabase.from("blog_posts").delete().eq("id", post.id);
@@ -454,6 +490,66 @@ function Admin() {
                     Anpinnen
                   </span>
                 </label>
+
+                {/* Themen dropdown */}
+                <div className="relative mr-2">
+                  <button
+                    data-topics-button
+                    onClick={() =>
+                      setOpenTopicsFor(openTopicsFor === post.id ? null : post.id)
+                    }
+                    className="flex items-center gap-1 px-2 py-1 text-[10px] text-[#515757]/50 tracking-wider uppercase rounded hover:bg-gray-50 transition-colors"
+                    title="Themen zuweisen"
+                  >
+                    Themen
+                    {Array.isArray(post.topics) && post.topics.length > 0 && (
+                      <span className="text-[#43a9ab] normal-case tracking-normal">
+                        ({post.topics.length})
+                      </span>
+                    )}
+                    <svg
+                      className="w-3 h-3"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                      />
+                    </svg>
+                  </button>
+                  {openTopicsFor === post.id && (
+                    <div
+                      data-topics-popover
+                      className="absolute top-full left-0 mt-1 z-20 bg-white border border-gray-200 rounded-lg shadow-lg py-2 min-w-[14rem]"
+                    >
+                      {TOPICS.map((topic) => {
+                        const checked =
+                          Array.isArray(post.topics) &&
+                          post.topics.includes(topic.slug);
+                        return (
+                          <label
+                            key={topic.slug}
+                            className="flex items-center gap-2 px-3 py-1.5 cursor-pointer hover:bg-gray-50 select-none"
+                          >
+                            <input
+                              type="checkbox"
+                              checked={checked}
+                              onChange={() => toggleTopic(post, topic.slug)}
+                              className="w-3.5 h-3.5 rounded border-gray-300 text-[#43a9ab] focus:ring-[#43a9ab] focus:ring-1 cursor-pointer accent-[#43a9ab]"
+                            />
+                            <span className="text-xs text-[#515757]">
+                              {topic.de}
+                            </span>
+                          </label>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
               </>
             )}
 
@@ -508,6 +604,37 @@ function Admin() {
               </button>
             )}
           </div>
+
+          {/* Topic chips. DE shows its own; EN inherits from the DE pair. */}
+          {(() => {
+            const displayTopics = isDe
+              ? (post.topics || [])
+              : (group?.de?.topics || []);
+            if (displayTopics.length === 0) return null;
+            return (
+              <div className="mt-2 flex items-center gap-1.5 flex-wrap">
+                <span className="text-[10px] text-[#515757]/40 tracking-wider uppercase">
+                  Themen:
+                </span>
+                {displayTopics.map((slug) => {
+                  const topic = TOPICS.find((t) => t.slug === slug);
+                  if (!topic) return null;
+                  return (
+                    <span
+                      key={slug}
+                      className={`text-[10px] px-2 py-0.5 rounded-full ${
+                        isDe
+                          ? "bg-[#43a9ab]/10 text-[#43a9ab]"
+                          : "bg-gray-50 text-[#515757]/50"
+                      }`}
+                    >
+                      {getTopicLabel(topic, lang)}
+                    </span>
+                  );
+                })}
+              </div>
+            );
+          })()}
         </div>
       </div>
     );
