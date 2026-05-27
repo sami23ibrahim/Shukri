@@ -4,7 +4,7 @@ function UnifiedBottomCta({
   title,
   subtitle,
   buttonText,
-  href = "https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile",
+  href = "https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/motives?source=profile",
   className = "py-20 sm:py-28 px-5 sm:px-8",
 }) {
   const { t } = useTranslation();

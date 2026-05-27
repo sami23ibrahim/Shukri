@@ -1405,7 +1405,7 @@ function Psychotherapie() {
           </div>
           <div className="mt-10 flex flex-wrap gap-4 justify-center">
             <a
-              href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
+              href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/motives?source=profile"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center bg-[#43a9ab] text-white px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-sm"
@@ -1413,7 +1413,7 @@ function Psychotherapie() {
               {t("psychotherapie.cta.orientation")}
             </a>
             <a
-              href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
+              href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/motives?source=profile"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center border border-[#43a9ab]/30 text-[#43a9ab] px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#43a9ab]/5 transition-colors duration-200 no-underline"
@@ -1481,7 +1481,7 @@ function Psychotherapie() {
           </h2>
           <div className="flex flex-wrap gap-4 justify-center mt-10">
             <a
-              href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
+              href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/motives?source=profile"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center bg-[#43a9ab] text-white px-8 py-4 rounded-xl text-base font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-lg shadow-[#43a9ab]/20"
@@ -1489,7 +1489,7 @@ function Psychotherapie() {
               {t("psychotherapie.cta.orientation")}
             </a>
             <a
-              href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
+              href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/motives?source=profile"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center border border-[#43a9ab]/30 text-[#43a9ab] px-8 py-4 rounded-xl text-base font-semibold hover:bg-[#43a9ab]/5 transition-colors duration-200 no-underline"

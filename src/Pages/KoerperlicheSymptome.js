@@ -294,7 +294,7 @@ function KoerperlicheSymptome() {
         }
         subtitle={t("koerperlicheSymptome.heroSubtitle")}
         ctaText={t("koerperlicheSymptome.heroCta")}
-        ctaHref="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
+        ctaHref="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/motives?source=profile"
         trustItems={trustItems}
       />
 
@@ -348,7 +348,7 @@ function KoerperlicheSymptome() {
       />
       <div className="max-w-7xl mx-auto px-5 sm:px-10 pb-16 sm:pb-20">
         <a
-          href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
+          href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/motives?source=profile"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center bg-[#43a9ab] text-white px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-sm"
@@ -464,7 +464,7 @@ function KoerperlicheSymptome() {
             {t("koerperlicheSymptome.ctaSubtitle")}
           </p>
           <a
-            href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
+            href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/motives?source=profile"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center bg-[#43a9ab] text-white px-10 py-4 rounded-xl text-base font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-lg shadow-[#43a9ab]/20"

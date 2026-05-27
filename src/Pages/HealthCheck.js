@@ -453,7 +453,7 @@ function HealthCheck() {
                 <div className="flex flex-wrap items-center gap-4">
                   <span className="text-sm font-semibold text-[#43a9ab]">{t("healthCheck.hero.price")}</span>
                   <a
-                    href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
+                    href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/motives?source=profile"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center bg-[#43a9ab] text-white px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline shadow-sm"
@@ -529,7 +529,7 @@ function HealthCheck() {
                 </div>
                 <div className="mt-6">
                   <a
-                    href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/new-patient?specialityId=1286&speciality_ids%5B%5D=1286&source=profile"
+                    href="https://www.doctolib.de/arzt/berlin/shukri-jarmoukli/booking/motives?source=profile"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full flex items-center justify-center bg-[#43a9ab] text-white px-6 py-3.5 rounded-xl text-sm font-semibold hover:bg-[#389193] transition-colors duration-200 no-underline"
