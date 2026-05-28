@@ -5,6 +5,7 @@ import { supabase } from "../supabaseClient";
 import { fetchAllPostsGrouped } from "../lib/blogQueries";
 import { TOPICS, getTopicLabel } from "../lib/topics";
 import AdminContactsPanel from "../Components/AdminContactsPanel";
+import AdminLifesummitPanel from "../Components/AdminLifesummitPanel";
 
 function Admin() {
   const { t } = useTranslation();
@@ -22,6 +23,7 @@ function Admin() {
   const [deleteConfirm, setDeleteConfirm] = useState(null);
   const [activeTab, setActiveTab] = useState("blog");
   const [newContactsCount, setNewContactsCount] = useState(0);
+  const [newLifesummitCount, setNewLifesummitCount] = useState(0);
   const [openTopicsFor, setOpenTopicsFor] = useState(null);
 
   // Check session on mount
@@ -50,6 +52,19 @@ function Admin() {
         .select("*", { count: "exact", head: true })
         .eq("status", "new");
       setNewContactsCount(count || 0);
+    };
+    fetchCount();
+  }, [session, activeTab]);
+
+  // Fetch Lifesummit count (incomplete = not final) for tab badge
+  useEffect(() => {
+    if (!session) return;
+    const fetchCount = async () => {
+      const { count } = await supabase
+        .from("lifesummit_submissions")
+        .select("*", { count: "exact", head: true })
+        .neq("status", "final");
+      setNewLifesummitCount(count || 0);
     };
     fetchCount();
   }, [session, activeTab]);
@@ -686,7 +701,11 @@ function Admin() {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-2xl font-light text-[#515757]">
-              {activeTab === "contacts" ? t("admin.contacts.title") : "Blog verwalten"}
+              {activeTab === "contacts"
+                ? t("admin.contacts.title")
+                : activeTab === "lifesummit"
+                ? "Lifesummit Anmeldungen"
+                : "Blog verwalten"}
             </h1>
             <div className="w-10 h-[2px] bg-[#43a9ab]/40 mt-2" />
           </div>
@@ -725,10 +744,29 @@ function Admin() {
               </span>
             )}
           </button>
+          <button
+            onClick={() => setActiveTab("lifesummit")}
+            className={`relative px-4 py-2 text-sm font-medium transition-colors ${
+              activeTab === "lifesummit"
+                ? "text-[#43a9ab] border-b-2 border-[#43a9ab] -mb-px"
+                : "text-[#515757]/50 hover:text-[#515757]"
+            }`}
+          >
+            Lifesummit
+            {newLifesummitCount > 0 && (
+              <span className="ml-2 inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 text-[10px] font-bold text-white bg-amber-500 rounded-full">
+                {newLifesummitCount}
+              </span>
+            )}
+          </button>
         </div>
 
         {activeTab === "contacts" && (
           <AdminContactsPanel onCountChange={setNewContactsCount} />
+        )}
+
+        {activeTab === "lifesummit" && (
+          <AdminLifesummitPanel />
         )}
 
         {activeTab === "blog" && (
