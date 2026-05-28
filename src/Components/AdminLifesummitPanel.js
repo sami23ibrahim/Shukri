@@ -201,7 +201,7 @@ export default function AdminLifesummitPanel() {
       };
 
       // Header
-      writeText("ViveCura — Live Summit Anmeldung", { size: 16, bold: true, color: "#1f6e70", gap: 2 });
+      writeText("ViveCura — Life Summit Anmeldung", { size: 16, bold: true, color: "#1f6e70", gap: 2 });
       writeText(`${selected.vorname || ""} ${selected.nachname || ""}`.trim(), { size: 13, gap: 2 });
       writeText(`Eingegangen: ${formatDate(selected.created_at)}  ·  Status: ${statusLabel(selected.status)}`, {
         size: 9, color: "#666", gap: 8,
@@ -285,7 +285,7 @@ export default function AdminLifesummitPanel() {
         doc.setFontSize(8);
         doc.setTextColor("#999");
         doc.text(`Seite ${i} / ${pageCount}`, pageWidth - margin, pageHeight - 20, { align: "right" });
-        doc.text("ViveCura · Live Summit Special", margin, pageHeight - 20);
+        doc.text("ViveCura · Life Summit Special", margin, pageHeight - 20);
       }
 
       const safe = (s) => (s || "").replace(/[^a-zA-Z0-9_-]/g, "_");
