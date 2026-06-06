@@ -124,7 +124,7 @@ export default function HonorarForm() {
         .hon-pf{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:14px; margin:12px 0; }
         .hon-pf > div{ min-width:0; }
         .hon-pf .full{ grid-column:1/-1; }
-        .hon-pf input{ width:100%; min-width:0; box-sizing:border-box; -webkit-appearance:none; appearance:none; }
+        .hon-pf input{ width:100%; min-width:0; box-sizing:border-box; }
         .hon-sigs{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:22px; }
         @media (max-width:560px){ .hon-sigs{ grid-template-columns:1fr; } .hon-pf{ grid-template-columns:1fr; } }
         .hon-tbl{ width:100%; border-collapse:collapse; margin:12px 0; font-size:14px; }
