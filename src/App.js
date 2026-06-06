@@ -22,6 +22,8 @@ import Mentoring from "./Pages/Mentoring";
 import TherapieDetail from "./Pages/TherapieDetail";
 import LegalNotice from "./Pages/LegalNotice";
 import Kontakt from "./Pages/Kontakt";
+import HonorarHub from "./Pages/HonorarHub";
+import HonorarForm from "./Pages/HonorarForm";
 import Footer from "./Components/Footer";
 import LanguageSwitcher from "./Components/LanguageSwitcher";
 import HtmlLang from "./Components/HtmlLang";
@@ -40,10 +42,28 @@ function LanguageActivator() {
   return null;
 }
 
+// The iPad Honorar forms are a standalone internal tool: no navbar, footer or
+// language switcher.
+function isHonorar(pathname) {
+  return pathname.startsWith("/honorar");
+}
+
 function ConditionalSwitcher() {
   const { pathname } = useLocation();
-  if (pathname.startsWith("/admin")) return null;
+  if (pathname.startsWith("/admin") || isHonorar(pathname)) return null;
   return <LanguageSwitcher />;
+}
+
+function ConditionalNavbar() {
+  const { pathname } = useLocation();
+  if (isHonorar(pathname)) return null;
+  return <Navbar />;
+}
+
+function ConditionalFooter() {
+  const { pathname } = useLocation();
+  if (isHonorar(pathname)) return null;
+  return <Footer />;
 }
 
 function App() {
@@ -52,7 +72,7 @@ function App() {
       <HtmlLang />
       <LanguageActivator />
       <ScrollToTop />
-      <Navbar />
+      <ConditionalNavbar />
       <Routes>
         {/* DE (default, no prefix) */}
         <Route path="/" element={<Home />} />
@@ -77,6 +97,10 @@ function App() {
         <Route path="/mentoring" element={<Mentoring />} />
         <Route path="/kontakt" element={<Kontakt />} />
 
+        {/* Internal: iPad Honorar forms (practice use only, not linked/indexed) */}
+        <Route path="/honorar" element={<HonorarHub />} />
+        <Route path="/honorar/:slug" element={<HonorarForm />} />
+
         {/* EN (mirrored, /en prefix) */}
         <Route path="/en" element={<Home />} />
         <Route path="/en/infusions" element={<Infusions />} />
@@ -98,7 +122,7 @@ function App() {
         <Route path="/en/therapies/:slug" element={<TherapieDetail />} />
         <Route path="/en/contact" element={<Kontakt />} />
       </Routes>
-      <Footer />
+      <ConditionalFooter />
       <ConditionalSwitcher />
     </BrowserRouter>
   );
