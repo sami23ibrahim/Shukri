@@ -4,7 +4,7 @@
 // Pick a service -> opens its Honorarvereinbarung -> hand the iPad to the patient.
 // Tablet-first design; matches the dark teal ViveCura form styling.
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { HONORAR_FORMS } from "../lib/honorarForms";
 
@@ -17,123 +17,8 @@ const C = {
   creamDim: "#a8a39a",
 };
 
-// Access PIN for the practice iPad. Re-asked every time the hub is opened.
-const HUB_PIN = "10999";
-
-function PinGate({ onUnlock }) {
-  const [entry, setEntry] = useState("");
-  const [error, setError] = useState(false);
-
-  function press(d) {
-    setError(false);
-    const next = (entry + d).slice(0, HUB_PIN.length);
-    setEntry(next);
-    if (next.length === HUB_PIN.length) {
-      if (next === HUB_PIN) {
-        onUnlock();
-      } else {
-        setError(true);
-        setTimeout(() => setEntry(""), 350);
-      }
-    }
-  }
-
-  const keyStyle = {
-    fontSize: 26,
-    fontWeight: 600,
-    padding: "20px 0",
-    background: C.charcoal,
-    color: C.cream,
-    border: "1px solid rgba(255,255,255,.08)",
-    borderRadius: 14,
-    cursor: "pointer",
-    fontFamily: "inherit",
-  };
-
-  return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: C.bg,
-        color: C.cream,
-        fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: 24,
-      }}
-    >
-      <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 22 }}>
-        <span
-          style={{
-            width: 28,
-            height: 28,
-            borderRadius: "50%",
-            background: C.teal,
-            color: C.bg,
-            fontWeight: 800,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          V
-        </span>
-        <span style={{ letterSpacing: ".18em", fontWeight: 700 }}>VIVECURA</span>
-      </div>
-      <p style={{ color: error ? "#ff8a8a" : C.creamDim, fontSize: 15, marginBottom: 18 }}>
-        {error ? "Falscher PIN" : "PIN eingeben"}
-      </p>
-
-      <div style={{ display: "flex", gap: 14, marginBottom: 28 }}>
-        {Array.from({ length: HUB_PIN.length }).map((_, i) => (
-          <span
-            key={i}
-            style={{
-              width: 14,
-              height: 14,
-              borderRadius: "50%",
-              background: i < entry.length ? C.teal : "transparent",
-              border: `2px solid ${i < entry.length ? C.teal : "rgba(255,255,255,.25)"}`,
-            }}
-          />
-        ))}
-      </div>
-
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 78px)",
-          gap: 14,
-        }}
-      >
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((d) => (
-          <button key={d} style={keyStyle} onClick={() => press(String(d))}>
-            {d}
-          </button>
-        ))}
-        <span />
-        <button style={keyStyle} onClick={() => press("0")}>
-          0
-        </button>
-        <button
-          style={{ ...keyStyle, fontSize: 16, color: C.creamDim }}
-          onClick={() => {
-            setError(false);
-            setEntry((e) => e.slice(0, -1));
-          }}
-        >
-          ←
-        </button>
-      </div>
-    </div>
-  );
-}
-
 export default function HonorarHub() {
   const navigate = useNavigate();
-  const [unlocked, setUnlocked] = useState(false);
 
   useEffect(() => {
     const prev = document.body.style.background;
@@ -142,8 +27,6 @@ export default function HonorarHub() {
       document.body.style.background = prev;
     };
   }, []);
-
-  if (!unlocked) return <PinGate onUnlock={() => setUnlocked(true)} />;
 
   return (
     <div

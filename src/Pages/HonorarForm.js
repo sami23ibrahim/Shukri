@@ -31,9 +31,11 @@ export default function HonorarForm() {
   const navigate = useNavigate();
   const form = getHonorarForm(slug);
 
-  const [patientName, setPatientName] = useState("");
+  const [vorname, setVorname] = useState("");
+  const [nachname, setNachname] = useState("");
   const [geburtsdatum, setGeburtsdatum] = useState("");
-  const [ortDatum, setOrtDatum] = useState("Berlin, ");
+  const [ort, setOrt] = useState("Berlin");
+  const [datum, setDatum] = useState(() => new Date().toISOString().slice(0, 10));
   const [status, setStatus] = useState({ type: "idle", msg: "" });
 
   const sigPatient = useRef(null);
@@ -57,8 +59,12 @@ export default function HonorarForm() {
   }
 
   async function handleSubmit() {
-    if (!patientName.trim() || !geburtsdatum) {
-      setStatus({ type: "error", msg: "Bitte Name und Geburtsdatum eintragen." });
+    if (!vorname.trim() || !nachname.trim() || !geburtsdatum) {
+      setStatus({ type: "error", msg: "Bitte Vorname, Nachname und Geburtsdatum eintragen." });
+      return;
+    }
+    if (!ort.trim() || !datum) {
+      setStatus({ type: "error", msg: "Bitte Ort und Datum eintragen." });
       return;
     }
     if (!sigPatient.current.hasInk() || !sigArzt.current.hasInk()) {
@@ -66,12 +72,13 @@ export default function HonorarForm() {
       return;
     }
 
+    const datumDE = datum.split("-").reverse().join(".");
     const payload = {
       service_slug: form.slug,
       service_title: form.title,
-      patient_name: patientName.trim(),
+      patient_name: `${nachname.trim()}, ${vorname.trim()}`,
       patient_geburtsdatum: geburtsdatum,
-      ort_datum: ortDatum.trim(),
+      ort_datum: `${ort.trim()}, ${datumDE}`,
       gesamt: form.gesamt,
       patient_signature: sigPatient.current.toDataURL(),
       arzt_signature: sigArzt.current.toDataURL(),
@@ -151,17 +158,25 @@ export default function HonorarForm() {
         </div>
 
         <div className="hon-pf">
-          <div className="full">
-            <label style={labelStyle}>Name, Vorname</label>
-            <input style={inputStyle} type="text" autoComplete="name" value={patientName} onChange={(e) => setPatientName(e.target.value)} />
+          <div>
+            <label style={labelStyle}>Vorname</label>
+            <input style={inputStyle} type="text" autoComplete="given-name" value={vorname} onChange={(e) => setVorname(e.target.value)} />
+          </div>
+          <div>
+            <label style={labelStyle}>Nachname</label>
+            <input style={inputStyle} type="text" autoComplete="family-name" value={nachname} onChange={(e) => setNachname(e.target.value)} />
           </div>
           <div>
             <label style={labelStyle}>Geburtsdatum</label>
             <input style={inputStyle} type="date" value={geburtsdatum} onChange={(e) => setGeburtsdatum(e.target.value)} />
           </div>
           <div>
-            <label style={labelStyle}>Ort, Datum</label>
-            <input style={inputStyle} type="text" value={ortDatum} onChange={(e) => setOrtDatum(e.target.value)} />
+            <label style={labelStyle}>Ort</label>
+            <input style={inputStyle} type="text" value={ort} onChange={(e) => setOrt(e.target.value)} />
+          </div>
+          <div>
+            <label style={labelStyle}>Datum</label>
+            <input style={inputStyle} type="date" value={datum} onChange={(e) => setDatum(e.target.value)} />
           </div>
         </div>
 

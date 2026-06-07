@@ -24,6 +24,7 @@ import LegalNotice from "./Pages/LegalNotice";
 import Kontakt from "./Pages/Kontakt";
 import HonorarHub from "./Pages/HonorarHub";
 import HonorarForm from "./Pages/HonorarForm";
+import Anamnese from "./Pages/Anamnese";
 import Footer from "./Components/Footer";
 import LanguageSwitcher from "./Components/LanguageSwitcher";
 import HtmlLang from "./Components/HtmlLang";
@@ -42,27 +43,27 @@ function LanguageActivator() {
   return null;
 }
 
-// The iPad Honorar forms are a standalone internal tool: no navbar, footer or
-// language switcher.
-function isHonorar(pathname) {
-  return pathname.startsWith("/honorar");
+// Standalone iPad/phone tools (Honorar, Anamnese) render without the site
+// chrome: no navbar, footer or language switcher.
+function isStandalone(pathname) {
+  return pathname.startsWith("/honorar") || pathname.startsWith("/anamnese");
 }
 
 function ConditionalSwitcher() {
   const { pathname } = useLocation();
-  if (pathname.startsWith("/admin") || isHonorar(pathname)) return null;
+  if (pathname.startsWith("/admin") || isStandalone(pathname)) return null;
   return <LanguageSwitcher />;
 }
 
 function ConditionalNavbar() {
   const { pathname } = useLocation();
-  if (isHonorar(pathname)) return null;
+  if (isStandalone(pathname)) return null;
   return <Navbar />;
 }
 
 function ConditionalFooter() {
   const { pathname } = useLocation();
-  if (isHonorar(pathname)) return null;
+  if (isStandalone(pathname)) return null;
   return <Footer />;
 }
 
@@ -100,6 +101,9 @@ function App() {
         {/* Internal: iPad Honorar forms (practice use only, not linked/indexed) */}
         <Route path="/honorar" element={<HonorarHub />} />
         <Route path="/honorar/:slug" element={<HonorarForm />} />
+
+        {/* Patient intake (iPad/phone, served as standalone HTML in iframe) */}
+        <Route path="/anamnese" element={<Anamnese />} />
 
         {/* EN (mirrored, /en prefix) */}
         <Route path="/en" element={<Home />} />
