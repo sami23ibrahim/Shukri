@@ -2058,6 +2058,10 @@
   const form = document.getElementById('mainForm');
   const STORAGE_KEY = 'vc_lifesummit_form';
   localStorage.removeItem(STORAGE_KEY); // clear leftovers from older visits
+  // Browsers (esp. Firefox) restore form values on reload independently of
+  // any script. Reset so every (re)load starts with an empty form.
+  form.reset();
+  window.addEventListener('pageshow', (e) => { if (e.persisted) form.reset(); });
 
   // ========= FILE LIST =========
   const fileInput = document.getElementById('befundeInput');
@@ -2240,12 +2244,18 @@
       befunde_urls,
     };
 
-    const { error: insErr } = await sb.from('anamnese_submissions').insert(row);
+    let insErr = null;
+    try {
+      ({ error: insErr } = await sb.from('anamnese_submissions').insert(row));
+    } catch (ex) {
+      insErr = { message: ex && ex.message ? ex.message : String(ex) };
+    }
     if (insErr) {
       console.error('[anamnese] insert failed', insErr);
-      showToast(lang === 'de'
-        ? 'Übertragung fehlgeschlagen, bitte versuchen Sie es erneut'
-        : 'Submission failed, please retry');
+      const reason = insErr.message || insErr.code || 'unknown';
+      showToast((lang === 'de'
+        ? 'Übertragung fehlgeschlagen: '
+        : 'Submission failed: ') + reason);
       if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = submitBtnOriginal; }
       return;
     }
