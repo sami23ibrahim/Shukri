@@ -43,6 +43,27 @@
   }
 
   .page { max-width: 520px; margin: 0 auto; padding: 22px 20px 40px; }
+  /* iPad-friendly: widen the column on tablets so the form doesn't sit
+     as a narrow inset column with empty gutters on either side. */
+  @media (min-width: 720px) {
+    .page { max-width: 720px; padding: 36px 32px 64px; }
+    .hero h1 { font-size: 60px; }
+    .hero-sub { font-size: 17.5px; max-width: 42ch; }
+    .step-title { font-size: 32px; }
+    .step-intro { font-size: 15px; }
+    .question-label { font-size: 15.5px; }
+    .field input[type="text"],
+    .field input[type="email"],
+    .field input[type="tel"],
+    .field input[type="number"],
+    .field input[type="date"],
+    .field textarea { font-size: 15.5px; padding: 13px 16px; }
+    .pill-choice { font-size: 13.5px; padding: 9px 16px; }
+    .step-section { padding: 30px 28px; }
+    .reality { padding: 30px 28px; }
+    .sub-questions { grid-template-columns: 1fr 1fr; gap: 22px; }
+    .sticky-inner { max-width: 720px; }
+  }
 
   /* Lang toggle bar */
   .topbar {
@@ -716,18 +737,25 @@
   }
   .btn-primary:hover svg, .btn-doctolib:hover svg { transform: translateX(3px); }
 
-  /* File upload */
+  /* File upload — labels default to `display:inline` on iOS Safari, which
+     collapses the box to the width of its inline content and makes the
+     border render as broken corner fragments. Force block + full width. */
   .file-upload {
+    display: block;
     position: relative;
-    padding: 20px 16px;
-    border: 2px dashed var(--line-teal);
+    width: 100%;
+    box-sizing: border-box;
+    padding: 22px 18px;
+    border: 2px solid var(--teal);
     border-radius: 16px;
-    background: rgba(67,169,171,0.04);
+    background: rgba(67,169,171,0.06);
     text-align: center;
     transition: background 0.2s, border-color 0.2s;
     cursor: pointer;
   }
-  .file-upload:hover { background: rgba(67,169,171,0.08); border-color: var(--teal); }
+  .file-upload:hover {
+    background: rgba(67,169,171,0.12);
+  }
   .file-upload input[type="file"] {
     position: absolute;
     inset: 0;
