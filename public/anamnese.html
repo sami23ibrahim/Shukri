@@ -1994,15 +1994,11 @@
         if (keine) keine.checked = false;
       }
       renderSuppDosages();
-      saveForm();
     });
   });
 
-  // Initial render (in case localStorage restored checkboxes)
+  // Initial render
   renderSuppDosages();
-
-  // Save dosage inputs as user types
-  suppDosageRows.addEventListener('input', saveForm);
 
   // ========= URL PARAMETER: ?continue=sessionId (from reminder email) =========
   const urlParams = new URLSearchParams(window.location.search);
@@ -2056,53 +2052,12 @@
     scrollTo(step4);
   });
 
-  // ========= AUTO-SAVE TO LOCALSTORAGE =========
+  // ========= FORM ELEMENT =========
+  // No auto-save: a refresh always starts with a clean, empty form so the
+  // next patient on a shared device never sees the previous answers.
   const form = document.getElementById('mainForm');
   const STORAGE_KEY = 'vc_lifesummit_form';
-
-  function saveForm() {
-    const data = {};
-    const formData = new FormData(form);
-    for (const [key, value] of formData.entries()) {
-      if (data[key]) {
-        if (!Array.isArray(data[key])) data[key] = [data[key]];
-        data[key].push(value);
-      } else {
-        data[key] = value;
-      }
-    }
-    // also save checked states for radios/checkboxes manually
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-  }
-
-  function loadForm() {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (!raw) return;
-      const data = JSON.parse(raw);
-      Object.keys(data).forEach(key => {
-        const inputs = form.querySelectorAll(`[name="${key}"]`);
-        if (inputs.length === 0) return;
-        const value = data[key];
-        const values = Array.isArray(value) ? value : [value];
-        inputs.forEach(input => {
-          if (input.type === 'checkbox' || input.type === 'radio') {
-            if (values.includes(input.value)) input.checked = true;
-          } else if (input.type === 'file') {
-            // can't restore
-          } else {
-            input.value = values[0] || '';
-          }
-        });
-      });
-    } catch (e) { console.warn('Restore failed', e); }
-  }
-
-  form.addEventListener('input', saveForm);
-  form.addEventListener('change', saveForm);
-  loadForm();
-  // Re-render dosage rows in case localStorage restored supplement checkboxes
-  renderSuppDosages();
+  localStorage.removeItem(STORAGE_KEY); // clear leftovers from older visits
 
   // ========= FILE LIST =========
   const fileInput = document.getElementById('befundeInput');
